@@ -4,25 +4,35 @@
   --font-sans: var(--font-ethiopic), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-jakarta), var(--font-ethiopic), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+  --color-obsidian-950: #0B0D10;
+  --color-obsidian-900: #12161C;
+  --color-obsidian-850: #161B22;
+  --color-gold-500: #D4AF37;
+  --color-gold-400: #E5C158;
+  --color-ivory-100: #F5F2EB;
+  --color-slate-muted: #A1A8B3;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #0B0D10;
+    color: #F5F2EB;
+    color-scheme: dark;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #0B0D10;
+    color: #F5F2EB;
+    letter-spacing: 0.01em;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
+    color: #F8FAFC;
   }
 }
 

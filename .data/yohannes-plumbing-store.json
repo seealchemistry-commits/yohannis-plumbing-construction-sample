@@ -1,0 +1,97 @@
+{
+  "orders": [
+    {
+      "id": "ORD-1899239",
+      "customerName": "ሳራ መኮንን",
+      "phone": "0911223344",
+      "subCity": "ቂርቆስ",
+      "woreda": "ወረዳ 04",
+      "neighborhood": "ካዛንቺስ",
+      "specificLandmark": "ከዩኤንኢሲኤ ጎን ህንጻ ቁጥር 3",
+      "paymentMethod": "TELEBIRR",
+      "items": [
+        {
+          "productId": "PRD-101",
+          "nameAm": "PPR የንጹህ ውሃ ቧንቧ (PN20)",
+          "size": "1/2\"",
+          "quantity": 1,
+          "unitPriceEtb": 950,
+          "lineTotalEtb": 950
+        }
+      ],
+      "subtotalEtb": 950,
+      "deliveryFeeEtb": 450,
+      "totalEtb": 1400,
+      "status": "CONFIRMED",
+      "createdAt": "2026-11-19T20:11:15.239Z"
+    },
+    {
+      "id": "ORD-4821902",
+      "customerName": "ዮሐንስ ገብረመድህን",
+      "phone": "0912453752",
+      "subCity": "ቦሌ",
+      "woreda": "ወረዳ 03",
+      "neighborhood": "ቦሌ ቡልቡላ",
+      "paymentMethod": "TELEBIRR",
+      "items": [
+        {
+          "productId": "PRD-101",
+          "nameAm": "PPR የንጹህ ውሃ ቧንቧ (PN20)",
+          "size": "3/4\"",
+          "quantity": 6,
+          "unitPriceEtb": 1250,
+          "lineTotalEtb": 7500
+        },
+        {
+          "productId": "PRD-102",
+          "nameAm": "ፎርጅድ ብራስ ቦል ቫልቭ (Brass Ball Valve)",
+          "size": "1\"",
+          "quantity": 4,
+          "unitPriceEtb": 2100,
+          "lineTotalEtb": 8400
+        }
+      ],
+      "subtotalEtb": 15900,
+      "deliveryFeeEtb": 0,
+      "totalEtb": 15900,
+      "status": "CONFIRMED",
+      "createdAt": "2026-11-19T08:30:00.000Z"
+    }
+  ],
+  "bookings": [
+    {
+      "serviceId": "SRV-01",
+      "serviceTitleAm": "የንጹህ ውሃ መስመር ዝርጋታ (PPR, PVC, Copper)",
+      "propertyType": "RESIDENTIAL",
+      "preferredDate": "2026-11-20",
+      "timeSlot": "03:00 ጠዋት (09:00 AM)",
+      "customerName": "አበበ ከበደ",
+      "phone": "0912453752",
+      "subCity": "ለሚ ኩራ",
+      "woreda": "ወረዳ 07",
+      "neighborhood": "ፍየል ቤት / ቦሌ አራብሳ አካባቢ",
+      "specificLandmark": "ቤት ቁጥር 204፣ ከፍየል ቤት 200 ሜትር",
+      "id": "APT-7202750",
+      "status": "SCHEDULED",
+      "createdAt": "2026-11-19T20:11:06.750Z"
+    },
+    {
+      "id": "APT-7310401",
+      "serviceId": "SRV-05",
+      "serviceTitleAm": "የውሃ ፍሳሽ መለየትና አስቸኳይ ጥገና (24/7 Emergency Leak Repair)",
+      "propertyType": "RESIDENTIAL",
+      "preferredDate": "2026-11-20",
+      "timeSlot": "03:00 ጠዋት (09:00 AM)",
+      "customerName": "ትግስት አሰፋ",
+      "phone": "0913556677",
+      "subCity": "የካ",
+      "woreda": "ወረዳ 05",
+      "neighborhood": "መገናኛ",
+      "notes": "የኩሽና መስመር ግድግዳ ስር እርጥበት ይታያል",
+      "status": "SCHEDULED",
+      "createdAt": "2026-11-19T09:15:00.000Z"
+    }
+  ],
+  "contacts": [],
+  "notifyRequests": []
+}

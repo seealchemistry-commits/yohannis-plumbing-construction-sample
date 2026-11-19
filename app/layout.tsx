@@ -28,20 +28,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'ዮሐንስ Plumbing | የቧንቧ ስራ፣ ግንባታ እና ኦንላይን መደብር',
+  title: 'Tirat Plumbing | Pipe Installation, 24/7 Repair & Supplies',
   description:
-    'ዘመናዊ የቧንቧ መስመር ዝርጋታ፣ የህንጻ ግንባታ፣ የቧንቧ እቃዎች ኦንላይን ግብይት፣ የቀጠሮ ማስያዣ እና የቴክኒክ ዜናዎች።',
+    '24/7 Emergency Leak Repair, professional PPR, PVC and Copper pipe installation, Booster Pump setup, and original plumbing supplies in Addis Ababa.',
   openGraph: {
-    title: 'ዮሐንስ Plumbing | የቧንቧ ስራ፣ ግንባታ እና ኦንላይን መደብር',
+    title: 'Tirat Plumbing | Pipe Installation, 24/7 Repair & Supplies',
     description:
-      'ዘመናዊ የቧንቧ መስመር ዝርጋታ፣ የህንጻ ግንባታ፣ የቧንቧ እቃዎች ኦንላይን ግብይት፣ የቀጠሮ ማስያዣ እና የቴክኒክ ዜናዎች።',
+      '24/7 Emergency Leak Repair, professional PPR, PVC and Copper pipe installation, Booster Pump setup, and original plumbing supplies in Addis Ababa.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ዮሐንስ Plumbing | የቧንቧ ስራ፣ ግንባታ እና ኦንላይን መደብር',
+    title: 'Tirat Plumbing | Pipe Installation, 24/7 Repair & Supplies',
     description:
-      'ዘመናዊ የቧንቧ መስመር ዝርጋታ፣ የህንጻ ግንባታ፣ የቧንቧ እቃዎች ኦንላይን ግብይት፣ የቀጠሮ ማስያዣ እና የቴክኒክ ዜናዎች።',
+      '24/7 Emergency Leak Repair, professional PPR, PVC and Copper pipe installation, Booster Pump setup, and original plumbing supplies in Addis Ababa.',
   },
 };
 
@@ -52,10 +52,10 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="am"
+      lang="en"
       className={`${ethiopic.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}
     >
-      <body suppressHydrationWarning className="min-h-screen bg-slate-50 text-slate-900">
+      <body suppressHydrationWarning className="min-h-screen bg-[#0B0D10] text-[#F5F2EB]">
         {children}
       </body>
     </html>

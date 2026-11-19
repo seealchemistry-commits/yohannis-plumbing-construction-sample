@@ -5,6 +5,10 @@ export type ProductCategory =
   | 'PUMPS'
   | 'SANITARY';
 
+export type ProductSize = '1/2"' | '3/4"' | '1"';
+
+export const PRODUCT_SIZES: readonly ProductSize[] = ['1/2"', '3/4"', '1"'];
+
 export interface Product {
   id: string;
   sku: string;
@@ -14,6 +18,8 @@ export interface Product {
   categoryLabelAm: string;
   unitAm: string;
   priceEtb: number;
+  sizePricesEtb: Record<ProductSize, number>;
+  availableSizes: ProductSize[];
   inStock: boolean;
   stockCount: number;
   imageKey: 'ppr_pipes' | 'brass_valves' | 'water_pump' | 'mixer_faucet';
@@ -21,6 +27,7 @@ export interface Product {
 
 export interface CartItem {
   product: Product;
+  size: ProductSize;
   quantity: number;
 }
 
@@ -30,7 +37,9 @@ export interface CheckoutInput {
   customerName: string;
   phone: string;
   subCity: string;
-  addressDetail: string;
+  woreda: string;
+  neighborhood: string;
+  specificLandmark?: string;
   paymentMethod: PaymentMethod;
 }
 
@@ -39,11 +48,14 @@ export interface OrderRecord {
   customerName: string;
   phone: string;
   subCity: string;
-  addressDetail: string;
+  woreda: string;
+  neighborhood: string;
+  specificLandmark?: string;
   paymentMethod: PaymentMethod;
   items: Array<{
     productId: string;
     nameAm: string;
+    size: ProductSize;
     quantity: number;
     unitPriceEtb: number;
     lineTotalEtb: number;
@@ -66,6 +78,9 @@ export interface BookingInput {
   customerName: string;
   phone: string;
   subCity: string;
+  woreda: string;
+  neighborhood: string;
+  specificLandmark?: string;
   notes?: string;
 }
 
@@ -87,6 +102,18 @@ export interface ContactRecord extends ContactInput {
   createdAt: string;
 }
 
+export interface NotifyRequestInput {
+  serviceId: string;
+  serviceTitleAm: string;
+  customerName: string;
+  phone: string;
+}
+
+export interface NotifyRequestRecord extends NotifyRequestInput {
+  id: string;
+  createdAt: string;
+}
+
 export interface ServiceItem {
   id: string;
   number: string;
@@ -95,6 +122,14 @@ export interface ServiceItem {
   deliverablesAm: string[];
   estimatedDurationAm: string;
   featured?: boolean;
+}
+
+export interface ComingSoonService {
+  id: string;
+  titleAm: string;
+  subtitleEn: string;
+  summaryAm: string;
+  expectedLaunchAm: string;
 }
 
 export interface BlogArticle {

@@ -8,6 +8,16 @@ export default async function HomePage() {
     listOrders(),
     listBookings(),
   ]);
+  const mapsApiKey =
+    process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ??
+    process.env.GOOGLE_MAPS_API_KEY ??
+    '';
 
-  return <AbayApp initialOrders={orders} initialBookings={bookings} />;
+  return (
+    <AbayApp
+      initialOrders={orders}
+      initialBookings={bookings}
+      mapsApiKey={mapsApiKey}
+    />
+  );
 }

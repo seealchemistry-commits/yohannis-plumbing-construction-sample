@@ -12,7 +12,21 @@ import type {
   BookingRecord,
   PropertyType,
 } from '@/lib/commerce/types';
+import {
+  getLandmarkLabel,
+  getLandmarksForSubCity,
+  getSubCityLabel,
+  getWoredaLabel,
+  getWoredasForSubCity,
+} from '@/lib/data/addis-addresses';
 import { SERVICES } from '@/lib/data/catalog';
+import {
+  getLocalizedSeededLandmark,
+  getLocalizedSeededName,
+  getLocalizedServiceTitle,
+  getLocalizedTimeSlot,
+} from '@/lib/i18n';
+import { useLanguage } from '@/lib/i18n/context';
 
 interface BookingSectionProps {
   selectedServiceId: string;
@@ -21,10 +35,10 @@ interface BookingSectionProps {
   onBookingCreated: (booking: BookingRecord) => void;
 }
 
-const PROPERTY_TYPES: Array<{ id: PropertyType; label: string }> = [
-  { id: 'RESIDENTIAL', label: 'መኖሪያ ቤት' },
-  { id: 'COMMERCIAL', label: 'የንግድ ህንጻ' },
-  { id: 'INDUSTRIAL', label: 'ፋብሪካ / መጋዘን' },
+const PROPERTY_TYPE_IDS: PropertyType[] = [
+  'RESIDENTIAL',
+  'COMMERCIAL',
+  'INDUSTRIAL',
 ];
 
 function getTomorrowIsoDate(): string {
@@ -38,12 +52,21 @@ export default function BookingSection({
   bookings,
   onBookingCreated,
 }: BookingSectionProps) {
+  const { locale, t } = useLanguage();
+  const defaultSubCity = ADDIS_SUBCITIES[0];
   const [propertyType, setPropertyType] = useState<PropertyType>('RESIDENTIAL');
   const [preferredDate, setPreferredDate] = useState(getTomorrowIsoDate);
   const [timeSlot, setTimeSlot] = useState<string>(AVAILABLE_TIME_SLOTS[0]);
   const [customerName, setCustomerName] = useState('');
   const [phone, setPhone] = useState('');
-  const [subCity, setSubCity] = useState<string>(ADDIS_SUBCITIES[0]);
+  const [subCity, setSubCity] = useState<string>(defaultSubCity);
+  const [woreda, setWoreda] = useState<string>(
+    () => getWoredasForSubCity(defaultSubCity)[0]
+  );
+  const [neighborhood, setNeighborhood] = useState<string>(
+    () => getLandmarksForSubCity(defaultSubCity)[0] ?? ''
+  );
+  const [specificLandmark, setSpecificLandmark] = useState('');
   const [notes, setNotes] = useState('');
   const [fieldErrors, setFieldErrors] = useState<
     Partial<Record<keyof BookingInput, string>>
@@ -52,6 +75,17 @@ export default function BookingSection({
   const [submitting, setSubmitting] = useState(false);
   const [confirmedBooking, setConfirmedBooking] =
     useState<BookingRecord | null>(null);
+
+  const availableWoredas = getWoredasForSubCity(subCity);
+  const availableLandmarks = getLandmarksForSubCity(subCity);
+
+  const handleSubCityChange = (nextSubCity: string) => {
+    setSubCity(nextSubCity);
+    const nextWoredas = getWoredasForSubCity(nextSubCity);
+    const nextLandmarks = getLandmarksForSubCity(nextSubCity);
+    setWoreda(nextWoredas[0] ?? '');
+    setNeighborhood(nextLandmarks[0] ?? '');
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,11 +104,14 @@ export default function BookingSection({
       customerName,
       phone,
       subCity,
+      woreda,
+      neighborhood,
+      specificLandmark,
       notes,
     };
 
     const todayIso = new Date().toISOString().slice(0, 10);
-    const check = validateBookingInput(payload, todayIso);
+    const check = validateBookingInput(payload, todayIso, locale);
     if (!check.valid) {
       setFieldErrors(check.errors);
       return;
@@ -87,7 +124,7 @@ export default function BookingSection({
       const res = await fetch('/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, locale }),
       });
 
       const data = (await res.json()) as {
@@ -98,7 +135,7 @@ export default function BookingSection({
 
       if (!res.ok || !data.booking) {
         if (data.fieldErrors) setFieldErrors(data.fieldErrors);
-        setSubmitError(data.error ?? 'ቀጠሮ ማስመዝገብ አልተቻለም።');
+        setSubmitError(data.error ?? t.booking.genericError);
         return;
       }
 
@@ -106,58 +143,77 @@ export default function BookingSection({
       onBookingCreated(data.booking);
       setCustomerName('');
       setPhone('');
+      setSpecificLandmark('');
       setNotes('');
     } catch {
-      setSubmitError('ከሰርቨር ጋር መገናኘት አልተቻለም፤ እባክዎ እንደገና ይሞክሩ።');
+      setSubmitError(t.booking.networkError);
     } finally {
       setSubmitting(false);
     }
   };
 
   return (
-    <section id="booking" className="border-b border-slate-200 bg-white py-14">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section
+      id="booking"
+      className="border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] py-20 lg:py-28"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="max-w-2xl">
-          <p className="text-xs font-medium text-sky-800">ቀጠሮና የሳይት ፍተሻ</p>
-          <h2 className="mt-2 text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-            የባለሙያ ጉብኝት እና የስራ ቀጠሮ ያስይዙ
+          <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
+            {t.booking.eyebrow}
+          </p>
+          <h2 className="mt-3 text-balance text-2xl font-bold leading-snug tracking-tight text-[#F8FAFC] sm:text-3xl lg:text-4xl">
+            {t.booking.heading}
           </h2>
-          <p className="mt-2 text-sm text-slate-600">
-            የቧንቧ መስመር ዝርጋታ፣ የፍሳሽ ምርመራ ወይም የህንጻ ግንባታ ምክክር በሚመችዎ ቀንና ሰዓት
-            ይምረጡ።
+          <p className="mt-4 text-sm leading-[1.8] text-[#A1A8B3]">
+            {t.booking.description}
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Booking Form */}
-          <div className="rounded-xl border border-slate-200 bg-white p-6 lg:col-span-7">
-            <form onSubmit={handleSubmit} noValidate className="space-y-5">
+          <div className="rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#12161C] p-7 sm:p-8 lg:col-span-7">
+            <form onSubmit={handleSubmit} noValidate className="space-y-6">
               {submitError && (
-                <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700">
+                <p className="rounded-xl border border-red-500/40 bg-red-950/40 px-4 py-3 text-xs text-red-200">
                   {submitError}
                 </p>
               )}
 
               {confirmedBooking && (
-                <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4">
+                <div className="rounded-xl border border-emerald-500/40 bg-emerald-950/40 p-4">
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2
-                      className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700"
+                      className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
                       aria-hidden="true"
                     />
                     <div>
-                      <p className="text-sm font-bold text-slate-900">
-                        ቀጠሮዎ ተመዝግቧል ·{' '}
-                        <span className="font-mono text-emerald-800">
+                      <p className="text-sm font-bold text-[#F8FAFC]">
+                        {t.booking.confirmedTitle} ·{' '}
+                        <span className="font-mono text-[#D4AF37]">
                           {confirmedBooking.id}
                         </span>
                       </p>
-                      <p className="mt-1 text-xs text-slate-700">
-                        {confirmedBooking.serviceTitleAm} ·{' '}
+                      <p className="mt-1 text-xs text-[#F5F2EB]">
+                        {getLocalizedServiceTitle(
+                          confirmedBooking.serviceId,
+                          confirmedBooking.serviceTitleAm,
+                          locale
+                        )}{' '}
+                        ·{' '}
                         <span className="font-mono">
                           {confirmedBooking.preferredDate}
                         </span>{' '}
-                        · {confirmedBooking.timeSlot}
+                        · {getLocalizedTimeSlot(confirmedBooking.timeSlot, locale)}
+                      </p>
+                      <p className="mt-1 text-xs text-[#A1A8B3]">
+                        {t.booking.addressPrefix}:{' '}
+                        {getSubCityLabel(confirmedBooking.subCity, locale)} ·{' '}
+                        {getWoredaLabel(confirmedBooking.woreda, locale)} ·{' '}
+                        {getLandmarkLabel(confirmedBooking.neighborhood, locale)}
+                        {confirmedBooking.specificLandmark
+                          ? ` (${confirmedBooking.specificLandmark})`
+                          : ''}
                       </p>
                     </div>
                   </div>
@@ -167,9 +223,9 @@ export default function BookingSection({
               <div>
                 <label
                   htmlFor="booking-service"
-                  className="block text-xs font-medium text-slate-700"
+                  className="block text-xs font-semibold text-[#F5F2EB]"
                 >
-                  የአገልግሎት አይነት
+                  {t.booking.serviceTypeLabel}
                 </label>
                 <select
                   id="booking-service"
@@ -178,40 +234,41 @@ export default function BookingSection({
                     setConfirmedBooking(null);
                     onChangeServiceId(e.target.value);
                   }}
-                  className="mt-1 min-h-[42px] w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-sky-700 focus:outline-none"
+                  className="mt-2 min-h-[44px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2 text-sm text-[#F8FAFC] focus:border-[#D4AF37] focus:outline-none"
                 >
                   {SERVICES.map((srv) => (
                     <option key={srv.id} value={srv.id}>
-                      {srv.number}. {srv.titleAm}
+                      {srv.number}.{' '}
+                      {getLocalizedServiceTitle(srv.id, srv.titleAm, locale)}
                     </option>
                   ))}
                 </select>
                 {fieldErrors.serviceId && (
-                  <p className="mt-1 text-xs text-red-600">
+                  <p className="mt-1 text-xs text-red-400">
                     {fieldErrors.serviceId}
                   </p>
                 )}
               </div>
 
               <div>
-                <span className="block text-xs font-medium text-slate-700">
-                  የህንጻ / የቦታ አይነት
+                <span className="block text-xs font-semibold text-[#F5F2EB]">
+                  {t.booking.propertyTypeLabel}
                 </span>
-                <div className="mt-1.5 grid grid-cols-3 gap-2">
-                  {PROPERTY_TYPES.map((pt) => {
-                    const active = propertyType === pt.id;
+                <div className="mt-2 grid grid-cols-3 gap-2.5">
+                  {PROPERTY_TYPE_IDS.map((ptId) => {
+                    const active = propertyType === ptId;
                     return (
                       <button
-                        key={pt.id}
+                        key={ptId}
                         type="button"
-                        onClick={() => setPropertyType(pt.id)}
-                        className={`min-h-[40px] rounded-lg border px-3 py-2 text-xs font-medium transition-colors ${
+                        onClick={() => setPropertyType(ptId)}
+                        className={`min-h-[42px] rounded-xl border px-3 py-2 text-xs font-semibold transition-colors ${
                           active
-                            ? 'border-slate-900 bg-slate-900 text-white'
-                            : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                            ? 'border-[#D4AF37] bg-[#D4AF37] text-[#0B0D10]'
+                            : 'border-[#2A2416] bg-[#0B0D10] text-[#A1A8B3] hover:border-[#D4AF37]/50 hover:text-[#F8FAFC]'
                         }`}
                       >
-                        {pt.label}
+                        {t.booking.propertyTypes[ptId]}
                       </button>
                     );
                   })}
@@ -222,19 +279,19 @@ export default function BookingSection({
                 <div>
                   <label
                     htmlFor="booking-date"
-                    className="block text-xs font-medium text-slate-700"
+                    className="block text-xs font-semibold text-[#F5F2EB]"
                   >
-                    የሚመችዎ ቀን
+                    {t.booking.preferredDateLabel}
                   </label>
                   <input
                     id="booking-date"
                     type="date"
                     value={preferredDate}
                     onChange={(e) => setPreferredDate(e.target.value)}
-                    className="mt-1 min-h-[42px] w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm text-slate-900 focus:border-sky-700 focus:outline-none"
+                    className="mt-2 min-h-[44px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2 font-mono text-sm text-[#F8FAFC] focus:border-[#D4AF37] focus:outline-none"
                   />
                   {fieldErrors.preferredDate && (
-                    <p className="mt-1 text-xs text-red-600">
+                    <p className="mt-1 text-xs text-red-400">
                       {fieldErrors.preferredDate}
                     </p>
                   )}
@@ -243,43 +300,43 @@ export default function BookingSection({
                 <div>
                   <label
                     htmlFor="booking-time"
-                    className="block text-xs font-medium text-slate-700"
+                    className="block text-xs font-semibold text-[#F5F2EB]"
                   >
-                    የቀጠሮ ሰዓት
+                    {t.booking.timeSlotLabel}
                   </label>
                   <select
                     id="booking-time"
                     value={timeSlot}
                     onChange={(e) => setTimeSlot(e.target.value)}
-                    className="mt-1 min-h-[42px] w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-sky-700 focus:outline-none"
+                    className="mt-2 min-h-[44px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2 text-sm text-[#F8FAFC] focus:border-[#D4AF37] focus:outline-none"
                   >
-                    {AVAILABLE_TIME_SLOTS.map((slot) => (
+                    {AVAILABLE_TIME_SLOTS.map((slot, idx) => (
                       <option key={slot} value={slot}>
-                        {slot}
+                        {t.booking.timeSlots[idx] ?? slot}
                       </option>
                     ))}
                   </select>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label
                     htmlFor="booking-name"
-                    className="block text-xs font-medium text-slate-700"
+                    className="block text-xs font-semibold text-[#F5F2EB]"
                   >
-                    ሙሉ ስም
+                    {t.booking.fullNameLabel}
                   </label>
                   <input
                     id="booking-name"
                     type="text"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
-                    placeholder="ሙሉ ስም"
-                    className="mt-1 min-h-[42px] w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-sky-700 focus:outline-none"
+                    placeholder={t.booking.fullNamePlaceholder}
+                    className="mt-2 min-h-[44px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2 text-sm text-[#F8FAFC] placeholder:text-[#A1A8B3]/50 focus:border-[#D4AF37] focus:outline-none"
                   />
                   {fieldErrors.customerName && (
-                    <p className="mt-1 text-xs text-red-600">
+                    <p className="mt-1 text-xs text-red-400">
                       {fieldErrors.customerName}
                     </p>
                   )}
@@ -288,136 +345,245 @@ export default function BookingSection({
                 <div>
                   <label
                     htmlFor="booking-phone"
-                    className="block text-xs font-medium text-slate-700"
+                    className="block text-xs font-semibold text-[#F5F2EB]"
                   >
-                    ስልክ ቁጥር
+                    {t.booking.phoneLabel}
                   </label>
                   <input
                     id="booking-phone"
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="0911234567"
-                    className="mt-1 min-h-[42px] w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm text-slate-900 focus:border-sky-700 focus:outline-none"
+                    placeholder={t.booking.phonePlaceholder}
+                    className="mt-2 min-h-[44px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2 font-mono text-sm text-[#F8FAFC] placeholder:text-[#A1A8B3]/50 focus:border-[#D4AF37] focus:outline-none"
                   />
                   {fieldErrors.phone && (
-                    <p className="mt-1 text-xs text-red-600">
+                    <p className="mt-1 text-xs text-red-400">
                       {fieldErrors.phone}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* 3-Stage Cascading Address Dropdowns + Specific Landmark */}
+              <div className="space-y-4 rounded-xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-5">
+                <p className="text-xs font-bold text-[#D4AF37]">
+                  {t.booking.addressBoxTitle}
+                </p>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="booking-subcity"
+                      className="block text-xs font-medium text-[#A1A8B3]"
+                    >
+                      {t.booking.step1SubCity}
+                    </label>
+                    <select
+                      id="booking-subcity"
+                      value={subCity}
+                      onChange={(e) => handleSubCityChange(e.target.value)}
+                      className="mt-1.5 min-h-[42px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3 py-2 text-sm text-[#F8FAFC] focus:border-[#D4AF37] focus:outline-none"
+                    >
+                      {ADDIS_SUBCITIES.map((city) => (
+                        <option key={city} value={city}>
+                          {getSubCityLabel(city, locale)}
+                        </option>
+                      ))}
+                    </select>
+                    {fieldErrors.subCity && (
+                      <p className="mt-1 text-xs text-red-400">
+                        {fieldErrors.subCity}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="booking-woreda"
+                      className="block text-xs font-medium text-[#A1A8B3]"
+                    >
+                      {t.booking.step2Woreda}
+                    </label>
+                    <select
+                      id="booking-woreda"
+                      value={woreda}
+                      onChange={(e) => setWoreda(e.target.value)}
+                      className="mt-1.5 min-h-[42px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3 py-2 text-sm text-[#F8FAFC] focus:border-[#D4AF37] focus:outline-none"
+                    >
+                      {availableWoredas.map((w) => (
+                        <option key={w} value={w}>
+                          {getWoredaLabel(w, locale)}
+                        </option>
+                      ))}
+                    </select>
+                    {fieldErrors.woreda && (
+                      <p className="mt-1 text-xs text-red-400">
+                        {fieldErrors.woreda}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="booking-neighborhood"
+                    className="block text-xs font-medium text-[#A1A8B3]"
+                  >
+                    {t.booking.step3Neighborhood}
+                  </label>
+                  <select
+                    id="booking-neighborhood"
+                    value={neighborhood}
+                    onChange={(e) => setNeighborhood(e.target.value)}
+                    className="mt-1.5 min-h-[42px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3 py-2 text-sm text-[#F8FAFC] focus:border-[#D4AF37] focus:outline-none"
+                  >
+                    {availableLandmarks.map((landmark) => (
+                      <option key={landmark} value={landmark}>
+                        {getLandmarkLabel(landmark, locale)}
+                      </option>
+                    ))}
+                  </select>
+                  {fieldErrors.neighborhood && (
+                    <p className="mt-1 text-xs text-red-400">
+                      {fieldErrors.neighborhood}
                     </p>
                   )}
                 </div>
 
                 <div>
                   <label
-                    htmlFor="booking-subcity"
-                    className="block text-xs font-medium text-slate-700"
+                    htmlFor="booking-specific-landmark"
+                    className="block text-xs font-medium text-[#A1A8B3]"
                   >
-                    ክፍለ ከተማ
+                    {t.booking.specificLandmarkLabel}
                   </label>
-                  <select
-                    id="booking-subcity"
-                    value={subCity}
-                    onChange={(e) => setSubCity(e.target.value)}
-                    className="mt-1 min-h-[42px] w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-sky-700 focus:outline-none"
-                  >
-                    {ADDIS_SUBCITIES.map((city) => (
-                      <option key={city} value={city}>
-                        {city}
-                      </option>
-                    ))}
-                  </select>
+                  <input
+                    id="booking-specific-landmark"
+                    type="text"
+                    value={specificLandmark}
+                    onChange={(e) => setSpecificLandmark(e.target.value)}
+                    placeholder={t.booking.specificLandmarkPlaceholder}
+                    className="mt-1.5 min-h-[42px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2 text-sm text-[#F8FAFC] placeholder:text-[#A1A8B3]/50 focus:border-[#D4AF37] focus:outline-none"
+                  />
                 </div>
               </div>
 
               <div>
                 <label
                   htmlFor="booking-notes"
-                  className="block text-xs font-medium text-slate-700"
+                  className="block text-xs font-semibold text-[#F5F2EB]"
                 >
-                  የችግሩ ወይም የፕሮጀክቱ አጭር መግለጫ (አማራጭ)
+                  {t.booking.notesLabel}
                 </label>
                 <textarea
                   id="booking-notes"
                   rows={3}
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="ለምሳሌ፡ በ2ኛ ፎቅ የመታጠቢያ ቤት የሞቀ ውሃ መስመር ግፊት ቀንሷል..."
-                  className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-sky-700 focus:outline-none"
+                  placeholder={t.booking.notesPlaceholder}
+                  className="mt-2 w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2.5 text-sm text-[#F8FAFC] placeholder:text-[#A1A8B3]/50 focus:border-[#D4AF37] focus:outline-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800 disabled:opacity-60"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-[#D4AF37] px-7 py-3 text-sm font-bold text-[#0B0D10] transition-colors hover:bg-[#E5C158] disabled:opacity-60"
               >
-                {submitting ? 'ቀጠሮ በመመዝገብ ላይ...' : 'ቀጠሮውን አረጋግጥ'}
+                {submitting ? t.booking.submittingBtn : t.booking.submitBtn}
               </button>
             </form>
           </div>
 
           {/* Scheduled Bookings List */}
-          <div className="flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50 p-6 lg:col-span-5">
+          <div className="flex flex-col justify-between rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-7 sm:p-8 lg:col-span-5">
             <div>
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  የተያዙ የሳይት ቀጠሮዎች
+              <div className="flex items-center justify-between border-b border-[#2A2416] pb-4">
+                <h3 className="text-sm font-bold text-[#F8FAFC]">
+                  {t.booking.scheduledHeading}
                 </h3>
-                <span className="font-mono tabular-nums text-xs text-slate-500">
+                <span className="font-mono tabular-nums text-xs font-semibold text-[#D4AF37]">
                   {bookings.length}
                 </span>
               </div>
 
               {bookings.length === 0 ? (
-                <p className="mt-6 text-xs text-slate-500">
-                  እስካሁን የተመዘገበ ቀጠሮ የለም።
+                <p className="mt-6 text-xs text-[#A1A8B3]">
+                  {t.booking.noBookings}
                 </p>
               ) : (
                 <ul
                   data-testid="bookings-list"
-                  className="mt-4 divide-y divide-slate-200"
+                  className="mt-4 divide-y divide-[#2A2416]"
                 >
-                  {bookings.slice(0, 5).map((item) => (
-                    <li key={item.id} className="py-3.5">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="font-mono text-xs font-semibold text-sky-800">
-                          {item.id}
-                        </span>
-                        <span className="text-xs font-medium text-emerald-700">
-                          ተይዟል
-                        </span>
-                      </div>
-                      <p className="mt-1 text-sm font-medium text-slate-900">
-                        {item.serviceTitleAm}
-                      </p>
-                      <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-600">
-                        <span className="inline-flex items-center gap-1">
-                          <Calendar className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-                          <span className="font-mono tabular-nums">
-                            {item.preferredDate}
+                  {bookings.slice(0, 5).map((item) => {
+                    const landmarkNote = getLocalizedSeededLandmark(
+                      item.specificLandmark,
+                      locale
+                    );
+                    return (
+                      <li key={item.id} className="py-4">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-mono text-xs font-semibold text-[#D4AF37]">
+                            {item.id}
                           </span>
-                        </span>
-                        <span className="inline-flex items-center gap-1">
-                          <Clock className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-                          <span>{item.timeSlot}</span>
-                        </span>
-                        <span className="inline-flex items-center gap-1">
-                          <MapPin className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-                          <span>{item.subCity}</span>
-                        </span>
-                      </div>
-                      <p className="mt-1 text-xs text-slate-500">
-                        ደንበኛ · {item.customerName}
-                      </p>
-                    </li>
-                  ))}
+                          <span className="text-xs font-medium text-emerald-400">
+                            {t.booking.scheduledStatus}
+                          </span>
+                        </div>
+                        <p className="mt-1.5 text-sm font-semibold text-[#F8FAFC]">
+                          {getLocalizedServiceTitle(
+                            item.serviceId,
+                            item.serviceTitleAm,
+                            locale
+                          )}
+                        </p>
+                        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-[#A1A8B3]">
+                          <span className="inline-flex items-center gap-1">
+                            <Calendar
+                              className="h-3.5 w-3.5 text-[#D4AF37]"
+                              aria-hidden="true"
+                            />
+                            <span className="font-mono tabular-nums">
+                              {item.preferredDate}
+                            </span>
+                          </span>
+                          <span className="inline-flex items-center gap-1">
+                            <Clock
+                              className="h-3.5 w-3.5 text-[#D4AF37]"
+                              aria-hidden="true"
+                            />
+                            <span>
+                              {getLocalizedTimeSlot(item.timeSlot, locale)}
+                            </span>
+                          </span>
+                          <span className="inline-flex items-center gap-1">
+                            <MapPin
+                              className="h-3.5 w-3.5 text-[#D4AF37]"
+                              aria-hidden="true"
+                            />
+                            <span>
+                              {getSubCityLabel(item.subCity, locale)} ·{' '}
+                              {getWoredaLabel(item.woreda, locale)} ·{' '}
+                              {getLandmarkLabel(item.neighborhood, locale)}
+                              {landmarkNote ? ` (${landmarkNote})` : ''}
+                            </span>
+                          </span>
+                        </div>
+                        <p className="mt-1.5 text-xs text-[#A1A8B3]/80">
+                          {t.booking.clientPrefix} ·{' '}
+                          {getLocalizedSeededName(item.customerName, locale)}
+                        </p>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </div>
 
-            <div className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-600">
-              ለአዲስ አበባ የሳይት ፍተሻ ቀጠሮ ሲያስይዙ መሐንዲሳችን ከመምጣቱ 1 ሰዓት በፊት በስልክ
-              ያረጋግጥልዎታል።
+            <div className="mt-6 border-t border-[#2A2416] pt-5 text-xs leading-relaxed text-[#A1A8B3]">
+              {t.booking.footerNote}
             </div>
           </div>
         </div>

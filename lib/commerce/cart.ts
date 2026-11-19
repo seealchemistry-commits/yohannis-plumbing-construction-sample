@@ -1,4 +1,14 @@
-import type { CartItem, CheckoutInput, Product } from './types';
+import {
+  isValidSubCityLandmark,
+  isValidSubCityWoreda,
+} from '../data/addis-addresses';
+import {
+  DEFAULT_LOCALE,
+  formatLocalizedEtb,
+  getTranslations,
+  type Locale,
+} from '../i18n';
+import type { CartItem, CheckoutInput, Product, ProductSize } from './types';
 
 export const FREE_DELIVERY_THRESHOLD_ETB = 15000;
 export const STANDARD_DELIVERY_FEE_ETB = 450;
@@ -12,9 +22,17 @@ export interface CartSummary {
   qualifiesForFreeDelivery: boolean;
 }
 
+export function getProductPriceForSize(
+  product: Product,
+  size: ProductSize
+): number {
+  return product.sizePricesEtb[size] ?? product.priceEtb;
+}
+
 export function addItemToCart(
   cart: CartItem[],
   product: Product,
+  size: ProductSize = '1/2"',
   quantityToAdd: number = 1
 ): CartItem[] {
   if (!product.inStock || quantityToAdd <= 0) {
@@ -22,12 +40,12 @@ export function addItemToCart(
   }
 
   const existingIndex = cart.findIndex(
-    (entry) => entry.product.id === product.id
+    (entry) => entry.product.id === product.id && entry.size === size
   );
 
   if (existingIndex === -1) {
     const cappedQty = Math.min(quantityToAdd, product.stockCount);
-    return [...cart, { product, quantity: cappedQty }];
+    return [...cart, { product, size, quantity: cappedQty }];
   }
 
   return cart.map((entry, idx) => {
@@ -43,14 +61,15 @@ export function addItemToCart(
 export function updateCartItemQuantity(
   cart: CartItem[],
   productId: string,
+  size: ProductSize,
   nextQuantity: number
 ): CartItem[] {
   if (nextQuantity <= 0) {
-    return removeItemFromCart(cart, productId);
+    return removeItemFromCart(cart, productId, size);
   }
 
   return cart.map((entry) => {
-    if (entry.product.id !== productId) return entry;
+    if (entry.product.id !== productId || entry.size !== size) return entry;
     const cappedQty = Math.min(nextQuantity, entry.product.stockCount);
     return { ...entry, quantity: cappedQty };
   });
@@ -58,15 +77,19 @@ export function updateCartItemQuantity(
 
 export function removeItemFromCart(
   cart: CartItem[],
-  productId: string
+  productId: string,
+  size: ProductSize
 ): CartItem[] {
-  return cart.filter((entry) => entry.product.id !== productId);
+  return cart.filter(
+    (entry) => !(entry.product.id === productId && entry.size === size)
+  );
 }
 
 export function calculateCartSummary(cart: CartItem[]): CartSummary {
   const itemCount = cart.reduce((sum, entry) => sum + entry.quantity, 0);
   const subtotalEtb = cart.reduce(
-    (sum, entry) => sum + entry.product.priceEtb * entry.quantity,
+    (sum, entry) =>
+      sum + getProductPriceForSize(entry.product, entry.size) * entry.quantity,
     0
   );
 
@@ -111,24 +134,32 @@ export interface ValidationResult {
 
 export function validateCheckoutInput(
   input: CheckoutInput,
-  cart: CartItem[]
+  cart: CartItem[],
+  locale: Locale = DEFAULT_LOCALE
 ): ValidationResult {
   const errors: ValidationResult['errors'] = {};
+  const v = getTranslations(locale).validation;
 
   if (cart.length === 0) {
-    errors.cart = 'ጋሪዎ ባዶ ነው፤ እባክዎ መጀመሪያ እቃ ይምረጡ።';
+    errors.cart = v.cartEmpty;
   }
   if (!input.customerName || input.customerName.trim().length < 2) {
-    errors.customerName = 'እባክዎ ሙሉ ስምዎን ያስገቡ።';
+    errors.customerName = v.customerNameRequired;
   }
   if (!input.phone || !isValidEthiopianPhone(input.phone)) {
-    errors.phone = 'እባክዎ ትክክለኛ የኢትዮጵያ ስልክ ቁጥር ያስገቡ (ለምሳሌ 0911234567)።';
+    errors.phone = v.invalidPhone;
   }
   if (!input.subCity || input.subCity.trim().length < 2) {
-    errors.subCity = 'እባክዎ ክፍለ ከተማ ይምረጡ።';
+    errors.subCity = v.subCityRequired;
   }
-  if (!input.addressDetail || input.addressDetail.trim().length < 4) {
-    errors.addressDetail = 'እባክዎ የመላኪያ አድራሻ ዝርዝር ያስገቡ።';
+  if (!input.woreda || !isValidSubCityWoreda(input.subCity, input.woreda)) {
+    errors.woreda = v.invalidWoreda;
+  }
+  if (
+    !input.neighborhood ||
+    !isValidSubCityLandmark(input.subCity, input.neighborhood)
+  ) {
+    errors.neighborhood = v.invalidNeighborhood;
   }
 
   return {
@@ -137,6 +168,9 @@ export function validateCheckoutInput(
   };
 }
 
-export function formatEtb(amount: number): string {
-  return `${amount.toLocaleString('en-US')} ብር`;
+export function formatEtb(
+  amount: number,
+  locale: Locale = DEFAULT_LOCALE
+): string {
+  return formatLocalizedEtb(amount, locale);
 }
