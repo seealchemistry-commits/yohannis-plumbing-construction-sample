@@ -1,0 +1,95 @@
+{
+  "orders": [
+    {
+      "id": "ORD-3955874",
+      "customerName": "ዳዊት በቀለ",
+      "phone": "0911456789",
+      "subCity": "ቦሌ",
+      "addressDetail": "ቦሌ መድኃኔዓለም ሳይት",
+      "paymentMethod": "TELEBIRR",
+      "items": [
+        {
+          "productId": "PRD-101",
+          "nameAm": "PPR የግፊት ውሃ ቧንቧ (32mm PN20)",
+          "quantity": 1,
+          "unitPriceEtb": 1250,
+          "lineTotalEtb": 1250
+        }
+      ],
+      "subtotalEtb": 1250,
+      "deliveryFeeEtb": 450,
+      "totalEtb": 1700,
+      "status": "CONFIRMED",
+      "createdAt": "2026-11-19T00:25:58.874Z"
+    },
+    {
+      "id": "ORD-4821902",
+      "customerName": "ዮሐንስ ገብረመድህን",
+      "phone": "0911223344",
+      "subCity": "ቦሌ",
+      "addressDetail": "ቦሌ ቡልቡላ 93 ማዞሪያ",
+      "paymentMethod": "TELEBIRR",
+      "items": [
+        {
+          "productId": "PRD-101",
+          "nameAm": "PPR የግፊት ውሃ ቧንቧ (32mm PN20)",
+          "quantity": 6,
+          "unitPriceEtb": 1250,
+          "lineTotalEtb": 7500
+        },
+        {
+          "productId": "PRD-102",
+          "nameAm": "ፎርጅድ ብራስ ቦል ቫልቭና መለኪያ ሴት",
+          "quantity": 3,
+          "unitPriceEtb": 2850,
+          "lineTotalEtb": 8550
+        }
+      ],
+      "subtotalEtb": 16050,
+      "deliveryFeeEtb": 0,
+      "totalEtb": 16050,
+      "status": "CONFIRMED",
+      "createdAt": "2026-11-18T08:30:00.000Z"
+    }
+  ],
+  "bookings": [
+    {
+      "serviceId": "SRV-01",
+      "serviceTitleAm": "የህንጻ የውሃና ፍሳሽ ቧንቧ ዝርጋታ",
+      "propertyType": "RESIDENTIAL",
+      "preferredDate": "2026-11-20",
+      "timeSlot": "03:00 ጠዋት (09:00 AM)",
+      "customerName": "ሰላም ታደሰ",
+      "phone": "0911887766",
+      "subCity": "ቦሌ",
+      "notes": "የውሃ ፓምፕ ግፊት ፍተሻ",
+      "id": "APT-2958333",
+      "status": "SCHEDULED",
+      "createdAt": "2026-11-19T00:26:19.333Z"
+    },
+    {
+      "id": "APT-7310401",
+      "serviceId": "SRV-02",
+      "serviceTitleAm": "የድንገተኛ ፍሳሽ መለየትና ጥገና",
+      "propertyType": "RESIDENTIAL",
+      "preferredDate": "2026-11-20",
+      "timeSlot": "03:00 ጠዋት (09:00 AM)",
+      "customerName": "ትግስት አሰፋ",
+      "phone": "0913556677",
+      "subCity": "የካ",
+      "notes": "የኩሽና መስመር ግድግዳ ስር እርጥበት ይታያል",
+      "status": "SCHEDULED",
+      "createdAt": "2026-11-18T09:15:00.000Z"
+    }
+  ],
+  "contacts": [
+    {
+      "fullName": "ብርሃኑ ከበደ",
+      "phone": "0912345678",
+      "subject": "የG+2 ህንጻ የቧንቧ ስራ",
+      "message": "ሙሉ የውሃና ፍሳሽ መስመር ዋጋ ግምት እፈልጋለሁ",
+      "id": "MSG-4335997",
+      "createdAt": "2026-11-19T00:27:50.997Z"
+    }
+  ]
+}

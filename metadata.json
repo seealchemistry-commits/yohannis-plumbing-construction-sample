@@ -1,0 +1,8 @@
+{
+  "name": "አባይ ኮንስትራክሽን — የቧንቧና የህንጻ ግንባታ",
+  "description": "የቧንቧ መስመር ዝርጋታ፣ የውሃ ስርዓት፣ የኮንስትራክሽን አገልግሎት፣ የእቃዎች ኦንላይን መደብር እና የቀጠሮ ማስያዣ ድረ-ገጽ።",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
