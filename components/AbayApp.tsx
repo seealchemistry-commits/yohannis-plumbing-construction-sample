@@ -21,6 +21,7 @@ import AboutAndServicesSection from './AboutAndServicesSection';
 import BlogAndContactSection from './BlogAndContactSection';
 import BookingSection from './BookingSection';
 import CartDrawer from './CartDrawer';
+import FloatingWhatsAppButton from './FloatingWhatsAppButton';
 import HeroSection from './HeroSection';
 import { installGmpQuotaTap } from './OfficeGoogleMap';
 import ShopSection from './ShopSection';
@@ -222,6 +223,8 @@ function AbayAppContent({
         onRemoveItem={handleRemoveItem}
         onOrderConfirmed={handleOrderConfirmed}
       />
+
+      <FloatingWhatsAppButton hidden={cartOpen} />
     </div>
   );
 }

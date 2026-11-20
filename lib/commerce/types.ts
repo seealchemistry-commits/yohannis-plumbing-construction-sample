@@ -22,7 +22,13 @@ export interface Product {
   availableSizes: ProductSize[];
   inStock: boolean;
   stockCount: number;
-  imageKey: 'ppr_pipes' | 'brass_valves' | 'water_pump' | 'mixer_faucet';
+  imageKey:
+    | 'ppr_pipes'
+    | 'brass_valves'
+    | 'water_pump'
+    | 'mixer_faucet'
+    | 'pvc_fittings_kit'
+    | 'brass_fittings_board';
 }
 
 export interface CartItem {
@@ -141,5 +147,5 @@ export interface BlogArticle {
   excerptAm: string;
   paragraphsAm: string[];
   authorAm: string;
-  imageKey: 'hero_plumbing' | 'site_engineer' | 'ppr_pipes';
+  imageKey: 'hero_plumbing' | 'site_engineer' | 'ppr_pipes' | 'pipes_showcase';
 }

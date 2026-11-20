@@ -434,10 +434,79 @@ export const am: TranslationDictionary = {
     genericError: 'መልእክቱን መላክ አልተቻለም።',
     networkError: 'ከሰርቨር ጋር መገናኘት አልተቻለም።',
   },
+  faq: {
+    eyebrow: 'ተደጋግመው የሚጠየቁ ጥያቄዎች (FAQ)',
+    heading: 'ስለ አገልግሎት ዋጋ፣ የዕቃ ዋስትና እና የ24/7 Emergency Leak Repair ጊዜ',
+    description:
+      'ስለ ዝርዝር የስራ ዋጋ ግምት፣ የPPR/PVC/Copper እና የMixers ዋስትና እንዲሁም በአዲስ አበባ ስለ 24/7 አስቸኳይ የጥገና አገልግሎት ፍጥነት ግልጽ መልሶች።',
+    emergencyCardTitle: 'አስቸኳይ የቧንቧ መፈንዳት ወይም ፍሳሽ አለ?',
+    emergencyCardBody:
+      'ቅጽ መሙላት ሳያስፈልግ ወዲያውኑ ባለሙያ እንዲላክልዎ የ24/7 Emergency Leak Repair መስመራችንን ይደውሉ።',
+    askQuestionBtn: 'ሌላ ጥያቄ ይላኩ',
+    items: [
+      {
+        id: 'FAQ-01',
+        number: '01',
+        topicLabel: 'የአገልግሎት ዋጋ',
+        question: 'ስራ ከመጀመሩ በፊት የአገልግሎት ዋጋ እንዴት ይተመናል?',
+        answer:
+          'ማንኛውም ስራ ከመጀመሩ በፊት በቦታው ላይ ፍተሻ ተደርጎ ግልጽና የተዘረዘረ የዋጋ ግምት (Itemized Quote) ይቀርብልዎታል። የፍተሻ ክፍያው ስራው ሲሰራ ከጠቅላላው ዋጋ ላይ የሚቀነስ ሲሆን፣ የእጅ ዋጋ እና የPPR፣ PVC ወይም Copper ዕቃ ዋጋ በግልጽ ተለይተው ያለ ምንም ድብቅ ክፍያ ይቀርባሉ።',
+      },
+      {
+        id: 'FAQ-02',
+        number: '02',
+        topicLabel: 'የአገልግሎት ዋጋ',
+        question: 'ዕቃዎቹን ከShop ወስዶ መግጠም ወይም የራሴን ዕቃ ማቅረብ እችላለሁ?',
+        answer:
+          'አዎ። ትክክለኛ የPPR ቧንቧዎችን፣ የብራስ ቫልቮችን፣ Booster Pump እና Mixers ከShop በቀጥታ ማዘዝ ይችላሉ (ከ15,000 ETB በላይ ነጻ የአዲስ አበባ ትራንስፖርት አለ)፤ ወይም የራስዎን ዕቃ አቅርበው የመግጠም አገልግሎት ብቻ ማግኘት ይችላሉ። Telebirr፣ CBE Birr እና ዕቃው ሲደርስ ክፍያ (Cash on Delivery) እንቀበላለን።',
+      },
+      {
+        id: 'FAQ-03',
+        number: '03',
+        topicLabel: 'የዕቃ ዋስትና',
+        question: 'ለPPR፣ PVC ቧንቧዎች፣ ብራስ ቫልቮች እና Mixers ምን ያህል ዋስትና አለ?',
+        answer:
+          'ሁሉም ISO-15874 ደረጃ ያሟሉ PN20 PPR ቧንቧዎች፣ ፎርጅድ ብራስ Ball Valve እና Check Valve ዕቃዎች የፋብሪካ ጥራት ዋስትና አላቸው። እንደ 304 ስቴንለስ ስቲል Mixers ያሉ የሳኒተሪ ዕቃዎች ለ5 ዓመት የውሃ ማፍሰስና የዝገት መከላከያ ዋስትና ያገኛሉ።',
+      },
+      {
+        id: 'FAQ-04',
+        number: '04',
+        topicLabel: 'የዕቃ ዋስትና',
+        question: 'በቧንቧ ዝርጋታ እና የእጅ ስራ ላይ ዋስትና ይሰጣል?',
+        answer:
+          'አዎ። እያንዳንዱ አዲስ የPPR፣ PVC እና Copper ንጹህ ውሃ መስመር ዝርጋታ ከርክክብ በፊት በ16 ባር የግፊት መለኪያ (16 Bar Hydrostatic Pressure Test) ተፈትኖ ለ2 ዓመት የስራ ጥራት ዋስትና (Workmanship Warranty) ይሰጠዋል።',
+      },
+      {
+        id: 'FAQ-05',
+        number: '05',
+        topicLabel: 'አስቸኳይ ጥገና',
+        question: 'ለ24/7 Emergency Leak Repair ጥሪ ባለሙያ በምን ያህል ጊዜ ይደርሳል?',
+        answer:
+          'በአዲስ አበባ ውስጥ ለድንገተኛ የውሃ ፍሳሽ፣ ለተፈነዳ ቧንቧ ወይም ለተበላሸ ዋና መዝጊያ ቫልቭ በቅርበት ያለው ቡድናችን ወዲያውኑ ተንቀሳቅሶ እንደ ትራፊኩና አካባቢው ሁኔታ ከ1 እስከ 3 ሰዓት ውስጥ ይደርሳል (ቦሌ፣ የካ፣ ለሚ ኩራ፣ ቂርቆስ፣ ንፋስ ስልክ ላፍቶ እና ሁሉም ክፍለ ከተሞች)።',
+      },
+      {
+        id: 'FAQ-06',
+        number: '06',
+        topicLabel: 'አስቸኳይ ጥገና',
+        question: 'ሌሊት እና ቅዳሜና እሁድ ይሰራሉ? ባለሙያው እስኪደርስ ምን ላድርግ?',
+        answer:
+          'አዎ፣ የ24/7 Emergency Leak Repair መስመራችን (+251 912 453 752) ሌሊት፣ ቅዳሜና እሁድ እንዲሁም በበዓላት ቀናት ሙሉ በሙሉ ክፍት ነው። ባለሙያው ከመድረሱ በፊት ዋናውን የBall Valve መዝጊያ ይዝጉ፣ የBooster Pump ኤሌክትሪክ ማጥፊያውን ያጥፉ፤ ቴክኒሻናችን ከመድረሱ 30 ደቂቃ በፊት ይደውልልዎታል።',
+      },
+    ],
+  },
   footer: {
     bookingLink: 'ቀጠሮ (Booking)',
+    faqLink: 'ጥያቄዎች (FAQ)',
     contactLink: 'አድራሻ',
     copyright: (_yearEth, brand, city) => `© 2019 ዓ.ም ${brand} · ${city}`,
+    builtByPrefix: 'Built & maintained by',
+    developerName: 'Christian',
+    developerUrl: 'https://t.me/SEE_ALCHEMISTRY',
+  },
+  whatsapp: {
+    buttonLabel: 'WhatsApp',
+    ariaLabel: 'በWhatsApp ከጥራት ፕላምቢንግ ጋር ይነጋገሩ',
+    prefillText: 'ሰላም ጥራት ፕላምቢንግ፣ ስለ የቧንቧ አገልግሎት ወይም ዕቃዎች መጠየቅ እፈልጋለሁ።',
   },
   validation: {
     cartEmpty: 'ጋሪዎ ባዶ ነው፤ እባክዎ መጀመሪያ የቧንቧ ዕቃ ይምረጡ።',

@@ -56,6 +56,10 @@ describe('4-language i18n dictionary and transliteration', () => {
       assert.equal(dict.hero.stats.length, 4);
       assert.equal(dict.about.projects.length, 3);
       assert.equal(dict.booking.timeSlots.length, 5);
+      assert.equal(dict.faq.items.length, 6);
+      assert.equal(dict.footer.builtByPrefix, 'Built & maintained by');
+      assert.equal(dict.footer.developerName, 'Christian');
+      assert.equal(dict.footer.developerUrl, 'https://t.me/SEE_ALCHEMISTRY');
 
       for (const srv of SERVICES) {
         assert.ok(

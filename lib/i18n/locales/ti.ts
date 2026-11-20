@@ -437,10 +437,79 @@ export const ti: TranslationDictionary = {
     genericError: 'መልእኽቲ ምስዳድ ኣይተኻእለን።',
     networkError: 'ምስ ሰርቨር ምርኻብ ኣይተኻእለን።',
   },
+  faq: {
+    eyebrow: 'ብተደጋጋሚ ዝሕተቱ ሕቶታት (FAQ)',
+    heading: 'ዋጋ ኣገልግሎት፣ ውሕስነት ኣቕሑ ከምኡውን ግዜ 24/7 Emergency Leak Repair',
+    description:
+      'ብዛዕባ ዝርዝር ግምት ዋጋ ስራሕ፣ ውሕስነት ኣቕሑ PPR/PVC/Copper ከምኡውን Mixers፣ ብተወሳኺ ቅልጣፈ 24/7 ህጹጽ ጽገና ኣብ ኣዲስ ኣበባ ንጹር መልስታት።',
+    emergencyCardTitle: 'ህጹጽ ምፍንጃር ቧንቧ ወይ ፍሳስ ማይ ኣሎ?',
+    emergencyCardBody:
+      'ቅጥዒ ምምላእ ከየድለየ ብቕልጡፍ ክኢላ ክለኣኸልኩም ናብ 24/7 Emergency Leak Repair መስመርና ደውሉ።',
+    askQuestionBtn: 'ካልእ ሕቶ ስደዱ',
+    items: [
+      {
+        id: 'FAQ-01',
+        number: '01',
+        topicLabel: 'ዋጋ ኣገልግሎት',
+        question: 'ስራሕ ቅድሚ ምጅማሩ ዋጋ ኣገልግሎት ብኸመይ ይትመን?',
+        answer:
+          'ዝኾነ ስራሕ ቅድሚ ምጅማሩ ኣብቲ ቦታ ምርመራ ተገይሩ ዝርዝር ግምት ዋጋ (Itemized Quote) ብጽሑፍ ይቐርበልኩም። ክፍሊት ምርመራ እቲ ስራሕ ምስ ተሰርሐ ካብ ጠቕላላ ዋጋ ዝቕነስ ኮይኑ፣ ዋጋ ኢድ ሰብን ዋጋ ኣቕሑ PPR፣ PVC ወይ Copper ብንጹር ተፈልዩ ብዘይ ሕቡእ ክፍሊት ይቀርብ።',
+      },
+      {
+        id: 'FAQ-02',
+        number: '02',
+        topicLabel: 'ዋጋ ኣገልግሎት',
+        question: 'ኣቕሑ ካብ Shop ወሲድካ ምግጣም ወይ ናይ ባዕለይ ኣቕሑ ምቕራብ ይከኣል ዶ?',
+        answer:
+          'እወ። ኦሪጅናል ቧንቧታት PPR፣ ቫልቭ ብራስ፣ Booster Pump ከምኡውን Mixers ብቐጥታ ካብ Shop ምእዛዝ ትኽእሉ (ካብ 15,000 ETB ንላዕሊ ኣብ ኣዲስ ኣበባ ነጻ መጓዓዝያ ኣሎ)፤ ወይ ናይ ባዕልኹም ኣቕሑ ኣቕሪብኩም ዋጋ ምግጣም ጥራይ ክትከፍሉ ትኽእሉ። Telebirr፣ CBE Birr ከምኡውን Cash on Delivery ንቕበል ኢና።',
+      },
+      {
+        id: 'FAQ-03',
+        number: '03',
+        topicLabel: 'ውሕስነት ኣቕሑ',
+        question: 'ንPPR፣ PVC ቧንቧታት፣ ቫልቭ ብራስን Mixersን እንታይ ዓይነት ውሕስነት ኣሎ?',
+        answer:
+          'ኩሎም ደረጃ ISO-15874 ዘማልኡ PN20 PPR ቧንቧታት፣ ፎርጅድ ብራስ Ball Valve ከምኡውን Check Valve ውሕስነት ጽሬት ፋብሪካ ኣለዎም። ከም 304 ስቴንለስ ስቲል Mixers ዝኣመሰሉ ኣቕሑ ሳኒተሪ ን5 ዓመት ካብ ፍሳስ ማይን ምምራዝን ውሕስነት ይረኽቡ።',
+      },
+      {
+        id: 'FAQ-04',
+        number: '04',
+        topicLabel: 'ውሕስነት ኣቕሑ',
+        question: 'ኣብ ምዝርጋሕ ቧንቧን ጽሬት ስራሕን ውሕስነት ይወሃብ ዶ?',
+        answer:
+          'እወ። ነፍሲ ወከፍ ሓድሽ ምዝርጋሕ መስመር ጽሩይ ማይ PPR፣ PVC ከምኡውን Copper ቅድሚ ርክክብ ብ16 ባር መለክዒ ጸቕጢ (16 Bar Hydrostatic Pressure Test) ተፈቲሹ ን2 ዓመት ውሕስነት ጽሬት ስራሕ (Workmanship Warranty) ይወሃቦ።',
+      },
+      {
+        id: 'FAQ-05',
+        number: '05',
+        topicLabel: 'ህጹጽ ምላሽ',
+        question: 'ንጻውዒት 24/7 Emergency Leak Repair ክኢላ ኣብ ክንደይ ግዜ ይበጽሕ?',
+        answer:
+          'ኣብ ኣዲስ ኣበባ ንህጹጽ ፍሳስ ማይ፣ ንዝተፈንጀረ ቧንቧ ወይ ንዝተበላሸወ ዋና መዕጸዊ ቫልቭ ኣብ ቀረባ ዘሎ ጉጅለና ብቕልጡፍ ተበጊሱ ከከም ኩነታት ትራፊክ ኣብ ውሽጢ 1 ክሳብ 3 ሰዓት ይበጽሕ (ቦሌ፣ የካ፣ ለሚ ኩራ፣ ቂርቆስ፣ ንፋስ ስልክ ላፍቶ ከምኡውን ኩሎም ክፍለ ከተማታት)።',
+      },
+      {
+        id: 'FAQ-06',
+        number: '06',
+        topicLabel: 'ህጹጽ ምላሽ',
+        question: 'ለይትን ቀዳመ-ሰንበትን ትሰርሑ ዶ? ክኢላ ክሳብ ዝበጽሕ እንታይ ክገብር ኣለኒ?',
+        answer:
+          'እወ፣ ናይ 24/7 Emergency Leak Repair መስመርና (+251 912 453 752) ለይቲ፣ ቀዳመ-ሰንበት ከምኡውን ኣብ በዓላት ምሉእ ብምሉእ ክፉት እዩ። ክኢላና ክሳብ ዝበጽሕ ዋና መዕጸዊ Ball Valve ዕጸዉ፣ ናይ Booster Pump ኤሌክትሪክ ኣጥፍኡ፤ ቴክኒሻንና ቅድሚ ምብጽሑ 30 ደቒቕ ኣቐዲሙ ክድውለልኩም እዩ።',
+      },
+    ],
+  },
   footer: {
     bookingLink: 'ቆጸራ (Booking)',
+    faqLink: 'ሕቶታት (FAQ)',
     contactLink: 'ኣድራሻ',
     copyright: (_yearEth, brand, city) => `© 2019 ዓ.ም ${brand} · ${city}`,
+    builtByPrefix: 'Built & maintained by',
+    developerName: 'Christian',
+    developerUrl: 'https://t.me/SEE_ALCHEMISTRY',
+  },
+  whatsapp: {
+    buttonLabel: 'WhatsApp',
+    ariaLabel: 'ብWhatsApp ምስ ጥራት ፕላምቢንግ ተዘራረቡ',
+    prefillText: 'ሰላም ጥራት ፕላምቢንግ፣ ብዛዕባ ኣገልግሎት ቧንቧ ወይ ኣቕሑ ክሓትት ይደሊ።',
   },
   validation: {
     cartEmpty: 'ካርትኹም ባዶ እዩ፤ በጃኹም መጀመርታ ኣቕሓ ቧንቧ ምረጹ።',

@@ -11,6 +11,7 @@ export const COMPANY_INFO = {
     '24/7 Emergency Leak Repair፣ ባለሙያ የPPR, PVC እና Copper ቧንቧ ዝርጋታ እና የቧንቧ ዕቃዎች አቅርቦት',
   phoneDisplay: '+251 912 453 752',
   phoneHref: 'tel:+251912453752',
+  whatsappBaseUrl: 'https://wa.me/251912453752',
   telegramHandle: '@TiratPlumbing',
   telegramHref: 'https://t.me/TiratPlumbing',
   email: 'info@tiratplumbing.et',
@@ -204,7 +205,7 @@ export const PRODUCTS: Product[] = [
     availableSizes: ['1/2"', '3/4"', '1"'],
     inStock: true,
     stockCount: 36,
-    imageKey: 'ppr_pipes',
+    imageKey: 'pvc_fittings_kit',
   },
   {
     id: 'PRD-106',
@@ -223,7 +224,7 @@ export const PRODUCTS: Product[] = [
     availableSizes: ['1/2"', '3/4"', '1"'],
     inStock: true,
     stockCount: 64,
-    imageKey: 'brass_valves',
+    imageKey: 'brass_fittings_board',
   },
 ];
 
@@ -242,7 +243,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'በጥራት ፕላምቢንግ የPPR መገጣጠሚያዎችን በትክክለኛ የሙቀት መጠን (260°C) በማቅለጥ እና በ16 ባር የግፊት መለኪያ በመፈተሽ ፍሳሽ የሌለበት መስመር እናስረክባለን።',
     ],
     authorAm: 'ዮሐንስ ታደሰ · ዋና የቧንቧ ባለሙያ',
-    imageKey: 'ppr_pipes',
+    imageKey: 'pipes_showcase',
   },
   {
     id: 'BLG-02',

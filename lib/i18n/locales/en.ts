@@ -440,10 +440,80 @@ export const en: TranslationDictionary = {
     genericError: 'Unable to send message.',
     networkError: 'Unable to reach the server.',
   },
+  faq: {
+    eyebrow: 'Frequently Asked Questions',
+    heading: 'Pricing, Material Warranties & 24/7 Emergency Dispatch',
+    description:
+      'Clear answers on itemized inspection quotes, manufacturer and workmanship warranties, and rapid Addis Ababa Emergency Leak Repair response times.',
+    emergencyCardTitle: 'Urgent Burst Pipe or Active Leak?',
+    emergencyCardBody:
+      'Skip the form and call our 24/7 Emergency Leak Repair dispatch line for immediate technician mobilization.',
+    askQuestionBtn: 'Ask Our Team',
+    items: [
+      {
+        id: 'FAQ-01',
+        number: '01',
+        topicLabel: 'Service Pricing',
+        question: 'How is plumbing service pricing calculated before work begins?',
+        answer:
+          'Every project begins with a transparent on-site inspection and an itemized written quote before any work starts. Routine diagnostic fees are credited in full toward your installation or repair, and quotes separate labor from PPR, PVC, or Copper pipe materials so there are zero hidden charges.',
+      },
+      {
+        id: 'FAQ-02',
+        number: '02',
+        topicLabel: 'Service Pricing',
+        question: 'Can I supply my own fixtures or bundle Shop materials with installation?',
+        answer:
+          'Yes. You may order genuine PPR pipes, brass valves, Booster Pumps, and Mixers directly from our online Shop—with free Addis Ababa delivery on orders above 15,000 ETB—or supply your own fixtures for installation-only pricing. We accept Telebirr, CBE Birr, bank transfer, and Cash on Delivery.',
+      },
+      {
+        id: 'FAQ-03',
+        number: '03',
+        topicLabel: 'Material Warranties',
+        question: 'What warranties cover your PPR, PVC, brass valves, and Mixers?',
+        answer:
+          'All ISO-15874 certified PN20 PPR pipes, forged brass Ball Valves, and Check Valves include manufacturer defect guarantees. Sanitaryware such as our 304 stainless steel Mixers carry a 5-year warranty against cartridge leaks and finish corrosion, with immediate replacement for any factory defect.',
+      },
+      {
+        id: 'FAQ-04',
+        number: '04',
+        topicLabel: 'Material Warranties',
+        question: 'Do pipe installations include a workmanship and pressure-test warranty?',
+        answer:
+          'Yes. Every complete clean water PPR, PVC, and Copper piping installation undergoes a verified 16 Bar Hydrostatic Pressure Test prior to handover and is backed by our 2-Year Workmanship Warranty covering joint fusion integrity, threaded brass connections, and drainage slope seals.',
+      },
+      {
+        id: 'FAQ-05',
+        number: '05',
+        topicLabel: 'Emergency Response',
+        question: 'How fast is your 24/7 Emergency Leak Repair call-out response time?',
+        answer:
+          'For active leaks, burst pipes, or failing main valves, our Addis Ababa Emergency Leak Repair unit dispatches immediately and typically arrives within 1 to 3 hours depending on traffic and location—covering Bole, Yeka, Lemi Kura, Kirkos, Nifas Silk Lafto, and surrounding sub-cities.',
+      },
+      {
+        id: 'FAQ-06',
+        number: '06',
+        topicLabel: 'Emergency Response',
+        question: 'Do you respond at night and on weekends, and what should I do first?',
+        answer:
+          'Yes, our rapid-response technicians operate 24/7 including nights, weekends, and public holidays. Before our plumber arrives, close your main Ball Valve shutoff, switch off your Booster Pump power breaker, and our assigned technician will call 30 minutes prior to arrival.',
+      },
+    ],
+  },
   footer: {
     bookingLink: 'Booking',
+    faqLink: 'FAQ',
     contactLink: 'Contact',
     copyright: (_yearEth, brand, city) => `© 2026 ${brand} · ${city}`,
+    builtByPrefix: 'Built & maintained by',
+    developerName: 'Christian',
+    developerUrl: 'https://t.me/SEE_ALCHEMISTRY',
+  },
+  whatsapp: {
+    buttonLabel: 'WhatsApp',
+    ariaLabel: 'Chat with Tirat Plumbing on WhatsApp',
+    prefillText:
+      'Hello Tirat Plumbing, I would like assistance with plumbing services or supplies.',
   },
   validation: {
     cartEmpty: 'Your cart is empty; please add plumbing supplies first.',

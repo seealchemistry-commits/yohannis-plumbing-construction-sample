@@ -18,6 +18,7 @@ import type { BlogArticle, ContactInput } from '@/lib/commerce/types';
 import { BLOG_ARTICLES, COMPANY_INFO } from '@/lib/data/catalog';
 import { MEDIA_ASSETS } from '@/lib/data/media';
 import { useLanguage } from '@/lib/i18n/context';
+import FaqAccordionSection from './FaqAccordionSection';
 import OfficeGoogleMap from './OfficeGoogleMap';
 
 interface BlogAndContactSectionProps {
@@ -135,6 +136,7 @@ export default function BlogAndContactSection({
                         src={MEDIA_ASSETS[article.imageKey]}
                         alt={title}
                         fill
+                        priority
                         referrerPolicy="no-referrer"
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"
@@ -179,6 +181,9 @@ export default function BlogAndContactSection({
           </div>
         </div>
       </section>
+
+      {/* Frequently Asked Questions Accordion */}
+      <FaqAccordionSection />
 
       {/* Contact Section */}
       <section
@@ -313,7 +318,10 @@ export default function BlogAndContactSection({
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#12161C] p-7 sm:p-8 lg:col-span-7">
+            <div
+              id="contact-form"
+              className="rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#12161C] p-7 sm:p-8 lg:col-span-7"
+            >
               <form
                 onSubmit={handleContactSubmit}
                 noValidate
@@ -449,51 +457,70 @@ export default function BlogAndContactSection({
       </section>
 
       {/* Quiet Obsidian & Gold Footer */}
-      <footer className="bg-[#08090C] py-14 text-[#A1A8B3]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-10">
-          <div>
-            <p className="text-base font-bold text-[#F8FAFC]">
-              {t.brand.name}
+      <footer className="bg-[#08090C] pt-14 pb-28 text-[#A1A8B3]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-base font-bold text-[#F8FAFC]">
+                {t.brand.name}
+              </p>
+              <p className="mt-1.5 text-xs text-[#A1A8B3]">{t.brand.tagline}</p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-6 text-xs">
+              <a href="#home" className="transition-colors hover:text-[#D4AF37]">
+                {t.header.home}
+              </a>
+              <a
+                href="#services"
+                className="transition-colors hover:text-[#D4AF37]"
+              >
+                {t.header.services}
+              </a>
+              <a
+                href="#about"
+                className="transition-colors hover:text-[#D4AF37]"
+              >
+                {t.header.about}
+              </a>
+              <a href="#shop" className="transition-colors hover:text-[#D4AF37]">
+                {t.header.shop}
+              </a>
+              <a
+                href="#booking"
+                className="transition-colors hover:text-[#D4AF37]"
+              >
+                {t.footer.bookingLink}
+              </a>
+              <a href="#blog" className="transition-colors hover:text-[#D4AF37]">
+                {t.header.blog}
+              </a>
+              <a href="#faq" className="transition-colors hover:text-[#D4AF37]">
+                {t.footer.faqLink}
+              </a>
+              <a
+                href="#contact"
+                className="transition-colors hover:text-[#D4AF37]"
+              >
+                {t.footer.contactLink}
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-col gap-2.5 border-t border-[#2A2416]/80 pt-6 text-xs text-[#A1A8B3] sm:flex-row sm:items-center sm:justify-between">
+            <p>{t.footer.copyright('2026', t.brand.name, t.brand.city)}</p>
+            <p data-testid="footer-developer-credit">
+              {t.footer.builtByPrefix}{' '}
+              <a
+                href={t.footer.developerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#F5F2EB] underline decoration-[#D4AF37]/45 underline-offset-4 transition-colors hover:text-[#D4AF37] hover:decoration-[#D4AF37] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+              >
+                {t.footer.developerName}
+              </a>
             </p>
-            <p className="mt-1.5 text-xs text-[#A1A8B3]">{t.brand.tagline}</p>
           </div>
-
-          <div className="flex flex-wrap items-center gap-6 text-xs">
-            <a href="#home" className="transition-colors hover:text-[#D4AF37]">
-              {t.header.home}
-            </a>
-            <a
-              href="#services"
-              className="transition-colors hover:text-[#D4AF37]"
-            >
-              {t.header.services}
-            </a>
-            <a href="#about" className="transition-colors hover:text-[#D4AF37]">
-              {t.header.about}
-            </a>
-            <a href="#shop" className="transition-colors hover:text-[#D4AF37]">
-              {t.header.shop}
-            </a>
-            <a
-              href="#booking"
-              className="transition-colors hover:text-[#D4AF37]"
-            >
-              {t.footer.bookingLink}
-            </a>
-            <a href="#blog" className="transition-colors hover:text-[#D4AF37]">
-              {t.header.blog}
-            </a>
-            <a
-              href="#contact"
-              className="transition-colors hover:text-[#D4AF37]"
-            >
-              {t.footer.contactLink}
-            </a>
-          </div>
-
-          <p className="text-xs text-[#A1A8B3]">
-            {t.footer.copyright('2026', t.brand.name, t.brand.city)}
-          </p>
         </div>
       </footer>
 

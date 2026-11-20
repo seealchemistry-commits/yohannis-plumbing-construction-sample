@@ -52,6 +52,14 @@ export interface LocalizedProjectCopy {
   metric: string;
 }
 
+export interface LocalizedFaqItem {
+  id: 'FAQ-01' | 'FAQ-02' | 'FAQ-03' | 'FAQ-04' | 'FAQ-05' | 'FAQ-06';
+  number: string;
+  topicLabel: string;
+  question: string;
+  answer: string;
+}
+
 export interface TranslationDictionary {
   meta: {
     title: string;
@@ -281,10 +289,28 @@ export interface TranslationDictionary {
     genericError: string;
     networkError: string;
   };
+  faq: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    emergencyCardTitle: string;
+    emergencyCardBody: string;
+    askQuestionBtn: string;
+    items: LocalizedFaqItem[];
+  };
   footer: {
     bookingLink: string;
+    faqLink: string;
     contactLink: string;
     copyright: (yearEth: string, brand: string, city: string) => string;
+    builtByPrefix: string;
+    developerName: string;
+    developerUrl: string;
+  };
+  whatsapp: {
+    buttonLabel: string;
+    ariaLabel: string;
+    prefillText: string;
   };
   validation: {
     cartEmpty: string;

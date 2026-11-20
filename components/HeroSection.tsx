@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { ArrowUpRight, Phone } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data/catalog';
 import { useLanguage } from '@/lib/i18n/context';
+import heroPlumbingMaterialsImg from '@/src/assets/images/hero_plumbing_materials_1795186073214.jpg';
 
 export default function HeroSection() {
   const { t } = useLanguage();
@@ -11,9 +12,28 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.07),transparent_58%)]"
+      className="relative overflow-hidden border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10]"
     >
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-10 lg:py-24">
+      {/* Plumbing materials ambient backdrop */}
+      <div
+        aria-hidden="true"
+        data-testid="hero-ambient-backdrop"
+        className="pointer-events-none absolute inset-0 select-none"
+      >
+        <Image
+          src={heroPlumbingMaterialsImg}
+          alt=""
+          fill
+          priority
+          referrerPolicy="no-referrer"
+          sizes="100vw"
+          className="object-cover object-center opacity-35"
+        />
+        <div className="absolute inset-0 bg-[#0B0D10]/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/75 via-[#0B0D10]/30 to-transparent" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-10 lg:py-24">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="flex flex-col justify-center lg:col-span-6 lg:pr-4">
             <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">

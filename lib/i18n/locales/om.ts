@@ -441,10 +441,80 @@ export const om: TranslationDictionary = {
     genericError: 'Ergaa erguun hin danda’amne.',
     networkError: 'Sarvarii waliin walqunnamuun hin danda’amne.',
   },
+  faq: {
+    eyebrow: 'Gaaffilee Yeroo Baay’ee Gaafataman (FAQ)',
+    heading: 'Gatii Tajaajilaa, Wabii Meeshaa fi Yeroo Deebii 24/7',
+    description:
+      'Deebii ifaa waa’ee tilmaama gatii hojii, wabii meeshaalee PPR/PVC/Copper fi Mixers, akkasumas ariitii tajaajila 24/7 Emergency Leak Repair Addis Ababaa keessaa.',
+    emergencyCardTitle: 'Ujummoon Citee ykn Coccobni Hatattamaa Jiraa?',
+    emergencyCardBody:
+      'Unka guutuu osoo hin eegin ogeessi hatattamaan akka ergamuuf sarara 24/7 Emergency Leak Repair keenyaatti bilbilaa.',
+    askQuestionBtn: 'Gaaffii Biroo Ergaa',
+    items: [
+      {
+        id: 'FAQ-01',
+        number: '01',
+        topicLabel: 'Gatii Tajaajilaa',
+        question: 'Hojii osoo hin jalqabiin dura gatiin tajaajilaa akkamitti shallagama?',
+        answer:
+          'Hojiin kamuu osoo hin eegaliin dura iddootti sakatta’insi gaggeeffamee tilmaamni gatii tarreeffamaa (Itemized Quote) barreeffamaan isiniif kennama. Kaffaltiin sakatta’insaa yeroo hojichi hojjetamu gatii waliigalaa irraa hir’ifama; gatiin humna namaa fi meeshaalee PPR, PVC yookaan Copper addaan bahee kaffaltii dhokataa tokko malee dhiyaata.',
+      },
+      {
+        id: 'FAQ-02',
+        number: '02',
+        topicLabel: 'Gatii Tajaajilaa',
+        question: 'Meeshaalee Shop keessan irraa bitee hidhachuu ykn kan koo dhiyeessuu nan danda’aa?',
+        answer:
+          'Eeyyee. Ujummoolee PPR qulqulluu, vaalvii brass, Booster Pump fi Mixers kallattiin Shop keenya irraa ajajuu dandeessu (ajaja 15,000 ETB oliif geessuun Addis Ababaa bilisa); yookaan meeshaa keessan dhiyeessitanii gatii hidhaa qofa kaffaluu dandeessu. Telebirr, CBE Birr fi Cash on Delivery ni fudhanna.',
+      },
+      {
+        id: 'FAQ-03',
+        number: '03',
+        topicLabel: 'Wabii Meeshaa',
+        question: 'Ujummoolee PPR, PVC, vaalvii brass fi Mixers irratti wabiin akkamii kennama?',
+        answer:
+          'Ujummooleen PN20 PPR sadarkaa ISO-15874 eegan, Ball Valve fi Check Valve brass qulqulluu hundinuu wabii hanqina warshaa qabu. Meeshaaleen saaniteerii kan akka Mixers 304 stainless steel immoo wabii waggaa 5 coccobaa fi dandamannaa ligidaa qabu.',
+      },
+      {
+        id: 'FAQ-04',
+        number: '04',
+        topicLabel: 'Wabii Meeshaa',
+        question: 'Diriirsa ujummoo fi qulqullina hojii harkaa irratti wabiin ni kennamaa?',
+        answer:
+          'Eeyyee. Diriirsi sarara bishaan qulqulluu PPR, PVC fi Copper haaraan kamuu osoo hin kennamiin dura qorannoo dhiibbaa 16 Bar Hydrostatic Pressure Test darbee wabii hojii harkaa waggaa 2 (2-Year Workmanship Warranty) waliin kennama.',
+      },
+      {
+        id: 'FAQ-05',
+        number: '05',
+        topicLabel: 'Deebii Hatattamaa',
+        question: 'Waamicha 24/7 Emergency Leak Repair irratti ogeessi yeroo hammamiitti ga’a?',
+        answer:
+          'Addis Ababaa keessatti coccoba bishaanii hatattamaa, ujummoo dhoo’e yookaan vaalvii cufaa badeef gareen keenya dhiyoo jiru battalumatti ka’ee haala tiraafikaa irratti hundaa’uun sa’aatii 1 hanga 3 keessatti iddoo keessan ga’a (Boolee, Yakkaa, Lamii Kuraa, Qirqoos, Nifaas Silk Laaftoo fi kutaalee magaalaa hunda).',
+      },
+      {
+        id: 'FAQ-06',
+        number: '06',
+        topicLabel: 'Deebii Hatattamaa',
+        question: 'Halkanii fi Sambata/Dilbata ni hojjettuu? Ogeessi hanga ga’utti maal gochuun qaba?',
+        answer:
+          'Eeyyee, sararri 24/7 Emergency Leak Repair keenya (+251 912 453 752) halkan, dhuma torbanii fi ayyaanota irratti yeroo hunda banaadha. Hanga ogeessi ga’utti cufaa ijoo Ball Valve cufaa, elektirikii Booster Pump dhaamsaa; teeknishaanichi osoo hin ga’in daqiiqaa 30 dura isiniif bilbila.',
+      },
+    ],
+  },
   footer: {
     bookingLink: 'Booking',
+    faqLink: 'FAQ',
     contactLink: 'Qunnamtii',
     copyright: (_yearEth, brand, city) => `© 2026 ${brand} · ${city}`,
+    builtByPrefix: 'Built & maintained by',
+    developerName: 'Christian',
+    developerUrl: 'https://t.me/SEE_ALCHEMISTRY',
+  },
+  whatsapp: {
+    buttonLabel: 'WhatsApp',
+    ariaLabel: 'Tirat Plumbing waliin WhatsApp irratti haasa’aa',
+    prefillText:
+      'Akkam Tirat Plumbing, waa’ee tajaajila plumbing yookaan meeshaalee gaafachuu barbaada.',
   },
   validation: {
     cartEmpty: 'Kaartiin keessan duwwaadha; maaloo dura meeshaa plumbing filadhaa.',

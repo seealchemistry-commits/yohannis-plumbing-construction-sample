@@ -14,6 +14,7 @@ import {
   SERVICES,
 } from '@/lib/data/catalog';
 import { useLanguage } from '@/lib/i18n/context';
+import aboutPlumbingMaterialsImg from '@/src/assets/images/about_plumbing_materials_1795186074742.jpg';
 
 interface AboutAndServicesSectionProps {
   onSelectServiceForBooking: (serviceId: string) => void;
@@ -292,9 +293,27 @@ export default function AboutAndServicesSection({
       {/* About & Proof Section */}
       <section
         id="about"
-        className="border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] py-20 lg:py-28"
+        className="relative overflow-hidden border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] py-20 lg:py-28"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        {/* Plumbing materials ambient backdrop */}
+        <div
+          aria-hidden="true"
+          data-testid="about-ambient-backdrop"
+          className="pointer-events-none absolute inset-0 select-none"
+        >
+          <Image
+            src={aboutPlumbingMaterialsImg}
+            alt=""
+            fill
+            referrerPolicy="no-referrer"
+            sizes="100vw"
+            className="object-cover object-center opacity-[0.20]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#0B0D10]/85 via-[#0B0D10]/78 to-[#0B0D10]/75" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/75 via-transparent to-[#0B0D10]/85" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="grid grid-cols-2 gap-4 lg:col-span-6">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.28)] bg-[#12161C] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.85)]">
