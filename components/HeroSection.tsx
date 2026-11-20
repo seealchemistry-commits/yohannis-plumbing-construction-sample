@@ -79,8 +79,16 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl lg:aspect-[5/4] lg:min-h-[440px]">
+          <div className="relative lg:col-span-6">
+            {/* Subtle ambient gold glow behind the showcase photo */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-4 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.14)_0%,rgba(212,175,55,0.04)_50%,transparent_75%)] blur-xl"
+            />
+            <div
+              data-testid="hero-showcase-frame"
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-[#0B0D10] shadow-2xl shadow-black/60 lg:aspect-[5/4] lg:min-h-[440px]"
+            >
               <Image
                 src="/assets/aistudio/image_e54a7d54.png"
                 alt={t.hero.imageAlt}
@@ -90,9 +98,14 @@ export default function HeroSection() {
                 sizes="(max-width: 1024px) 100vw, 48vw"
                 className="object-cover object-center"
               />
+              {/* Soft perimeter vignette & edge blend into #0B0D10 */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 rounded-2xl bg-[linear-gradient(to_right,rgba(11,13,16,0.34),transparent_12%,transparent_88%,rgba(11,13,16,0.34)),linear-gradient(to_bottom,rgba(11,13,16,0.24),transparent_12%,transparent_88%,rgba(11,13,16,0.38))]"
+                className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(ellipse_at_center,transparent_58%,rgba(11,13,16,0.45)_88%,rgba(11,13,16,0.75)_100%)]"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[#D4AF37]/15 bg-[linear-gradient(to_right,rgba(11,13,16,0.42),transparent_16%,transparent_84%,rgba(11,13,16,0.42)),linear-gradient(to_bottom,rgba(11,13,16,0.28),transparent_16%,transparent_82%,rgba(11,13,16,0.5))]"
               />
             </div>
           </div>
