@@ -2,34 +2,23 @@
 
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
-import { Check, Plus, Search, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Check, Plus, Search, ShoppingBag, Sparkles } from 'lucide-react';
 import { formatEtb, getProductPriceForSize } from '@/lib/commerce/cart';
 import {
   PRODUCT_SIZES,
-  type OrderRecord,
   type Product,
   type ProductCategory,
   type ProductSize,
 } from '@/lib/commerce/types';
-import {
-  getLandmarkLabel,
-  getSubCityLabel,
-  getWoredaLabel,
-} from '@/lib/data/addis-addresses';
 import { PRODUCTS } from '@/lib/data/catalog';
 import { MEDIA_ASSETS } from '@/lib/data/media';
-import {
-  getLocalizedProductName,
-  getLocalizedSeededLandmark,
-  getLocalizedSeededName,
-} from '@/lib/i18n';
 import { useLanguage } from '@/lib/i18n/context';
+import ScrollReveal from './ScrollReveal';
 
 interface ShopSectionProps {
   onAddToCart: (product: Product, size: ProductSize) => void;
   onOpenCart: () => void;
   cartItemCount: number;
-  recentOrders: OrderRecord[];
 }
 
 const CATEGORY_IDS: ProductCategory[] = [
@@ -40,11 +29,16 @@ const CATEGORY_IDS: ProductCategory[] = [
   'SANITARY',
 ];
 
+const FEATURED_PRODUCT_SPECS = [
+  { id: 'PRD-101', tagKey: 'pprPipe' as const },
+  { id: 'PRD-103', tagKey: 'boosterPump' as const },
+  { id: 'PRD-104', tagKey: 'mixer' as const },
+] as const;
+
 export default function ShopSection({
   onAddToCart,
   onOpenCart,
   cartItemCount,
-  recentOrders,
 }: ShopSectionProps) {
   const { locale, t } = useLanguage();
   const [selectedCategory, setSelectedCategory] =
@@ -82,8 +76,8 @@ export default function ShopSection({
     setSelectedSizes((prev) => ({ ...prev, [productId]: size }));
   };
 
-  const handleAdd = (product: Product) => {
-    const size = getSelectedSize(product.id);
+  const handleAdd = (product: Product, explicitSize?: ProductSize) => {
+    const size = explicitSize ?? getSelectedSize(product.id);
     onAddToCart(product, size);
     const feedbackKey = `${product.id}-${size}`;
     setRecentlyAddedKey(feedbackKey);
@@ -95,11 +89,11 @@ export default function ShopSection({
   return (
     <section
       id="shop"
-      className="border-b border-[rgba(212,175,55,0.22)] bg-[#12161C] py-20 lg:py-28"
+      className="overflow-x-clip border-b border-[rgba(212,175,55,0.22)] bg-[#12161C] py-20 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-xl">
+          <ScrollReveal className="max-w-xl">
             <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
               {t.shop.eyebrow}
             </p>
@@ -109,7 +103,7 @@ export default function ShopSection({
             <p className="mt-4 text-sm leading-[1.8] text-[#A1A8B3]">
               {t.shop.description}
             </p>
-          </div>
+          </ScrollReveal>
 
           <button
             type="button"
@@ -124,8 +118,87 @@ export default function ShopSection({
           </button>
         </div>
 
+        {/* Featured Supplies Spotlight (PPR Pipe, Booster Pump, Mixer) */}
+        <div
+          data-testid="featured-supplies"
+          className="mt-10 rounded-2xl border border-[rgba(212,175,55,0.28)] bg-[#0B0D10] p-6"
+        >
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-[#D4AF37]" aria-hidden="true" />
+              <h3 className="text-sm font-bold text-[#F8FAFC]">
+                {t.shop.featuredHeading}
+              </h3>
+            </div>
+            <p className="text-xs text-[#A1A8B3]">{t.shop.featuredSubtext}</p>
+          </div>
+
+          <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {FEATURED_PRODUCT_SPECS.map(({ id, tagKey }) => {
+              const product = PRODUCTS.find((p) => p.id === id);
+              if (!product) return null;
+              const localized =
+                t.shop.products[product.id as keyof typeof t.shop.products];
+              const productName = localized?.name ?? product.nameAm;
+              const activeSize = getSelectedSize(product.id);
+              const activePrice = getProductPriceForSize(product, activeSize);
+              const justAdded =
+                recentlyAddedKey === `${product.id}-${activeSize}`;
+
+              return (
+                <div
+                  key={product.id}
+                  data-testid={`featured-supply-${product.id}`}
+                  className="flex items-center gap-3.5 rounded-xl border border-[#2A2416] bg-[#161B22] p-3.5 transition-colors hover:border-[#D4AF37]/50"
+                >
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-[rgba(212,175,55,0.22)] bg-[#0B0D10]">
+                    <Image
+                      src={MEDIA_ASSETS[product.imageKey]}
+                      alt={productName}
+                      fill
+                      referrerPolicy="no-referrer"
+                      sizes="64px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="inline-block font-mono text-[10px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                      {t.shop.featuredBadge} · {t.shop.featuredTags[tagKey]}
+                    </span>
+                    <p className="truncate text-xs font-semibold text-[#F8FAFC]">
+                      {productName}
+                    </p>
+                    <p className="mt-0.5 font-mono tabular-nums text-xs font-bold text-[#D4AF37]">
+                      {formatEtb(activePrice, locale)}{' '}
+                      <span className="font-normal text-[#A1A8B3]">
+                        ({activeSize})
+                      </span>
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleAdd(product, activeSize)}
+                    aria-label={`${t.shop.addToCartBtn} — ${productName}`}
+                    className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors ${
+                      justAdded
+                        ? 'bg-emerald-600 text-white'
+                        : 'bg-[#D4AF37] text-[#0B0D10] hover:bg-[#E5C158]'
+                    }`}
+                  >
+                    {justAdded ? (
+                      <Check className="h-4 w-4" aria-hidden="true" />
+                    ) : (
+                      <Plus className="h-4 w-4" aria-hidden="true" />
+                    )}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Search & Segmented Category Filter */}
-        <div className="mt-12 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mt-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div
             role="tablist"
             aria-label={t.shop.categoriesAriaLabel}
@@ -207,11 +280,11 @@ export default function ShopSection({
               const unitLabel = localized?.unit ?? product.unitAm;
 
               return (
-                <article
-                  key={product.id}
-                  data-testid={`product-card-${product.id}`}
-                  className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] transition-all duration-150 hover:-translate-y-0.5 hover:border-[#D4AF37]/60"
-                >
+                <ScrollReveal key={product.id} className="h-full">
+                  <article
+                    data-testid={`product-card-${product.id}`}
+                    className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] transition-all duration-150 hover:-translate-y-0.5 hover:border-[#D4AF37]/60"
+                  >
                   <div>
                     <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-[rgba(212,175,55,0.16)] bg-[#0B0D10]">
                       <Image
@@ -321,87 +394,36 @@ export default function ShopSection({
                     </button>
                   </div>
                 </article>
+                </ScrollReveal>
               );
             })}
           </div>
         )}
 
-        {/* Recent Confirmed Orders List */}
-        {recentOrders.length > 0 && (
-          <div className="mt-16 rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-7">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2A2416] pb-4">
-              <h3 className="text-sm font-bold text-[#F8FAFC]">
-                {t.shop.recentOrdersHeading}
-              </h3>
-              <span className="text-xs text-[#A1A8B3]">
-                {t.shop.totalOrdersLabel} ·{' '}
-                <span className="font-mono tabular-nums text-[#D4AF37]">
-                  {recentOrders.length}
-                </span>
-              </span>
-            </div>
-
-            <div className="mt-2 divide-y divide-[#2A2416]">
-              {recentOrders.slice(0, 4).map((order) => {
-                const landmarkNote = getLocalizedSeededLandmark(
-                  order.specificLandmark,
-                  locale
-                );
-                return (
-                  <div
-                    key={order.id}
-                    className="flex flex-col gap-1.5 py-4 sm:flex-row sm:items-center sm:justify-between"
-                  >
-                    <div>
-                      <p className="text-sm font-medium text-[#F8FAFC]">
-                        <span className="font-mono text-xs font-semibold text-[#D4AF37]">
-                          {order.id}
-                        </span>
-                        <span
-                          className="mx-1.5 text-[#A1A8B3]/40"
-                          aria-hidden="true"
-                        >
-                          ·
-                        </span>
-                        <span>
-                          {getLocalizedSeededName(order.customerName, locale)}
-                        </span>
-                      </p>
-                      <p className="text-xs text-[#A1A8B3]">
-                        {getSubCityLabel(order.subCity, locale)} ·{' '}
-                        {getWoredaLabel(order.woreda, locale)} ·{' '}
-                        {getLandmarkLabel(order.neighborhood, locale)}
-                        {landmarkNote ? ` (${landmarkNote})` : ''}
-                      </p>
-                      <p className="mt-1 text-xs text-[#F5F2EB]/80">
-                        {order.items
-                          .map(
-                            (item) =>
-                              `${getLocalizedProductName(
-                                item.productId,
-                                item.nameAm,
-                                locale
-                              )} (${t.shop.sizeTag(item.size)}) × ${
-                                item.quantity
-                              }`
-                          )
-                          .join(' · ')}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-4 text-xs shrink-0">
-                      <span className="font-medium text-emerald-400">
-                        {t.shop.confirmedStatus}
-                      </span>
-                      <span className="font-mono tabular-nums font-bold text-[#F8FAFC]">
-                        {formatEtb(order.totalEtb, locale)}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+        {/* Section-End CTA Bar */}
+        <div
+          data-testid="shop-section-cta"
+          className="mt-14 flex flex-col gap-4 rounded-2xl border border-[rgba(212,175,55,0.28)] bg-[#0B0D10] p-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p className="text-sm font-semibold text-[#F8FAFC]">
+            {t.shop.sectionCtaTitle}
+          </p>
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href="#booking"
+              className="inline-flex min-h-[42px] items-center gap-2 rounded-xl bg-[#D4AF37] px-5 py-2 text-xs font-bold text-[#0B0D10] transition-colors hover:bg-[#E5C158] whitespace-nowrap"
+            >
+              <span>{t.shop.sectionCtaBookingBtn}</span>
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex min-h-[42px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.35)] bg-[#161B22] px-4 py-2 text-xs font-semibold text-[#F5F2EB] transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37] whitespace-nowrap"
+            >
+              {t.shop.sectionCtaContactBtn}
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

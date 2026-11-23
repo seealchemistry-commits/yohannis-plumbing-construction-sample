@@ -41,8 +41,16 @@ export const ti: TranslationDictionary = {
     primaryCta: 'ክኢላ ቧንቧ ቆጸራ ሓዙ',
     secondaryCta: 'ድኳን ኣቕሑ ቧንቧ (Shop)',
     hotlineLabel: '24/7 ህጹጽ ጻውዒት / ቀጥታዊ ስልኪ፡',
+    coverageNote:
+      'ኣብ ቦሌ፣ CMC፣ ኣያትን መላእ ኣዲስ ኣበባን ቅልጡፍ ምብጻሕ • ንዓበይቲ ምዝርጋሓት ብነጻ ኣብ ሳይት ምርመራ',
     imageAlt:
       'ናይ ጥራት ፕላምቢንግ ዘመናዊ ማኒፎልድ ማይ፣ ምዝርጋሕ Copperን PPRን ቧንቧ፣ brass ቫልቭታትን ምትካል ቦይለርን',
+    slideLabels: [
+      'ኦሪጅናል Brass Valvesን Copper ኣቕሑን',
+      'ዘመናዊ PP-Rን Manifold ምዝርጋሕን',
+      'ምትካል Mixer መሕጸቢ ቤትን Sanitaryን',
+      'ቅልጡፍ 24/7 ምብጻሕ ክኢላታት ኣዲስ ኣበባ',
+    ],
     stats: [
       {
         value: '14+ ዓመት',
@@ -62,6 +70,110 @@ export const ti: TranslationDictionary = {
       },
     ],
   },
+  quickActions: {
+    eyebrow: 'ቅልጡፍ ኣገልግሎት · ቀጥታዊ ምርጫ',
+    heading: 'ዝደለኹምዎ ኣገልግሎት ቧንቧ ብቕልጡፍ ምረጹ',
+    items: [
+      {
+        id: 'QA-01',
+        title: '24/7 Emergency',
+        subtitle: 'ንህጹጽ ምፍንጃር ቧንቧን ፍሳስን',
+      },
+      {
+        id: 'QA-02',
+        title: 'ቆጸራ (Book a Plumber)',
+        subtitle: 'ኣብ ኣዲስ ኣበባ ምብጻሕ ክኢላ ሓዙ',
+      },
+      {
+        id: 'QA-03',
+        title: 'Plumbing Supplies',
+        subtitle: 'PP-R ቧንቧ፣ ፓምፕን Mixerን እዘዙ',
+      },
+      {
+        id: 'QA-04',
+        title: 'ነጻ ምርመራ ሳይት',
+        subtitle: 'ንዓበይቲ ዝርጋሓት ምስ ክኢላ ተዘራረቡ',
+      },
+    ],
+  },
+  trustBanner: {
+    eyebrow: 'ዝተረጋገጸ ልምድን ጽሬትን',
+    heading: 'ኣብ መላእ ኣዲስ ኣበባ ውሑስ ጸቕጢ ማይን መስመር ቧንቧን',
+  },
+  videoShowcase: {
+    eyebrow: 'Tirat Plumbing Videos · ቪዲዮ ስራሕትና',
+    heading: 'See Our Work in Action — ስራሕቲ ቧንቧና ብቪዲዮ ርኣዩ',
+    description:
+      'ኣብ ኣዲስ ኣበባ ዝተሰርሑ ምትካል ማኒፎልድ ማይ፣ ምምዕርራይ Booster Pump ከምኡውን ዘመናዊ ኣቕሑ መሕጸቢ ቤት ተዓዘቡ።',
+    nowPlayingLabel: 'ሕጂ ዝረአ ዘሎ',
+    selectVideoLabel: 'ቪዲዮ ምረጹ',
+    items: [
+      {
+        id: 'VID-01',
+        category: 'Manifold & PP-R',
+        title: 'ምትካል Manifold ጽሩይ ማይን ፍተሻ ጸቕጢ 16 ባርን',
+        duration: '00:04',
+        summary:
+          'ብPN20 PP-Rን ብራስ ቫልቭታትን ዝተሰርሐ ሚዛናዊ መከፋፈሊ ማይ።',
+      },
+      {
+        id: 'VID-02',
+        category: 'Booster Pump',
+        title: '750W ኣውቶማቲክ Booster Pumpን Check Valveን',
+        duration: '00:04',
+        summary:
+          'Dry-Run Protection ከምኡውን ብራስ Check Valve ዘለዎ ጸጥተኛ መወሰኺ ጸቕጢ ማይ።',
+      },
+      {
+        id: 'VID-03',
+        category: 'Sanitary Fixtures',
+        title: 'ዘመናዊ Mixer፣ ሻወርን መዛዘሚ መስመር ፍሳስን',
+        duration: '00:04',
+        summary:
+          'ብዘይ ፍሳስ ዝተተኸሉ 304 ስቴንለስ ስቲል Mixersን ሽታ ዝከላኸሉ Floor Trapsን።',
+      },
+    ],
+  },
+  testimonials: {
+    eyebrow: 'ምስክርነት ዓማዊል (Testimonials)',
+    heading: 'ብዋናታት ኣባይትን ኮንትራክተራትን ኣዲስ ኣበባ ዝተመስከረ ጽሬት',
+    description:
+      'ጽሬት ስራሕ፣ ካብ Shop ዝቐርቡ ኦሪጅናል ኣቕሑን ቅልጡፍ ኣገልግሎት 24/7 Emergency Leak Repairን።',
+    items: [
+      {
+        id: 'REV-01',
+        quote:
+          'ኣብ ቦሌ ኣትላስ ህንጻና G+3 ሙሉእ መስመር PP-Rን Booster Pumpን ኣብ እዋኑ ወዲኦም ፍተሻ ጸቕጢ 16 ባር ብዘይ ሓንቲ ነጥቢ ፍሳስ ሓሊፎም።',
+        author: 'ዳዊት በቀለ',
+        district: 'ቦሌ ኣትላስ · ዋና ቪላ',
+        projectTag: 'PP-R Piping & Booster Pump',
+      },
+      {
+        id: 'REV-02',
+        quote:
+          'ኣያት ለይቲ ዝተሓብአ ቧንቧ ምስ ተፈንጀረ ጥራት ፕላምቢንግ ኣብ 2 ሰዓት በጺሖም ነቲ ሴራሚክ ከይሰበሩ እቲ ቫልቭ ቀዪሮምልና።',
+        author: 'ሜሮን ታደሰ',
+        district: 'ኣያት · መንበሪ ቀጽሪ',
+        projectTag: '24/7 Emergency Leak Repair',
+      },
+      {
+        id: 'REV-03',
+        quote:
+          'ኦሪጅናል ብራስ ቫልቭታትን Mixersን ካብ Shop ዓዲግና ብክኢላታቶም ምግጣምና ካብ ናይ ሓሶት ኣቕሑን ብኽነት ግዜን ኣድሒኑና።',
+        author: 'ኢንጂነር ሮቤል ኣለማየሁ',
+        district: 'CMC · ኮንትራክተር ህንጻ',
+        projectTag: 'Shop Supplies & Sanitary',
+      },
+    ],
+  },
+  preFooterCta: {
+    eyebrow: 'ኩሉ ግዜ ድሉው ዝኾነ ጉጅለ ክኢላታት ቧንቧ',
+    heading: 'እሙን ምዝርጋሕ ቧንቧ ወይ ህጹጽ 24/7 ጽገና ትደልዩ ዶ?',
+    subtext:
+      'ኣብ ቦሌ፣ CMC፣ ኣያት ወይ ዝኾነ ክፍለ ከተማ ኣዲስ ኣበባ ክኢላ ቆጸራ ሓዙ፣ ወይ ኦሪጅናል PP-Rን Booster Pumpsን ካብ Shop እዘዙ።',
+    primaryBtn: 'ሕጂ ቆጸራ (Booking) ሓዙ',
+    secondaryBtn: 'ድኳን ኣቕሑ (Shop) ርኣዩ',
+  },
   servicesSection: {
     eyebrow: 'ኣገልግሎታት ቧንቧና',
     heading: 'ኣብ ምዝርጋሕ መስመር ቧንቧን ጽገናን ዘተኮሩ 5 ቀንዲ ኣገልግሎታት',
@@ -69,25 +181,28 @@ export const ti: TranslationDictionary = {
       'ካብ ምዝርጋሕ መስመር ጽሩይ ማይን ፍሳስን (PPR, PVC, Copper) ክሳብ ምትካል Booster Pumpን 24/7 Emergency Leak Repairን ብክኢላታት ቴክኒሻናት ንሰርሕ።',
     durationPrefix: 'ዝወስዶ ግዜ',
     bookServiceBtn: 'ቆጸራ ሓዙ',
+    sectionCtaTitle: 'ምዝርጋሕ ቧንቧ ወይ ህጹጽ ጽገና ትደልዩ ዶ?',
+    sectionCtaBookingBtn: 'Booking ሓዙ',
+    sectionCtaContactBtn: 'Contact / ርኸቡና',
     items: {
       'SRV-01': {
-        title: 'ምዝርጋሕ መስመር ጽሩይ ማይ (PPR, PVC, Copper)',
+        title: 'ምዝርጋሕ መስመር ጽሩይ ማይ (PP-R, PVC, Copper)',
         summary:
-          'ንመንበሪ ኣባይቲ፣ ኣፓርታማታትን ንግዳዊ ህንጻታትን መስመራት ውዑይን ዝሑልን ጽሩይ ማይ ብቧንቧታት PPR, PVCን Copperን ብልዑል ጥንቃቐ ንዝርግሕ።',
+          'ንመንበሪ ኣባይትን ህንጻታትን መስመር ውዑይን ዝሑልን ማይ ብPP-R (PPR), PVCን Copperን ንዝርግሕ።',
         deliverables: [
-          'ልክዕ ዲዛይንን ምትካልን መስመር PPR, PVCን Copperን',
+          'ልክዕ ዲዛይንን ምትካልን መስመር PP-R, PVCን Copperን',
           'ብ16 ባር Hydrostatic Pressure Test ምፍታሽ',
-          'ንውዑይን ዝሑልን ማይ ዝኸውን ፍሉይ ኢንሱሌሽን',
+          'ንውዑይን ዝሑልን ማይ ዝኸውን ኢንሱሌሽን',
         ],
         estimatedDuration: 'ካብ 2 ክሳብ 14 መዓልታት (ከም ስፍሓት ስራሕ)',
       },
       'SRV-02': {
         title: 'ምዝርጋሕ መስመር ፍሳስን ምጽራይ ዝተዓጽወ ቧንቧን',
         summary:
-          'ሽታን ፍሳስን ዘይብሉ መስመር ፍሳስ uPVC ምዝርጋሕ፣ ምትእስሳር ማንሆል ከምኡውን ዝተዓጽዉ ቧንቧታት ክሽነ፣ መሕጸቢ ቤትን ዋና መስመርን ብዘመናዊ መሳርሒ ምጽራይ።',
+          'ሽታ ዘይብሉ መስመር ፍሳስ uPVC ምዝርጋሕን ዝተዓጽዉ ቧንቧታት መንደቕ ከይፈረሰ ምጽራይን።',
         deliverables: [
-          'ትኽክለኛ ተዳፋት (Slope) ዘለዎ መስመር ፍሳስ uPVC ምዝርጋሕ',
-          'መንደቕ ከይፈረሰ ዝተዓጽዉ ቧንቧታት ብሜካኒካዊ መጽረዪ ምኽፋት',
+          'ትኽክለኛ Slope ዘለዎ መስመር ፍሳስ uPVC ምዝርጋሕ',
+          'ዝተዓጽዉ ቧንቧታት ብሜካኒካዊ መጽረዪ ምኽፋት',
           'መከላኸሊ ሽታ Floor Trapን Vent Pipeን ምትካል',
         ],
         estimatedDuration: 'ካብ 2 ሰዓት ክሳብ 3 መዓልታት',
@@ -95,7 +210,7 @@ export const ti: TranslationDictionary = {
       'SRV-03': {
         title: 'ምትካል ፓምፕ ማይ (Booster Pump)፣ ታንከር ማይን መውዓዪ ማይን',
         summary:
-          'ኣብ ኩሎም ደርብታት ማዕረ ጸቕጢ ማይ ንምርካብ Booster Pump፣ ናይ ትሕቲ መሬትን ናሕስን ታንከራት ማይ ከምኡውን ኤሌክትሪክን ሶላርን ቦይለራት ምትካል።',
+          'ኣብ ኩሎም ደርብታት ማዕረ ጸቕጢ ንምርካብ Booster pump፣ ታንከርን ቦይለራትን ምትካል።',
         deliverables: [
           'Booster Pump ምስ Automatic Pressure Switchን Dry-Run Protectionን',
           'ምትካል Float Valveን Check Valveን ታንከር ማይ',
@@ -106,7 +221,7 @@ export const ti: TranslationDictionary = {
       'SRV-04': {
         title: 'ምትካል ኣቕሑ መሕጸቢ ቤትን ክሽነን (ሻወር፣ ሽቓቕ፣ ሲንክ፣ Mixers)',
         summary:
-          'ቦክሲታት ሻወር፣ ዘመናውያን መጸዳድዒታት (WC)፣ መሕጸቢ ኣእዳው ሲንክ፣ መላወሲ ቧንቧታት (Mixers) ከምኡውን መስመራት ማሽን ክዳን ብዘይ ዝኾነ ፍሳስ ንተክል።',
+          'ሻወር፣ ሽቓቕ (WC)፣ ሲንክ፣ Mixers ውዑይን ዝሑልን መስመር ማሽን ክዳን ብዘይ ፍሳስ ምትካል።',
         deliverables: [
           'ልክዕ ምትካልን ብሲሊኮን ምዕሻግን ሻወር፣ WCን ሲንክን',
           'ጽሬት ዘለዎ ምትእስሳር Angle Valveን Flexible Hoseን',
@@ -117,10 +232,10 @@ export const ti: TranslationDictionary = {
       'SRV-05': {
         title: 'ምልላይ ፍሳስ ማይን ህጹጽ ጽገናን (24/7 Emergency Leak Repair)',
         summary:
-          'ኣብ ውሽጢ መንደቕ ወይ ባይታ ዝተሓብአ ፍሳስ ማይ፣ ዝተፈንጀረ ቧንቧ ወይ ዝተበላሸወ ቫልቭ ምስ ዘጋጥም 24/7 ብቕልጡፍ በጺሕና ነቲ ጸገም ብዘላቕነት ንፈትሖ።',
+          'ንዝተሓብአ ፍሳስ ማይ፣ ዝተፈንጀረ ቧንቧ ወይ ቫልቭ 24/7 ብቕልጡፍ በጺሕና ንጽግን።',
         deliverables: [
           'ብ24/7 ህጹጽ ጻውዒት ኣብ ኣዲስ ኣበባ ቅልጡፍ ምብጻሕ',
-          'መንደቕ ከይተበላሸወ ዝተሰብረ ቧንቧ ምልላይን ምትካእን',
+          'መንደቕ ከይተበላሸወ ዝተሰብረ ቧንቧ ምልላይ',
           'ህጹጽ ጽገና ናይ ጸቕጢ ቫልቭን መተኣሳሰርን',
         ],
         estimatedDuration: 'ኣብ ውሽጢ 1 ክሳብ 3 ሰዓታት',
@@ -197,6 +312,9 @@ export const ti: TranslationDictionary = {
         metric: 'ደገፍ 24/7 Emergency Leak Repair',
       },
     ],
+    sectionCtaTitle: 'ንፕሮጀክትኹም ልምዲ ዘለዎ ክኢላ ቧንቧ ትደልዩ ዶ?',
+    sectionCtaBookingBtn: 'Booking ሓዙ',
+    sectionCtaContactBtn: 'Contact / ርኸቡና',
   },
   shop: {
     eyebrow: 'ኦንላይን ድኳን ኣቕሑ ቧንቧ (Shop)',
@@ -204,6 +322,14 @@ export const ti: TranslationDictionary = {
     description:
       'ቧንቧታት PPR/PVC፣ ብራስ ቫልቫት፣ ኣቕሑ መሕጸቢ ቤትን Booster Pumpsን ብልክዕ መጠን (1/2", 3/4", 1") ምረጹ። ካብ 15,000 ብር ንላዕሊ ኣብ ኣዲስ ኣበባ ብነጻ መጓዓዝያ ኣሎና።',
     viewCartBtn: 'ካርት ርኣዩ',
+    featuredHeading: 'Featured Supplies — ቀንዲ ተደለይቲ ኣቕሑ ቧንቧ',
+    featuredBadge: 'Featured',
+    featuredSubtext: 'ብብዝሒ ዝእዘዙ PPR pipe, Booster pump ከምኡውን Mixer ኣቕሑ',
+    featuredTags: {
+      pprPipe: 'PPR pipe',
+      boosterPump: 'Booster pump',
+      mixer: 'Mixer',
+    },
     categoriesAriaLabel: 'ምድባት ኣቕሑ ቧንቧ',
     categories: {
       ALL: 'ኩሎም ኣቕሑ',
@@ -266,14 +392,22 @@ export const ti: TranslationDictionary = {
     totalOrdersLabel: 'ጠቕላላ ትእዛዛት',
     confirmedStatus: 'ተረጋጊጹ',
     sizeTag: (size) => `መጠን ${size}`,
+    sectionCtaTitle: 'ካብ Shop ዝገዛእኩምዎ ኣቕሓ ዝገጥም ክኢላ ትደልዩ ዶ?',
+    sectionCtaBookingBtn: 'Booking ሓዙ',
+    sectionCtaContactBtn: 'Contact / ርኸቡና',
   },
   booking: {
     eyebrow: 'Booking ከምኡውን 24/7 Emergency Leak Repair ጻውዒት',
     heading: 'ናይ ክኢላ ቧንቧ ዑደትን ቆጸራ ጽገናን (Booking) ሓዙ',
     description:
-      'ምዝርጋሕ መስመር PPR/PVC/Copper፣ ምትካል Booster Pump፣ ምትካል ኣቕሑ መሕጸቢ ቤት ወይ 24/7 Emergency Leak Repair ቆጸራ ብዝምችወኩም ዕለትን ኣድራሻን ምረጹ።',
+      'ምዝርጋሕ መስመር PP-R/PVC/Copper፣ ምትካል Booster pump፣ ምትካል ኣቕሑ መሕጸቢ ቤት ወይ 24/7 Emergency Leak Repair ቆጸራ ብዝምችወኩም ዕለትን ኣድራሻን ምረጹ።',
     confirmedTitle: 'ቆጸራኹም ተመዝጊቡ ኣሎ',
     addressPrefix: 'ኣድራሻ፡',
+    visitModeLabel: 'ቅልጣፈ ቆጸራ ምረጹ',
+    scheduledVisitBtn: 'Scheduled Visit',
+    scheduledVisitHint: 'ብዝምችወኩም ዕለትን ሰዓትን',
+    emergencyVisitBtn: '24/7 Emergency',
+    emergencyVisitHint: 'ሎሚ ብቕልጡፍ ዝለኣኽ',
     serviceTypeLabel: 'ዓይነት ኣገልግሎት ቧንቧ',
     propertyTypeLabel: 'ዓይነት ህንጻ / ቦታ',
     propertyTypes: {
@@ -311,6 +445,8 @@ export const ti: TranslationDictionary = {
     clientPrefix: 'ዓሚል',
     footerNote:
       'ን24/7 Emergency Leak Repair ወይ ንምዝርጋሕ መስመር ቆጸራ ምስ ትሕዙ ክኢላና ቅድሚ ምምጻኡ 30 ደቒቕ ኣቐዲሙ ብስልኪ የረጋግጸልኩም።',
+    sectionCtaTitle: 'ቅልጡፍ ናይ ስልኪ ጻውዒት ወይ ፍሉይ ግምት ዋጋ ትደልዩ ዶ?',
+    sectionCtaContactBtn: 'ናብ Contact ኪዱ',
     genericError: 'ቆጸራ ምምዝጋብ ኣይተኻእለን።',
     networkError: 'ምስ ሰርቨር ምርኻብ ኣይተኻእለን፤ በጃኹም እንደገና ፈትኑ።',
   },
@@ -406,6 +542,9 @@ export const ti: TranslationDictionary = {
         author: 'ቴክኒሻን ዳዊት መኮንን · ስፔሻሊስት Booster Pump',
       },
     },
+    sectionCtaTitle: 'ሕቶ ኣለኩም ወይ ክኢላ ቧንቧ ክመጻኩም ትደልዩ ዶ?',
+    sectionCtaBookingBtn: 'Booking ሓዙ',
+    sectionCtaContactBtn: 'Contact / ርኸቡና',
   },
   contact: {
     eyebrow: 'ኣድራሻን መራኸብን',

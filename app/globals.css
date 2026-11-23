@@ -39,3 +39,28 @@
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
+
+.parallax-hero-slide-0 {
+  background-image: url('/assets/slides/slide-1.jpg');
+}
+
+.parallax-hero-slide-1 {
+  background-image: url('/assets/slides/slide-2.jpg');
+}
+
+.parallax-hero-slide-2 {
+  background-image: url('/assets/slides/slide-3.jpg');
+}
+
+.parallax-hero-slide-3 {
+  background-image: url('/assets/slides/slide-4.jpg');
+}
+
+.parallax-stats-bg {
+  background-image: url('/assets/slides/slide-2.jpg');
+}
+
+.parallax-cta-bg {
+  background-image: url('/assets/slides/about-materials.jpg');
+}
+

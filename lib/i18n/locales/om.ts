@@ -42,8 +42,16 @@ export const om: TranslationDictionary = {
     primaryCta: 'Ogeessa Plumbing Qabadhaa',
     secondaryCta: 'Meeshaalee Plumbing Shop',
     hotlineLabel: 'Bilbila Hatattamaa 24/7 / Kallattii:',
+    coverageNote:
+      'Boolee, CMC, Ayaat fi guutuu Addis Ababaa keessatti tajaajila saffisaa • Hojii gurguddaaf sakatta’insa bakka hojii bilisa',
     imageAlt:
       'Tirat Plumbing sirna manifold bishaanii, diriirsa ujummoo Copper fi PPR, brass valves fi hidhaa boiler',
+    slideLabels: [
+      'Vaalvii Brass Qulqulluu fi Copper Fittings',
+      'Diriirsa PP-R Ammayyaa fi Manifold',
+      'Hidhaa Mixer Mana Fincaanii fi Sanitary',
+      'Tajaajila Teeknishaanii Saffisaa 24/7',
+    ],
     stats: [
       {
         value: 'Waggaa 14+',
@@ -63,6 +71,110 @@ export const om: TranslationDictionary = {
       },
     ],
   },
+  quickActions: {
+    eyebrow: 'Tajaajila Saffisaa · Filannoo Kallattii',
+    heading: 'Tajaajila Plumbing Barbaaddan Battalumatti Argadhaa',
+    items: [
+      {
+        id: 'QA-01',
+        title: '24/7 Emergency',
+        subtitle: 'Coccoba fi ujummoo dhoo’eef battalumatti',
+      },
+      {
+        id: 'QA-02',
+        title: 'Book a Plumber',
+        subtitle: 'Addis Ababaa keessatti beellama qabadhaa',
+      },
+      {
+        id: 'QA-03',
+        title: 'Plumbing Supplies',
+        subtitle: 'Ujummoo PP-R, pump fi Mixer ajajadhaa',
+      },
+      {
+        id: 'QA-04',
+        title: 'Sakatta’insa Bilisaa',
+        subtitle: 'Hojii gurguddaaf ogeessa quunnamaa',
+      },
+    ],
+  },
+  trustBanner: {
+    eyebrow: 'Muuxannoo fi Qulqullina Mirkanaa’e',
+    heading: 'Dhiibbaa Bishaanii Tasgabbaa’aa Addis Ababaa Guutuutti',
+  },
+  videoShowcase: {
+    eyebrow: 'Tirat Plumbing Videos · Viidiyoo Hojii Keenyaa',
+    heading: 'See Our Work in Action — Hojiiwwan Plumbing Ilaalaa',
+    description:
+      'Sirna manifold bishaanii, madaallii dhiibbaa Booster Pump fi hidhaa meeshaalee mana fincaanii Addis Ababaa keessatti hojjetaman ilaalaa.',
+    nowPlayingLabel: 'Amma Taphachaa Kan Jiru',
+    selectVideoLabel: 'Viidiyoo Filadhaa',
+    items: [
+      {
+        id: 'VID-01',
+        category: 'Manifold & PP-R',
+        title: 'Hidhaa Manifold Bishaan Qulqulluu fi Qorannoo 16 Bar',
+        duration: '00:04',
+        summary:
+          'Sarara qoodinsa bishaanii PP-R PN20 fi vaalvii brass dhiibbaan mirkanaa’e.',
+      },
+      {
+        id: 'VID-02',
+        category: 'Booster Pump',
+        title: 'Booster Pump 750W Ofumaan Hojjetu fi Check Valve',
+        duration: '00:04',
+        summary:
+          'Guddiftuu dhiibbaa sagalee xiqqaa Dry-Run Protection fi Check Valve brass qabu.',
+      },
+      {
+        id: 'VID-03',
+        category: 'Sanitary Fixtures',
+        title: 'Xumura Hidhaa Mixer, Shower fi Sarara Dhangala’aa',
+        duration: '00:04',
+        summary:
+          'Hidhaa Mixer 304 stainless steel coccoba hin qabnee fi Floor Trap foolii ittisuu.',
+      },
+    ],
+  },
+  testimonials: {
+    eyebrow: 'Yaada Maamiltootaa (Testimonials)',
+    heading: 'Abbootii Manaa fi Ijaartota Addis Ababaan Kan Amaname',
+    description:
+      'Qulqullina hojii harkaa, meeshaalee qulqulluu Shop keenyaa fi deebii saffisaa 24/7 Emergency Leak Repair.',
+    items: [
+      {
+        id: 'REV-01',
+        quote:
+          'Gamoo keenya Boolee Atlas G+3 irratti diriirsa PP-R guutuu fi Booster Pump baaxii yeroodhaan xumuranii qorannoo 16 Bar rakkina tokko malee darbaniiru.',
+        author: 'Daawit Baqqalaa',
+        district: 'Boolee Atlas · Abbaa Viilaa',
+        projectTag: 'PP-R Piping & Booster Pump',
+      },
+      {
+        id: 'REV-02',
+        quote:
+          'Ayaatitti halkan ujummoon dhokatee yeroo dhoo’u Tirat Plumbing sa’aatii 2 keessatti ga’anii keenyarraa osoo hin cabsin vaalvii jijjiiraniiru.',
+        author: 'Meeroon Taaddasaa',
+        district: 'Ayaat · Mana Jireenyaa',
+        projectTag: '24/7 Emergency Leak Repair',
+      },
+      {
+        id: 'REV-03',
+        quote:
+          'Vaalvii brass fi Mixers kallattiin Shop isaanii irraa bitannee ogeeyyii isaaniitiin hidhachuun keenya meeshaa sobaa irraa nu oolcheera.',
+        author: 'Inj. Robeel Alamaayyahuu',
+        district: 'CMC · Kontiraaktara Gamoo',
+        projectTag: 'Shop Supplies & Sanitary',
+      },
+    ],
+  },
+  preFooterCta: {
+    eyebrow: 'Ogeeyyii Plumbing Mirkanaa’an Yeroo Hunda Qophii',
+    heading: 'Diriirsa Ujummoo Amanamaa ykn Suphaa Hatattamaa 24/7 Barbaadduu?',
+    subtext:
+      'Boolee, CMC, Ayaat yookaan kutaa magaalaa kamittuu beellama qabadhaa, yookaan har’uma ujummoo PP-R fi Booster Pump Shop irraa ajajaa.',
+    primaryBtn: 'Amma Booking Qabadhaa',
+    secondaryBtn: 'Shop Meeshaalee Ilaalaa',
+  },
   servicesSection: {
     eyebrow: 'Tajaajiloota Plumbing Keenya',
     heading: 'Tajaajiloota Ijoo 5 Diriirsa Ujummoo fi Suphaa Irratti Xiyyeeffatan',
@@ -70,25 +182,28 @@ export const om: TranslationDictionary = {
       'Diriirsa ujummoo bishaan qulqulluu fi dhangala’aa (PPR, PVC, Copper) irraa kaasee hanga hidhaa Booster Pump fi 24/7 Emergency Leak Repair ogeeyyiin ni hojjenna.',
     durationPrefix: 'Yeroo Fudhatu',
     bookServiceBtn: 'Booking Qabadhaa',
+    sectionCtaTitle: 'Diriirsa ujummoo yookaan suphaa hatattamaa barbaadduu?',
+    sectionCtaBookingBtn: 'Booking Qabadhaa',
+    sectionCtaContactBtn: 'Contact / Nu Quunnamaa',
     items: {
       'SRV-01': {
-        title: 'Diriirsa Sarara Bishaan Qulqulluu (PPR, PVC, Copper)',
+        title: 'Diriirsa Sarara Bishaan Qulqulluu (PP-R, PVC, Copper)',
         summary:
-          'Manneen jireenyaa, appaartaamaa fi gamoo daldalaaf sarara bishaan ho’aa fi qorraa ujummoo PPR, PVC fi Copper qulqullina ol’aanaan ni diriirsina.',
+          'Manneenii fi gamoo keessatti sarara bishaan ho’aa fi qorraa PP-R (PPR), PVC fi Copper’n ni diriirsina.',
         deliverables: [
-          'Dizaayinii fi hidhaa sarara PPR, PVC fi Copper sirrii',
+          'Dizaayinii fi hidhaa sarara PP-R, PVC fi Copper sirrii',
           'Qorannoo dhiibbaa Hydrostatic Pressure Test 16 Bar',
-          'Insuleeshinii addaa bishaan ho’aa fi qorraaf',
+          'Insuleeshinii bishaan ho’aa fi qorraaf',
         ],
         estimatedDuration: 'Guyyaa 2 hanga 14 (akka bal’ina hojiitti)',
       },
       'SRV-02': {
         title: 'Diriirsa Sarara Dhangala’aa fi Qulqulleessa Ujummoo Cufamee',
         summary:
-          'Diriirsa sarara dhangala’aa uPVC foolii fi coccoba hin qabne, walitti hidhaa maanhoolii fi banuu ujummoo kushiinaa fi mana fincaanii cufamee.',
+          'Sarara dhangala’aa uPVC foolii hin qabne fi banuu ujummoo cufamee keenyaa osoo hin diigin.',
         deliverables: [
-          'Diriirsa ujummoo dhangala’aa uPVC rukkina (Slope) sirrii qabu',
-          'Keenyaa osoo hin diigin meeshaa makaanikaalaan ujummoo banuu',
+          'Diriirsa ujummoo dhangala’aa uPVC Slope sirrii qabu',
+          'Meeshaa makaanikaalaan ujummoo cufame banuu',
           'Hidhaa Floor Trap fi Vent Pipe foolii ittisuu',
         ],
         estimatedDuration: 'Sa’aatii 2 hanga guyyaa 3',
@@ -96,32 +211,32 @@ export const om: TranslationDictionary = {
       'SRV-03': {
         title: 'Hidhaa Paampii Bishaanii (Booster Pump), Taankii fi Ho’istuu',
         summary:
-          'Fooqii hunda irratti dhiibbaan bishaanii walqixa akka ta’uuf hidhaa Booster Pump, taankii lafa jalaa fi baaxii akkasumas booyilara elektirikii fi soolaarii.',
+          'Fooqii hundaaf dhiibbaa walqixa kennuuf Booster pump, taankii fi booyilara ni hidhna.',
         deliverables: [
           'Booster Pump waliin Automatic Pressure Switch fi Dry-Run Protection',
           'Hidhaa Float Valve fi Check Valve taankii bishaanii',
-          'Hidhaa Safety Valve booyilara bishaan ho’aa nageenya qabu',
+          'Hidhaa Safety Valve booyilara bishaan ho’aa',
         ],
         estimatedDuration: 'Guyyaa 1',
       },
       'SRV-04': {
         title: 'Hidhaa Meeshaalee Mana Fincaanii fi Kushiinaa (Shower, WC, Sink, Mixers)',
         summary:
-          'Bokisii shawaarii, WC ammayyaa, sinkii harka dhiqannaa, Mixers bishaan ho’aa fi qorraa fi sarara maashina uffata dhiqaa coccoba tokko malee ni hidhna.',
+          'Shower, WC, sinkii, Mixers ho’aa fi qorraa fi sarara maashinaa coccoba malee ni hidhna.',
         deliverables: [
           'Hidhaa sirrii fi siilikooniin cufuu Shower, WC fi Sink',
           'Walitti hidhaa Angle Valve fi Flexible Hose jabaa',
-          'Qorannoo dhiibbaa bishaanii fi dhangala’aa osoo hin kennin dura',
+          'Qorannoo dhiibbaa bishaanii fi dhangala’aa duraa',
         ],
         estimatedDuration: 'Sa’aatii 3 hanga guyyaa 2',
       },
       'SRV-05': {
         title: 'Argannoo Coccoba Bishaanii fi Suphaa Hatattamaa (24/7 Emergency Leak Repair)',
         summary:
-          'Coccobni bishaanii keenyaa yookaan lafa jala dhokate, ujummoon dhote yookaan vaalviin bade yoo mudatu 24/7 saffisaan dhaqqabnee furmaata waaraa kennina.',
+          'Coccoba dhokate, ujummoo dhote yookaan vaalvii badeef 24/7 saffisaan dhaqqabnee ni suphina.',
         deliverables: [
-          'Addis Ababaa keessatti bilbila hatattamaa 24/7n dafanii ga’uu',
-          'Keenyaa osoo hin balleessin ujummoo cabe adda baasuu fi jijjiiruu',
+          'Addis Ababaa keessatti bilbila 24/7n dafanii ga’uu',
+          'Keenyaa osoo hin miidhin ujummoo cabe adda baasuu',
           'Suphaa hatattamaa vaalvii dhiibbaa fi walitti hidhaa',
         ],
         estimatedDuration: 'Sa’aatii 1 hanga 3 keessatti',
@@ -199,6 +314,9 @@ export const om: TranslationDictionary = {
         metric: 'Deeggarsa 24/7 Emergency Leak Repair',
       },
     ],
+    sectionCtaTitle: 'Pirojektii keessaniif ogeessa plumbing muuxannoo qabu barbaadduu?',
+    sectionCtaBookingBtn: 'Booking Qabadhaa',
+    sectionCtaContactBtn: 'Contact / Nu Quunnamaa',
   },
   shop: {
     eyebrow: 'Meeshaalee Plumbing Online Shop',
@@ -206,6 +324,14 @@ export const om: TranslationDictionary = {
     description:
       'Ujummoowwan PPR/PVC, vaalvii brass, meeshaalee mana fincaanii fi Booster Pumps safara sirrii (1/2", 3/4", 1") filadhaa. Ajaja Birr 15,000 ol ta’eef Addis Ababaa keessatti geejjiba bilisaadha.',
     viewCartBtn: 'Kaartii Ilaali',
+    featuredHeading: 'Featured Supplies — Meeshaalee Ijoo Baay’ee Barbaadaman',
+    featuredBadge: 'Featured',
+    featuredSubtext: 'Meeshaalee qophaa’oo: PPR pipe, Booster pump fi Mixer',
+    featuredTags: {
+      pprPipe: 'PPR pipe',
+      boosterPump: 'Booster pump',
+      mixer: 'Mixer',
+    },
     categoriesAriaLabel: 'Ramaddiiwwan meeshaalee plumbing',
     categories: {
       ALL: 'Meeshaalee Hunda',
@@ -268,14 +394,22 @@ export const om: TranslationDictionary = {
     totalOrdersLabel: 'Ajaja Waliigalaa',
     confirmedStatus: 'Mirkanaa’eera',
     sizeTag: (size) => `Safara ${size}`,
+    sectionCtaTitle: 'Meeshaalee Shop irraa bittan ogeessaan akka hidhamu barbaadduu?',
+    sectionCtaBookingBtn: 'Booking Qabadhaa',
+    sectionCtaContactBtn: 'Contact / Nu Quunnamaa',
   },
   booking: {
     eyebrow: 'Booking fi Bilbila 24/7 Emergency Leak Repair',
     heading: 'Daawwannaa Ogeessa Plumbing fi Booking Qabadhaa',
     description:
-      'Diriirsa sarara PPR/PVC/Copper, hidhaa Booster Pump, hidhaa meeshaalee mana fincaanii yookaan 24/7 Emergency Leak Repair guyyaa fi teessoo isiniif mijatuun filadhaa.',
+      'Diriirsa sarara PP-R/PVC/Copper, hidhaa Booster pump, hidhaa meeshaalee mana fincaanii yookaan 24/7 Emergency Leak Repair guyyaa fi teessoo isiniif mijatuun filadhaa.',
     confirmedTitle: 'Booking keessan Galmaa’eera',
     addressPrefix: 'Teessoo:',
+    visitModeLabel: 'Ariitii Beellamaa Filadhaa',
+    scheduledVisitBtn: 'Scheduled Visit',
+    scheduledVisitHint: 'Guyyaa fi sa’aatii mijatuun',
+    emergencyVisitBtn: '24/7 Emergency',
+    emergencyVisitHint: 'Har’uma hatattamaan ergamu',
     serviceTypeLabel: 'Gosa Tajaajila Plumbing',
     propertyTypeLabel: 'Gosa Gamoo / Iddoo',
     propertyTypes: {
@@ -314,6 +448,8 @@ export const om: TranslationDictionary = {
     clientPrefix: 'Maamila',
     footerNote:
       'Yeroo booking 24/7 Emergency Leak Repair yookaan diriirsa sararaa qabattan, ogeessi keenya osoo hin dhufin daqiiqaa 30 dura bilbilaan mirkaneessa.',
+    sectionCtaTitle: 'Bilbila hatattamaa yookaan tilmaama gatii addaa barbaadduu?',
+    sectionCtaContactBtn: 'Gara Contact Deemaa',
     genericError: 'Booking galmeessuun hin danda’amne.',
     networkError: 'Sarvarii waliin walqunnamuun hin danda’amne; maaloo irra deebi’aa yaalaa.',
   },
@@ -410,6 +546,9 @@ export const om: TranslationDictionary = {
         author: 'Teek. Daawit Mokonnon · Ispeshaalistii Booster Pump',
       },
     },
+    sectionCtaTitle: 'Gaaffii qabduu yookaan ogeessa plumbing waamuu barbaadduu?',
+    sectionCtaBookingBtn: 'Booking Qabadhaa',
+    sectionCtaContactBtn: 'Contact / Nu Quunnamaa',
   },
   contact: {
     eyebrow: 'Teessoo fi Qunnamtii',

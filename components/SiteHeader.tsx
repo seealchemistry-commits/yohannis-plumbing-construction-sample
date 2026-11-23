@@ -20,13 +20,13 @@ export default function SiteHeader({
   const navLinks = [
     { href: '#home', label: t.header.home },
     { href: '#services', label: t.header.services },
-    { href: '#about', label: t.header.about },
     { href: '#shop', label: t.header.shop },
+    { href: '#about', label: t.header.about },
     { href: '#blog', label: t.header.blog },
   ] as const;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10]/85 backdrop-blur-xl">
+    <header className="relative z-40 border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10]">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
         {/* Zone 1: Brand wordmark */}
         <a

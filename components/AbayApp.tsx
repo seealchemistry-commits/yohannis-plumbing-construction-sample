@@ -15,17 +15,25 @@ import {
   type Product,
   type ProductSize,
 } from '@/lib/commerce/types';
+import {
+  AVAILABLE_TIME_SLOTS,
+} from '@/lib/booking/schedule';
 import { PRODUCTS, SERVICES } from '@/lib/data/catalog';
 import { LanguageProvider } from '@/lib/i18n/context';
-import AboutAndServicesSection from './AboutAndServicesSection';
+import AboutSection from './AboutSection';
 import BlogAndContactSection from './BlogAndContactSection';
 import BookingSection from './BookingSection';
 import CartDrawer from './CartDrawer';
+import FeaturedVideoSection from './FeaturedVideoSection';
 import FloatingWhatsAppButton from './FloatingWhatsAppButton';
 import HeroSection from './HeroSection';
 import { installGmpQuotaTap } from './OfficeGoogleMap';
+import QuickActionsSection from './QuickActionsSection';
+import ServicesSection from './ServicesSection';
 import ShopSection from './ShopSection';
 import SiteHeader from './SiteHeader';
+import TestimonialsSection from './TestimonialsSection';
+import TrustStatsParallaxBanner from './TrustStatsParallaxBanner';
 
 interface AbayAppProps {
   initialOrders: OrderRecord[];
@@ -101,7 +109,6 @@ function parseCartSafely(rawJson: string): CartItem[] {
 }
 
 function AbayAppContent({
-  initialOrders,
   initialBookings,
   mapsApiKey,
 }: AbayAppProps) {
@@ -116,11 +123,14 @@ function AbayAppContent({
   const [cartOpen, setCartOpen] = useState(false);
   const [quotaExceeded, setQuotaExceeded] = useState(false);
 
-  const [orders, setOrders] = useState<OrderRecord[]>(initialOrders);
   const [bookings, setBookings] = useState<BookingRecord[]>(initialBookings);
   const [selectedServiceId, setSelectedServiceId] = useState<string>(
     SERVICES[0].id
   );
+  const [preferredDate, setPreferredDate] = useState<string>(() =>
+    new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
+  );
+  const [timeSlot, setTimeSlot] = useState<string>(AVAILABLE_TIME_SLOTS[0]);
 
   useEffect(() => {
     installGmpQuotaTap();
@@ -149,8 +159,7 @@ function AbayAppContent({
     writeCartToStorage(removeItemFromCart(cart, productId, size));
   };
 
-  const handleOrderConfirmed = (order: OrderRecord) => {
-    setOrders((prev) => [order, ...prev]);
+  const handleOrderConfirmed = () => {
     writeCartToStorage([]);
   };
 
@@ -162,12 +171,22 @@ function AbayAppContent({
     }
   };
 
+  const handleEmergencyQuickAction = () => {
+    setSelectedServiceId('SRV-05');
+    setPreferredDate(new Date().toISOString().slice(0, 10));
+    setTimeSlot(AVAILABLE_TIME_SLOTS[4]);
+    const el = document.getElementById('booking');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#0B0D10] text-[#F5F2EB]">
       {quotaExceeded && (
         <div
           role="alert"
-          className="border-b border-[#D4AF37]/40 bg-[#161B22] px-4 py-2.5 text-center text-xs text-[#F5F2EB] shadow-sm sticky top-0 z-50 md:text-sm"
+          className="relative z-50 border-b border-[#D4AF37]/40 bg-[#161B22] px-4 py-2.5 text-center text-xs text-[#F5F2EB] shadow-sm md:text-sm"
         >
           <span>
             Google Maps Platform quota reached. If you are the app owner, visit{' '}
@@ -192,25 +211,40 @@ function AbayAppContent({
       <main>
         <HeroSection />
 
-        <AboutAndServicesSection
+        <QuickActionsSection
+          onEmergencyQuickAction={handleEmergencyQuickAction}
+        />
+
+        <TrustStatsParallaxBanner />
+
+        <ServicesSection
           onSelectServiceForBooking={handleSelectServiceForBooking}
+        />
+
+        <FeaturedVideoSection />
+
+        <BookingSection
+          selectedServiceId={selectedServiceId}
+          onChangeServiceId={setSelectedServiceId}
+          preferredDate={preferredDate}
+          onChangePreferredDate={setPreferredDate}
+          timeSlot={timeSlot}
+          onChangeTimeSlot={setTimeSlot}
+          bookings={bookings}
+          onBookingCreated={(newBooking) =>
+            setBookings((prev) => [newBooking, ...prev])
+          }
         />
 
         <ShopSection
           onAddToCart={handleAddToCart}
           onOpenCart={() => setCartOpen(true)}
           cartItemCount={summary.itemCount}
-          recentOrders={orders}
         />
 
-        <BookingSection
-          selectedServiceId={selectedServiceId}
-          onChangeServiceId={setSelectedServiceId}
-          bookings={bookings}
-          onBookingCreated={(newBooking) =>
-            setBookings((prev) => [newBooking, ...prev])
-          }
-        />
+        <AboutSection />
+
+        <TestimonialsSection />
 
         <BlogAndContactSection mapsApiKey={mapsApiKey} />
       </main>

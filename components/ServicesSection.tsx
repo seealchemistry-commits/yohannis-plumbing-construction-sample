@@ -1,28 +1,32 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import { Bell, Calendar, Check, CheckCircle2, Clock, X } from 'lucide-react';
+import {
+  ArrowRight,
+  Bell,
+  Calendar,
+  Check,
+  CheckCircle2,
+  Clock,
+  X,
+} from 'lucide-react';
 import { validateNotifyInput } from '@/lib/booking/schedule';
 import type {
   ComingSoonService,
   NotifyRequestInput,
   NotifyRequestRecord,
 } from '@/lib/commerce/types';
-import {
-  COMING_SOON_SERVICES,
-  SERVICES,
-} from '@/lib/data/catalog';
+import { COMING_SOON_SERVICES, SERVICES } from '@/lib/data/catalog';
 import { useLanguage } from '@/lib/i18n/context';
-import aboutPlumbingMaterialsImg from '@/src/assets/images/about_plumbing_materials_1795186074742.jpg';
+import ScrollReveal from './ScrollReveal';
 
-interface AboutAndServicesSectionProps {
+interface ServicesSectionProps {
   onSelectServiceForBooking: (serviceId: string) => void;
 }
 
-export default function AboutAndServicesSection({
+export default function ServicesSection({
   onSelectServiceForBooking,
-}: AboutAndServicesSectionProps) {
+}: ServicesSectionProps) {
   const { locale, t } = useLanguage();
   const [notifyTarget, setNotifyTarget] = useState<ComingSoonService | null>(
     null
@@ -114,13 +118,12 @@ export default function AboutAndServicesSection({
 
   return (
     <>
-      {/* Services Section */}
       <section
         id="services"
-        className="border-b border-[rgba(212,175,55,0.22)] bg-[#12161C] py-20 lg:py-28"
+        className="overflow-x-clip border-b border-[rgba(212,175,55,0.22)] bg-[#12161C] py-20 lg:py-24"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="max-w-2xl">
+          <ScrollReveal className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
               {t.servicesSection.eyebrow}
             </p>
@@ -130,11 +133,11 @@ export default function AboutAndServicesSection({
             <p className="mt-4 text-sm leading-[1.8] tracking-[0.01em] text-[#A1A8B3]">
               {t.servicesSection.description}
             </p>
-          </div>
+          </ScrollReveal>
 
           <div
             data-testid="active-services-grid"
-            className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-12"
+            className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-12"
           >
             {SERVICES.map((service, idx) => {
               const isFullRow = idx === SERVICES.length - 1;
@@ -144,72 +147,78 @@ export default function AboutAndServicesSection({
                 ];
               const title = localized?.title ?? service.titleAm;
               const summary = localized?.summary ?? service.summaryAm;
-              const deliverables =
-                localized?.deliverables ?? service.deliverablesAm;
+              const deliverables = (
+                localized?.deliverables ?? service.deliverablesAm
+              ).slice(0, 3);
               const duration =
                 localized?.estimatedDuration ?? service.estimatedDurationAm;
 
               return (
-                <article
+                <ScrollReveal
                   key={service.id}
-                  data-testid={`service-card-${service.id}`}
-                  className={`flex flex-col justify-between rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-8 transition-colors duration-150 hover:border-[#D4AF37]/55 ${
+                  delay={(idx % 2) * 0.08}
+                  className={`h-full ${
                     isFullRow ? 'lg:col-span-12' : 'lg:col-span-6'
                   }`}
                 >
-                  <div>
-                    <div className="flex items-baseline justify-between gap-4 border-b border-[rgba(212,175,55,0.18)] pb-4">
-                      <h3 className="text-lg font-semibold leading-snug text-[#F8FAFC]">
-                        <span className="mr-2 font-mono tabular-nums text-sm font-bold text-[#D4AF37]">
-                          {service.number}.
-                        </span>{' '}
-                        {title}
-                      </h3>
+                  <article
+                    data-testid={`service-card-${service.id}`}
+                    className="flex h-full flex-col justify-between rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-7 transition-colors duration-150 hover:border-[#D4AF37]/55"
+                  >
+                    <div>
+                      <div className="flex items-baseline justify-between gap-4 border-b border-[rgba(212,175,55,0.18)] pb-3.5">
+                        <h3 className="text-lg font-semibold leading-snug text-[#F8FAFC]">
+                          <span className="mr-2 font-mono tabular-nums text-sm font-bold text-[#D4AF37]">
+                            {service.number}.
+                          </span>{' '}
+                          {title}
+                        </h3>
+                      </div>
+
+                      <p className="mt-4 line-clamp-2 text-sm leading-[1.65] text-[#A1A8B3]">
+                        {summary}
+                      </p>
+
+                      <ul
+                        className={`mt-5 gap-2.5 ${
+                          isFullRow
+                            ? 'grid grid-cols-1 sm:grid-cols-3'
+                            : 'space-y-2.5'
+                        }`}
+                      >
+                        {deliverables.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-2.5 text-sm leading-snug text-[#F5F2EB]"
+                          >
+                            <Check
+                              className="mt-0.5 h-4 w-4 shrink-0 text-[#D4AF37]"
+                              aria-hidden="true"
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    <p className="mt-5 text-sm leading-[1.75] text-[#A1A8B3]">
-                      {summary}
-                    </p>
-
-                    <ul
-                      className={`mt-6 gap-3 ${
-                        isFullRow
-                          ? 'grid grid-cols-1 sm:grid-cols-3'
-                          : 'space-y-3'
-                      }`}
-                    >
-                      {deliverables.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-2.5 text-sm leading-relaxed text-[#F5F2EB]"
-                        >
-                          <Check
-                            className="mt-1 h-4 w-4 shrink-0 text-[#D4AF37]"
-                            aria-hidden="true"
-                          />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#2A2416] pt-5">
-                    <span className="text-xs text-[#A1A8B3]">
-                      {t.servicesSection.durationPrefix} · {duration}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => onSelectServiceForBooking(service.id)}
-                      className="inline-flex min-h-[42px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.35)] bg-[#12161C] px-4 py-2 text-xs font-semibold text-[#F5F2EB] transition-colors hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0D10] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0 group"
-                    >
-                      <Calendar
-                        className="h-3.5 w-3.5 text-[#D4AF37] transition-colors group-hover:text-[#0B0D10]"
-                        aria-hidden="true"
-                      />
-                      <span>{t.servicesSection.bookServiceBtn}</span>
-                    </button>
-                  </div>
-                </article>
+                    <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-[#2A2416] pt-4">
+                      <span className="text-xs text-[#A1A8B3]">
+                        {t.servicesSection.durationPrefix} · {duration}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => onSelectServiceForBooking(service.id)}
+                        className="inline-flex min-h-[40px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.35)] bg-[#12161C] px-4 py-2 text-xs font-semibold text-[#F5F2EB] transition-colors hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0D10] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0 group"
+                      >
+                        <Calendar
+                          className="h-3.5 w-3.5 text-[#D4AF37] transition-colors group-hover:text-[#0B0D10]"
+                          aria-hidden="true"
+                        />
+                        <span>{t.servicesSection.bookServiceBtn}</span>
+                      </button>
+                    </div>
+                  </article>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -218,7 +227,7 @@ export default function AboutAndServicesSection({
           <div
             id="coming-soon"
             data-testid="coming-soon-section"
-            className="mt-20 border-t border-[rgba(212,175,55,0.22)] pt-16"
+            className="mt-16 border-t border-[rgba(212,175,55,0.22)] pt-14"
           >
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
@@ -232,7 +241,7 @@ export default function AboutAndServicesSection({
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-7 md:grid-cols-2">
+            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
               {COMING_SOON_SERVICES.map((item) => {
                 const localized =
                   t.servicesSection.comingSoonItems[
@@ -242,10 +251,10 @@ export default function AboutAndServicesSection({
                   <article
                     key={item.id}
                     data-testid={`coming-soon-card-${item.id}`}
-                    className="flex flex-col justify-between rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-8 transition-colors hover:border-[#D4AF37]/50"
+                    className="flex flex-col justify-between rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-7 transition-colors hover:border-[#D4AF37]/50"
                   >
                     <div>
-                      <div className="flex items-center justify-between gap-3 border-b border-[#2A2416] pb-4">
+                      <div className="flex items-center justify-between gap-3 border-b border-[#2A2416] pb-3.5">
                         <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[#D4AF37]">
                           <Clock
                             className="h-3.5 w-3.5 text-[#D4AF37]"
@@ -258,22 +267,22 @@ export default function AboutAndServicesSection({
                         </span>
                       </div>
 
-                      <h4 className="mt-5 text-lg font-semibold text-[#F8FAFC]">
+                      <h4 className="mt-4 text-lg font-semibold text-[#F8FAFC]">
                         {localized?.title ?? item.titleAm}
                       </h4>
-                      <p className="mt-3 text-sm leading-[1.75] text-[#A1A8B3]">
+                      <p className="mt-2.5 text-sm leading-[1.7] text-[#A1A8B3]">
                         {localized?.summary ?? item.summaryAm}
                       </p>
                     </div>
 
-                    <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-[#2A2416] pt-5">
+                    <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-[#2A2416] pt-4">
                       <span className="text-xs font-medium text-[#A1A8B3]">
                         {localized?.expectedLaunch ?? item.expectedLaunchAm}
                       </span>
                       <button
                         type="button"
                         onClick={() => openNotifyModal(item)}
-                        className="inline-flex min-h-[42px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.42)] bg-[#12161C] px-4 py-2 text-xs font-semibold text-[#F5F2EB] transition-colors hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0D10] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0 group"
+                        className="inline-flex min-h-[40px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.42)] bg-[#12161C] px-4 py-2 text-xs font-semibold text-[#F5F2EB] transition-colors hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0D10] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0 group"
                       >
                         <Bell
                           className="h-3.5 w-3.5 text-[#D4AF37] transition-colors group-hover:text-[#0B0D10]"
@@ -287,95 +296,29 @@ export default function AboutAndServicesSection({
               })}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* About & Proof Section */}
-      <section
-        id="about"
-        className="relative overflow-hidden border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] py-20 lg:py-28"
-      >
-        {/* Plumbing materials ambient backdrop */}
-        <div
-          aria-hidden="true"
-          data-testid="about-ambient-backdrop"
-          className="pointer-events-none absolute inset-0 select-none"
-        >
-          <Image
-            src={aboutPlumbingMaterialsImg}
-            alt=""
-            fill
-            referrerPolicy="no-referrer"
-            sizes="100vw"
-            className="object-cover object-center opacity-[0.20]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#0B0D10]/85 via-[#0B0D10]/78 to-[#0B0D10]/75" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/75 via-transparent to-[#0B0D10]/85" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="grid grid-cols-2 gap-4 lg:col-span-6">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.28)] bg-[#12161C] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.85)]">
-                <Image
-                  src="/assets/aistudio/photo_2026-11-19_03-39-11_400c319a.jpg"
-                  alt={t.about.photo1Alt}
-                  fill
-                  referrerPolicy="no-referrer"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-top"
-                />
-              </div>
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.28)] bg-[#12161C] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.85)]">
-                <Image
-                  src="/assets/aistudio/photo_2026-11-19_03-37-24_305f48e9.jpg"
-                  alt={t.about.photo2Alt}
-                  fill
-                  referrerPolicy="no-referrer"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-center"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col lg:col-span-6">
-              <div>
-                <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
-                  {t.about.eyebrow}
-                </p>
-                <h2 className="mt-3 text-balance text-2xl font-bold leading-snug tracking-tight text-[#F8FAFC] sm:text-3xl lg:text-4xl">
-                  {t.about.heading}
-                </h2>
-                <p className="mt-5 text-sm leading-[1.85] tracking-[0.01em] text-[#A1A8B3]">
-                  {t.about.description}
-                </p>
-              </div>
-
-              <div className="mt-10 border-t border-[rgba(212,175,55,0.22)] pt-7">
-                <h3 className="text-sm font-bold text-[#F8FAFC]">
-                  {t.about.projectsHeading}
-                </h3>
-                <div className="mt-4 divide-y divide-[#2A2416] border-y border-[#2A2416]">
-                  {t.about.projects.map((project, idx) => (
-                    <div
-                      key={`${idx}-${project.name}`}
-                      className="flex flex-col gap-1.5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
-                    >
-                      <div>
-                        <p className="text-sm font-semibold text-[#F5F2EB]">
-                          {project.name}
-                        </p>
-                        <p className="mt-0.5 text-xs leading-relaxed text-[#A1A8B3]">
-                          {project.scope}
-                        </p>
-                      </div>
-                      <p className="shrink-0 font-mono tabular-nums text-xs font-semibold text-[#D4AF37]">
-                        {project.metric}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          {/* Section-End CTA Bar */}
+          <div
+            data-testid="services-section-cta"
+            className="mt-14 flex flex-col gap-4 rounded-2xl border border-[rgba(212,175,55,0.28)] bg-[#0B0D10] p-6 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <p className="text-sm font-semibold text-[#F8FAFC]">
+              {t.servicesSection.sectionCtaTitle}
+            </p>
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href="#booking"
+                className="inline-flex min-h-[42px] items-center gap-2 rounded-xl bg-[#D4AF37] px-5 py-2 text-xs font-bold text-[#0B0D10] transition-colors hover:bg-[#E5C158] whitespace-nowrap"
+              >
+                <span>{t.servicesSection.sectionCtaBookingBtn}</span>
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex min-h-[42px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.35)] bg-[#161B22] px-4 py-2 text-xs font-semibold text-[#F5F2EB] transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37] whitespace-nowrap"
+              >
+                {t.servicesSection.sectionCtaContactBtn}
+              </a>
             </div>
           </div>
         </div>
@@ -424,7 +367,8 @@ export default function AboutAndServicesSection({
                       {t.servicesSection.notifyModal.successTitle}
                     </p>
                     <p className="mt-1 font-mono text-xs font-semibold text-[#D4AF37]">
-                      {t.servicesSection.notifyModal.refLabel}: {notifySuccess.id}
+                      {t.servicesSection.notifyModal.refLabel}:{' '}
+                      {notifySuccess.id}
                     </p>
                     <p className="mt-2 text-xs leading-relaxed text-[#A1A8B3]">
                       {t.servicesSection.notifyModal.successDetail(

@@ -26,11 +26,11 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'SRV-01',
     number: '01',
-    titleAm: 'የንጹህ ውሃ መስመር ዝርጋታ (PPR, PVC, Copper)',
+    titleAm: 'የንጹህ ውሃ መስመር ዝርጋታ (PP-R, PVC, Copper)',
     summaryAm:
-      'ለመኖሪያ ቤቶች፣ ለአፓርታማዎችና ለንግድ ህንጻዎች የሙቅና ቀዝቃዛ ንጹህ ውሃ መስመሮችን በPPR, PVC እና Copper ቧንቧዎች በከፍተኛ ጥንቃቄ እንዘረጋለን።',
+      'ለቤቶችና ህንጻዎች የሙቅና ቀዝቃዛ ውሃ መስመር በPP-R (PPR), PVC እና Copper እንዘረጋለን።',
     deliverablesAm: [
-      'ትክክለኛ የPPR, PVC እና Copper መስመር ዲዛይንና ገጠማ',
+      'ትክክለኛ የPP-R, PVC እና Copper መስመር ገጠማ',
       'በ16 ባር Hydrostatic Pressure Test ፍተሻ',
       'ለሙቅና ቀዝቃዛ ውሃ የተለየ ኢንሱሌሽን',
     ],
@@ -42,11 +42,11 @@ export const SERVICES: ServiceItem[] = [
     number: '02',
     titleAm: 'የፍሳሽ ማስወገጃ መስመር ዝርጋታና የተደፈነ ቧንቧ ማጽዳት',
     summaryAm:
-      'ሽታና ፍሳሽ የሌለበት የPVC የፍሳሽ ማስወገጃ መስመር ዝርጋታ፣ የማንሆል ግንኙነት እንዲሁም የተደፈኑ የኩሽና፣ የመታጠቢያና የዋና መስመር ቧንቧዎችን በዘመናዊ መሳሪያ ማጽዳት።',
+      'ሽታ የሌለው uPVC የፍሳሽ መስመር ዝርጋታ እና የተደፈኑ ቧንቧዎችን ግድግዳ ሳይፈርስ ማጽዳት።',
     deliverablesAm: [
-      'ትክክለኛ ተዳፋት (Slope) ያለው uPVC የፍሳሽ መስመር ዝርጋታ',
-      'የተደፈኑ ቧንቧዎችን ግድግዳ ሳይፈርስ በሜካኒካል ማጽጃ መክፈት',
-      'የሽታ መከላከያ Floor Trap እና Vent Pipe ገጠማ',
+      'ትክክለኛ Slope ያለው uPVC የፍሳሽ መስመር ዝርጋታ',
+      'የተደፈኑ ቧንቧዎችን በሜካኒካል ማጽጃ መክፈት',
+      'የFloor Trap እና Vent Pipe ሽታ መከላከያ ገጠማ',
     ],
     estimatedDurationAm: 'ከ2 ሰዓት እስከ 3 ቀናት',
   },
@@ -55,11 +55,11 @@ export const SERVICES: ServiceItem[] = [
     number: '03',
     titleAm: 'የውሃ ፓምፕ (Booster Pump)፣ የውሃ ታንከር እና የውሃ ማሞቂያ ገጠማ',
     summaryAm:
-      'በሁሉም ፎቆች ላይ እኩል የውሃ ግፊት እንዲኖር Booster Pump፣ የመሬት ውስጥና የጣሪያ የውሃ ታንከሮች እንዲሁም የኤሌክትሪክና የሶላር ቦይለሮች ገጠማ።',
+      'በሁሉም ፎቆች እኩል ግፊት እንዲኖር Booster pump፣ ታንከር እና ቦይለሮችን እንገጥማለን።',
     deliverablesAm: [
       'Booster Pump ከAutomatic Pressure Switch እና Dry-Run Protection ጋር',
       'የውሃ ታንከር Float Valve እና Check Valve ገጠማ',
-      'የሙቅ ውሃ ቦይለር ደህንነቱ የተጠበቀ Safety Valve ተከላ',
+      'የሙቅ ውሃ ቦይለር Safety Valve ተከላ',
     ],
     estimatedDurationAm: '1 ቀን',
   },
@@ -68,9 +68,9 @@ export const SERVICES: ServiceItem[] = [
     number: '04',
     titleAm: 'የመታጠቢያ ቤትና የኩሽና ዕቃዎች ገጠማ (ሻወር፣ መጸዳጃ፣ ሲንክ፣ ቧንቧ)',
     summaryAm:
-      'የሻወር ቦክሶች፣ ዘመናዊ መጸዳጃዎች (WC)፣ የእጅ መታጠቢያ ሲንኮች፣ ቀላቃይ ቧንቧዎች (Mixers) እና የልብስ ማጠቢያ ማሽን መስመሮችን ያለ ምንም ፍሳሽ እንገጥማለን።',
+      'ሻወር፣ መጸዳጃ (WC)፣ ሲንክ፣ ቀላቃይ ቧንቧዎች (Mixers) እና የማጠቢያ መስመር ያለ ፍሳሽ ገጠማ።',
     deliverablesAm: [
-      'የሻወር፣ መጸዳጃ (WC) እና ሲንክ ትክክለኛ ገጠማና ሲሊኮን ማሸግ',
+      'የሻወር፣ WC እና ሲንክ ገጠማና ሲሊኮን ማሸግ',
       'የAngle Valve እና Flexible Hose ጥራት ያለው ግንኙነት',
       'የውሃ ግፊት እና የፍሳሽ ፍተሻ ከርክክብ በፊት',
     ],
@@ -81,11 +81,11 @@ export const SERVICES: ServiceItem[] = [
     number: '05',
     titleAm: 'የውሃ ፍሳሽ መለየትና አስቸኳይ ጥገና (24/7 Emergency Leak Repair)',
     summaryAm:
-      'በግድግዳ ወይም በወለል ውስጥ የተደበቀ የውሃ ፍሳሽ፣ የፈነዳ ቧንቧ ወይም የተበላሸ ቫልቭ ሲያጋጥም 24/7 በፍጥነት ደርሰን ችግሩን በዘላቂነት እንፈታለን።',
+      'ለተደበቀ የውሃ ፍሳሽ፣ ለፈነዳ ቧንቧ ወይም ለተበላሸ ቫልቭ 24/7 በፍጥነት ደርሰን እንጠግናለን።',
     deliverablesAm: [
       'በ24/7 አስቸኳይ ጥሪ በአዲስ አበባ ፈጣን መድረስ',
       'ግድግዳ ሳይበላሽ የተሰበረ ቧንቧ መለየትና መተካት',
-      'የግፊት ቫልቭና የመገጣጠሚያ ድንገተኛ ጥገና',
+      'የግፊት ቫልቭና መገጣጠሚያ ድንገተኛ ጥገና',
     ],
     estimatedDurationAm: 'በ1 እስከ 3 ሰዓታት ውስጥ',
     featured: true,

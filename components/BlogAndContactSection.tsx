@@ -20,6 +20,8 @@ import { MEDIA_ASSETS } from '@/lib/data/media';
 import { useLanguage } from '@/lib/i18n/context';
 import FaqAccordionSection from './FaqAccordionSection';
 import OfficeGoogleMap from './OfficeGoogleMap';
+import PreFooterCtaBanner from './PreFooterCtaBanner';
+import ScrollReveal from './ScrollReveal';
 
 interface BlogAndContactSectionProps {
   mapsApiKey: string;
@@ -102,17 +104,17 @@ export default function BlogAndContactSection({
       {/* Blog & News Section */}
       <section
         id="blog"
-        className="border-b border-[rgba(212,175,55,0.22)] bg-[#12161C] py-20 lg:py-28"
+        className="overflow-x-clip border-b border-[rgba(212,175,55,0.22)] bg-[#12161C] py-20 lg:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="max-w-2xl">
+          <ScrollReveal className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
               {t.blog.eyebrow}
             </p>
             <h2 className="mt-3 text-balance text-2xl font-bold leading-snug tracking-tight text-[#F8FAFC] sm:text-3xl lg:text-4xl">
               {t.blog.heading}
             </h2>
-          </div>
+          </ScrollReveal>
 
           <div className="mt-12 grid grid-cols-1 gap-7 md:grid-cols-3">
             {BLOG_ARTICLES.map((article) => {
@@ -126,10 +128,8 @@ export default function BlogAndContactSection({
               const excerpt = localized?.excerpt ?? article.excerptAm;
 
               return (
-                <article
-                  key={article.id}
-                  className="flex flex-col justify-between overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] transition-colors duration-150 hover:border-[#D4AF37]/55"
-                >
+                <ScrollReveal key={article.id} className="h-full">
+                  <article className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] transition-colors duration-150 hover:border-[#D4AF37]/55">
                   <div>
                     <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-[rgba(212,175,55,0.16)] bg-[#0B0D10]">
                       <Image
@@ -176,8 +176,34 @@ export default function BlogAndContactSection({
                     </button>
                   </div>
                 </article>
+                </ScrollReveal>
               );
             })}
+          </div>
+
+          {/* Section-End CTA Bar */}
+          <div
+            data-testid="blog-section-cta"
+            className="mt-14 flex flex-col gap-4 rounded-2xl border border-[rgba(212,175,55,0.28)] bg-[#0B0D10] p-6 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <p className="text-sm font-semibold text-[#F8FAFC]">
+              {t.blog.sectionCtaTitle}
+            </p>
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href="#booking"
+                className="inline-flex min-h-[42px] items-center gap-2 rounded-xl bg-[#D4AF37] px-5 py-2 text-xs font-bold text-[#0B0D10] transition-colors hover:bg-[#E5C158] whitespace-nowrap"
+              >
+                <span>{t.blog.sectionCtaBookingBtn}</span>
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex min-h-[42px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.35)] bg-[#161B22] px-4 py-2 text-xs font-semibold text-[#F5F2EB] transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37] whitespace-nowrap"
+              >
+                {t.blog.sectionCtaContactBtn}
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -188,11 +214,11 @@ export default function BlogAndContactSection({
       {/* Contact Section */}
       <section
         id="contact"
-        className="border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] py-20 lg:py-28"
+        className="overflow-x-clip border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] py-20 lg:py-28"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-5">
+            <ScrollReveal variant="fade-left" className="lg:col-span-5">
               <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
                 {t.contact.eyebrow}
               </p>
@@ -316,12 +342,14 @@ export default function BlogAndContactSection({
                   </a>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div
-              id="contact-form"
+            <ScrollReveal
+              variant="fade-right"
+              delay={0.1}
               className="rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#12161C] p-7 sm:p-8 lg:col-span-7"
             >
+              <div id="contact-form">
               <form
                 onSubmit={handleContactSubmit}
                 noValidate
@@ -451,10 +479,14 @@ export default function BlogAndContactSection({
                   {submitting ? t.contact.sendingBtn : t.contact.sendBtn}
                 </button>
               </form>
-            </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
+
+      {/* Fixed-Background Parallax Pre-Footer CTA Banner */}
+      <PreFooterCtaBanner />
 
       {/* Quiet Obsidian & Gold Footer */}
       <footer className="bg-[#08090C] pt-14 pb-28 text-[#A1A8B3]">

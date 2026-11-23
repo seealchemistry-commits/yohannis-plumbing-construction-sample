@@ -98,8 +98,89 @@ export interface TranslationDictionary {
     primaryCta: string;
     secondaryCta: string;
     hotlineLabel: string;
+    coverageNote: string;
     imageAlt: string;
+    slideLabels: [string, string, string, string];
     stats: Array<{ value: string; label: string }>;
+  };
+  quickActions: {
+    eyebrow: string;
+    heading: string;
+    items: [
+      { id: 'QA-01'; title: string; subtitle: string },
+      { id: 'QA-02'; title: string; subtitle: string },
+      { id: 'QA-03'; title: string; subtitle: string },
+      { id: 'QA-04'; title: string; subtitle: string }
+    ];
+  };
+  trustBanner: {
+    eyebrow: string;
+    heading: string;
+  };
+  videoShowcase: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    nowPlayingLabel: string;
+    selectVideoLabel: string;
+    items: [
+      {
+        id: 'VID-01';
+        category: string;
+        title: string;
+        duration: string;
+        summary: string;
+      },
+      {
+        id: 'VID-02';
+        category: string;
+        title: string;
+        duration: string;
+        summary: string;
+      },
+      {
+        id: 'VID-03';
+        category: string;
+        title: string;
+        duration: string;
+        summary: string;
+      }
+    ];
+  };
+  testimonials: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    items: [
+      {
+        id: 'REV-01';
+        quote: string;
+        author: string;
+        district: string;
+        projectTag: string;
+      },
+      {
+        id: 'REV-02';
+        quote: string;
+        author: string;
+        district: string;
+        projectTag: string;
+      },
+      {
+        id: 'REV-03';
+        quote: string;
+        author: string;
+        district: string;
+        projectTag: string;
+      }
+    ];
+  };
+  preFooterCta: {
+    eyebrow: string;
+    heading: string;
+    subtext: string;
+    primaryBtn: string;
+    secondaryBtn: string;
   };
   servicesSection: {
     eyebrow: string;
@@ -107,6 +188,9 @@ export interface TranslationDictionary {
     description: string;
     durationPrefix: string;
     bookServiceBtn: string;
+    sectionCtaTitle: string;
+    sectionCtaBookingBtn: string;
+    sectionCtaContactBtn: string;
     items: Record<'SRV-01' | 'SRV-02' | 'SRV-03' | 'SRV-04' | 'SRV-05', LocalizedServiceCopy>;
     comingSoonEyebrow: string;
     comingSoonHeading: string;
@@ -141,12 +225,23 @@ export interface TranslationDictionary {
     photo2Alt: string;
     projectsHeading: string;
     projects: [LocalizedProjectCopy, LocalizedProjectCopy, LocalizedProjectCopy];
+    sectionCtaTitle: string;
+    sectionCtaBookingBtn: string;
+    sectionCtaContactBtn: string;
   };
   shop: {
     eyebrow: string;
     heading: string;
     description: string;
     viewCartBtn: string;
+    featuredHeading: string;
+    featuredBadge: string;
+    featuredSubtext: string;
+    featuredTags: {
+      pprPipe: string;
+      boosterPump: string;
+      mixer: string;
+    };
     categoriesAriaLabel: string;
     categories: {
       ALL: string;
@@ -175,6 +270,9 @@ export interface TranslationDictionary {
     totalOrdersLabel: string;
     confirmedStatus: string;
     sizeTag: (size: string) => string;
+    sectionCtaTitle: string;
+    sectionCtaBookingBtn: string;
+    sectionCtaContactBtn: string;
   };
   booking: {
     eyebrow: string;
@@ -182,6 +280,11 @@ export interface TranslationDictionary {
     description: string;
     confirmedTitle: string;
     addressPrefix: string;
+    visitModeLabel: string;
+    scheduledVisitBtn: string;
+    scheduledVisitHint: string;
+    emergencyVisitBtn: string;
+    emergencyVisitHint: string;
     serviceTypeLabel: string;
     propertyTypeLabel: string;
     propertyTypes: {
@@ -211,6 +314,8 @@ export interface TranslationDictionary {
     scheduledStatus: string;
     clientPrefix: string;
     footerNote: string;
+    sectionCtaTitle: string;
+    sectionCtaContactBtn: string;
     genericError: string;
     networkError: string;
   };
@@ -261,6 +366,9 @@ export interface TranslationDictionary {
     readMoreBtn: string;
     closeArticleAriaLabel: string;
     articles: Record<'BLG-01' | 'BLG-02' | 'BLG-03', LocalizedBlogCopy>;
+    sectionCtaTitle: string;
+    sectionCtaBookingBtn: string;
+    sectionCtaContactBtn: string;
   };
   contact: {
     eyebrow: string;

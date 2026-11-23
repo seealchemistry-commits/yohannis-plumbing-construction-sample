@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, CheckCircle2, Clock, MapPin } from 'lucide-react';
+import { ArrowRight, Calendar, CheckCircle2, Clock, MapPin, ShieldAlert } from 'lucide-react';
 import {
   ADDIS_SUBCITIES,
   AVAILABLE_TIME_SLOTS,
@@ -27,10 +27,15 @@ import {
   getLocalizedTimeSlot,
 } from '@/lib/i18n';
 import { useLanguage } from '@/lib/i18n/context';
+import ScrollReveal from './ScrollReveal';
 
 interface BookingSectionProps {
   selectedServiceId: string;
   onChangeServiceId: (serviceId: string) => void;
+  preferredDate: string;
+  onChangePreferredDate: (date: string) => void;
+  timeSlot: string;
+  onChangeTimeSlot: (slot: string) => void;
   bookings: BookingRecord[];
   onBookingCreated: (booking: BookingRecord) => void;
 }
@@ -41,6 +46,10 @@ const PROPERTY_TYPE_IDS: PropertyType[] = [
   'INDUSTRIAL',
 ];
 
+function getTodayIsoDate(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
 function getTomorrowIsoDate(): string {
   const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
   return tomorrow.toISOString().slice(0, 10);
@@ -49,14 +58,16 @@ function getTomorrowIsoDate(): string {
 export default function BookingSection({
   selectedServiceId,
   onChangeServiceId,
+  preferredDate,
+  onChangePreferredDate,
+  timeSlot,
+  onChangeTimeSlot,
   bookings,
   onBookingCreated,
 }: BookingSectionProps) {
   const { locale, t } = useLanguage();
   const defaultSubCity = ADDIS_SUBCITIES[0];
   const [propertyType, setPropertyType] = useState<PropertyType>('RESIDENTIAL');
-  const [preferredDate, setPreferredDate] = useState(getTomorrowIsoDate);
-  const [timeSlot, setTimeSlot] = useState<string>(AVAILABLE_TIME_SLOTS[0]);
   const [customerName, setCustomerName] = useState('');
   const [phone, setPhone] = useState('');
   const [subCity, setSubCity] = useState<string>(defaultSubCity);
@@ -78,6 +89,21 @@ export default function BookingSection({
 
   const availableWoredas = getWoredasForSubCity(subCity);
   const availableLandmarks = getLandmarksForSubCity(subCity);
+  const emergencyTimeSlot = AVAILABLE_TIME_SLOTS[4];
+  const isEmergencyMode = timeSlot === emergencyTimeSlot;
+
+  const handleSelectVisitMode = (mode: 'scheduled' | 'emergency') => {
+    setConfirmedBooking(null);
+    if (mode === 'emergency') {
+      onChangePreferredDate(getTodayIsoDate());
+      onChangeTimeSlot(emergencyTimeSlot);
+    } else {
+      onChangePreferredDate(getTomorrowIsoDate());
+      if (timeSlot === emergencyTimeSlot) {
+        onChangeTimeSlot(AVAILABLE_TIME_SLOTS[0]);
+      }
+    }
+  };
 
   const handleSubCityChange = (nextSubCity: string) => {
     setSubCity(nextSubCity);
@@ -155,10 +181,10 @@ export default function BookingSection({
   return (
     <section
       id="booking"
-      className="border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] py-20 lg:py-28"
+      className="overflow-x-clip border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10] py-20 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        <div className="max-w-2xl">
+        <ScrollReveal className="max-w-2xl">
           <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
             {t.booking.eyebrow}
           </p>
@@ -168,11 +194,11 @@ export default function BookingSection({
           <p className="mt-4 text-sm leading-[1.8] text-[#A1A8B3]">
             {t.booking.description}
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Booking Form */}
-          <div className="rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#12161C] p-7 sm:p-8 lg:col-span-7">
+          <ScrollReveal variant="fade-left" className="rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#12161C] p-7 sm:p-8 lg:col-span-7">
             <form onSubmit={handleSubmit} noValidate className="space-y-6">
               {submitError && (
                 <p className="rounded-xl border border-red-500/40 bg-red-950/40 px-4 py-3 text-xs text-red-200">
@@ -219,6 +245,76 @@ export default function BookingSection({
                   </div>
                 </div>
               )}
+
+              {/* Quick Urgency Mode Selector: Scheduled Visit vs 24/7 Emergency */}
+              <div>
+                <span className="block text-xs font-semibold text-[#F5F2EB]">
+                  {t.booking.visitModeLabel}
+                </span>
+                <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <button
+                    type="button"
+                    data-testid="booking-mode-scheduled"
+                    aria-pressed={!isEmergencyMode}
+                    onClick={() => handleSelectVisitMode('scheduled')}
+                    className={`flex min-h-[54px] items-start gap-3 rounded-xl border px-4 py-3 text-left transition-colors ${
+                      !isEmergencyMode
+                        ? 'border-[#D4AF37] bg-[#D4AF37]/15 text-[#F8FAFC]'
+                        : 'border-[#2A2416] bg-[#0B0D10] text-[#A1A8B3] hover:border-[#D4AF37]/45 hover:text-[#F8FAFC]'
+                    }`}
+                  >
+                    <Calendar
+                      className={`mt-0.5 h-4 w-4 shrink-0 ${
+                        !isEmergencyMode ? 'text-[#D4AF37]' : 'text-[#A1A8B3]'
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <span className="block text-xs font-bold text-[#F8FAFC]">
+                        {t.booking.scheduledVisitBtn}
+                      </span>
+                      <span className="mt-0.5 block text-[11px] text-[#A1A8B3]">
+                        {t.booking.scheduledVisitHint}
+                      </span>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-testid="booking-mode-emergency"
+                    aria-pressed={isEmergencyMode}
+                    onClick={() => handleSelectVisitMode('emergency')}
+                    className={`flex min-h-[54px] items-start gap-3 rounded-xl border px-4 py-3 text-left transition-colors ${
+                      isEmergencyMode
+                        ? 'border-[#D4AF37] bg-[#D4AF37] text-[#0B0D10]'
+                        : 'border-[#2A2416] bg-[#0B0D10] text-[#A1A8B3] hover:border-[#D4AF37]/45 hover:text-[#F8FAFC]'
+                    }`}
+                  >
+                    <ShieldAlert
+                      className={`mt-0.5 h-4 w-4 shrink-0 ${
+                        isEmergencyMode ? 'text-[#0B0D10]' : 'text-[#D4AF37]'
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <span
+                        className={`block text-xs font-bold ${
+                          isEmergencyMode ? 'text-[#0B0D10]' : 'text-[#F8FAFC]'
+                        }`}
+                      >
+                        {t.booking.emergencyVisitBtn}
+                      </span>
+                      <span
+                        className={`mt-0.5 block text-[11px] ${
+                          isEmergencyMode ? 'text-[#0B0D10]/80' : 'text-[#A1A8B3]'
+                        }`}
+                      >
+                        {t.booking.emergencyVisitHint}
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </div>
 
               <div>
                 <label
@@ -287,7 +383,7 @@ export default function BookingSection({
                     id="booking-date"
                     type="date"
                     value={preferredDate}
-                    onChange={(e) => setPreferredDate(e.target.value)}
+                    onChange={(e) => onChangePreferredDate(e.target.value)}
                     className="mt-2 min-h-[44px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2 font-mono text-sm text-[#F8FAFC] focus:border-[#D4AF37] focus:outline-none"
                   />
                   {fieldErrors.preferredDate && (
@@ -307,7 +403,7 @@ export default function BookingSection({
                   <select
                     id="booking-time"
                     value={timeSlot}
-                    onChange={(e) => setTimeSlot(e.target.value)}
+                    onChange={(e) => onChangeTimeSlot(e.target.value)}
                     className="mt-2 min-h-[44px] w-full rounded-xl border border-[#2A2416] bg-[#0B0D10] px-3.5 py-2 text-sm text-[#F8FAFC] focus:border-[#D4AF37] focus:outline-none"
                   >
                     {AVAILABLE_TIME_SLOTS.map((slot, idx) => (
@@ -494,10 +590,10 @@ export default function BookingSection({
                 {submitting ? t.booking.submittingBtn : t.booking.submitBtn}
               </button>
             </form>
-          </div>
+          </ScrollReveal>
 
           {/* Scheduled Bookings List */}
-          <div className="flex flex-col justify-between rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-7 sm:p-8 lg:col-span-5">
+          <ScrollReveal variant="fade-right" delay={0.1} className="flex flex-col justify-between rounded-2xl border border-[rgba(212,175,55,0.22)] bg-[#161B22] p-7 sm:p-8 lg:col-span-5">
             <div>
               <div className="flex items-center justify-between border-b border-[#2A2416] pb-4">
                 <h3 className="text-sm font-bold text-[#F8FAFC]">
@@ -585,7 +681,24 @@ export default function BookingSection({
             <div className="mt-6 border-t border-[#2A2416] pt-5 text-xs leading-relaxed text-[#A1A8B3]">
               {t.booking.footerNote}
             </div>
-          </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Section-End CTA Bar */}
+        <div
+          data-testid="booking-section-cta"
+          className="mt-12 flex flex-col gap-4 rounded-2xl border border-[rgba(212,175,55,0.28)] bg-[#12161C] p-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p className="text-sm font-semibold text-[#F8FAFC]">
+            {t.booking.sectionCtaTitle}
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex min-h-[42px] items-center gap-2 self-start rounded-xl border border-[rgba(212,175,55,0.4)] bg-[#161B22] px-5 py-2 text-xs font-bold text-[#F8FAFC] transition-colors hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0B0D10] whitespace-nowrap shrink-0 sm:self-auto"
+          >
+            <span>{t.booking.sectionCtaContactBtn}</span>
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>

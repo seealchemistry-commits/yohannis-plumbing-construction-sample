@@ -42,8 +42,16 @@ export const en: TranslationDictionary = {
     primaryCta: 'Book a Plumber',
     secondaryCta: 'Plumbing Supplies Shop',
     hotlineLabel: '24/7 Emergency Call / Direct Line:',
+    coverageNote:
+      'Fast dispatch across Bole, CMC, Ayat & Addis Ababa • Free site inspection for major installations',
     imageAlt:
       'Tirat Plumbing precision water manifold, Copper & PPR piping, brass valves, filtration, and boiler installation',
+    slideLabels: [
+      'Precision Brass Valves & Copper Fittings',
+      'Commercial PP-R & Manifold Engineering',
+      'Modern Sanitary & Mixer Installations',
+      'Certified Addis Ababa Technical Dispatch',
+    ],
     stats: [
       {
         value: '14+ Years',
@@ -63,6 +71,110 @@ export const en: TranslationDictionary = {
       },
     ],
   },
+  quickActions: {
+    eyebrow: 'Fast Navigation · Direct Service Dispatch',
+    heading: 'Get the Right Plumbing Support in One Click',
+    items: [
+      {
+        id: 'QA-01',
+        title: '24/7 Emergency',
+        subtitle: 'Immediate burst pipe & leak dispatch',
+      },
+      {
+        id: 'QA-02',
+        title: 'Book a Plumber',
+        subtitle: 'Schedule site visit across Addis Ababa',
+      },
+      {
+        id: 'QA-03',
+        title: 'Plumbing Supplies',
+        subtitle: 'Order genuine PP-R, pumps & mixers',
+      },
+      {
+        id: 'QA-04',
+        title: 'Free Inspection Quote',
+        subtitle: 'Speak with engineers for major piping',
+      },
+    ],
+  },
+  trustBanner: {
+    eyebrow: 'Proven Engineering Track Record',
+    heading: 'Engineered for Pressure Stability Across Addis Ababa',
+  },
+  videoShowcase: {
+    eyebrow: 'Tirat Plumbing Videos',
+    heading: 'See Our Work in Action',
+    description:
+      'Inspect real water manifold assemblies, Booster Pump pressure balancing, and modern sanitary installations from our Addis Ababa job sites.',
+    nowPlayingLabel: 'Now Playing',
+    selectVideoLabel: 'Select Video Showcase',
+    items: [
+      {
+        id: 'VID-01',
+        category: 'Manifold & PP-R Piping',
+        title: 'Clean Water Manifold & 16 Bar Pressure Test Assembly',
+        duration: '00:04',
+        summary:
+          'Balanced brass shutoff manifolds fused with PN20 PP-R lines and calibrated pressure verification.',
+      },
+      {
+        id: 'VID-02',
+        category: 'Booster Pump Setup',
+        title: '750W Automatic Booster Pump & Check Valve Station',
+        duration: '00:04',
+        summary:
+          'Quiet multi-story pressure boosting equipped with Dry-Run Protection and forged brass Check Valves.',
+      },
+      {
+        id: 'VID-03',
+        category: 'Sanitary Fixtures',
+        title: 'Luxury Bathroom Mixer, Shower & Drainage Finishing',
+        duration: '00:04',
+        summary:
+          'Leak-free 304 stainless steel Mixer installation and odor-sealed drainage traps for residential villas.',
+      },
+    ],
+  },
+  testimonials: {
+    eyebrow: 'Verified Addis Ababa Client Reviews',
+    heading: 'Trusted by Homeowners, Villas & Commercial Developers',
+    description:
+      'Consistent workmanship, genuine materials from our Shop, and rapid 24/7 Emergency Leak Repair response.',
+    items: [
+      {
+        id: 'REV-01',
+        quote:
+          'Their crew completed our entire Bole Atlas G+3 PP-R manifold and rooftop Booster Pump upgrade on schedule, passing a 16 Bar pressure test with zero drips.',
+        author: 'Dawit Bekele',
+        district: 'Bole Atlas · Villa Owner',
+        projectTag: 'PP-R Piping & Booster Pump',
+      },
+      {
+        id: 'REV-02',
+        quote:
+          'When a concealed pipe burst at night in Ayat, Tirat Plumbing dispatched within two hours, isolated the line cleanly without breaking adjacent tiles, and replaced the valve.',
+        author: 'Meron Tadesse',
+        district: 'Ayat · Residential Compound',
+        projectTag: '24/7 Emergency Leak Repair',
+      },
+      {
+        id: 'REV-03',
+        quote:
+          'Buying forged brass valves and bathroom Mixers directly from their Shop alongside installation saved us days of sourcing and eliminated counterfeit fittings.',
+        author: 'Eng. Robel Alemayehu',
+        district: 'CMC · Building Contractor',
+        projectTag: 'Shop Supplies & Sanitary Setup',
+      },
+    ],
+  },
+  preFooterCta: {
+    eyebrow: 'Ready When You Need Certified Plumbers',
+    heading: 'Need Reliable Pipe Installation or 24/7 Emergency Dispatch?',
+    subtext:
+      'Book an engineer across Bole, CMC, Ayat, or any Addis Ababa sub-city, or order ISO-certified PP-R pipes and Booster Pumps today.',
+    primaryBtn: 'Book a Plumber Now',
+    secondaryBtn: 'Browse Supplies Shop',
+  },
   servicesSection: {
     eyebrow: 'Our Plumbing Services',
     heading: '5 Core Services Focused on Piping & Maintenance',
@@ -70,58 +182,61 @@ export const en: TranslationDictionary = {
       'From PPR, PVC, and Copper water and drainage piping to Booster Pump installation and 24/7 Emergency Leak Repair handled by certified technicians.',
     durationPrefix: 'Estimated Duration',
     bookServiceBtn: 'Book Now',
+    sectionCtaTitle: 'Ready to start your plumbing installation or repair?',
+    sectionCtaBookingBtn: 'Book a Plumber',
+    sectionCtaContactBtn: 'Contact Us',
     items: {
       'SRV-01': {
-        title: 'Clean Water Pipe Installation (PPR, PVC, Copper)',
+        title: 'Clean Water Pipe Installation (PP-R, PVC, Copper)',
         summary:
-          'Precision hot and cold clean water piping systems using PPR, PVC, and Copper pipes for residential villas, apartments, and commercial towers.',
+          'Hot and cold clean water piping in PP-R (PPR), PVC, and Copper for homes and towers.',
         deliverables: [
-          'Accurate PPR, PVC & Copper layout design and installation',
+          'Accurate PP-R, PVC & Copper layout and installation',
           '16 Bar Hydrostatic Pressure Test verification',
-          'Dedicated thermal insulation for hot & cold water lines',
+          'Thermal insulation for hot & cold water lines',
         ],
         estimatedDuration: '2 to 14 days (based on project scope)',
       },
       'SRV-02': {
         title: 'Drainage Piping & Blocked Line Cleaning',
         summary:
-          'Odor-free and leak-free uPVC drainage networks, manhole connections, and mechanical clearing for blocked kitchen, bath, and main sewer lines.',
+          'Odor-free uPVC drainage networks and mechanical clearing of blocked kitchen, bath, and sewer lines.',
         deliverables: [
-          'Properly sloped uPVC drainage piping without backflow',
-          'Non-destructive mechanical clearing of blocked lines',
-          'Anti-odor Floor Trap and Vent Pipe installation',
+          'Properly sloped uPVC drainage without backflow',
+          'Non-destructive mechanical clearing of blocked pipes',
+          'Anti-odor Floor Trap and Vent Pipe setup',
         ],
         estimatedDuration: '2 hours to 3 days',
       },
       'SRV-03': {
         title: 'Water Pump (Booster Pump), Tank & Heater Installation',
         summary:
-          'Balanced water pressure across every floor with automatic Booster Pumps, ground and rooftop water tanks, plus electric and solar water heaters.',
+          'Steady water pressure across all floors with automatic Booster pumps, tanks, and boilers.',
         deliverables: [
-          'Booster Pump setup with Automatic Pressure Switch & Dry-Run Protection',
-          'Water tank Float Valve and brass Check Valve installation',
-          'Hot water boiler Safety Valve and thermal piping hookup',
+          'Booster Pump with Automatic Pressure Switch & Dry-Run Protection',
+          'Water tank Float Valve and brass Check Valve setup',
+          'Hot water boiler Safety Valve and thermal piping',
         ],
         estimatedDuration: '1 day',
       },
       'SRV-04': {
         title: 'Bathroom & Kitchen Fixture Installation (Shower, WC, Sink, Mixers)',
         summary:
-          'Leak-free mounting and sealing of shower enclosures, modern toilets (WC), vanity sinks, hot/cold Mixers, and washing machine outlets.',
+          'Leak-free mounting and silicone sealing of showers, toilets (WC), sinks, and hot/cold Mixers.',
         deliverables: [
-          'Precision installation & waterproof silicone sealing for Shower, WC & Sink',
-          'Durable Angle Valve and braided Flexible Hose connections',
-          'Full water pressure & drainage inspection prior to handover',
+          'Precision fitting & waterproof sealing for Shower, WC & Sink',
+          'Durable Angle Valve and braided Flexible Hose hookups',
+          'Pressure and drainage check prior to handover',
         ],
         estimatedDuration: '3 hours to 2 days',
       },
       'SRV-05': {
         title: 'Leak Detection & 24/7 Emergency Leak Repair',
         summary:
-          'Rapid 24/7 dispatch for concealed wall or floor leaks, burst pipes, or failing valves with lasting repairs and minimal disruption.',
+          'Rapid 24/7 Emergency dispatch for concealed leaks, burst pipes, and failing main valves.',
         deliverables: [
-          'Fast 24/7 emergency dispatch anywhere in Addis Ababa',
-          'Targeted detection & pipe replacement without unnecessary wall damage',
+          'Fast 24/7 dispatch anywhere in Addis Ababa',
+          'Targeted leak detection with minimal wall disruption',
           'Urgent pressure valve and joint replacement',
         ],
         estimatedDuration: 'Within 1 to 3 hours',
@@ -199,6 +314,9 @@ export const en: TranslationDictionary = {
         metric: '24/7 Emergency Leak Repair Coverage',
       },
     ],
+    sectionCtaTitle: 'Need an experienced plumbing contractor for your next project?',
+    sectionCtaBookingBtn: 'Book Site Inspection',
+    sectionCtaContactBtn: 'Contact Us',
   },
   shop: {
     eyebrow: 'Online Plumbing Supplies Store',
@@ -206,6 +324,14 @@ export const en: TranslationDictionary = {
     description:
       'Choose PPR/PVC pipes, forged brass valves, sanitary mixers, and Booster Pumps in exact diameters (1/2", 3/4", 1"). Free Addis Ababa delivery on orders over 15,000 ETB.',
     viewCartBtn: 'View Cart',
+    featuredHeading: 'Featured Supplies — Core Materials Ready for Dispatch',
+    featuredBadge: 'Featured',
+    featuredSubtext: 'Most-requested PP-R pipe, Booster pump, and Mixer essentials',
+    featuredTags: {
+      pprPipe: 'PPR Pipe',
+      boosterPump: 'Booster pump',
+      mixer: 'Mixer',
+    },
     categoriesAriaLabel: 'Plumbing supply categories',
     categories: {
       ALL: 'All Supplies',
@@ -268,14 +394,22 @@ export const en: TranslationDictionary = {
     totalOrdersLabel: 'Total Orders',
     confirmedStatus: 'Confirmed',
     sizeTag: (size) => `Size ${size}`,
+    sectionCtaTitle: 'Need certified installation for your Shop materials?',
+    sectionCtaBookingBtn: 'Book a Plumber',
+    sectionCtaContactBtn: 'Request Supply Quote',
   },
   booking: {
     eyebrow: 'Booking & Emergency Leak Repair Dispatch',
     heading: 'Book a Plumber Visit or Repair Appointment',
     description:
-      'Schedule PPR/PVC/Copper installation, Booster Pump setup, sanitary fixture mounting, or 24/7 Emergency Leak Repair at your preferred date and Addis Ababa address.',
+      'Schedule PP-R/PVC/Copper installation, Booster pump setup, sanitary fixture mounting, or 24/7 Emergency Leak Repair at your preferred date and Addis Ababa address.',
     confirmedTitle: 'Booking Confirmed',
     addressPrefix: 'Address:',
+    visitModeLabel: 'Select Urgency',
+    scheduledVisitBtn: 'Scheduled Visit',
+    scheduledVisitHint: 'Choose preferred date & time slot',
+    emergencyVisitBtn: '24/7 Emergency',
+    emergencyVisitHint: 'Immediate dispatch today',
     serviceTypeLabel: 'Plumbing Service Type',
     propertyTypeLabel: 'Property / Building Type',
     propertyTypes: {
@@ -314,6 +448,8 @@ export const en: TranslationDictionary = {
     clientPrefix: 'Client',
     footerNote:
       'For 24/7 Emergency Leak Repair or pipe installation bookings, our technician calls 30 minutes prior to arrival.',
+    sectionCtaTitle: 'Need urgent phone dispatch or a custom site estimate?',
+    sectionCtaContactBtn: 'Go to Contact',
     genericError: 'Unable to submit booking.',
     networkError: 'Unable to reach the server. Please try again.',
   },
@@ -409,6 +545,9 @@ export const en: TranslationDictionary = {
         author: 'Tech. Dawit Mekonnen · Booster Pump Specialist',
       },
     },
+    sectionCtaTitle: 'Have a plumbing question or ready for a site visit?',
+    sectionCtaBookingBtn: 'Book a Plumber',
+    sectionCtaContactBtn: 'Contact Us',
   },
   contact: {
     eyebrow: 'Contact & Office Location',

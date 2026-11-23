@@ -1,71 +1,94 @@
 'use client';
 
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight, Phone } from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data/catalog';
+import { HERO_CAROUSEL_SLIDES } from '@/lib/data/media';
 import { useLanguage } from '@/lib/i18n/context';
-import heroPlumbingMaterialsImg from '@/src/assets/images/hero_plumbing_materials_1795186073214.jpg';
+
+const SLIDE_INTERVAL_MS = 4000;
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % HERO_CAROUSEL_SLIDES.length);
+    }, SLIDE_INTERVAL_MS);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, []);
 
   return (
     <section
       id="home"
+      data-active-slide={activeSlide}
       className="relative overflow-hidden border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10]"
     >
-      {/* Plumbing materials ambient backdrop */}
+      {/* Full-bleed auto-sliding fixed-background parallax carousel */}
       <div
         aria-hidden="true"
         data-testid="hero-ambient-backdrop"
         className="pointer-events-none absolute inset-0 select-none"
       >
-        <Image
-          src={heroPlumbingMaterialsImg}
-          alt=""
-          fill
-          priority
-          referrerPolicy="no-referrer"
-          sizes="100vw"
-          className="object-cover object-center opacity-35"
+        {HERO_CAROUSEL_SLIDES.map((slide, idx) => {
+          const isCurrent = activeSlide === idx;
+          return (
+            <div
+              key={slide.id}
+              data-testid={`hero-slide-bg-${idx}`}
+              className={`absolute inset-0 ${slide.cssClass} bg-fixed bg-cover bg-center transition-opacity duration-1000 ease-out ${
+                isCurrent ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          );
+        })}
+
+        {/* Directional dark gradient overlay: strong on left for text legibility, transparent on right so photos shine clearly */}
+        <div
+          data-testid="hero-dark-overlay"
+          className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/85 via-[#0B0D10]/50 to-transparent"
         />
-        <div className="absolute inset-0 bg-[#0B0D10]/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/75 via-[#0B0D10]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/25 via-transparent to-[#0B0D10]/45" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-10 lg:py-24">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="flex flex-col justify-center lg:col-span-6 lg:pr-4">
-            <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
-              {t.hero.eyebrow}
-            </p>
-            <h1 className="mt-4 text-[1.75rem] font-bold leading-[1.3] tracking-[0.012em] text-[#F8FAFC] sm:text-4xl lg:text-[2.65rem]">
-              <span className="block">{t.hero.headlineLine1}</span>
-              <span className="mt-1 block text-[#F5F2EB]">
-                {t.hero.headlineLine2}
-              </span>
-            </h1>
-            <p className="mt-5 max-w-xl text-[15px] leading-[1.78] tracking-[0.012em] text-[#A1A8B3] sm:text-base">
-              {t.hero.subtext}
-            </p>
+      {/* Stationary Hero content layer on left side; right side stays completely open */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
+            {t.hero.eyebrow}
+          </p>
+          <h1 className="mt-4 text-balance text-[1.85rem] font-bold leading-[1.28] tracking-[0.012em] text-[#F8FAFC] drop-shadow-sm sm:text-4xl lg:text-[2.75rem]">
+            <span className="block">{t.hero.headlineLine1}</span>
+            <span className="mt-1 block text-[#F5F2EB]">
+              {t.hero.headlineLine2}
+            </span>
+          </h1>
+          <p className="mt-5 max-w-xl text-[15px] leading-[1.78] tracking-[0.012em] text-[#E2E8F0] sm:text-base">
+            {t.hero.subtext}
+          </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a
-                href="#booking"
-                className="inline-flex min-h-[50px] items-center justify-center rounded-xl bg-[#D4AF37] px-7 py-3.5 text-sm font-bold text-[#0B0D10] shadow-[0_12px_32px_-12px_rgba(212,175,55,0.45)] transition-colors hover:bg-[#E5C158] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0"
-              >
-                {t.hero.primaryCta}
-              </a>
-              <a
-                href="#shop"
-                className="inline-flex min-h-[50px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.42)] bg-[#12161C] px-6 py-3.5 text-sm font-semibold text-[#F5F2EB] transition-colors hover:border-[#D4AF37] hover:bg-[#161B22] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0"
-              >
-                <span>{t.hero.secondaryCta}</span>
-                <ArrowUpRight className="h-4 w-4 text-[#D4AF37]" aria-hidden="true" />
-              </a>
-            </div>
+          <div className="mt-9 flex flex-wrap items-center gap-4">
+            <a
+              href="#booking"
+              className="inline-flex min-h-[50px] items-center justify-center rounded-xl bg-[#D4AF37] px-7 py-3.5 text-sm font-bold text-[#0B0D10] shadow-[0_12px_32px_-12px_rgba(212,175,55,0.45)] transition-colors hover:bg-[#E5C158] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0"
+            >
+              {t.hero.primaryCta}
+            </a>
+            <a
+              href="#shop"
+              className="inline-flex min-h-[50px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.48)] bg-[#12161C]/90 px-6 py-3.5 text-sm font-semibold text-[#F5F2EB] backdrop-blur-sm transition-colors hover:border-[#D4AF37] hover:bg-[#161B22] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0"
+            >
+              <span>{t.hero.secondaryCta}</span>
+              <ArrowUpRight className="h-4 w-4 text-[#D4AF37]" aria-hidden="true" />
+            </a>
+          </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-[#A1A8B3]">
+          <div className="mt-8 space-y-2">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-[#E2E8F0]">
               <span className="inline-flex items-center gap-2">
                 <Phone className="h-4 w-4 text-[#D4AF37]" aria-hidden="true" />
                 <span>{t.hero.hotlineLabel}</span>
@@ -77,59 +100,52 @@ export default function HeroSection() {
                 {COMPANY_INFO.phoneDisplay}
               </a>
             </div>
-          </div>
-
-          <div className="relative lg:col-span-6">
-            {/* Subtle ambient gold glow behind the showcase photo */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-4 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.14)_0%,rgba(212,175,55,0.04)_50%,transparent_75%)] blur-xl"
-            />
-            <div
-              data-testid="hero-showcase-frame"
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-[#0B0D10] shadow-2xl shadow-black/60 lg:aspect-[5/4] lg:min-h-[440px]"
+            <p
+              data-testid="hero-coverage-note"
+              className="text-xs leading-relaxed text-[#CBD5E1] sm:text-[13px]"
             >
-              <Image
-                src="/assets/aistudio/image_e54a7d54.png"
-                alt={t.hero.imageAlt}
-                fill
-                priority
-                referrerPolicy="no-referrer"
-                sizes="(max-width: 1024px) 100vw, 48vw"
-                className="object-cover object-center"
-              />
-              {/* Soft perimeter vignette & edge blend into #0B0D10 */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(ellipse_at_center,transparent_58%,rgba(11,13,16,0.45)_88%,rgba(11,13,16,0.75)_100%)]"
-              />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[#D4AF37]/15 bg-[linear-gradient(to_right,rgba(11,13,16,0.42),transparent_16%,transparent_84%,rgba(11,13,16,0.42)),linear-gradient(to_bottom,rgba(11,13,16,0.28),transparent_16%,transparent_82%,rgba(11,13,16,0.5))]"
-              />
-            </div>
+              {t.hero.coverageNote}
+            </p>
           </div>
         </div>
 
-        {/* Full-width 4-column editorial proof strip */}
-        <div className="mt-16 grid grid-cols-2 gap-8 border-t border-[rgba(212,175,55,0.22)] pt-10 lg:grid-cols-4 lg:gap-10">
-          {t.hero.stats.map((stat, idx) => (
-            <div
-              key={`${idx}-${stat.value}`}
-              className={
-                idx > 0
-                  ? 'lg:border-l lg:border-[rgba(212,175,55,0.22)] lg:pl-8'
-                  : ''
-              }
-            >
-              <p className="font-mono tabular-nums text-2xl font-bold tracking-tight text-[#D4AF37]">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-[#A1A8B3]">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+        {/* Auto-sliding Carousel Status & Manual Selector Row */}
+        <div className="mt-12 flex flex-col gap-3 border-t border-[rgba(212,175,55,0.22)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p
+            data-testid="hero-active-slide-label"
+            className="text-xs font-medium text-[#A1A8B3]"
+          >
+            <span className="font-mono tabular-nums font-bold text-[#D4AF37]">
+              0{activeSlide + 1} / 0{HERO_CAROUSEL_SLIDES.length}
+            </span>{' '}
+            <span aria-hidden="true">·</span>{' '}
+            <span>{t.hero.slideLabels[activeSlide]}</span>
+          </p>
+
+          <div
+            role="group"
+            aria-label="Hero Carousel Slides"
+            className="flex items-center gap-2"
+          >
+            {HERO_CAROUSEL_SLIDES.map((slide, idx) => {
+              const selected = activeSlide === idx;
+              return (
+                <button
+                  key={slide.id}
+                  type="button"
+                  data-testid={`hero-slide-dot-${idx}`}
+                  aria-label={t.hero.slideLabels[idx]}
+                  aria-pressed={selected}
+                  onClick={() => setActiveSlide(idx)}
+                  className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] ${
+                    selected
+                      ? 'w-9 bg-[#D4AF37]'
+                      : 'w-2.5 bg-[#A1A8B3]/35 hover:bg-[#D4AF37]/70'
+                  }`}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

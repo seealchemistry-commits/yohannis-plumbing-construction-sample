@@ -5,6 +5,7 @@ import { ChevronDown, PhoneCall } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { COMPANY_INFO } from '@/lib/data/catalog';
 import { useLanguage } from '@/lib/i18n/context';
+import ScrollReveal from './ScrollReveal';
 
 export default function FaqAccordionSection() {
   const { t } = useLanguage();
@@ -19,12 +20,12 @@ export default function FaqAccordionSection() {
       id="faq"
       data-testid="faq-section"
       aria-labelledby="faq-heading"
-      className="border-b border-[rgba(212,175,55,0.22)] bg-[#0E1217] py-20 lg:py-24"
+      className="overflow-x-clip border-b border-[rgba(212,175,55,0.22)] bg-[#0E1217] py-20 lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
           {/* Left Sticky Editorial Intro & Direct Emergency Callout */}
-          <div className="lg:col-span-4">
+          <ScrollReveal variant="fade-left" className="lg:col-span-4">
             <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
               {t.faq.eyebrow}
             </p>
@@ -61,17 +62,23 @@ export default function FaqAccordionSection() {
                   {COMPANY_INFO.phoneDisplay}
                 </a>
                 <a
-                  href="#contact-form"
+                  href="#booking"
                   className="inline-flex min-h-[40px] items-center justify-center rounded-xl border border-[rgba(212,175,55,0.35)] bg-[#0B0D10] px-4 py-2 text-xs font-semibold text-[#F8FAFC] transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37]"
+                >
+                  {t.hero.primaryCta}
+                </a>
+                <a
+                  href="#contact-form"
+                  className="inline-flex min-h-[40px] items-center justify-center rounded-xl border border-[rgba(212,175,55,0.22)] bg-[#12161C] px-4 py-2 text-xs font-semibold text-[#A1A8B3] transition-colors hover:border-[#D4AF37] hover:text-[#F8FAFC]"
                 >
                   {t.faq.askQuestionBtn}
                 </a>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Interactive Accordion List */}
-          <div className="space-y-3.5 lg:col-span-8">
+          <ScrollReveal variant="fade-right" delay={0.1} className="space-y-3.5 lg:col-span-8">
             {t.faq.items.map((item) => {
               const isOpen = openFaqId === item.id;
               const triggerId = `faq-trigger-${item.id}`;
@@ -150,7 +157,7 @@ export default function FaqAccordionSection() {
                 </div>
               );
             })}
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

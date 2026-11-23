@@ -54,6 +54,10 @@ describe('4-language i18n dictionary and transliteration', () => {
       assertNoEmptyStrings(dict, `TRANSLATIONS.${locale}`);
 
       assert.equal(dict.hero.stats.length, 4);
+      assert.equal(dict.hero.slideLabels.length, 4);
+      assert.equal(dict.quickActions.items.length, 4);
+      assert.equal(dict.videoShowcase.items.length, 3);
+      assert.equal(dict.testimonials.items.length, 3);
       assert.equal(dict.about.projects.length, 3);
       assert.equal(dict.booking.timeSlots.length, 5);
       assert.equal(dict.faq.items.length, 6);
@@ -113,6 +117,7 @@ describe('4-language i18n dictionary and transliteration', () => {
     for (const locale of ALL_LOCALES) {
       const serialized = JSON.stringify(TRANSLATIONS[locale]);
       assert.ok(serialized.includes('PPR'), `${locale} missing PPR`);
+      assert.ok(serialized.includes('PP-R'), `${locale} missing PP-R`);
       assert.ok(serialized.includes('PVC'), `${locale} missing PVC`);
       assert.ok(serialized.includes('Copper'), `${locale} missing Copper`);
       assert.ok(
@@ -122,6 +127,16 @@ describe('4-language i18n dictionary and transliteration', () => {
       assert.ok(
         serialized.includes('Emergency Leak Repair'),
         `${locale} missing Emergency Leak Repair`
+      );
+      assert.equal(
+        TRANSLATIONS[locale].booking.scheduledVisitBtn,
+        'Scheduled Visit',
+        `${locale} scheduledVisitBtn must remain English`
+      );
+      assert.equal(
+        TRANSLATIONS[locale].booking.emergencyVisitBtn,
+        '24/7 Emergency',
+        `${locale} emergencyVisitBtn must remain English`
       );
     }
   });

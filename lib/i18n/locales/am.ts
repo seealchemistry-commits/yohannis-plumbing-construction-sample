@@ -41,8 +41,16 @@ export const am: TranslationDictionary = {
     primaryCta: 'የቧንቧ ባለሙያ ቀጠሮ ያስይዙ',
     secondaryCta: 'የቧንቧ ዕቃዎች መደብር (Shop)',
     hotlineLabel: '24/7 አስቸኳይ ጥሪ / ቀጥታ ስልክ፡',
+    coverageNote:
+      'በቦሌ፣ CMC፣ አያት እና መላው አዲስ አበባ ፈጣን አገልግሎት • ለትላልቅ ዝርጋታዎች ነጻ የቦታ ላይ ፍተሻ',
     imageAlt:
       'የጥራት ፕላምቢንግ ዘመናዊ የውሃ ማኒፎልድ፣ Copper እና PPR መስመር ዝርጋታ፣ brass ቫልቮች እና የቦይለር ገጠማ',
+    slideLabels: [
+      'ኦሪጅናል Brass Valves እና Copper ዕቃዎች',
+      'ዘመናዊ PP-R እና Manifold ዝርጋታ',
+      'የመታጠቢያ ቤት Mixer እና Sanitary ገጠማ',
+      'በአዲስ አበባ ፈጣን 24/7 የቴክኒሻን ስምሪት',
+    ],
     stats: [
       {
         value: '14+ ዓመት',
@@ -62,6 +70,110 @@ export const am: TranslationDictionary = {
       },
     ],
   },
+  quickActions: {
+    eyebrow: 'ፈጣን አገልግሎት · ቀጥታ ምርጫ',
+    heading: 'የሚፈልጉትን የቧንቧ አገልግሎት በፍጥነት ይምረጡ',
+    items: [
+      {
+        id: 'QA-01',
+        title: '24/7 Emergency',
+        subtitle: 'ለድንገተኛ የቧንቧ መፈንዳት እና ፍሳሽ',
+      },
+      {
+        id: 'QA-02',
+        title: 'ቀጠሮ (Book a Plumber)',
+        subtitle: 'በአዲስ አበባ የባለሙያ ጉብኝት ያስይዙ',
+      },
+      {
+        id: 'QA-03',
+        title: 'Plumbing Supplies',
+        subtitle: 'PP-R ቧንቧ፣ ፓምፕ እና Mixer ይዘዙ',
+      },
+      {
+        id: 'QA-04',
+        title: 'ነጻ የሳይት ፍተሻ',
+        subtitle: 'ለትላልቅ ዝርጋታዎች ባለሙያ ያማክሩ',
+      },
+    ],
+  },
+  trustBanner: {
+    eyebrow: 'የተረጋገጠ የስራ ልምድ እና ጥራት',
+    heading: 'በመላው አዲስ አበባ አስተማማኝ የውሃ ግፊት እና መስመር ዝርጋታ',
+  },
+  videoShowcase: {
+    eyebrow: 'Tirat Plumbing Videos · የስራ እና ፕሮጀክት ቪዲዮ ማሳያ',
+    heading: 'See Our Work in Action — የቧንቧ መስመር ስራዎቻችን በቪዲዮ',
+    description:
+      'በአዲስ አበባ የተሰሩ የውሃ ማኒፎልድ ገጠማዎችን፣ የBooster Pump ግፊት ማስተካከያ እና ዘመናዊ የመታጠቢያ ቤት ዕቃ ገጠማዎችን ይመልከቱ።',
+    nowPlayingLabel: 'አሁን እየታየ ያለ',
+    selectVideoLabel: 'ቪዲዮ ይምረጡ',
+    items: [
+      {
+        id: 'VID-01',
+        category: 'Manifold & PP-R',
+        title: 'የንጹህ ውሃ Manifold እና የ16 ባር Pressure Test ገጠማ',
+        duration: '00:04',
+        summary:
+          'በPN20 PP-R እና በብራስ መዝጊያ ቫልቮች የተሰራ ሚዛናዊ የውሃ ማከፋፈያ መስመር።',
+      },
+      {
+        id: 'VID-02',
+        category: 'Booster Pump',
+        title: '750W አውቶማቲክ Booster Pump እና Check Valve ገጠማ',
+        duration: '00:04',
+        summary:
+          'በDry-Run Protection እና በብራስ Check Valve የተደገፈ ጸጥተኛ የውሃ ግፊት ማጠናከሪያ።',
+      },
+      {
+        id: 'VID-03',
+        category: 'Sanitary Fixtures',
+        title: 'ዘመናዊ Mixer፣ ሻወር እና የፍሳሽ መስመር ማጠናቀቂያ',
+        duration: '00:04',
+        summary:
+          'ያለምንም ፍሳሽ የተገጠሙ 304 ስቴንለስ ስቲል Mixers እና ሽታ የማያወጡ Floor Traps።',
+      },
+    ],
+  },
+  testimonials: {
+    eyebrow: 'የደንበኞች ምስክርነት (Testimonials)',
+    heading: 'በአዲስ አበባ የቤት ባለቤቶች እና ኮንትራክተሮች የተመሰከረለት ጥራት',
+    description:
+      'ጥራት ያለው የእጅ ስራ፣ ከShop የሚቀርቡ ኦሪጅናል ዕቃዎች እና ፈጣን የ24/7 Emergency Leak Repair አገልግሎት።',
+    items: [
+      {
+        id: 'REV-01',
+        quote:
+          'በቦሌ አትላስ G+3 ህንጻችን ላይ ሙሉ የPP-R መስመር እና Booster Pump በተባለው ጊዜ ገጥመው የ16 ባር ግፊት ፍተሻውን ያለ ምንም እንከን አልፈዋል።',
+        author: 'ዳዊት በቀለ',
+        district: 'ቦሌ አትላስ · የቪላ ባለቤት',
+        projectTag: 'PP-R Piping & Booster Pump',
+      },
+      {
+        id: 'REV-02',
+        quote:
+          'አያት ላይ ማታ የተደበቀ ቧንቧ ሲፈነዳ ጥራት ፕላምቢንግ በ2 ሰዓት ውስጥ ደርሰው ሴራሚኩን ሳይሰብሩ ችግሩን ለይተው ቫልቩን ቀይረውልናል።',
+        author: 'ሜሮን ታደሰ',
+        district: 'አያት · የመኖሪያ ግቢ',
+        projectTag: '24/7 Emergency Leak Repair',
+      },
+      {
+        id: 'REV-03',
+        quote:
+          'ኦሪጅናል brass ቫልቮችን እና Mixersን ከShop ገዝተን እዚያው በባለሙያዎቻቸው ማስገጠማችን ከውሸት ዕቃ እና ከጊዜ ብክነት አድኖናል።',
+        author: 'ኢንጂነር ሮቤል አለማየሁ',
+        district: 'CMC · የህንጻ ተቋራጭ',
+        projectTag: 'Shop Supplies & Sanitary',
+      },
+    ],
+  },
+  preFooterCta: {
+    eyebrow: 'ሁልጊዜ ዝግጁ የሆነ የቧንቧ ባለሙያ ቡድን',
+    heading: 'አስተማማኝ የቧንቧ ዝርጋታ ወይም 24/7 Emergency ጥገና ይፈልጋሉ?',
+    subtext:
+      'በቦሌ፣ CMC፣ አያት ወይም በማንኛውም የአዲስ አበባ ክፍለ ከተማ ባለሙያ ቀጠሮ ያስይዙ፤ ወይም ኦሪጅናል PP-R እና Booster Pumps ከShop ይዘዙ።',
+    primaryBtn: 'አሁኑኑ ቀጠሮ (Booking) ያስይዙ',
+    secondaryBtn: 'የዕቃዎች መደብር (Shop) ይመልከቱ',
+  },
   servicesSection: {
     eyebrow: 'የቧንቧ አገልግሎቶቻችን',
     heading: 'በቧንቧ መስመር ዝርጋታና ጥገና ላይ ያተኮሩ 5 ዋና አገልግሎቶች',
@@ -69,13 +181,16 @@ export const am: TranslationDictionary = {
       'ከንጹህ ውሃ እና ፍሳሽ መስመር ዝርጋታ (PPR, PVC, Copper) እስከ Booster Pump ገጠማና 24/7 Emergency Leak Repair ድረስ በባለሙያ የቧንቧ ቴክኒሻኖች እንሰራለን።',
     durationPrefix: 'የሚፈጀው ጊዜ',
     bookServiceBtn: 'ቀጠሮ ይያዙ',
+    sectionCtaTitle: 'የቧንቧ ዝርጋታ ወይም አስቸኳይ ጥገና ይፈልጋሉ?',
+    sectionCtaBookingBtn: 'Booking ያስይዙ',
+    sectionCtaContactBtn: 'Contact / ያግኙን',
     items: {
       'SRV-01': {
-        title: 'የንጹህ ውሃ መስመር ዝርጋታ (PPR, PVC, Copper)',
+        title: 'የንጹህ ውሃ መስመር ዝርጋታ (PP-R, PVC, Copper)',
         summary:
-          'ለመኖሪያ ቤቶች፣ ለአፓርታማዎችና ለንግድ ህንጻዎች የሙቅና ቀዝቃዛ ንጹህ ውሃ መስመሮችን በPPR, PVC እና Copper ቧንቧዎች በከፍተኛ ጥንቃቄ እንዘረጋለን።',
+          'ለቤቶችና ህንጻዎች የሙቅና ቀዝቃዛ ውሃ መስመር በPP-R (PPR), PVC እና Copper እንዘረጋለን።',
         deliverables: [
-          'ትክክለኛ የPPR, PVC እና Copper መስመር ዲዛይንና ገጠማ',
+          'ትክክለኛ የPP-R, PVC እና Copper መስመር ገጠማ',
           'በ16 ባር Hydrostatic Pressure Test ፍተሻ',
           'ለሙቅና ቀዝቃዛ ውሃ የተለየ ኢንሱሌሽን',
         ],
@@ -84,31 +199,31 @@ export const am: TranslationDictionary = {
       'SRV-02': {
         title: 'የፍሳሽ ማስወገጃ መስመር ዝርጋታና የተደፈነ ቧንቧ ማጽዳት',
         summary:
-          'ሽታና ፍሳሽ የሌለበት የuPVC የፍሳሽ ማስወገጃ መስመር ዝርጋታ፣ የማንሆል ግንኙነት እንዲሁም የተደፈኑ የኩሽና፣ የመታጠቢያና የዋና መስመር ቧንቧዎችን በዘመናዊ መሳሪያ ማጽዳት።',
+          'ሽታ የሌለው uPVC የፍሳሽ መስመር ዝርጋታ እና የተደፈኑ ቧንቧዎችን ግድግዳ ሳይፈርስ ማጽዳት።',
         deliverables: [
-          'ትክክለኛ ተዳፋት (Slope) ያለው uPVC የፍሳሽ መስመር ዝርጋታ',
-          'የተደፈኑ ቧንቧዎችን ግድግዳ ሳይፈርስ በሜካኒካል ማጽጃ መክፈት',
-          'የሽታ መከላከያ Floor Trap እና Vent Pipe ገጠማ',
+          'ትክክለኛ Slope ያለው uPVC የፍሳሽ መስመር ዝርጋታ',
+          'የተደፈኑ ቧንቧዎችን በሜካኒካል ማጽጃ መክፈት',
+          'የFloor Trap እና Vent Pipe ሽታ መከላከያ ገጠማ',
         ],
         estimatedDuration: 'ከ2 ሰዓት እስከ 3 ቀናት',
       },
       'SRV-03': {
         title: 'የውሃ ፓምፕ (Booster Pump)፣ የውሃ ታንከር እና የውሃ ማሞቂያ ገጠማ',
         summary:
-          'በሁሉም ፎቆች ላይ እኩል የውሃ ግፊት እንዲኖር Booster Pump፣ የመሬት ውስጥና የጣሪያ የውሃ ታንከሮች እንዲሁም የኤሌክትሪክና የሶላር ቦይለሮች ገጠማ።',
+          'በሁሉም ፎቆች እኩል ግፊት እንዲኖር Booster pump፣ ታንከር እና ቦይለሮችን እንገጥማለን።',
         deliverables: [
           'Booster Pump ከAutomatic Pressure Switch እና Dry-Run Protection ጋር',
           'የውሃ ታንከር Float Valve እና Check Valve ገጠማ',
-          'የሙቅ ውሃ ቦይለር ደህንነቱ የተጠበቀ Safety Valve ተከላ',
+          'የሙቅ ውሃ ቦይለር Safety Valve ተከላ',
         ],
         estimatedDuration: '1 ቀን',
       },
       'SRV-04': {
         title: 'የመታጠቢያ ቤትና የኩሽና ዕቃዎች ገጠማ (ሻወር፣ መጸዳጃ፣ ሲንክ፣ Mixers)',
         summary:
-          'የሻወር ቦክሶች፣ ዘመናዊ መጸዳጃዎች (WC)፣ የእጅ መታጠቢያ ሲንኮች፣ ቀላቃይ ቧንቧዎች (Mixers) እና የልብስ ማጠቢያ ማሽን መስመሮችን ያለ ምንም ፍሳሽ እንገጥማለን።',
+          'ሻወር፣ መጸዳጃ (WC)፣ ሲንክ፣ ቀላቃይ ቧንቧዎች (Mixers) እና የማጠቢያ መስመር ያለ ፍሳሽ ገጠማ።',
         deliverables: [
-          'የሻወር፣ መጸዳጃ (WC) እና ሲንክ ትክክለኛ ገጠማና ሲሊኮን ማሸግ',
+          'የሻወር፣ WC እና ሲንክ ገጠማና ሲሊኮን ማሸግ',
           'የAngle Valve እና Flexible Hose ጥራት ያለው ግንኙነት',
           'የውሃ ግፊት እና የፍሳሽ ፍተሻ ከርክክብ በፊት',
         ],
@@ -117,11 +232,11 @@ export const am: TranslationDictionary = {
       'SRV-05': {
         title: 'የውሃ ፍሳሽ መለየትና አስቸኳይ ጥገና (24/7 Emergency Leak Repair)',
         summary:
-          'በግድግዳ ወይም በወለል ውስጥ የተደበቀ የውሃ ፍሳሽ፣ የፈነዳ ቧንቧ ወይም የተበላሸ ቫልቭ ሲያጋጥም 24/7 በፍጥነት ደርሰን ችግሩን በዘላቂነት እንፈታለን።',
+          'ለተደበቀ የውሃ ፍሳሽ፣ ለፈነዳ ቧንቧ ወይም ለተበላሸ ቫልቭ 24/7 በፍጥነት ደርሰን እንጠግናለን።',
         deliverables: [
           'በ24/7 አስቸኳይ ጥሪ በአዲስ አበባ ፈጣን መድረስ',
           'ግድግዳ ሳይበላሽ የተሰበረ ቧንቧ መለየትና መተካት',
-          'የግፊት ቫልቭና የመገጣጠሚያ ድንገተኛ ጥገና',
+          'የግፊት ቫልቭና መገጣጠሚያ ድንገተኛ ጥገና',
         ],
         estimatedDuration: 'በ1 እስከ 3 ሰዓታት ውስጥ',
       },
@@ -196,6 +311,9 @@ export const am: TranslationDictionary = {
         metric: '24/7 Emergency Leak Repair ድጋፍ',
       },
     ],
+    sectionCtaTitle: 'ለፕሮጀክትዎ ባለሙያ የቧንቧ ተቋራጭ ይፈልጋሉ?',
+    sectionCtaBookingBtn: 'Booking ያስይዙ',
+    sectionCtaContactBtn: 'Contact / ያግኙን',
   },
   shop: {
     eyebrow: 'ኦንላይን የቧንቧ ዕቃዎች መደብር (Shop)',
@@ -203,6 +321,14 @@ export const am: TranslationDictionary = {
     description:
       'PPR/PVC ቧንቧዎች፣ ብራስ ቫልቮች፣ የመታጠቢያ ቤት ዕቃዎች እና Booster Pumps በትክክለኛ መጠን (1/2", 3/4", 1") ይምረጡ። ከ15,000 ብር በላይ በአዲስ አበባ ነጻ ትራንስፖርት አለን።',
     viewCartBtn: 'ጋሪ ይመልከቱ',
+    featuredHeading: 'Featured Supplies — ዋና ዋና ተፈላጊ ማቴሪያሎች',
+    featuredBadge: 'Featured',
+    featuredSubtext: 'በብዛት የሚታዘዙ PP-R pipe, Booster pump እና Mixer ዕቃዎች',
+    featuredTags: {
+      pprPipe: 'PPR pipe',
+      boosterPump: 'Booster pump',
+      mixer: 'Mixer',
+    },
     categoriesAriaLabel: 'የቧንቧ ዕቃ ምድቦች',
     categories: {
       ALL: 'ሁሉም ዕቃዎች',
@@ -265,14 +391,22 @@ export const am: TranslationDictionary = {
     totalOrdersLabel: 'ጠቅላላ ትዕዛዞች',
     confirmedStatus: 'ተረጋግጧል',
     sizeTag: (size) => `መጠን ${size}`,
+    sectionCtaTitle: 'ከShop የገዙትን ዕቃ የሚገጥም ባለሙያ ይፈልጋሉ?',
+    sectionCtaBookingBtn: 'Booking ያስይዙ',
+    sectionCtaContactBtn: 'Contact / ያግኙን',
   },
   booking: {
     eyebrow: 'Booking እና 24/7 Emergency Leak Repair ጥሪ',
     heading: 'የቧንቧ ባለሙያ ጉብኝት እና የጥገና ቀጠሮ (Booking) ያስይዙ',
     description:
-      'የPPR/PVC/Copper መስመር ዝርጋታ፣ የBooster Pump ገጠማ፣ የመታጠቢያ ቤት ዕቃ ተከላ ወይም 24/7 Emergency Leak Repair ቀጠሮ በሚመችዎ ቀንና አድራሻ ይምረጡ።',
+      'የPP-R/PVC/Copper መስመር ዝርጋታ፣ የBooster pump ገጠማ፣ የመታጠቢያ ቤት ዕቃ ተከላ ወይም 24/7 Emergency Leak Repair ቀጠሮ በሚመችዎ ቀንና አድራሻ ይምረጡ።',
     confirmedTitle: 'ቀጠሮዎ ተመዝግቧል',
     addressPrefix: 'አድራሻ፡',
+    visitModeLabel: 'የቀጠሮ ፍጥነት ይምረጡ',
+    scheduledVisitBtn: 'Scheduled Visit',
+    scheduledVisitHint: 'በሚመችዎ ቀንና ሰዓት ቀጠሮ',
+    emergencyVisitBtn: '24/7 Emergency',
+    emergencyVisitHint: 'ዛሬውኑ በአስቸኳይ እንዲመጣ',
     serviceTypeLabel: 'የቧንቧ አገልግሎት አይነት',
     propertyTypeLabel: 'የህንጻ / የቦታ አይነት',
     propertyTypes: {
@@ -310,6 +444,8 @@ export const am: TranslationDictionary = {
     clientPrefix: 'ደንበኛ',
     footerNote:
       'ለ24/7 Emergency Leak Repair ወይም ለመስመር ዝርጋታ ቀጠሮ ሲያስይዙ ባለሙያችን ከመምጣቱ 30 ደቂቃ በፊት በስልክ ያረጋግጥልዎታል።',
+    sectionCtaTitle: 'ፈጣን የስልክ ጥሪ ወይም ልዩ የዋጋ ግምት ይፈልጋሉ?',
+    sectionCtaContactBtn: 'ወደ Contact ይሂዱ',
     genericError: 'ቀጠሮ ማስመዝገብ አልተቻለም።',
     networkError: 'ከሰርቨር ጋር መገናኘት አልተቻለም፤ እባክዎ እንደገና ይሞክሩ።',
   },
@@ -404,6 +540,9 @@ export const am: TranslationDictionary = {
         author: 'ቴክኒሻን ዳዊት መኮንን · የBooster Pump ስፔሻሊስት',
       },
     },
+    sectionCtaTitle: 'ጥያቄ አለዎት ወይም የቧንቧ ባለሙያ መጥራት ይፈልጋሉ?',
+    sectionCtaBookingBtn: 'Booking ያስይዙ',
+    sectionCtaContactBtn: 'Contact / ያግኙን',
   },
   contact: {
     eyebrow: 'አድራሻ እና መገኛ',
