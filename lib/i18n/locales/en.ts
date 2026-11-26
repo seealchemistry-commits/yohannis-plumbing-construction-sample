@@ -97,6 +97,42 @@ export const en: TranslationDictionary = {
       },
     ],
   },
+  realEstateProjects: {
+    eyebrow: 'Real Estate Projects · Completed & Completing',
+    heading: 'Real Estate Projects',
+    description:
+      'Active and handed-over multi-story towers, gated villa compounds, and mixed-use developments across Addis Ababa.',
+    items: [
+      {
+        id: 'RE-01',
+        status: 'completed',
+        statusLabel: 'Completed',
+        name: 'Bole Medhanialem Tower',
+        scope: 'PN20 PP-R risers, dual Booster Pump station & 16 Bar tested sanitary lines.',
+      },
+      {
+        id: 'RE-02',
+        status: 'completed',
+        statusLabel: 'Completed',
+        name: 'CMC Sunset Residences',
+        scope: '18 villas with Copper & PP-R manifolds, uPVC drainage & Mixers.',
+      },
+      {
+        id: 'RE-03',
+        status: 'completing',
+        statusLabel: 'Completing · Handover',
+        name: 'Ayat Zone 3 Apartments',
+        scope: 'G+7 PP-R & PVC piping, roof tank manifolds & final fixture fitting.',
+      },
+      {
+        id: 'RE-04',
+        status: 'completing',
+        statusLabel: 'Completing · Testing',
+        name: 'Kazanchis Mixed-Use Plaza',
+        scope: 'Commercial Copper & PP-R lines, triplex Booster Pump & 16 Bar test.',
+      },
+    ],
+  },
   trustBanner: {
     eyebrow: 'Proven Engineering Track Record',
     heading: 'Engineered for Pressure Stability Across Addis Ababa',
@@ -111,11 +147,11 @@ export const en: TranslationDictionary = {
     items: [
       {
         id: 'VID-01',
-        category: 'Manifold & PP-R Piping',
-        title: 'Clean Water Manifold & 16 Bar Pressure Test Assembly',
-        duration: '00:04',
+        category: 'Site Video · Manifold & PP-R',
+        title: 'On-Site Installation Video — Manifold, Boiler & 16 Bar Test',
+        duration: '00:08',
         summary:
-          'Balanced brass shutoff manifolds fused with PN20 PP-R lines and calibrated pressure verification.',
+          'Balanced brass shutoff manifolds fused with PN20 PP-R lines, hot/cold boiler piping, and filtration station.',
       },
       {
         id: 'VID-02',
@@ -135,37 +171,246 @@ export const en: TranslationDictionary = {
       },
     ],
   },
-  testimonials: {
-    eyebrow: 'Verified Addis Ababa Client Reviews',
-    heading: 'Trusted by Homeowners, Villas & Commercial Developers',
-    description:
-      'Consistent workmanship, genuine materials from our Shop, and rapid 24/7 Emergency Leak Repair response.',
-    items: [
-      {
-        id: 'REV-01',
-        quote:
-          'Their crew completed our entire Bole Atlas G+3 PP-R manifold and rooftop Booster Pump upgrade on schedule, passing a 16 Bar pressure test with zero drips.',
-        author: 'Dawit Bekele',
-        district: 'Bole Atlas · Villa Owner',
-        projectTag: 'PP-R Piping & Booster Pump',
-      },
-      {
-        id: 'REV-02',
-        quote:
-          'When a concealed pipe burst at night in Ayat, Tirat Plumbing dispatched within two hours, isolated the line cleanly without breaking adjacent tiles, and replaced the valve.',
-        author: 'Meron Tadesse',
-        district: 'Ayat · Residential Compound',
-        projectTag: '24/7 Emergency Leak Repair',
-      },
-      {
-        id: 'REV-03',
-        quote:
-          'Buying forged brass valves and bathroom Mixers directly from their Shop alongside installation saved us days of sourcing and eliminated counterfeit fittings.',
-        author: 'Eng. Robel Alemayehu',
-        district: 'CMC · Building Contractor',
-        projectTag: 'Shop Supplies & Sanitary Setup',
-      },
-    ],
+  contractor: {
+    nav: {
+      services: 'Services',
+      process: 'Process',
+      projects: 'Projects & Certificates',
+      contact: 'Contact',
+      quoteCta: 'Get a Free Quote',
+      navAriaLabel: 'Primary Navigation',
+      mobileNavAriaLabel: 'Mobile Navigation',
+      languageLabel: 'Select Language',
+      openMenu: 'Open Menu',
+      closeMenu: 'Close Menu',
+    },
+    hero: {
+      eyebrow: 'Addis Ababa · Plumbing & Real Estate Contracting',
+      headline: 'Reliable Plumbing. Done Right.',
+      subcopy:
+        'Professional plumbing services for homes and businesses — from everyday repairs to urgent plumbing problems. When something goes wrong, you need a team that responds quickly, works professionally, and gets the job done properly.',
+      primaryCta: 'Get a Free Quote',
+      secondaryCta: 'Emergency Plumbing',
+      hotlineLabel: '24/7 Emergency Dispatch',
+      slideLabels: [
+        'Precision Brass Valves & Copper Manifolds',
+        'Commercial PP-R & Riser Engineering',
+        'Modern Sanitary & Bathroom Fixtures',
+        'Certified Real Estate Piping Systems',
+      ],
+      trustStrip: [
+        'Licensed & Experienced',
+        'Fast Response',
+        'Quality Workmanship',
+        'Clear Pricing',
+      ],
+    },
+    aboutPillars: {
+      eyebrow: 'About ጥራት ፕላምቢንግ',
+      headline: 'Plumbing You Can Count On',
+      intro:
+        'At ጥራት ፕላምቢንግ, we make plumbing problems easier to deal with. Our team provides dependable repair, installation, and maintenance services with a focus on quality workmanship and clear communication. Whether it\'s a leaking pipe, blocked drain, faulty fixture, or a larger plumbing project, we approach every job with care and attention to detail.',
+      pillars: [
+        {
+          title: 'Experienced Team',
+          description:
+            'Skilled professionals focused on reliable plumbing solutions.',
+        },
+        {
+          title: 'Quality Work',
+          description:
+            'We take pride in completing every job carefully and professionally.',
+        },
+        {
+          title: 'Customer Focused',
+          description:
+            'Clear communication from the first call to the completed job.',
+        },
+      ],
+    },
+    services: {
+      eyebrow: 'Plumbing Services',
+      headline: 'Solutions For Every Plumbing Need',
+      subcopy:
+        'From small repairs to larger plumbing projects, our services are designed to keep your property running smoothly.',
+      requestQuoteBtn: 'Request a Quote',
+      seeMoreLabel: 'See more +',
+      seeLessLabel: 'See less −',
+      items: [
+        {
+          number: '01',
+          title: 'Leak Detection & Repair',
+          description:
+            'Find and fix leaks before they become bigger problems.',
+          details:
+            'Pinpoint wall, slab, and valve leaks without unnecessary tile removal, followed by pressure-tested repair.',
+        },
+        {
+          number: '02',
+          title: 'Drain Cleaning',
+          description:
+            'Clear blocked and slow drains and help keep your plumbing flowing properly.',
+          details:
+            'Mechanical clearing of kitchen, bathroom, and main uPVC sewer lines with anti-odor trap and vent checks.',
+        },
+        {
+          number: '03',
+          title: 'Pipe Repair & Replacement',
+          description:
+            'Professional solutions for damaged, worn, or leaking pipes.',
+          details:
+            'Clean water and riser upgrades using ISO-certified PP-R, PVC, and Copper piping verified at 16 Bar.',
+        },
+        {
+          number: '04',
+          title: 'Bathroom Plumbing',
+          description:
+            'Installation and repair for sinks, toilets, showers, faucets, and other bathroom fixtures.',
+          details:
+            'Precision mounting and waterproof sealing for WC sets, Mixers, Angle Valves, rain showers, and traps.',
+        },
+        {
+          number: '05',
+          title: 'Water Heater Services',
+          description:
+            'Installation, maintenance, and repair for water heating systems.',
+          details:
+            'Electric and solar water heater hookups, Safety Valve calibration, and insulated hot-water supply balancing.',
+        },
+        {
+          number: '06',
+          title: 'Emergency Plumbing',
+          description:
+            'Fast assistance when unexpected plumbing problems need immediate attention.',
+          details:
+            '24/7 dispatch across Addis Ababa for burst pipes, main shutoff failures, and urgent Booster Pump faults.',
+        },
+      ],
+    },
+    whyChooseUs: {
+      eyebrow: 'Why Choose Us',
+      headline: 'Professional Service From Start To Finish',
+      subcopy:
+        'Choosing a plumber should feel simple. That\'s why we focus on dependable service, honest communication, and quality results.',
+      items: [
+        {
+          number: '01',
+          title: 'Fast Response',
+          description:
+            'Prompt dispatch across Addis Ababa so minor leaks and urgent issues are resolved before damage spreads.',
+        },
+        {
+          number: '02',
+          title: 'Skilled Professionals',
+          description:
+            'Trained plumbing engineers and technicians experienced with PP-R, PVC, Copper, and Booster Pump systems.',
+        },
+        {
+          number: '03',
+          title: 'Clear Communication',
+          description:
+            'Straightforward site assessment, itemized scope, and transparent pricing before work starts.',
+        },
+        {
+          number: '04',
+          title: 'Quality Workmanship',
+          description:
+            'Durable joints, neat pipe routing, and 16 Bar hydrostatic verification on new installations.',
+        },
+        {
+          number: '05',
+          title: 'Respect For Your Property',
+          description:
+            'Clean job sites, targeted diagnostics that protect tiles and walls, and tidy post-work cleanup.',
+        },
+        {
+          number: '06',
+          title: 'Reliable Support',
+          description:
+            'Dependable follow-through for both residential homeowners and multi-unit real estate developers.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'How It Works',
+      headline: 'Simple Plumbing Service In 4 Steps',
+      subcopy:
+        'A predictable, transparent workflow from your first call or quote request through final testing.',
+      steps: [
+        {
+          number: '01',
+          title: 'Contact Us',
+          description:
+            'Tell us what\'s happening and what type of plumbing service you need.',
+        },
+        {
+          number: '02',
+          title: 'We Assess The Problem',
+          description:
+            'Our plumber evaluates the issue and identifies the appropriate solution.',
+        },
+        {
+          number: '03',
+          title: 'We Get To Work',
+          description:
+            'Once the service is approved, we complete the work professionally.',
+        },
+        {
+          number: '04',
+          title: 'Problem Solved',
+          description:
+            'We check the completed work and make sure everything is functioning properly.',
+        },
+      ],
+    },
+    projectsSection: {
+      eyebrow: 'Real Estate Projects & Handover Proof',
+      headline: 'Real Estate Contracting & Certified Handovers',
+      subcopy:
+        'Completed real estate developments handed over with official plumbing certificates alongside active towers in final commissioning.',
+      countLabel: (count: number) => `${count} Active & Handed-Over Projects`,
+      filterAll: 'All Projects',
+      filterHandedOver: 'Handed Over & Certified',
+      filterCompleting: 'Completing Soon',
+      statusHandedOver: 'Handed Over & Certified',
+      statusCompletingSoon: 'Completing Soon',
+      certificatePrefix: 'Certificate',
+      viewDetailsBtn: 'View Handover & Scope',
+      requestSimilarBtn: 'Request Similar Quote',
+      closeModalAria: 'Close Project Details',
+      modalDeliverablesHeading: 'Plumbing Scope & Deliverables',
+      modalHandoverHeading: 'Handover & Certification Record',
+      modalRequestInspectionBtn: 'Request Quote or Site Inspection',
+    },
+    emergencyBanner: {
+      eyebrow: 'Urgent Plumbing Support',
+      headline: 'Got A Plumbing Emergency?',
+      subcopy:
+        'Burst pipes, sudden leaks, or main valve failures require immediate attention. Call our 24/7 dispatch line or submit an urgent request right away.',
+      callNowBtn: 'Call +251 912 453 752',
+      dispatchBtn: 'Request Emergency Dispatch',
+    },
+    closingCta: {
+      eyebrow: 'Free Quote & Site Inspection',
+      headline: 'Let\'s Get Your Plumbing Flowing Again',
+      subcopy:
+        'Request a free quote for residential repairs, commercial installations, or real estate plumbing contracting across Addis Ababa.',
+      primaryBtn: 'Request A Free Quote',
+    },
+    quoteForm: {
+      serviceFieldLabel: 'Service or Project Scope',
+      similarProjectPrefix: 'Quote / Inspection Inquiry — Similar to',
+      emergencySubjectDefault: 'Emergency Plumbing Dispatch Request',
+      quoteSubjectPrefix: 'Free Quote Request',
+      realEstateInquiryOption: 'Real Estate / Multi-Unit Plumbing Project',
+    },
+    footer: {
+      summary:
+        'ጥራት ፕላምቢንግ (Tirat Plumbing) delivers dependable plumbing repairs, residential and commercial installations, and certified real estate plumbing contracting across Addis Ababa.',
+      hoursLabel: 'Hours',
+      contactHeading: 'Contact & Hours',
+      navigationHeading: 'Navigation',
+    },
   },
   preFooterCta: {
     eyebrow: 'Ready When You Need Certified Plumbers',

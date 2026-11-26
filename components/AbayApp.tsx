@@ -1,39 +1,20 @@
 'use client';
 
-import { useEffect, useState, useSyncExternalStore } from 'react';
-import {
-  addItemToCart,
-  calculateCartSummary,
-  removeItemFromCart,
-  updateCartItemQuantity,
-} from '@/lib/commerce/cart';
-import {
-  PRODUCT_SIZES,
-  type BookingRecord,
-  type CartItem,
-  type OrderRecord,
-  type Product,
-  type ProductSize,
-} from '@/lib/commerce/types';
-import {
-  AVAILABLE_TIME_SLOTS,
-} from '@/lib/booking/schedule';
-import { PRODUCTS, SERVICES } from '@/lib/data/catalog';
-import { LanguageProvider } from '@/lib/i18n/context';
-import AboutSection from './AboutSection';
-import BlogAndContactSection from './BlogAndContactSection';
-import BookingSection from './BookingSection';
-import CartDrawer from './CartDrawer';
-import FeaturedVideoSection from './FeaturedVideoSection';
+import { useEffect, useState } from 'react';
+import type { BookingRecord, OrderRecord } from '@/lib/commerce/types';
+import { LanguageProvider, useLanguage } from '@/lib/i18n/context';
+import AboutPillarsSection from './AboutPillarsSection';
+import EmergencyAndContactSection, {
+  type QuotePreset,
+} from './EmergencyAndContactSection';
 import FloatingWhatsAppButton from './FloatingWhatsAppButton';
 import HeroSection from './HeroSection';
 import { installGmpQuotaTap } from './OfficeGoogleMap';
-import QuickActionsSection from './QuickActionsSection';
-import ServicesSection from './ServicesSection';
-import ShopSection from './ShopSection';
+import ProcessSection from './ProcessSection';
+import ProjectsAndCertificatesSection from './ProjectsAndCertificatesSection';
+import ServicesGridSection from './ServicesGridSection';
 import SiteHeader from './SiteHeader';
-import TestimonialsSection from './TestimonialsSection';
-import TrustStatsParallaxBanner from './TrustStatsParallaxBanner';
+import WhyChooseUsSection from './WhyChooseUsSection';
 
 interface AbayAppProps {
   initialOrders: OrderRecord[];
@@ -41,96 +22,10 @@ interface AbayAppProps {
   mapsApiKey: string;
 }
 
-const CART_STORAGE_KEY = 'yohannes_plumbing_cart_v1';
-const EMPTY_CART_JSON = '[]';
-const CART_CHANGE_EVENT = 'yohannes-cart-change';
-
-function subscribeCartStore(callback: () => void): () => void {
-  window.addEventListener('storage', callback);
-  window.addEventListener(CART_CHANGE_EVENT, callback);
-  return () => {
-    window.removeEventListener('storage', callback);
-    window.removeEventListener(CART_CHANGE_EVENT, callback);
-  };
-}
-
-function getCartSnapshot(): string {
-  try {
-    return window.localStorage.getItem(CART_STORAGE_KEY) ?? EMPTY_CART_JSON;
-  } catch {
-    return EMPTY_CART_JSON;
-  }
-}
-
-function getServerCartSnapshot(): string {
-  return EMPTY_CART_JSON;
-}
-
-function writeCartToStorage(nextCart: CartItem[]): void {
-  try {
-    window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(nextCart));
-    window.dispatchEvent(new Event(CART_CHANGE_EVENT));
-  } catch {
-    // Ignore storage errors
-  }
-}
-
-function parseCartSafely(rawJson: string): CartItem[] {
-  try {
-    const parsed = JSON.parse(rawJson) as unknown;
-    if (!Array.isArray(parsed)) return [];
-    const safeItems: CartItem[] = [];
-    for (const item of parsed) {
-      if (!item || typeof item !== 'object') continue;
-      const candidate = item as {
-        product?: { id?: unknown };
-        size?: unknown;
-        quantity?: unknown;
-      };
-      const catalogProduct = PRODUCTS.find(
-        (p) => p.id === candidate.product?.id
-      );
-      const validSize = PRODUCT_SIZES.includes(candidate.size as ProductSize)
-        ? (candidate.size as ProductSize)
-        : '1/2"';
-      const qty = Number(candidate.quantity);
-      if (catalogProduct && Number.isInteger(qty) && qty > 0) {
-        safeItems.push({
-          product: catalogProduct,
-          size: validSize,
-          quantity: Math.min(qty, catalogProduct.stockCount),
-        });
-      }
-    }
-    return safeItems;
-  } catch {
-    return [];
-  }
-}
-
-function AbayAppContent({
-  initialBookings,
-  mapsApiKey,
-}: AbayAppProps) {
-  const cartJson = useSyncExternalStore(
-    subscribeCartStore,
-    getCartSnapshot,
-    getServerCartSnapshot
-  );
-
-  const cart = parseCartSafely(cartJson);
-
-  const [cartOpen, setCartOpen] = useState(false);
+function AbayAppContent({ mapsApiKey }: AbayAppProps) {
+  const { t } = useLanguage();
   const [quotaExceeded, setQuotaExceeded] = useState(false);
-
-  const [bookings, setBookings] = useState<BookingRecord[]>(initialBookings);
-  const [selectedServiceId, setSelectedServiceId] = useState<string>(
-    SERVICES[0].id
-  );
-  const [preferredDate, setPreferredDate] = useState<string>(() =>
-    new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
-  );
-  const [timeSlot, setTimeSlot] = useState<string>(AVAILABLE_TIME_SLOTS[0]);
+  const [quotePreset, setQuotePreset] = useState<QuotePreset | null>(null);
 
   useEffect(() => {
     installGmpQuotaTap();
@@ -141,52 +36,76 @@ function AbayAppContent({
     };
   }, []);
 
-  const summary = calculateCartSummary(cart);
-
-  const handleAddToCart = (product: Product, size: ProductSize) => {
-    writeCartToStorage(addItemToCart(cart, product, size, 1));
+  const scrollToQuoteForm = () => {
+    const el = document.getElementById('contact-form') ?? document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    window.setTimeout(() => {
+      const nameInput = document.getElementById('contact-name');
+      if (nameInput instanceof HTMLInputElement) {
+        nameInput.focus({ preventScroll: true });
+      }
+    }, 350);
   };
 
-  const handleUpdateQty = (
-    productId: string,
-    size: ProductSize,
-    nextQty: number
+  const applyQuotePreset = (
+    serviceOption: string,
+    subject: string,
+    message: string
   ) => {
-    writeCartToStorage(updateCartItemQuantity(cart, productId, size, nextQty));
+    setQuotePreset((prev) => ({
+      version: (prev?.version ?? 0) + 1,
+      serviceOption,
+      subject,
+      message,
+    }));
+    scrollToQuoteForm();
   };
 
-  const handleRemoveItem = (productId: string, size: ProductSize) => {
-    writeCartToStorage(removeItemFromCart(cart, productId, size));
+  const handleRequestGeneralQuote = () => {
+    const defaultService = t.contractor.services.items[0].title;
+    applyQuotePreset(
+      defaultService,
+      t.contractor.quoteForm.quoteSubjectPrefix,
+      ''
+    );
   };
 
-  const handleOrderConfirmed = () => {
-    writeCartToStorage([]);
+  const handleSelectServiceQuote = (serviceTitle: string) => {
+    applyQuotePreset(
+      serviceTitle,
+      `${t.contractor.quoteForm.quoteSubjectPrefix}: ${serviceTitle}`,
+      ''
+    );
   };
 
-  const handleSelectServiceForBooking = (serviceId: string) => {
-    setSelectedServiceId(serviceId);
-    const el = document.getElementById('booking');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleEmergencyAction = () => {
+    const emergencyService = t.contractor.services.items[5].title;
+    applyQuotePreset(
+      emergencyService,
+      t.contractor.quoteForm.emergencySubjectDefault,
+      ''
+    );
   };
 
-  const handleEmergencyQuickAction = () => {
-    setSelectedServiceId('SRV-05');
-    setPreferredDate(new Date().toISOString().slice(0, 10));
-    setTimeSlot(AVAILABLE_TIME_SLOTS[4]);
-    const el = document.getElementById('booking');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleRequestProjectQuote = (
+    projectTitle: string,
+    projectCode: string
+  ) => {
+    applyQuotePreset(
+      t.contractor.quoteForm.realEstateInquiryOption,
+      `${t.contractor.quoteForm.similarProjectPrefix}: ${projectTitle} (${projectCode})`,
+      ''
+    );
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0D10] text-[#F5F2EB]">
+    <div className="min-h-screen bg-[#0A0A0B] text-[#F5F2EB]">
       {quotaExceeded && (
         <div
           role="alert"
-          className="relative z-50 border-b border-[#D4AF37]/40 bg-[#161B22] px-4 py-2.5 text-center text-xs text-[#F5F2EB] shadow-sm md:text-sm"
+          className="relative z-50 border-b border-[#F59E0B]/40 bg-[#111214] px-4 py-2.5 text-center text-xs text-[#F5F2EB] shadow-sm md:text-sm"
         >
           <span>
             Google Maps Platform quota reached. If you are the app owner, visit{' '}
@@ -194,7 +113,7 @@ function AbayAppContent({
               href="https://developers.google.com/maps/ai/ai-studio?utm_campaign=gmp_mcp_codeassist_v1_aistudio#quota_exceeded_errors"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-[#D4AF37] underline hover:text-[#E5C158]"
+              className="font-semibold text-[#F59E0B] underline hover:text-[#FBBF24]"
             >
               maps developer site
             </a>{' '}
@@ -203,62 +122,35 @@ function AbayAppContent({
         </div>
       )}
 
-      <SiteHeader
-        cartItemCount={summary.itemCount}
-        onOpenCart={() => setCartOpen(true)}
-      />
+      <SiteHeader onRequestQuote={handleRequestGeneralQuote} />
 
       <main>
-        <HeroSection />
-
-        <QuickActionsSection
-          onEmergencyQuickAction={handleEmergencyQuickAction}
+        <HeroSection
+          onGetFreeQuote={handleRequestGeneralQuote}
+          onEmergencyPlumbing={handleEmergencyAction}
         />
 
-        <TrustStatsParallaxBanner />
+        <AboutPillarsSection />
 
-        <ServicesSection
-          onSelectServiceForBooking={handleSelectServiceForBooking}
+        <ServicesGridSection onSelectServiceQuote={handleSelectServiceQuote} />
+
+        <WhyChooseUsSection />
+
+        <ProcessSection />
+
+        <ProjectsAndCertificatesSection
+          onRequestProjectQuote={handleRequestProjectQuote}
         />
 
-        <FeaturedVideoSection />
-
-        <BookingSection
-          selectedServiceId={selectedServiceId}
-          onChangeServiceId={setSelectedServiceId}
-          preferredDate={preferredDate}
-          onChangePreferredDate={setPreferredDate}
-          timeSlot={timeSlot}
-          onChangeTimeSlot={setTimeSlot}
-          bookings={bookings}
-          onBookingCreated={(newBooking) =>
-            setBookings((prev) => [newBooking, ...prev])
-          }
+        <EmergencyAndContactSection
+          mapsApiKey={mapsApiKey}
+          quotePreset={quotePreset}
+          onEmergencyDispatch={handleEmergencyAction}
+          onRequestQuoteFocus={scrollToQuoteForm}
         />
-
-        <ShopSection
-          onAddToCart={handleAddToCart}
-          onOpenCart={() => setCartOpen(true)}
-          cartItemCount={summary.itemCount}
-        />
-
-        <AboutSection />
-
-        <TestimonialsSection />
-
-        <BlogAndContactSection mapsApiKey={mapsApiKey} />
       </main>
 
-      <CartDrawer
-        open={cartOpen}
-        onClose={() => setCartOpen(false)}
-        cart={cart}
-        onUpdateQty={handleUpdateQty}
-        onRemoveItem={handleRemoveItem}
-        onOrderConfirmed={handleOrderConfirmed}
-      />
-
-      <FloatingWhatsAppButton hidden={cartOpen} />
+      <FloatingWhatsAppButton />
     </div>
   );
 }

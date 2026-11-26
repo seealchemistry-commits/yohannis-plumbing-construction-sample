@@ -4,11 +4,11 @@
   --font-sans: var(--font-ethiopic), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-jakarta), var(--font-ethiopic), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
-  --color-obsidian-950: #0B0D10;
-  --color-obsidian-900: #12161C;
-  --color-obsidian-850: #161B22;
-  --color-gold-500: #D4AF37;
-  --color-gold-400: #E5C158;
+  --color-obsidian-950: #0A0A0B;
+  --color-obsidian-900: #111214;
+  --color-obsidian-850: #16181D;
+  --color-amber-500: #F59E0B;
+  --color-amber-600: #D97706;
   --color-ivory-100: #F5F2EB;
   --color-slate-muted: #A1A8B3;
 }
@@ -16,7 +16,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #0B0D10;
+    background-color: #0A0A0B;
     color: #F5F2EB;
     color-scheme: dark;
     -webkit-font-smoothing: antialiased;
@@ -25,7 +25,7 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #0B0D10;
+    background-color: #0A0A0B;
     color: #F5F2EB;
     letter-spacing: 0.01em;
   }
@@ -55,12 +55,3 @@
 .parallax-hero-slide-3 {
   background-image: url('/assets/slides/slide-4.jpg');
 }
-
-.parallax-stats-bg {
-  background-image: url('/assets/slides/slide-2.jpg');
-}
-
-.parallax-cta-bg {
-  background-image: url('/assets/slides/about-materials.jpg');
-}
-

@@ -97,6 +97,42 @@ export const om: TranslationDictionary = {
       },
     ],
   },
+  realEstateProjects: {
+    eyebrow: 'Pirojektoota Real Estate · Xumuramanii fi Xumuramaa Jiran',
+    heading: 'Pirojektoota Real Estate (የሪል እስቴት ፕሮጀክቶች)',
+    description:
+      'Gamoowwan fooqii hedduu, viilaalee jireenyaa fi mana daldalaa Addis Ababaa keessatti xumuramanii fi xumuramaa jiran.',
+    items: [
+      {
+        id: 'RE-01',
+        status: 'completed',
+        statusLabel: 'Xumurameera (Completed)',
+        name: 'Gamoo Boolee Madhaaniyaalem',
+        scope: 'Sarara PP-R PN20, Booster Pump lamaa fi sirna Sanitary 16 Bar’n mirkanaa’e.',
+      },
+      {
+        id: 'RE-02',
+        status: 'completed',
+        statusLabel: 'Xumurameera (Completed)',
+        name: 'Mana Jireenyaa CMC Sunset',
+        scope: 'Viilaalee 18f manifold Copper fi PP-R, sarara uPVC fi hidhaa Mixers.',
+      },
+      {
+        id: 'RE-03',
+        status: 'completing',
+        statusLabel: 'Xumuramaa Jira (Completing)',
+        name: 'Apaartamaantii Ayaat Zoonii 3',
+        scope: 'Diriirsa PP-R fi PVC G+7, manifold taankii baaxii fi hidhaa dhumaa.',
+      },
+      {
+        id: 'RE-04',
+        status: 'completing',
+        statusLabel: 'Xumuramaa Jira (Completing)',
+        name: 'Pilaazaa Kaazaanchiis Mixed-Use',
+        scope: 'Sarara Copper fi PP-R daldalaa, Booster Pump sadii fi qorannoo 16 Bar.',
+      },
+    ],
+  },
   trustBanner: {
     eyebrow: 'Muuxannoo fi Qulqullina Mirkanaa’e',
     heading: 'Dhiibbaa Bishaanii Tasgabbaa’aa Addis Ababaa Guutuutti',
@@ -111,11 +147,11 @@ export const om: TranslationDictionary = {
     items: [
       {
         id: 'VID-01',
-        category: 'Manifold & PP-R',
-        title: 'Hidhaa Manifold Bishaan Qulqulluu fi Qorannoo 16 Bar',
-        duration: '00:04',
+        category: 'Viidiyoo Saayitii · Manifold & PP-R',
+        title: 'Viidiyoo Hojii Saayitii — Hidhaa Manifold, Boiler fi 16 Bar',
+        duration: '00:08',
         summary:
-          'Sarara qoodinsa bishaanii PP-R PN20 fi vaalvii brass dhiibbaan mirkanaa’e.',
+          'Sarara qoodinsa bishaanii PP-R PN20, Copper fi vaalvii brass dhiibbaan mirkanaa’e.',
       },
       {
         id: 'VID-02',
@@ -135,37 +171,246 @@ export const om: TranslationDictionary = {
       },
     ],
   },
-  testimonials: {
-    eyebrow: 'Yaada Maamiltootaa (Testimonials)',
-    heading: 'Abbootii Manaa fi Ijaartota Addis Ababaan Kan Amaname',
-    description:
-      'Qulqullina hojii harkaa, meeshaalee qulqulluu Shop keenyaa fi deebii saffisaa 24/7 Emergency Leak Repair.',
-    items: [
-      {
-        id: 'REV-01',
-        quote:
-          'Gamoo keenya Boolee Atlas G+3 irratti diriirsa PP-R guutuu fi Booster Pump baaxii yeroodhaan xumuranii qorannoo 16 Bar rakkina tokko malee darbaniiru.',
-        author: 'Daawit Baqqalaa',
-        district: 'Boolee Atlas · Abbaa Viilaa',
-        projectTag: 'PP-R Piping & Booster Pump',
-      },
-      {
-        id: 'REV-02',
-        quote:
-          'Ayaatitti halkan ujummoon dhokatee yeroo dhoo’u Tirat Plumbing sa’aatii 2 keessatti ga’anii keenyarraa osoo hin cabsin vaalvii jijjiiraniiru.',
-        author: 'Meeroon Taaddasaa',
-        district: 'Ayaat · Mana Jireenyaa',
-        projectTag: '24/7 Emergency Leak Repair',
-      },
-      {
-        id: 'REV-03',
-        quote:
-          'Vaalvii brass fi Mixers kallattiin Shop isaanii irraa bitannee ogeeyyii isaaniitiin hidhachuun keenya meeshaa sobaa irraa nu oolcheera.',
-        author: 'Inj. Robeel Alamaayyahuu',
-        district: 'CMC · Kontiraaktara Gamoo',
-        projectTag: 'Shop Supplies & Sanitary',
-      },
-    ],
+  contractor: {
+    nav: {
+      services: 'Tajaajiloota',
+      process: 'Adeemsa Hojii',
+      projects: 'Pirojektoota & Ragaa',
+      contact: 'Nu Quunnamaa',
+      quoteCta: 'Tilmaama Bilisaa Argadhaa',
+      navAriaLabel: 'Navigeeshinii Ijoo',
+      mobileNavAriaLabel: 'Navigeeshinii Moobaayilaa',
+      languageLabel: 'Afaan Filadhaa',
+      openMenu: 'Meenuu Bani',
+      closeMenu: 'Meenuu Cufi',
+    },
+    hero: {
+      eyebrow: 'Addis Ababaa · Kontiraaktara Plumbing & Real Estate',
+      headline: 'Plumbing Amanamaa. Sirriitti Hojjetame.',
+      subcopy:
+        'Tajaajila plumbing ogummaa qabu manneenii fi dhaabbilee daldalaatiif — suphaa guyyaa guyyaa irraa kaasee hanga rakkoolee hatattamaa. Yeroo rakkoon uumamu garee saffisaan dhaqqabu, ogummaan hojjetuu fi sirriitti xumuru barbaaddu.',
+      primaryCta: 'Tilmaama Bilisaa Argadhaa',
+      secondaryCta: 'Plumbing Hatattamaa',
+      hotlineLabel: 'Sarara Hatattamaa 24/7',
+      slideLabels: [
+        'Vaalvii Brass fi Manifold Copper Qulqulluu',
+        'Diriirsa PP-R Daldalaa fi Riser',
+        'Meeshaalee Mana Fincaanii fi Sanitary Ammayyaa',
+        'Sirna Ujummoo Real Estate Mirkanaa’e',
+      ],
+      trustStrip: [
+        'Hayyama Qabuu fi Muuxannoo Qabeessa',
+        'Deebii Saffisaa',
+        'Qulqullina Hojii',
+        'Gatii Ifa Ta’e',
+      ],
+    },
+    aboutPillars: {
+      eyebrow: 'Waa’ee ጥራት ፕላምቢንግ',
+      headline: 'Plumbing Amanuu Dandeessan',
+      intro:
+        'ጥራት ፕላምቢንግ keessatti rakkoolee plumbing salphaatti akka furaman goona. Gareen keenya qulqullina hojii fi qunnamtii ifa ta’e irratti xiyyeeffachuun tajaajila suphaa, hidhaa fi kunuunsaa amanamaa kenna. Ujummoo coccobu, dhangala’aa cufame, meeshaa bade ykn pirojektii guddaa ta’us hojii hunda xiyyeeffannoo cimaan hojjenna.',
+      pillars: [
+        {
+          title: 'Garee Muuxannoo Qabu',
+          description:
+            'Ogeeyyii dandeettii qaban furmaata plumbing amanamaa irratti xiyyeeffatan.',
+        },
+        {
+          title: 'Hojii Qulqulluu',
+          description:
+            'Hojii hunda of eeggannoo fi ogummaan xumuruu keenyatti ni boonna.',
+        },
+        {
+          title: 'Maamila Irratti Kan Xiyyeeffate',
+          description:
+            'Bilbila jalqabaa irraa hanga xumura hojiitti qunnamtii ifa ta’e.',
+        },
+      ],
+    },
+    services: {
+      eyebrow: 'Tajaajiloota Plumbing',
+      headline: 'Furmaata Fedhii Plumbing Hundaaf',
+      subcopy:
+        'Suphaa xixiqqaa irraa kaasee hanga pirojektoota gurguddaa, tajaajiloonni keenya qabeenyi keessan rakkina malee akka hojjetu qophaa’aniiru.',
+      requestQuoteBtn: 'Tilmaama Gaafadhaa',
+      seeMoreLabel: 'Dabalataan ilaali +',
+      seeLessLabel: 'Hir’isi −',
+      items: [
+        {
+          number: '01',
+          title: 'Argannoo fi Suphaa Coccobaa',
+          description:
+            'Coccobni gara rakkoo guddaatti osoo hin jijjiiramin argachuu fi suphuu.',
+          details:
+            'Keessaa fi keenyaa osoo hin diigin coccoba dhokate argachuu fi dhiibbaan mirkaneessuun suphuu.',
+        },
+        {
+          number: '02',
+          title: 'Qulqulleessa Sarara Dhangala’aa',
+          description:
+            'Sarara dhangala’aa cufamee fi suuta deemu banuun yaa’iinsa sirreessuu.',
+          details:
+            'Meeshaa makaanikaalaatiin sarara uPVC kushiinaa fi mana fincaanii banuu fi foolii ittisuun.',
+        },
+        {
+          number: '03',
+          title: 'Suphaa fi Jijjiirraa Ujummoo',
+          description:
+            'Furmaata ogummaa ujummoo miidhame, moofaa ykn coccobuuf.',
+          details:
+            'Ujummoo PP-R, PVC fi Copper ISO’n mirkanaa’an fayyadamuun qorannoo dhiibbaa 16 Bar waliin jijjiiruu.',
+        },
+        {
+          number: '04',
+          title: 'Plumbing Mana Fincaanii',
+          description:
+            'Hidhaa fi suphaa sinkii, mana fincaanii, shaaworii, faucets fi meeshaalee biroo.',
+          details:
+            'Hidhaa sirrii WC, Mixers, Angle Valve fi shaaworii silikoonii bishaan ittisu waliin.',
+        },
+        {
+          number: '05',
+          title: 'Tajaajila Ho’istuu Bishaanii',
+          description:
+            'Hidhaa, kunuunsaa fi suphaa sirna ho’istuu bishaanii.',
+          details:
+            'Hidhaa booyilara elektirikii fi soolaarii, sirreeffama Safety Valve fi madaallii sarara ho’aa.',
+        },
+        {
+          number: '06',
+          title: 'Plumbing Hatattamaa (Emergency)',
+          description:
+            'Gargaarsa saffisaa yeroo rakkoon plumbing tasaa xiyyeeffannoo hatattamaa barbaadu.',
+          details:
+            'Ujummoo dhohe, vaalvii ijoo bade fi rakkoo Booster Pump’f guutuu Addis Ababaa keessatti tajaajila 24/7.',
+        },
+      ],
+    },
+    whyChooseUs: {
+      eyebrow: 'Maaliif Nu Filattu',
+      headline: 'Tajaajila Ogummaa Jalqaba Hanga Xumuraatti',
+      subcopy:
+        'Ogeessa plumbing filachuun salphaa ta’uu qaba. Kanaafuu tajaajila amanamaa, qunnamtii dhugaa fi bu’aa qulqulluu irratti xiyyeeffanna.',
+      items: [
+        {
+          number: '01',
+          title: 'Deebii Saffisaa',
+          description:
+            'Miidhaan osoo hin babal’atin dura guutuu Addis Ababaa keessatti battalumatti dhaqqabuu.',
+        },
+        {
+          number: '02',
+          title: 'Ogeeyyii Leenji’an',
+          description:
+            'Injineroonnii fi teeknishaanonni sirna PP-R, PVC, Copper fi Booster Pump irratti muuxannoo qaban.',
+        },
+        {
+          number: '03',
+          title: 'Qunnamtii Ifa Ta’e',
+          description:
+            'Hojiin osoo hin jalqabin dura sakatta’insa sirrii, bal’ina hojii fi gatii ifa ta’e.',
+        },
+        {
+          number: '04',
+          title: 'Qulqullina Hojii Harkaa',
+          description:
+            'Walitti hidhaa cimaa, diriirsa qulqulluu fi qorannoo dhiibbaa 16 Bar hojii haaraaf.',
+        },
+        {
+          number: '05',
+          title: 'Qabeenya Keessan Kabajuu',
+          description:
+            'Bakka hojii qulqulluu, keenyaa osoo hin miidhin adda baasuu fi qulqulleessuu.',
+        },
+        {
+          number: '06',
+          title: 'Deeggarsa Amanamaa',
+          description:
+            'Abbootii manaa dhuunfaa fi ijaartota real estate gurguddaaf hordoffii amanamaa.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'Akkaataa Itti Hojjennu',
+      headline: 'Tajaajila Plumbing Salphaa Tarkaanfii 4n',
+      subcopy:
+        'Adeemsa hojii ifa ta’e bilbila jalqabaa irraa hanga qorannoo xumuraatti.',
+      steps: [
+        {
+          number: '01',
+          title: 'Nu Quunnamaa',
+          description:
+            'Maal akka ta’aa jiruu fi tajaajila plumbing akkamii akka barbaaddan nutti himaa.',
+        },
+        {
+          number: '02',
+          title: 'Rakkoo Qoranna',
+          description:
+            'Ogeessi keenya rakkicha madaaluun furmaata sirrii ta’e adda baasa.',
+        },
+        {
+          number: '03',
+          title: 'Hojii Jalqabna',
+          description:
+            'Tajaajilli erga mirkanaa’ee booda hojicha ogummaan xumurra.',
+        },
+        {
+          number: '04',
+          title: 'Rakkoon Furameera',
+          description:
+            'Hojii xumurame qorannee wanti hundi sirriitti hojjechuu isaa mirkaneessina.',
+        },
+      ],
+    },
+    projectsSection: {
+      eyebrow: 'Pirojektoota Real Estate fi Ragaa Harkaa Fuudhuu',
+      headline: 'Kontiraaktara Real Estate fi Waraqaa Ragaa Mirkanaa’e',
+      subcopy:
+        'Pirojektoota real estate waraqaa ragaa plumbing ofiishalaatiin harkaa fuudhamanii fi gamoowwan xumuramaa jiran.',
+      countLabel: (count: number) => `Pirojektoota ${count} Harkaa Fuudhamanii fi Xumuramaa Jiran`,
+      filterAll: 'Pirojektoota Hunda',
+      filterHandedOver: 'Harkaa Fuudhame & Mirkanaa’e',
+      filterCompleting: 'Dhiyootti Xumuramu',
+      statusHandedOver: 'Harkaa Fuudhame · Mirkanaa’e',
+      statusCompletingSoon: 'Dhiyootti Xumurama',
+      certificatePrefix: 'Waraqaa Ragaa',
+      viewDetailsBtn: 'Ragaa & Bal’ina Ilaali',
+      requestSimilarBtn: 'Tilmaama Walfakkaatu Gaafadhu',
+      closeModalAria: 'Bal’ina Pirojektii Cufi',
+      modalDeliverablesHeading: 'Bal’ina Hojii Plumbing',
+      modalHandoverHeading: 'Galmee Harkaa Fuudhuu fi Ragaa',
+      modalRequestInspectionBtn: 'Tilmaama ykn Sakatta’insa Saayitii Gaafadhaa',
+    },
+    emergencyBanner: {
+      eyebrow: 'Deeggarsa Plumbing Hatattamaa',
+      headline: 'Rakkoon Plumbing Hatattamaa Isin Mudatee?',
+      subcopy:
+        'Ujummoon dhote, coccobni tasaa ykn vaalviin ijoon bade xiyyeeffannoo hatattamaa barbaada. Sarara 24/7 keenya irratti bilbilaa ykn ergaa hatattamaa ergaa.',
+      callNowBtn: 'Bilbilaa +251 912 453 752',
+      dispatchBtn: 'Gargaarsa Hatattamaa Gaafadhaa',
+    },
+    closingCta: {
+      eyebrow: 'Tilmaama Bilisaa & Sakatta’insa Saayitii',
+      headline: 'Plumbing Keessan Deebisnee Sirriitti Akka Yaa’u Haa Goone',
+      subcopy:
+        'Addis Ababaa guutuu keessatti suphaa manaa, hidhaa daldalaa ykn kontiraaktara plumbing real estate’f tilmaama bilisaa gaafadhaa.',
+      primaryBtn: 'Tilmaama Bilisaa Gaafadhaa',
+    },
+    quoteForm: {
+      serviceFieldLabel: 'Gosa Tajaajilaa ykn Pirojektii',
+      similarProjectPrefix: 'Gaaffii Tilmaamaa / Sakatta’insaa — Kan Fakkaatu',
+      emergencySubjectDefault: 'Gaaffii Tajaajila Plumbing Hatattamaa',
+      quoteSubjectPrefix: 'Gaaffii Tilmaama Bilisaa',
+      realEstateInquiryOption: 'Pirojektii Plumbing Real Estate / Gamoo',
+    },
+    footer: {
+      summary:
+        'ጥራት ፕላምቢንግ (Tirat Plumbing) Addis Ababaa guutuutti suphaa plumbing amanamaa, hidhaa manaa fi daldalaa, akkasumas kontiraaktara real estate waraqaa ragaan mirkanaa’e kenna.',
+      hoursLabel: 'Sa’aatii Hojii',
+      contactHeading: 'Quunnamtii & Sa’aatii',
+      navigationHeading: 'Navigeeshinii',
+    },
   },
   preFooterCta: {
     eyebrow: 'Ogeeyyii Plumbing Mirkanaa’an Yeroo Hunda Qophii',

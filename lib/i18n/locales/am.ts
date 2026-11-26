@@ -96,6 +96,42 @@ export const am: TranslationDictionary = {
       },
     ],
   },
+  realEstateProjects: {
+    eyebrow: 'የሪል እስቴት ፕሮጀክቶች · Real Estate Projects',
+    heading: 'የሪል እስቴት ፕሮጀክቶች / Real Estate Projects',
+    description:
+      'በአዲስ አበባ የተጠናቀቁ እና በመጠናቀቅ ላይ ያሉ ባለ ብዙ ፎቅ ህንጻዎች፣ የቪላ መንደሮች እና የመኖሪያ አፓርትመንቶች የቧንቧ ስራዎች።',
+    items: [
+      {
+        id: 'RE-01',
+        status: 'completed',
+        statusLabel: 'ተጠናቋል (Completed)',
+        name: 'ቦሌ መድኃኔዓለም ታወር (Tower)',
+        scope: 'ሙሉ የPN20 PP-R መስመር፣ ጥንድ Booster Pump እና በ16 ባር የተፈተሸ Sanitary ስርዓት።',
+      },
+      {
+        id: 'RE-02',
+        status: 'completed',
+        statusLabel: 'ተጠናቋል (Completed)',
+        name: 'CMC Sunset መኖሪያ መንደር',
+        scope: 'ለ18 ቪላዎች Copper እና PP-R Manifold፣ uPVC ፍሳሽ እና Mixers ገጠማ።',
+      },
+      {
+        id: 'RE-03',
+        status: 'completing',
+        statusLabel: 'በመጠናቀቅ ላይ (Completing)',
+        name: 'አያት ዞን 3 አፓርትመንቶች',
+        scope: 'ለG+7 ህንጻ PP-R እና PVC መስመር፣ የጣሪያ ታንከር Manifold እና ዕቃ ገጠማ።',
+      },
+      {
+        id: 'RE-04',
+        status: 'completing',
+        statusLabel: 'በመጠናቀቅ ላይ (Completing)',
+        name: 'ካዛንቺስ Mixed-Use ፕላዛ',
+        scope: 'የንግድ ህንጻ Copper እና PP-R መስመር፣ ባለ 3 Booster Pump እና የ16 ባር ፍተሻ።',
+      },
+    ],
+  },
   trustBanner: {
     eyebrow: 'የተረጋገጠ የስራ ልምድ እና ጥራት',
     heading: 'በመላው አዲስ አበባ አስተማማኝ የውሃ ግፊት እና መስመር ዝርጋታ',
@@ -110,11 +146,11 @@ export const am: TranslationDictionary = {
     items: [
       {
         id: 'VID-01',
-        category: 'Manifold & PP-R',
-        title: 'የንጹህ ውሃ Manifold እና የ16 ባር Pressure Test ገጠማ',
-        duration: '00:04',
+        category: 'የሳይት ቪዲዮ · Manifold & PP-R',
+        title: 'የሳይት የሥራ ቪዲዮ — Manifold፣ ቦይለር እና የ16 ባር Pressure Test ገጠማ',
+        duration: '00:08',
         summary:
-          'በPN20 PP-R እና በብራስ መዝጊያ ቫልቮች የተሰራ ሚዛናዊ የውሃ ማከፋፈያ መስመር።',
+          'በPN20 PP-R፣ Copper እና በብራስ መዝጊያ ቫልቮች የተሰራ ሚዛናዊ የውሃ ማከፋፈያ፣ ቦይለር እና ማጣሪያ መስመር።',
       },
       {
         id: 'VID-02',
@@ -134,37 +170,246 @@ export const am: TranslationDictionary = {
       },
     ],
   },
-  testimonials: {
-    eyebrow: 'የደንበኞች ምስክርነት (Testimonials)',
-    heading: 'በአዲስ አበባ የቤት ባለቤቶች እና ኮንትራክተሮች የተመሰከረለት ጥራት',
-    description:
-      'ጥራት ያለው የእጅ ስራ፣ ከShop የሚቀርቡ ኦሪጅናል ዕቃዎች እና ፈጣን የ24/7 Emergency Leak Repair አገልግሎት።',
-    items: [
-      {
-        id: 'REV-01',
-        quote:
-          'በቦሌ አትላስ G+3 ህንጻችን ላይ ሙሉ የPP-R መስመር እና Booster Pump በተባለው ጊዜ ገጥመው የ16 ባር ግፊት ፍተሻውን ያለ ምንም እንከን አልፈዋል።',
-        author: 'ዳዊት በቀለ',
-        district: 'ቦሌ አትላስ · የቪላ ባለቤት',
-        projectTag: 'PP-R Piping & Booster Pump',
-      },
-      {
-        id: 'REV-02',
-        quote:
-          'አያት ላይ ማታ የተደበቀ ቧንቧ ሲፈነዳ ጥራት ፕላምቢንግ በ2 ሰዓት ውስጥ ደርሰው ሴራሚኩን ሳይሰብሩ ችግሩን ለይተው ቫልቩን ቀይረውልናል።',
-        author: 'ሜሮን ታደሰ',
-        district: 'አያት · የመኖሪያ ግቢ',
-        projectTag: '24/7 Emergency Leak Repair',
-      },
-      {
-        id: 'REV-03',
-        quote:
-          'ኦሪጅናል brass ቫልቮችን እና Mixersን ከShop ገዝተን እዚያው በባለሙያዎቻቸው ማስገጠማችን ከውሸት ዕቃ እና ከጊዜ ብክነት አድኖናል።',
-        author: 'ኢንጂነር ሮቤል አለማየሁ',
-        district: 'CMC · የህንጻ ተቋራጭ',
-        projectTag: 'Shop Supplies & Sanitary',
-      },
-    ],
+  contractor: {
+    nav: {
+      services: 'አገልግሎቶች',
+      process: 'አሰራር (Process)',
+      projects: 'ፕሮጀክቶች እና ሰርተፍኬቶች',
+      contact: 'ያግኙን',
+      quoteCta: 'ነጻ ዋጋ ይጠይቁ',
+      navAriaLabel: 'ዋና ማውጫ',
+      mobileNavAriaLabel: 'የሞባይል ማውጫ',
+      languageLabel: 'ቋንቋ ይምረጡ',
+      openMenu: 'ማውጫ ክፈት',
+      closeMenu: 'ማውጫ ዝጋ',
+    },
+    hero: {
+      eyebrow: 'አዲስ አበባ · የቧንቧ እና የሪል እስቴት ኮንትራክቲንግ',
+      headline: 'አስተማማኝ የቧንቧ አገልግሎት። በትክክል የተሰራ።',
+      subcopy:
+        'ለመኖሪያ ቤቶች እና ንግድ ድርጅቶች — ከዕለታዊ ጥገና እስከ አስቸኳይ የቧንቧ ችግሮች ድረስ ሙያዊ አገልግሎት። ችግር ሲፈጠር በፍጥነት የሚደርስ፣ በሙያዊ ብቃት የሚሰራ እና ስራውን በጥራት የሚያጠናቅቅ ቡድን ያስፈልግዎታል።',
+      primaryCta: 'ነጻ የዋጋ ግምት ይጠይቁ',
+      secondaryCta: 'አስቸኳይ የቧንቧ ጥገና',
+      hotlineLabel: '24/7 አስቸኳይ የጥሪ መስመር',
+      slideLabels: [
+        'ኦሪጅናል Brass Valves እና Copper ማኒፎልዶች',
+        'ዘመናዊ PP-R እና የፎቅ መስመር ዝርጋታ',
+        'ዘመናዊ የመታጠቢያ ቤት እና Sanitary ገጠማ',
+        'የተረጋገጡ የሪል እስቴት የቧንቧ ስርዓቶች',
+      ],
+      trustStrip: [
+        'ፈቃድ ያለው እና ልምድ ያለው',
+        'ፈጣን ምላሽ',
+        'ጥራት ያለው ስራ',
+        'ግልጽ ዋጋ',
+      ],
+    },
+    aboutPillars: {
+      eyebrow: 'ስለ ጥራት ፕላምቢንግ',
+      headline: 'እምነት የሚጣልበት የቧንቧ አገልግሎት',
+      intro:
+        'በጥራት ፕላምቢንግ የቧንቧ ችግሮችን ለመፍታት ቀላል እናደርጋለን። ቡድናችን በጥራት ስራ እና ግልጽ ግንኙነት ላይ በማተኮር አስተማማኝ የጥገና፣ የገጠማ እና የእንክብካቤ አገልግሎቶችን ይሰጣል። የሚያፈስ ቧንቧ፣ የተደፈነ ፍሳሽ፣ የተበላሸ ዕቃ ወይም ትልቅ የቧንቧ ፕሮጀክት ቢሆንም እያንዳንዱን ስራ በጥንቃቄ እንሰራለን።',
+      pillars: [
+        {
+          title: 'ልምድ ያለው ቡድን',
+          description:
+            'አስተማማኝ የቧንቧ መፍትሄዎችን ለመስጠት የተሰማሩ ብቁ ባለሙያዎች።',
+        },
+        {
+          title: 'ጥራት ያለው ስራ',
+          description:
+            'እያንዳንዱን ስራ በጥንቃቄ እና በሙያዊ ብቃት ማጠናቀቃችንን እንኮራበታለን።',
+        },
+        {
+          title: 'ደንበኛ ተኮር አገልግሎት',
+          description:
+            'ከመጀመሪያው ጥሪ እስከ ስራው መጠናቀቅ ድረስ ግልጽ እና ቀጥተኛ ግንኙነት።',
+        },
+      ],
+    },
+    services: {
+      eyebrow: 'የቧንቧ አገልግሎቶች',
+      headline: 'ለእያንዳንዱ የቧንቧ ፍላጎት መፍትሄዎች',
+      subcopy:
+        'ከትንንሽ ጥገናዎች እስከ ትላልቅ የቧንቧ ፕሮጀክቶች ድረስ አገልግሎቶቻችን ንብረትዎ ያለምንም ችግር እንዲሰራ የተዘጋጁ ናቸው።',
+      requestQuoteBtn: 'ዋጋ ይጠይቁ',
+      seeMoreLabel: 'ተጨማሪ ይመልከቱ +',
+      seeLessLabel: 'አሳጥር −',
+      items: [
+        {
+          number: '01',
+          title: 'የውሃ ፍሳሽ መለየት እና ጥገና',
+          description:
+            'ፍሳሾች ወደ ትልቅ ጉዳት ከመቀየራቸው በፊት መለየት እና መጠገን።',
+          details:
+            'ሴራሚክና ግድግዳ ሳይበላሽ የተደበቀ ፍሳሽ መለየት እና በግፊት ፍተሻ የተረጋገጠ ጥገና።',
+        },
+        {
+          number: '02',
+          title: 'የፍሳሽ መስመር ማጽዳት',
+          description:
+            'የተደፈኑና የዘገዩ የፍሳሽ መስመሮችን በመክፈት የቧንቧ ፍሰቱን ማስተካከል።',
+          details:
+            'የኩሽና፣ የመታጠቢያ እና የዋና uPVC ፍሳሽ መስመሮችን በሜካኒካል መሳሪያ መክፈትና ሽታ መከላከል።',
+        },
+        {
+          number: '03',
+          title: 'የቧንቧ ጥገና እና መተካት',
+          description:
+            'ለተጎዱ፣ ላረጁ ወይም ለሚያፈሱ ቧንቧዎች ሙያዊ መፍትሄዎች።',
+          details:
+            'በISO በተረጋገጡ PP-R፣ PVC እና Copper ቧንቧዎች የ16 ባር ግፊት ፍተሻ ጋር መተካት።',
+        },
+        {
+          number: '04',
+          title: 'የመታጠቢያ ቤት ቧንቧ ስራ',
+          description:
+            'ለሲንክ፣ መጸዳጃ፣ ሻወር፣ ቧንቧዎች እና ሌሎች የመታጠቢያ ቤት ዕቃዎች ገጠማና ጥገና።',
+          details:
+            'የWC፣ Mixers፣ Angle Valve እና ሻወር ዕቃዎች ገጠማ ከውሃ የማያስገባ ሲሊኮን ማሸግ ጋር።',
+        },
+        {
+          number: '05',
+          title: 'የውሃ ማሞቂያ አገልግሎቶች',
+          description:
+            'ለውሃ ማሞቂያ ስርዓቶች ገጠማ፣ ወቅታዊ እንክብካቤ እና ጥገና።',
+          details:
+            'የኤሌክትሪክ እና የሶላር ቦይለሮች ገጠማ፣ Safety Valve ማስተካከያ እና የሙቅ ውሃ መስመር ማመጣጠን።',
+        },
+        {
+          number: '06',
+          title: 'አስቸኳይ የቧንቧ ጥገና (Emergency)',
+          description:
+            'ያልተጠበቁ የቧንቧ ችግሮች ፈጣን ትኩረት ሲፈልጉ ፈጣን እገዛ።',
+          details:
+            'ለፈነዳ ቧንቧ፣ ለተበላሸ ዋና ቫልቭ እና ለBooster Pump ችግሮች በአዲስ አበባ 24/7 ፈጣን ስምሪት።',
+        },
+      ],
+    },
+    whyChooseUs: {
+      eyebrow: 'ለምን እኛን ይመርጣሉ',
+      headline: 'ከመጀመሪያ እስከ መጨረሻ ሙያዊ አገልግሎት',
+      subcopy:
+        'የቧንቧ ባለሙያ መምረጥ ቀላል መሆን አለበት። ለዚህም ነው በአስተማማኝ አገልግሎት፣ ታማኝ ግንኙነት እና ጥራት ያለው ውጤት ላይ የምናተኩረው።',
+      items: [
+        {
+          number: '01',
+          title: 'ፈጣን ምላሽ',
+          description:
+            'ትንሽ ፍሳሽም ሆነ አስቸኳይ ችግር ጉዳት ከማስከተሉ በፊት በመላው አዲስ አበባ ፈጣን ስምሪት።',
+        },
+        {
+          number: '02',
+          title: 'ብቁ ባለሙያዎች',
+          description:
+            'በPP-R፣ PVC፣ Copper እና Booster Pump ስርዓቶች የሰለጠኑ የቧንቧ መሐንዲሶች እና ቴክኒሻኖች።',
+        },
+        {
+          number: '03',
+          title: 'ግልጽ ግንኙነት',
+          description:
+            'ስራ ከመጀመሩ በፊት ቀጥተኛ የቦታ ላይ ፍተሻ፣ ዝርዝር የስራ ስፋት እና ግልጽ የዋጋ ግምት።',
+        },
+        {
+          number: '04',
+          title: 'ጥራት ያለው የእጅ ስራ',
+          description:
+            'ጠንካራ መገጣጠሚያዎች፣ ንጹህ የመስመር ዝርጋታ እና ለአዲስ ዝርጋታዎች የ16 ባር ግፊት ፍተሻ።',
+        },
+        {
+          number: '05',
+          title: 'ለንብረትዎ ክብር መስጠት',
+          description:
+            'ንጹህ የስራ ቦታ፣ ሴራሚክና ግድግዳ ሳይጎዳ ትክክለኛ መለየት እና ከስራ በኋላ ጽዳት።',
+        },
+        {
+          number: '06',
+          title: 'አስተማማኝ ድጋፍ',
+          description:
+            'ለግል የቤት ባለቤቶችም ሆነ ለትላልቅ የሪል እስቴት አልሚዎች ዘላቂ እና አስተማማኝ አገልግሎት።',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'አሰራራችን',
+      headline: 'ቀላል የቧንቧ አገልግሎት በ4 ደረጃዎች',
+      subcopy:
+        'ከመጀመሪያው ጥሪ ወይም የዋጋ ጥያቄ እስከ መጨረሻው ፍተሻ ድረስ ግልጽ የሆነ የአሰራር ሂደት።',
+      steps: [
+        {
+          number: '01',
+          title: 'ያግኙን',
+          description:
+            'ምን እየተከሰተ እንዳለ እና ምን አይነት የቧንቧ አገልግሎት እንደሚፈልጉ ይንገሩን።',
+        },
+        {
+          number: '02',
+          title: 'ችግሩን እንገመግማለን',
+          description:
+            'ባለሙያችን ችግሩን በጥንቃቄ መርምሮ ተገቢውን መፍትሄ ይለያል።',
+        },
+        {
+          number: '03',
+          title: 'ስራውን እንጀምራለን',
+          description:
+            'አገልግሎቱ እንደጸደቀ ስራውን በሙያዊ ብቃት እና በጥራት እናከናውናለን።',
+        },
+        {
+          number: '04',
+          title: 'ችግሩ ተፈቷል',
+          description:
+            'የተሰራውን ስራ ሙሉ በሙሉ ፈትሸን ሁሉም ነገር በትክክል መስራቱን እናረጋግጣለን።',
+        },
+      ],
+    },
+    projectsSection: {
+      eyebrow: 'የሪል እስቴት ፕሮጀክቶች እና የርክክብ ማረጋገጫ',
+      headline: 'የሪል እስቴት ኮንትራክቲንግ እና የተረጋገጡ ርክክቦች',
+      subcopy:
+        'በይፋዊ የቧንቧ ሰርተፍኬት የተረከቡ የሪል እስቴት ፕሮጀክቶች እና በመጨረሻ ፍተሻ ላይ ያሉ ህንጻዎች።',
+      countLabel: (count: number) => `${count} የተረከቡና በመጠናቀቅ ላይ ያሉ ፕሮጀክቶች`,
+      filterAll: 'ሁሉም ፕሮጀክቶች',
+      filterHandedOver: 'ተረክበው ሰርተፍኬት ያገኙ',
+      filterCompleting: 'በቅርቡ የሚጠናቀቁ',
+      statusHandedOver: 'ተረክቧል · ሰርተፍኬት የተሰጠው',
+      statusCompletingSoon: 'በቅርቡ የሚጠናቀቅ',
+      certificatePrefix: 'ሰርተፍኬት',
+      viewDetailsBtn: 'የርክክብና የስራ ዝርዝር',
+      requestSimilarBtn: 'ተመሳሳይ ዋጋ ይጠይቁ',
+      closeModalAria: 'የፕሮጀክት ዝርዝር ዝጋ',
+      modalDeliverablesHeading: 'የቧንቧ ስራ ስፋት እና ዝርዝር',
+      modalHandoverHeading: 'የርክክብ እና የሰርተፍኬት መረጃ',
+      modalRequestInspectionBtn: 'ለተመሳሳይ ፕሮጀክት ዋጋ ወይም የሳይት ፍተሻ ይጠይቁ',
+    },
+    emergencyBanner: {
+      eyebrow: 'አስቸኳይ የቧንቧ እርዳታ',
+      headline: 'አስቸኳይ የቧንቧ ችግር አጋጥሞዎታል?',
+      subcopy:
+        'የፈነዳ ቧንቧ፣ ድንገተኛ ፍሳሽ ወይም የተበላሸ ዋና ቫልቭ ፈጣን ትኩረት ይፈልጋሉ። በ24/7 መስመራችን ይደውሉ ወይም አስቸኳይ ጥያቄ ይላኩ።',
+      callNowBtn: 'ይደውሉ +251 912 453 752',
+      dispatchBtn: 'አስቸኳይ ባለሙያ ይጥሩ',
+    },
+    closingCta: {
+      eyebrow: 'ነጻ የዋጋ ግምት እና የሳይት ፍተሻ',
+      headline: 'የቧንቧ ስርዓትዎ በድጋሚ በንጽህና እንዲፈስ እናድርግ',
+      subcopy:
+        'በመላው አዲስ አበባ ለመኖሪያ ቤት ጥገና፣ ለንግድ ህንጻ ዝርጋታ ወይም ለሪል እስቴት ፕሮጀክቶች ነጻ የዋጋ ግምት ይጠይቁ።',
+      primaryBtn: 'ነጻ የዋጋ ግምት ይጠይቁ',
+    },
+    quoteForm: {
+      serviceFieldLabel: 'የአገልግሎት ወይም የፕሮጀክት አይነት',
+      similarProjectPrefix: 'የዋጋ / የሳይት ፍተሻ ጥያቄ — ተመሳሳይ ፕሮጀክት',
+      emergencySubjectDefault: 'አስቸኳይ የቧንቧ ጥገና (Emergency Plumbing) ጥሪ',
+      quoteSubjectPrefix: 'ነጻ የዋጋ ግምት ጥያቄ',
+      realEstateInquiryOption: 'የሪል እስቴት / ባለ ብዙ ክፍል የቧንቧ ፕሮጀክት',
+    },
+    footer: {
+      summary:
+        'ጥራት ፕላምቢንግ (Tirat Plumbing) በመላው አዲስ አበባ አስተማማኝ የቧንቧ ጥገና፣ የመኖሪያና ንግድ ገጠማ እና በሰርተፍኬት የተረጋገጠ የሪል እስቴት ቧንቧ ኮንትራክቲንግ ይሰጣል።',
+      hoursLabel: 'የስራ ሰዓት',
+      contactHeading: 'አድራሻ እና የስራ ሰዓት',
+      navigationHeading: 'ማውጫ',
+    },
   },
   preFooterCta: {
     eyebrow: 'ሁልጊዜ ዝግጁ የሆነ የቧንቧ ባለሙያ ቡድን',

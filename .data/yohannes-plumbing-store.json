@@ -92,6 +92,15 @@
       "createdAt": "2026-11-19T09:15:00.000Z"
     }
   ],
-  "contacts": [],
+  "contacts": [
+    {
+      "fullName": "Abebe Kebede",
+      "phone": "0912453752",
+      "subject": "Quote / Inspection Inquiry — Similar to: Bole Medhanialem Residential Tower (TP-RE-01)",
+      "message": "[Real Estate / Multi-Unit Plumbing Project] Looking for G+8 PP-R and Booster Pump contractor quote.",
+      "id": "MSG-3785357",
+      "createdAt": "2026-11-26T03:29:14.357Z"
+    }
+  ],
   "notifyRequests": []
 }

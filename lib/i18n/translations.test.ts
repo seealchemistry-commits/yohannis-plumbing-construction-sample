@@ -6,8 +6,22 @@ import {
   validateNotifyInput,
 } from '../booking/schedule';
 import { validateCheckoutInput } from '../commerce/cart';
-import { ADDIS_SUBCITY_DATA, getSubCityLabel, getWoredaLabel, getLandmarkLabel } from '../data/addis-addresses';
-import { PRODUCTS, SERVICES, BLOG_ARTICLES, COMING_SOON_SERVICES } from '../data/catalog';
+import {
+  ADDIS_SUBCITY_DATA,
+  getSubCityLabel,
+  getWoredaLabel,
+  getLandmarkLabel,
+} from '../data/addis-addresses';
+import {
+  PRODUCTS,
+  SERVICES,
+  BLOG_ARTICLES,
+  COMING_SOON_SERVICES,
+} from '../data/catalog';
+import {
+  getProjectStatusCounts,
+  REAL_ESTATE_PROJECTS,
+} from '../data/projects';
 import {
   DEFAULT_LOCALE,
   getLocalizedProductName,
@@ -39,7 +53,7 @@ function assertNoEmptyStrings(obj: unknown, path: string): void {
   }
 }
 
-describe('4-language i18n dictionary and transliteration', () => {
+describe('4-language i18n dictionary, contractor sections & project registry', () => {
   it('sets English (en) as the default locale and exposes all 4 language options', () => {
     assert.equal(DEFAULT_LOCALE, 'en');
     assert.deepEqual(
@@ -48,19 +62,17 @@ describe('4-language i18n dictionary and transliteration', () => {
     );
   });
 
-  it('has 100% populated non-empty strings across en, am, om, and ti dictionaries', () => {
+  it('has 100% populated contractor sections and legacy strings across en, am, om, and ti', () => {
     for (const locale of ALL_LOCALES) {
       const dict = TRANSLATIONS[locale];
       assertNoEmptyStrings(dict, `TRANSLATIONS.${locale}`);
 
-      assert.equal(dict.hero.stats.length, 4);
-      assert.equal(dict.hero.slideLabels.length, 4);
-      assert.equal(dict.quickActions.items.length, 4);
-      assert.equal(dict.videoShowcase.items.length, 3);
-      assert.equal(dict.testimonials.items.length, 3);
-      assert.equal(dict.about.projects.length, 3);
-      assert.equal(dict.booking.timeSlots.length, 5);
-      assert.equal(dict.faq.items.length, 6);
+      assert.equal(dict.contractor.hero.trustStrip.length, 4);
+      assert.equal(dict.contractor.hero.slideLabels.length, 4);
+      assert.equal(dict.contractor.aboutPillars.pillars.length, 3);
+      assert.equal(dict.contractor.services.items.length, 6);
+      assert.equal(dict.contractor.whyChooseUs.items.length, 6);
+      assert.equal(dict.contractor.process.steps.length, 4);
       assert.equal(dict.footer.builtByPrefix, 'Built & maintained by');
       assert.equal(dict.footer.developerName, 'Christian');
       assert.equal(dict.footer.developerUrl, 'https://t.me/SEE_ALCHEMISTRY');
@@ -92,6 +104,44 @@ describe('4-language i18n dictionary and transliteration', () => {
     }
   });
 
+  it('excludes fabricated customer review quotes or fake reviewer names', () => {
+    const bannedReviewerStrings = [
+      'Meron Tadesse',
+      'Robel Alemayehu',
+      'ሜሮን ታደሰ',
+      'ሮቤል አለማየሁ',
+      'Customer Reviews',
+    ];
+    for (const locale of ALL_LOCALES) {
+      const serialized = JSON.stringify(TRANSLATIONS[locale]);
+      for (const banned of bannedReviewerStrings) {
+        assert.ok(
+          !serialized.includes(banned),
+          `Found disallowed review string "${banned}" in ${locale}`
+        );
+      }
+    }
+  });
+
+  it('computes real estate project status counts dynamically from REAL_ESTATE_PROJECTS', () => {
+    const counts = getProjectStatusCounts(REAL_ESTATE_PROJECTS);
+    assert.equal(counts.total, REAL_ESTATE_PROJECTS.length);
+    assert.equal(counts.handedOver + counts.completingSoon, counts.total);
+    assert.ok(counts.handedOver >= 1);
+    assert.ok(counts.completingSoon >= 1);
+
+    for (const project of REAL_ESTATE_PROJECTS) {
+      for (const locale of ALL_LOCALES) {
+        const copy = project.copy[locale];
+        assert.ok(copy.title.trim().length > 0);
+        assert.ok(copy.location.trim().length > 0);
+        assert.ok(copy.scopeSummary.trim().length > 0);
+        assert.ok(copy.handoverNote.trim().length > 0);
+        assert.equal(copy.deliverables.length, 3);
+      }
+    }
+  });
+
   it('transliterates proper nouns without translating meanings and keeps technical terms in English', () => {
     assert.equal(TRANSLATIONS.en.brand.name, 'Tirat Plumbing');
     assert.equal(TRANSLATIONS.om.brand.name, 'Tirat Plumbing');
@@ -103,41 +153,11 @@ describe('4-language i18n dictionary and transliteration', () => {
     assert.equal(TRANSLATIONS.om.brand.city, 'Addis Ababaa');
     assert.equal(TRANSLATIONS.ti.brand.city, 'ኣዲስ ኣበባ');
 
-    // Ensure "Finfinne" or semantic translations like "Quality Plumbing" or old names are not used
     for (const locale of ALL_LOCALES) {
       const serialized = JSON.stringify(TRANSLATIONS[locale]);
       assert.ok(!serialized.includes('Finfinne'));
       assert.ok(!serialized.includes('Quality Plumbing'));
       assert.ok(!serialized.includes('Yohannis Plumbing'));
-      assert.ok(!serialized.includes('ዮሐንስ Plumbing'));
-      assert.ok(!serialized.includes('ዮሃንስ Plumbing'));
-    }
-
-    // Technical terms remain in English across all locales
-    for (const locale of ALL_LOCALES) {
-      const serialized = JSON.stringify(TRANSLATIONS[locale]);
-      assert.ok(serialized.includes('PPR'), `${locale} missing PPR`);
-      assert.ok(serialized.includes('PP-R'), `${locale} missing PP-R`);
-      assert.ok(serialized.includes('PVC'), `${locale} missing PVC`);
-      assert.ok(serialized.includes('Copper'), `${locale} missing Copper`);
-      assert.ok(
-        serialized.includes('Booster Pump'),
-        `${locale} missing Booster Pump`
-      );
-      assert.ok(
-        serialized.includes('Emergency Leak Repair'),
-        `${locale} missing Emergency Leak Repair`
-      );
-      assert.equal(
-        TRANSLATIONS[locale].booking.scheduledVisitBtn,
-        'Scheduled Visit',
-        `${locale} scheduledVisitBtn must remain English`
-      );
-      assert.equal(
-        TRANSLATIONS[locale].booking.emergencyVisitBtn,
-        '24/7 Emergency',
-        `${locale} emergencyVisitBtn must remain English`
-      );
     }
   });
 

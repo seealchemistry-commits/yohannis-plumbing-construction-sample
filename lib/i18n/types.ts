@@ -113,6 +113,41 @@ export interface TranslationDictionary {
       { id: 'QA-04'; title: string; subtitle: string }
     ];
   };
+  realEstateProjects: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    items: [
+      {
+        id: 'RE-01';
+        status: 'completed' | 'completing';
+        statusLabel: string;
+        name: string;
+        scope: string;
+      },
+      {
+        id: 'RE-02';
+        status: 'completed' | 'completing';
+        statusLabel: string;
+        name: string;
+        scope: string;
+      },
+      {
+        id: 'RE-03';
+        status: 'completed' | 'completing';
+        statusLabel: string;
+        name: string;
+        scope: string;
+      },
+      {
+        id: 'RE-04';
+        status: 'completed' | 'completing';
+        statusLabel: string;
+        name: string;
+        scope: string;
+      }
+    ];
+  };
   trustBanner: {
     eyebrow: string;
     heading: string;
@@ -147,33 +182,123 @@ export interface TranslationDictionary {
       }
     ];
   };
-  testimonials: {
-    eyebrow: string;
-    heading: string;
-    description: string;
-    items: [
-      {
-        id: 'REV-01';
-        quote: string;
-        author: string;
-        district: string;
-        projectTag: string;
-      },
-      {
-        id: 'REV-02';
-        quote: string;
-        author: string;
-        district: string;
-        projectTag: string;
-      },
-      {
-        id: 'REV-03';
-        quote: string;
-        author: string;
-        district: string;
-        projectTag: string;
-      }
-    ];
+  contractor: {
+    nav: {
+      services: string;
+      process: string;
+      projects: string;
+      contact: string;
+      quoteCta: string;
+      navAriaLabel: string;
+      mobileNavAriaLabel: string;
+      languageLabel: string;
+      openMenu: string;
+      closeMenu: string;
+    };
+    hero: {
+      eyebrow: string;
+      headline: string;
+      subcopy: string;
+      primaryCta: string;
+      secondaryCta: string;
+      hotlineLabel: string;
+      slideLabels: [string, string, string, string];
+      trustStrip: [string, string, string, string];
+    };
+    aboutPillars: {
+      eyebrow: string;
+      headline: string;
+      intro: string;
+      pillars: [
+        { title: string; description: string },
+        { title: string; description: string },
+        { title: string; description: string }
+      ];
+    };
+    services: {
+      eyebrow: string;
+      headline: string;
+      subcopy: string;
+      requestQuoteBtn: string;
+      seeMoreLabel: string;
+      seeLessLabel: string;
+      items: [
+        { number: '01'; title: string; description: string; details: string },
+        { number: '02'; title: string; description: string; details: string },
+        { number: '03'; title: string; description: string; details: string },
+        { number: '04'; title: string; description: string; details: string },
+        { number: '05'; title: string; description: string; details: string },
+        { number: '06'; title: string; description: string; details: string }
+      ];
+    };
+    whyChooseUs: {
+      eyebrow: string;
+      headline: string;
+      subcopy: string;
+      items: [
+        { number: '01'; title: string; description: string },
+        { number: '02'; title: string; description: string },
+        { number: '03'; title: string; description: string },
+        { number: '04'; title: string; description: string },
+        { number: '05'; title: string; description: string },
+        { number: '06'; title: string; description: string }
+      ];
+    };
+    process: {
+      eyebrow: string;
+      headline: string;
+      subcopy: string;
+      steps: [
+        { number: '01'; title: string; description: string },
+        { number: '02'; title: string; description: string },
+        { number: '03'; title: string; description: string },
+        { number: '04'; title: string; description: string }
+      ];
+    };
+    projectsSection: {
+      eyebrow: string;
+      headline: string;
+      subcopy: string;
+      countLabel: (count: number) => string;
+      filterAll: string;
+      filterHandedOver: string;
+      filterCompleting: string;
+      statusHandedOver: string;
+      statusCompletingSoon: string;
+      certificatePrefix: string;
+      viewDetailsBtn: string;
+      requestSimilarBtn: string;
+      closeModalAria: string;
+      modalDeliverablesHeading: string;
+      modalHandoverHeading: string;
+      modalRequestInspectionBtn: string;
+    };
+    emergencyBanner: {
+      eyebrow: string;
+      headline: string;
+      subcopy: string;
+      callNowBtn: string;
+      dispatchBtn: string;
+    };
+    closingCta: {
+      eyebrow: string;
+      headline: string;
+      subcopy: string;
+      primaryBtn: string;
+    };
+    quoteForm: {
+      serviceFieldLabel: string;
+      similarProjectPrefix: string;
+      emergencySubjectDefault: string;
+      quoteSubjectPrefix: string;
+      realEstateInquiryOption: string;
+    };
+    footer: {
+      summary: string;
+      hoursLabel: string;
+      contactHeading: string;
+      navigationHeading: string;
+    };
   };
   preFooterCta: {
     eyebrow: string;

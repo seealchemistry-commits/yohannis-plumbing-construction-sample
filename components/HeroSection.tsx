@@ -1,16 +1,35 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, Phone } from 'lucide-react';
+import {
+  AlertTriangle,
+  ArrowRight,
+  BadgeCheck,
+  Phone,
+  ShieldCheck,
+  Wrench,
+  Zap,
+} from 'lucide-react';
 import { COMPANY_INFO } from '@/lib/data/catalog';
 import { HERO_CAROUSEL_SLIDES } from '@/lib/data/media';
 import { useLanguage } from '@/lib/i18n/context';
 
-const SLIDE_INTERVAL_MS = 4000;
+const SLIDE_INTERVAL_MS = 4500;
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  onGetFreeQuote: () => void;
+  onEmergencyPlumbing: () => void;
+}
+
+const TRUST_ICONS = [ShieldCheck, Zap, Wrench, BadgeCheck] as const;
+
+export default function HeroSection({
+  onGetFreeQuote,
+  onEmergencyPlumbing,
+}: HeroSectionProps) {
   const { t } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
+  const heroCopy = t.contractor.hero;
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -26,9 +45,9 @@ export default function HeroSection() {
     <section
       id="home"
       data-active-slide={activeSlide}
-      className="relative overflow-hidden border-b border-[rgba(212,175,55,0.22)] bg-[#0B0D10]"
+      className="relative overflow-hidden border-b border-white/[0.08] bg-[#0A0A0B]"
     >
-      {/* Full-bleed auto-sliding fixed-background parallax carousel */}
+      {/* Full-bleed auto-sliding plumbing photography with sharp clarity (no blur) */}
       <div
         aria-hidden="true"
         data-testid="hero-ambient-backdrop"
@@ -40,86 +59,83 @@ export default function HeroSection() {
             <div
               key={slide.id}
               data-testid={`hero-slide-bg-${idx}`}
-              className={`absolute inset-0 ${slide.cssClass} bg-fixed bg-cover bg-center transition-opacity duration-1000 ease-out ${
+              className={`absolute inset-0 ${slide.cssClass} bg-cover bg-center transition-opacity duration-1000 ease-out lg:bg-fixed ${
                 isCurrent ? 'opacity-100' : 'opacity-0'
               }`}
             />
           );
         })}
 
-        {/* Directional dark gradient overlay: strong on left for text legibility, transparent on right so photos shine clearly */}
+        {/* Directional gradient scrim preserving crisp text contrast on left while keeping right photography bright */}
         <div
           data-testid="hero-dark-overlay"
-          className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/85 via-[#0B0D10]/50 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-[#0A0A0B]/92 via-[#0A0A0B]/70 to-[#0A0A0B]/30"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/25 via-transparent to-[#0B0D10]/45" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A0A0B] to-transparent" />
       </div>
 
-      {/* Stationary Hero content layer on left side; right side stays completely open */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
+      {/* Main Hero Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-18 pb-10 sm:px-6 lg:px-10 lg:pt-28 lg:pb-14">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
-            {t.hero.eyebrow}
-          </p>
-          <h1 className="mt-4 text-balance text-[1.85rem] font-bold leading-[1.28] tracking-[0.012em] text-[#F8FAFC] drop-shadow-sm sm:text-4xl lg:text-[2.75rem]">
-            <span className="block">{t.hero.headlineLine1}</span>
-            <span className="mt-1 block text-[#F5F2EB]">
-              {t.hero.headlineLine2}
-            </span>
-          </h1>
-          <p className="mt-5 max-w-xl text-[15px] leading-[1.78] tracking-[0.012em] text-[#E2E8F0] sm:text-base">
-            {t.hero.subtext}
+          <p className="text-xs font-semibold tracking-[0.08em] text-[#F59E0B] uppercase">
+            {heroCopy.eyebrow}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a
-              href="#booking"
-              className="inline-flex min-h-[50px] items-center justify-center rounded-xl bg-[#D4AF37] px-7 py-3.5 text-sm font-bold text-[#0B0D10] shadow-[0_12px_32px_-12px_rgba(212,175,55,0.45)] transition-colors hover:bg-[#E5C158] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0"
+          <h1 className="mt-4 text-balance text-3xl font-bold leading-[1.16] tracking-tight text-[#F8FAFC] sm:text-5xl lg:text-[3.25rem]">
+            {heroCopy.headline}
+          </h1>
+
+          <p className="mt-5 max-w-xl text-sm leading-[1.75] text-[#E2E8F0] sm:text-base">
+            {heroCopy.subcopy}
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
+            <button
+              type="button"
+              onClick={onGetFreeQuote}
+              data-testid="hero-primary-cta"
+              className="inline-flex min-h-[50px] items-center gap-2 rounded-xl bg-[#F59E0B] px-6 py-3 text-sm font-bold text-[#0A0A0B] shadow-[0_14px_34px_-12px_rgba(245,158,11,0.5)] transition-colors hover:bg-[#D97706] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F59E0B] whitespace-nowrap shrink-0"
             >
-              {t.hero.primaryCta}
-            </a>
-            <a
-              href="#shop"
-              className="inline-flex min-h-[50px] items-center gap-2 rounded-xl border border-[rgba(212,175,55,0.48)] bg-[#12161C]/90 px-6 py-3.5 text-sm font-semibold text-[#F5F2EB] backdrop-blur-sm transition-colors hover:border-[#D4AF37] hover:bg-[#161B22] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] whitespace-nowrap shrink-0"
+              <span>{heroCopy.primaryCta}</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+
+            <button
+              type="button"
+              onClick={onEmergencyPlumbing}
+              data-testid="hero-emergency-cta"
+              className="inline-flex min-h-[50px] items-center gap-2 rounded-xl border border-[#F59E0B]/45 bg-[#111214]/90 px-6 py-3 text-sm font-semibold text-[#F5F2EB] transition-colors hover:border-[#F59E0B] hover:bg-[#16181D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F59E0B] whitespace-nowrap shrink-0"
             >
-              <span>{t.hero.secondaryCta}</span>
-              <ArrowUpRight className="h-4 w-4 text-[#D4AF37]" aria-hidden="true" />
-            </a>
+              <AlertTriangle className="h-4 w-4 text-[#F59E0B]" aria-hidden="true" />
+              <span>{heroCopy.secondaryCta}</span>
+            </button>
           </div>
 
-          <div className="mt-8 space-y-2">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-[#E2E8F0]">
-              <span className="inline-flex items-center gap-2">
-                <Phone className="h-4 w-4 text-[#D4AF37]" aria-hidden="true" />
-                <span>{t.hero.hotlineLabel}</span>
-              </span>
-              <a
-                href={COMPANY_INFO.phoneHref}
-                className="font-mono tabular-nums font-bold text-[#F8FAFC] transition-colors hover:text-[#D4AF37] hover:underline hover:decoration-[#D4AF37]"
-              >
-                {COMPANY_INFO.phoneDisplay}
-              </a>
-            </div>
-            <p
-              data-testid="hero-coverage-note"
-              className="text-xs leading-relaxed text-[#CBD5E1] sm:text-[13px]"
+          <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-[#E2E8F0]">
+            <span className="inline-flex items-center gap-2 text-[#CBD5E1]">
+              <Phone className="h-4 w-4 text-[#F59E0B]" aria-hidden="true" />
+              <span>{heroCopy.hotlineLabel}:</span>
+            </span>
+            <a
+              href={COMPANY_INFO.phoneHref}
+              className="font-mono tabular-nums font-bold text-[#F8FAFC] transition-colors hover:text-[#F59E0B] hover:underline"
             >
-              {t.hero.coverageNote}
-            </p>
+              {COMPANY_INFO.phoneDisplay}
+            </a>
           </div>
         </div>
 
-        {/* Auto-sliding Carousel Status & Manual Selector Row */}
-        <div className="mt-12 flex flex-col gap-3 border-t border-[rgba(212,175,55,0.22)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+        {/* Slide indicator strip */}
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p
             data-testid="hero-active-slide-label"
             className="text-xs font-medium text-[#A1A8B3]"
           >
-            <span className="font-mono tabular-nums font-bold text-[#D4AF37]">
+            <span className="font-mono tabular-nums font-bold text-[#F59E0B]">
               0{activeSlide + 1} / 0{HERO_CAROUSEL_SLIDES.length}
             </span>{' '}
             <span aria-hidden="true">·</span>{' '}
-            <span>{t.hero.slideLabels[activeSlide]}</span>
+            <span>{heroCopy.slideLabels[activeSlide]}</span>
           </p>
 
           <div
@@ -134,18 +150,41 @@ export default function HeroSection() {
                   key={slide.id}
                   type="button"
                   data-testid={`hero-slide-dot-${idx}`}
-                  aria-label={t.hero.slideLabels[idx]}
+                  aria-label={heroCopy.slideLabels[idx]}
                   aria-pressed={selected}
                   onClick={() => setActiveSlide(idx)}
-                  className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] ${
+                  className={`h-2 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F59E0B] ${
                     selected
-                      ? 'w-9 bg-[#D4AF37]'
-                      : 'w-2.5 bg-[#A1A8B3]/35 hover:bg-[#D4AF37]/70'
+                      ? 'w-8 bg-[#F59E0B]'
+                      : 'w-2 bg-white/30 hover:bg-[#F59E0B]/70'
                   }`}
                 />
               );
             })}
           </div>
+        </div>
+
+        {/* 4-Column Trust Strip */}
+        <div
+          data-testid="hero-trust-strip"
+          className="mt-8 grid grid-cols-1 gap-3 border-t border-white/[0.1] pt-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {heroCopy.trustStrip.map((label, idx) => {
+            const Icon = TRUST_ICONS[idx] ?? ShieldCheck;
+            return (
+              <div
+                key={label}
+                className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-[#111214]/90 px-4 py-3.5"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#F59E0B]/25 bg-[#F59E0B]/10">
+                  <Icon className="h-4.5 w-4.5 text-[#F59E0B]" aria-hidden="true" />
+                </div>
+                <span className="text-xs font-semibold leading-snug text-[#F8FAFC] sm:text-sm">
+                  {label}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

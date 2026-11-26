@@ -21,23 +21,20 @@ export default function PreFooterCtaBanner() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[#0B0D10]/30"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0B0D10]/60 via-[#0B0D10]/25 to-[#0B0D10]/55"
+        data-testid="pre-footer-cta-overlay"
+        className="pointer-events-none absolute inset-0 bg-black/30"
       />
 
       {/* Foreground CTA Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-10">
         <ScrollReveal>
-          <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37]">
+          <p className="text-xs font-semibold tracking-[0.06em] text-[#D4AF37] drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
             {t.preFooterCta.eyebrow}
           </p>
-          <h2 className="mx-auto mt-3 max-w-3xl text-balance text-2xl font-bold leading-snug tracking-tight text-[#F8FAFC] sm:text-3xl lg:text-4xl">
+          <h2 className="mx-auto mt-3 max-w-3xl text-balance text-2xl font-bold leading-snug tracking-tight text-[#F8FAFC] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] sm:text-3xl lg:text-4xl">
             {t.preFooterCta.heading}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-[1.8] text-[#F5F2EB]/85 sm:text-base">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-[1.8] text-[#F5F2EB] drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)] sm:text-base">
             {t.preFooterCta.subtext}
           </p>
 

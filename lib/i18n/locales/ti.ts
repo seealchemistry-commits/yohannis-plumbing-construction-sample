@@ -96,6 +96,42 @@ export const ti: TranslationDictionary = {
       },
     ],
   },
+  realEstateProjects: {
+    eyebrow: 'ፕሮጀክትታት ሪል እስቴት · Real Estate Projects',
+    heading: 'ፕሮጀክትታት ሪል እስቴት / Real Estate Projects',
+    description:
+      'ኣብ ኣዲስ ኣበባ ዝተዛዘሙን ኣብ ምዝዛም ዝርከቡን ህንጻታት፣ መንበሪ ቪላታትን ንግዳዊ ፕሮጀክትታትን መስመር ቧንቧ።',
+    items: [
+      {
+        id: 'RE-01',
+        status: 'completed',
+        statusLabel: 'ዝተዛዘመ (Completed)',
+        name: 'ህንጻ ቦሌ መድኃኔዓለም',
+        scope: 'ሙሉእ መስመር PP-R PN20፣ ድርብ Booster Pumpን ብ16 ባር ዝተፈተሸ Sanitaryን።',
+      },
+      {
+        id: 'RE-02',
+        status: 'completed',
+        statusLabel: 'ዝተዛዘመ (Completed)',
+        name: 'መንበሪ መንደር CMC Sunset',
+        scope: 'ን18 ቪላታት Manifold Copperን PP-Rን፣ ፍሳስ uPVCን Mixersን።',
+      },
+      {
+        id: 'RE-03',
+        status: 'completing',
+        statusLabel: 'ኣብ ምዝዛም (Completing)',
+        name: 'ኣፓርትመንትታት ኣያት ዞን 3',
+        scope: 'ንG+7 መስመር PP-Rን PVCን፣ Manifold ታንከር ናሕስን መዛዘሚ ገጠማን።',
+      },
+      {
+        id: 'RE-04',
+        status: 'completing',
+        statusLabel: 'ኣብ ምዝዛም (Completing)',
+        name: 'ፕላዛ ካዛንቺስ Mixed-Use',
+        scope: 'ንግዳዊ መስመር Copperን PP-Rን፣ 3 Booster Pumpን ፍተሻ 16 ባርን።',
+      },
+    ],
+  },
   trustBanner: {
     eyebrow: 'ዝተረጋገጸ ልምድን ጽሬትን',
     heading: 'ኣብ መላእ ኣዲስ ኣበባ ውሑስ ጸቕጢ ማይን መስመር ቧንቧን',
@@ -110,11 +146,11 @@ export const ti: TranslationDictionary = {
     items: [
       {
         id: 'VID-01',
-        category: 'Manifold & PP-R',
-        title: 'ምትካል Manifold ጽሩይ ማይን ፍተሻ ጸቕጢ 16 ባርን',
-        duration: '00:04',
+        category: 'ቪዲዮ ሳይት · Manifold & PP-R',
+        title: 'ቪዲዮ ስራሕ ሳይት — ምትካል Manifold፣ ቦይለርን ፍተሻ 16 ባርን',
+        duration: '00:08',
         summary:
-          'ብPN20 PP-Rን ብራስ ቫልቭታትን ዝተሰርሐ ሚዛናዊ መከፋፈሊ ማይ።',
+          'ብPN20 PP-R፣ Copperን ብራስ ቫልቭታትን ዝተሰርሐ ሚዛናዊ መከፋፈሊ ማይን መጻረዪን።',
       },
       {
         id: 'VID-02',
@@ -134,37 +170,246 @@ export const ti: TranslationDictionary = {
       },
     ],
   },
-  testimonials: {
-    eyebrow: 'ምስክርነት ዓማዊል (Testimonials)',
-    heading: 'ብዋናታት ኣባይትን ኮንትራክተራትን ኣዲስ ኣበባ ዝተመስከረ ጽሬት',
-    description:
-      'ጽሬት ስራሕ፣ ካብ Shop ዝቐርቡ ኦሪጅናል ኣቕሑን ቅልጡፍ ኣገልግሎት 24/7 Emergency Leak Repairን።',
-    items: [
-      {
-        id: 'REV-01',
-        quote:
-          'ኣብ ቦሌ ኣትላስ ህንጻና G+3 ሙሉእ መስመር PP-Rን Booster Pumpን ኣብ እዋኑ ወዲኦም ፍተሻ ጸቕጢ 16 ባር ብዘይ ሓንቲ ነጥቢ ፍሳስ ሓሊፎም።',
-        author: 'ዳዊት በቀለ',
-        district: 'ቦሌ ኣትላስ · ዋና ቪላ',
-        projectTag: 'PP-R Piping & Booster Pump',
-      },
-      {
-        id: 'REV-02',
-        quote:
-          'ኣያት ለይቲ ዝተሓብአ ቧንቧ ምስ ተፈንጀረ ጥራት ፕላምቢንግ ኣብ 2 ሰዓት በጺሖም ነቲ ሴራሚክ ከይሰበሩ እቲ ቫልቭ ቀዪሮምልና።',
-        author: 'ሜሮን ታደሰ',
-        district: 'ኣያት · መንበሪ ቀጽሪ',
-        projectTag: '24/7 Emergency Leak Repair',
-      },
-      {
-        id: 'REV-03',
-        quote:
-          'ኦሪጅናል ብራስ ቫልቭታትን Mixersን ካብ Shop ዓዲግና ብክኢላታቶም ምግጣምና ካብ ናይ ሓሶት ኣቕሑን ብኽነት ግዜን ኣድሒኑና።',
-        author: 'ኢንጂነር ሮቤል ኣለማየሁ',
-        district: 'CMC · ኮንትራክተር ህንጻ',
-        projectTag: 'Shop Supplies & Sanitary',
-      },
-    ],
+  contractor: {
+    nav: {
+      services: 'ኣገልግሎታት',
+      process: 'ኣሰራርሓ',
+      projects: 'ፕሮጀክትታትን ሰርተፍኬታትን',
+      contact: 'ርኸቡና',
+      quoteCta: 'ብነጻ ዋጋ ሕተቱ',
+      navAriaLabel: 'ቀንዲ መውጽኢ',
+      mobileNavAriaLabel: 'ናይ ሞባይል መውጽኢ',
+      languageLabel: 'ቋንቋ ምረጹ',
+      openMenu: 'መውጽኢ ክፈት',
+      closeMenu: 'መውጽኢ ዕጸው',
+    },
+    hero: {
+      eyebrow: 'ኣዲስ ኣበባ · ኮንትራክቲንግ ቧንቧን ሪል እስቴትን',
+      headline: 'እሙን ስራሕ ቧንቧ። ብትኽክል ዝተሰርሐ።',
+      subcopy:
+        'ንመንበሪ ኣባይትን ንግዳዊ ትካላትን — ካብ መዓልታዊ ጽገና ክሳብ ህጹጽ ጸገማት ቧንቧ ክኢላዊ ኣገልግሎት። ጸገም ምስ ዘጋጥም ብቕልጡፍ ዝበጽሕ፣ ብብቕዓት ዝሰርሕን ነቲ ስራሕ ብጽሬት ዝውድእን ጉጅለ የድልየኩም።',
+      primaryCta: 'ብነጻ ግምት ዋጋ ሕተቱ',
+      secondaryCta: 'ህጹጽ ጽገና ቧንቧ',
+      hotlineLabel: 'መስመር ህጹጽ ረድኤት 24/7',
+      slideLabels: [
+        'ኦሪጅናል Brass Valvesን Copper ማኒፎልድን',
+        'ዘመናዊ ምዝርጋሕ PP-Rን መስመር ደርብን',
+        'ዘመናዊ ኣቕሑ መሕጸቢ ቤትን Sanitaryን',
+        'ዝተረጋገጹ ስርዓታት ቧንቧ ሪል እስቴት',
+      ],
+      trustStrip: [
+        'ፍቓድን ልምድን ዘለዎ',
+        'ቅልጡፍ ምላሽ',
+        'ጽሬት ስራሕ',
+        'ንጹር ዋጋ',
+      ],
+    },
+    aboutPillars: {
+      eyebrow: 'ብዛዕባ ጥራት ፕላምቢንግ',
+      headline: 'ክትኣምንዎ እትኽእሉ ኣገልግሎት ቧንቧ',
+      intro:
+        'ኣብ ጥራት ፕላምቢንግ ጸገማት ቧንቧ ንምፍታሕ ቀሊል ንገብሮ። ጉጅለና ኣብ ጽሬት ስራሕን ንጹር ርክብን ብምትኳር እሙን ናይ ጽገና፣ ምትካልን ክንክንን ኣገልግሎታት ይህብ። ዝፈስስ ቧንቧ፣ ዝተዓጽወ ፍሳስ፣ ዝተበላሸወ ኣቕሓ ወይ ዓቢ ፕሮጀክት ቧንቧ እንተኾነ ነፍሲ ወከፍ ስራሕ ብጥንቃቐ ንሰርሖ።',
+      pillars: [
+        {
+          title: 'ልምዲ ዘለዎ ጉጅለ',
+          description:
+            'እሙን ፍታሕ ቧንቧ ንምሃብ ዘተኮሩ ብቑዓት ክኢላታት።',
+        },
+        {
+          title: 'ጽሬት ዘለዎ ስራሕ',
+          description:
+            'ነፍሲ ወከፍ ስራሕ ብጥንቃቐን ብሞያዊ ብቕዓትን ምዝዛምና ንሕበን።',
+        },
+        {
+          title: 'ኣብ ዓሚል ዘተኮረ',
+          description:
+            'ካብ ቀዳማይ ጻውዒት ክሳብ መወዳእታ ስራሕ ንጹር ርክብ።',
+        },
+      ],
+    },
+    services: {
+      eyebrow: 'ኣገልግሎታት ቧንቧ',
+      headline: 'ንኹሉ ድሌት ቧንቧ ፍታሕ',
+      subcopy:
+        'ካብ ንኣሽቱ ጽገናታት ክሳብ ዓበይቲ ፕሮጀክትታት ቧንቧ፣ ኣገልግሎታትና ንብረትኩም ብዘይ ጸገም ክሰርሕ ዝተዳለዉ እዮም።',
+      requestQuoteBtn: 'ዋጋ ሕተቱ',
+      seeMoreLabel: 'ተወሳኺ ርአ +',
+      seeLessLabel: 'ኣሕጽር −',
+      items: [
+        {
+          number: '01',
+          title: 'ምልላይን ጽገናን ፍሳስ ማይ',
+          description:
+            'ፍሳስ ማይ ናብ ዝዓበየ ጉድኣት ከይተቐየረ ምርካብን ምጽጋንን።',
+          details:
+            'ሴራሚክን መንደቕን ከይተበላሸወ ዝተሓብአ ፍሳስ ምልላይን ብጸቕጢ ዝተረጋገጸ ጽገና ምክያድን።',
+        },
+        {
+          number: '02',
+          title: 'ምጽራይ መስመር ፍሳስ',
+          description:
+            'ዝተዓጽዉን ዝደንጎዩን መስመራት ፍሳስ ብምኽፋት ጽሩይ ፍሰት ምርግጋጽ።',
+          details:
+            'መስመራት uPVC ክሽነን መሕጸቢ ቤትን ብሜካኒካዊ መሳርሒ ምኽፋትን መከላኸሊ ሽታ ምትካልን።',
+        },
+        {
+          number: '03',
+          title: 'ጽገናን ምቅያርን ቧንቧ',
+          description:
+            'ንዝተጎድኡ፣ ዝኣረጉ ወይ ዝፈስሱ ቧንቧታት ክኢላዊ ፍታሕ።',
+          details:
+            'ብISO ዝተረጋገጹ ቧንቧታት PP-R፣ PVCን Copperን ምስ ፍተሻ ጸቕጢ 16 ባር ምቅያር።',
+        },
+        {
+          number: '04',
+          title: 'ስራሕ ቧንቧ መሕጸቢ ቤት',
+          description:
+            'ንሲንክ፣ ሽቓቕ፣ ሻወር፣ ቧንቧታትን ካልኦት ኣቕሑ መሕጸቢ ቤትን ምትካልን ጽገናን።',
+          details:
+            'ምትካል WC፣ Mixers፣ Angle Valveን ሻወርን ምስ ማይ ዘየሕልፍ ሲሊኮን ምዕሻግ።',
+        },
+        {
+          number: '05',
+          title: 'ኣገልግሎታት መውዓዪ ማይ',
+          description:
+            'ንስርዓታት መውዓዪ ማይ ምትካል፣ ክንክንን ጽገናን።',
+          details:
+            'ምትካል ኤሌክትሪክን ሶላርን ቦይለራት፣ ምስትኽኻል Safety Valveን ምምዕርራይ ውዑይ ማይን።',
+        },
+        {
+          number: '06',
+          title: 'ህጹጽ ጽገና ቧንቧ (Emergency)',
+          description:
+            'ሃንደበታዊ ጸገማት ቧንቧ ቅልጡፍ ቆላሕታ ምስ ዝደልዩ ቅልጡፍ ሓገዝ።',
+          details:
+            'ንዝተፈንጀረ ቧንቧ፣ ቀንዲ ቫልቭን ጸገማት Booster Pumpን ኣብ ኣዲስ ኣበባ 24/7 ቅልጡፍ ምብጻሕ።',
+        },
+      ],
+    },
+    whyChooseUs: {
+      eyebrow: 'ንምንታይ ንዓና ትመርጹ',
+      headline: 'ካብ መጀመርታ ክሳብ መወዳእታ ሞያዊ ኣገልግሎት',
+      subcopy:
+        'ክኢላ ቧንቧ ምምራጽ ቀሊል ክኸውን ኣለዎ። ስለዚ ኣብ እሙን ኣገልግሎት፣ ቅኑዕ ርክብን ጽሬት ዘለዎ ውጽኢትን ነተኩር።',
+      items: [
+        {
+          number: '01',
+          title: 'ቅልጡፍ ምላሽ',
+          description:
+            'ንኣሽቱ ፍሳስ ይኹን ህጹጽ ጸገም ጉድኣት ከየስዓበ ኣብ መላእ ኣዲስ ኣበባ ቅልጡፍ ምብጻሕ።',
+        },
+        {
+          number: '02',
+          title: 'ብቑዓት ክኢላታት',
+          description:
+            'ብስርዓታት PP-R፣ PVC፣ Copperን Booster Pumpን ዝሰልጠኑ መሐንዲሳትን ቴክኒሻናትን።',
+        },
+        {
+          number: '03',
+          title: 'ንጹር ርክብ',
+          description:
+            'ስራሕ ቅድሚ ምጅማሩ ቅኑዕ ምርመራ ቦታ፣ ዝርዝር ስራሕን ንጹር ግምት ዋጋን።',
+        },
+        {
+          number: '04',
+          title: 'ጽሬት ኢድ ስራሕ',
+          description:
+            'ጽኑዕ መተኣሳሰሪታት፣ ጽሩይ ምዝርጋሕ መስመርን ንሓደስቲ ምዝርጋሓት ፍተሻ ጸቕጢ 16 ባርን።',
+        },
+        {
+          number: '05',
+          title: 'ንንብረትኩም ክብሪ ምሃብ',
+          description:
+            'ጽሩይ ቦታ ስራሕ፣ ሴራሚክን መንደቕን ከይተጎድአ ምልላይን ድሕሪ ስራሕ ምጽራይን።',
+        },
+        {
+          number: '06',
+          title: 'እሙን ደገፍ',
+          description:
+            'ንዋናታት መንበሪ ኣባይቲ ይኹን ንዓበይቲ ኣልሚቲ ሪል እስቴት ቀጻሊ እሙን ደገፍ።',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'ኣሰራርሓና',
+      headline: 'ቀሊል ኣገልግሎት ቧንቧ ብ4 ስጉምትታት',
+      subcopy:
+        'ካብ ቀዳማይ ጻውዒት ወይ ሕቶ ዋጋ ክሳብ መወዳእታ ፍተሻ ንጹር መስርሕ ስራሕ።',
+      steps: [
+        {
+          number: '01',
+          title: 'ርኸቡና',
+          description:
+            'እንታይ የጋጥም ከምዘሎን እንታይ ዓይነት ኣገልግሎት ቧንቧ ከም እትደልዩን ንገሩና።',
+        },
+        {
+          number: '02',
+          title: 'ነቲ ጸገም ንግምግሞ',
+          description:
+            'ክኢላና ነቲ ጸገም ብጥንቃቐ መርሚሩ ግቡእ ፍታሕ ይፈሊ።',
+        },
+        {
+          number: '03',
+          title: 'ስራሕ ንጅምር',
+          description:
+            'እቲ ኣገልግሎት ምስ ጸደቐ ነቲ ስራሕ ብሞያዊ ብቕዓት ንውድኦ።',
+        },
+        {
+          number: '04',
+          title: 'ጸገም ተፈቲሑ',
+          description:
+            'ዝተሰርሐ ስራሕ መርሚርና ኩሉ ነገር ብትኽክል ይሰርሕ ምህላዉ ነረጋግጽ።',
+        },
+      ],
+    },
+    projectsSection: {
+      eyebrow: 'ፕሮጀክትታት ሪል እስቴትን መረጋገጺ ርኽክብን',
+      headline: 'ኮንትራክቲንግ ሪል እስቴትን ዝተረጋገጹ ርኽክባትን',
+      subcopy:
+        'ብወግዓዊ ሰርተፍኬት ቧንቧ ዝተረከቡ ፕሮጀክትታት ሪል እስቴትን ኣብ መወዳእታ ፍተሻ ዝርከቡ ህንጻታትን።',
+      countLabel: (count: number) => `${count} ዝተረከቡን ኣብ ምዝዛም ዝርከቡን ፕሮጀክትታት`,
+      filterAll: 'ኩሎም ፕሮጀክትታት',
+      filterHandedOver: 'ዝተረከቡን ሰርተፍኬት ዝረኸቡን',
+      filterCompleting: 'ኣብ ቀረባ ዝዛዘሙ',
+      statusHandedOver: 'ተረኪቡ · ሰርተፍኬት ዝተዋህቦ',
+      statusCompletingSoon: 'ኣብ ቀረባ ዝዛዘም',
+      certificatePrefix: 'ሰርተፍኬት',
+      viewDetailsBtn: 'ዝርዝር ርኽክብን ስራሕን',
+      requestSimilarBtn: 'ተመሳሳሊ ዋጋ ሕተቱ',
+      closeModalAria: 'ዝርዝር ፕሮጀክት ዕጸው',
+      modalDeliverablesHeading: 'ስፍሓትን ዝርዝርን ስራሕ ቧንቧ',
+      modalHandoverHeading: 'መዝገብ ርኽክብን ሰርተፍኬትን',
+      modalRequestInspectionBtn: 'ንተመሳሳሊ ፕሮጀክት ዋጋ ወይ ምርመራ ሳይት ሕተቱ',
+    },
+    emergencyBanner: {
+      eyebrow: 'ህጹጽ ሓገዝ ቧንቧ',
+      headline: 'ህጹጽ ጸገም ቧንቧ ኣጋጢምኩም ዶ?',
+      subcopy:
+        'ዝተፈንጀረ ቧንቧ፣ ሃንደበታዊ ፍሳስ ወይ ዝተበላሸወ ቀንዲ ቫልቭ ቅልጡፍ ቆላሕታ ይደልዩ። ብ24/7 መስመርና ደውሉ ወይ ህጹጽ ሕቶ ስደዱ።',
+      callNowBtn: 'ደውሉ +251 912 453 752',
+      dispatchBtn: 'ህጹጽ ክኢላ ጸውዑ',
+    },
+    closingCta: {
+      eyebrow: 'ነጻ ግምት ዋጋን ምርመራ ሳይትን',
+      headline: 'ስርዓት ቧንቧኹም ከም ብሓድሽ ብጽሬት ክፈስስ ንግበሮ',
+      subcopy:
+        'ኣብ መላእ ኣዲስ ኣበባ ንጽገና መንበሪ ገዛ፣ ምዝርጋሕ ንግዳዊ ህንጻ ወይ ኮንትራክቲንግ ሪል እስቴት ነጻ ግምት ዋጋ ሕተቱ።',
+      primaryBtn: 'ነጻ ግምት ዋጋ ሕተቱ',
+    },
+    quoteForm: {
+      serviceFieldLabel: 'ዓይነት ኣገልግሎት ወይ ፕሮጀክት',
+      similarProjectPrefix: 'ሕቶ ዋጋ / ምርመራ ሳይት — ተመሳሳሊ ፕሮጀክት',
+      emergencySubjectDefault: 'ህጹጽ ጻውዒት ጽገና ቧንቧ (Emergency Plumbing)',
+      quoteSubjectPrefix: 'ነጻ ሕቶ ግምት ዋጋ',
+      realEstateInquiryOption: 'ፕሮጀክት ቧንቧ ሪል እስቴት / ብዙሕ ክፍልታት',
+    },
+    footer: {
+      summary:
+        'ጥራት ፕላምቢንግ (Tirat Plumbing) ኣብ መላእ ኣዲስ ኣበባ እሙን ጽገና ቧንቧ፣ ምትካል መንበርን ንግድን ከምኡውን ብሰርተፍኬት ዝተረጋገጸ ኮንትራክቲንግ ሪል እስቴት ይህብ።',
+      hoursLabel: 'ሰዓታት ስራሕ',
+      contactHeading: 'ኣድራሻን ሰዓታት ስራሕን',
+      navigationHeading: 'መውጽኢ',
+    },
   },
   preFooterCta: {
     eyebrow: 'ኩሉ ግዜ ድሉው ዝኾነ ጉጅለ ክኢላታት ቧንቧ',

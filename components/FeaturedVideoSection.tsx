@@ -35,15 +35,16 @@ export default function FeaturedVideoSection() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.1} className="mt-10">
+        <ScrollReveal delay={0.1} className="mx-auto mt-10 max-w-4xl">
           <div className="overflow-hidden rounded-2xl border border-[rgba(212,175,55,0.3)] bg-[#12161C] shadow-2xl shadow-black/50">
-            {/* Main Video Player */}
+            {/* Main Website & Job-Site Video Player */}
             <div className="relative aspect-video w-full bg-[#0B0D10]">
               <video
                 key={activeMedia.src}
                 data-testid="featured-video-player"
                 src={activeMedia.src}
                 poster={activeMedia.poster}
+                autoPlay
                 controls
                 playsInline
                 muted
@@ -87,7 +88,7 @@ export default function FeaturedVideoSection() {
         <div
           role="group"
           aria-label={t.videoShowcase.selectVideoLabel}
-          className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3"
+          className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-3"
         >
           {FEATURED_VIDEOS_CONFIG.map((media, idx) => {
             const copy = t.videoShowcase.items[idx];
