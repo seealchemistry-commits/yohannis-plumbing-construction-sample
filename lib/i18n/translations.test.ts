@@ -60,6 +60,10 @@ describe('4-language i18n dictionary, contractor sections & project registry', (
       LOCALE_OPTIONS.map((o) => o.code),
       ['en', 'am', 'om', 'ti']
     );
+    assert.deepEqual(
+      LOCALE_OPTIONS.map((o) => o.shortLabel),
+      ['EN', 'አማ', 'ORO', 'ትግ']
+    );
   });
 
   it('has 100% populated contractor sections and legacy strings across en, am, om, and ti', () => {
@@ -71,6 +75,7 @@ describe('4-language i18n dictionary, contractor sections & project registry', (
       assert.equal(dict.contractor.hero.slideLabels.length, 4);
       assert.equal(dict.contractor.aboutPillars.pillars.length, 3);
       assert.equal(dict.contractor.services.items.length, 6);
+      assert.equal(dict.contractor.storyBanner.highlightItems.length, 3);
       assert.equal(dict.contractor.whyChooseUs.items.length, 6);
       assert.equal(dict.contractor.process.steps.length, 4);
       assert.equal(dict.footer.builtByPrefix, 'Built & maintained by');

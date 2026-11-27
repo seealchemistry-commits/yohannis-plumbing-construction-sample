@@ -163,7 +163,7 @@ export default function ProjectsAndCertificatesSection({
                         fill
                         referrerPolicy="no-referrer"
                         sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-500 hover:scale-[1.02]"
+                        className="object-cover"
                       />
                     </div>
 

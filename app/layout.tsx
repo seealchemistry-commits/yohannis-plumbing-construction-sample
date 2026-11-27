@@ -53,6 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${ethiopic.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}
     >
       <body suppressHydrationWarning className="min-h-screen bg-[#0A0A0B] text-[#F5F2EB]">

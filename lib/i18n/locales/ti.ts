@@ -389,6 +389,30 @@ export const ti: TranslationDictionary = {
       callNowBtn: 'ደውሉ +251 912 453 752',
       dispatchBtn: 'ህጹጽ ክኢላ ጸውዑ',
     },
+    storyBanner: {
+      eyebrow: 'መርሆናን ቃል ኪዳንናን',
+      quoteHeadline:
+        '“ኣብ ውሽጢ መንደቕ ይኹን ኣብ ዓበይቲ ህንጻታት ዝዝርጋሕ ነፍሲ ወከፍ መስመር መለለዪ ጽሬትናን ውሕስነትናን እዩ።”',
+      storyBody:
+        'ኣብ ቦሌን CMCን ካብ ዝግበር ጽገና መንበሪ ኣባይቲ ክሳብ ኣብ ኣዲስ ኣበባ ንዝህነጹ ህንጻታት ሪል እስቴት ዝዝርጋሕ ምሉእ መስመር PP-Rን Copperን፣ ጥራት ፕላምቢንግ ንዓመታት ብዘይ ጸገም ዘገልግል ስርዓት ይሃንጽ።',
+      quoteAttribution: 'ጥራት ፕላምቢንግ · ደረጃ ጽሬት',
+      highlightTitle: 'ዝተረጋገጸ ደረጃ ኢንጂነሪንግ',
+      highlightItems: [
+        {
+          metric: '16 Bar',
+          label: 'መንደቕ ቅድሚ ምዕጻዉን ርክክብን ዝግበር መርመራ ጸቕጢ ማይ',
+        },
+        {
+          metric: '24/7',
+          label: 'ኣብ መላእ ኣዲስ ኣበባ ብዝኾነ ሰዓት ድሉው ዝኾነ ህጹጽ ምብጻሕ',
+        },
+        {
+          metric: '100%',
+          label: 'ደረጃኦም ዝሓለዉ ISO PP-R, uPVC, Copper ከምኡውን Brass መገጣጠሚታት',
+        },
+      ],
+      highlightCta: 'ናጻ መርመራ ቦታ ሕተቱ',
+    },
     closingCta: {
       eyebrow: 'ነጻ ግምት ዋጋን ምርመራ ሳይትን',
       headline: 'ስርዓት ቧንቧኹም ከም ብሓድሽ ብጽሬት ክፈስስ ንግበሮ',

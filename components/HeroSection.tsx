@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import {
   AlertTriangle,
   ArrowRight,
@@ -45,47 +46,75 @@ export default function HeroSection({
     <section
       id="home"
       data-active-slide={activeSlide}
-      className="relative overflow-hidden border-b border-white/[0.08] bg-[#0A0A0B]"
+      className="relative overflow-hidden border-b border-white/[0.08] bg-[#0B0D10]"
     >
-      {/* Full-bleed auto-sliding plumbing photography with sharp clarity (no blur) */}
+      {/* Mobile Visual Header Frame: clean non-overlapping framing keeping engineer/technician face sharp */}
       <div
         aria-hidden="true"
-        data-testid="hero-ambient-backdrop"
-        className="pointer-events-none absolute inset-0 select-none"
+        data-testid="hero-mobile-visual"
+        className="relative h-64 w-full overflow-hidden border-b border-white/[0.08] bg-[#0B0D10] md:hidden"
       >
         {HERO_CAROUSEL_SLIDES.map((slide, idx) => {
           const isCurrent = activeSlide === idx;
+          const isEngineerSlide = slide.id === 'SLIDE-04';
+          return (
+            <Image
+              key={slide.id}
+              src={slide.imageUrl}
+              alt=""
+              fill
+              sizes="(max-width: 767px) 100vw, 1px"
+              priority={idx === 0}
+              referrerPolicy="no-referrer"
+              className={`object-cover transition-opacity duration-1000 ease-out ${
+                isEngineerSlide ? 'object-[75%_15%]' : 'object-center'
+              } ${isCurrent ? 'opacity-100' : 'opacity-0'}`}
+            />
+          );
+        })}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0B0D10]/85 via-[#0B0D10]/30 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0B0D10] to-transparent" />
+      </div>
+
+      {/* Desktop / Tablet Fixed Auto-Sliding Plumbing Photography (zero blur) */}
+      <div
+        aria-hidden="true"
+        data-testid="hero-ambient-backdrop"
+        className="pointer-events-none absolute inset-0 hidden overflow-hidden select-none md:block"
+      >
+        {HERO_CAROUSEL_SLIDES.map((slide, idx) => {
+          const isCurrent = activeSlide === idx;
+          const isEngineerSlide = slide.id === 'SLIDE-04';
           return (
             <div
               key={slide.id}
               data-testid={`hero-slide-bg-${idx}`}
-              className={`absolute inset-0 ${slide.cssClass} bg-cover bg-center transition-opacity duration-1000 ease-out lg:bg-fixed ${
-                isCurrent ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`absolute inset-0 ${slide.cssClass} bg-cover bg-fixed transition-opacity duration-1000 ease-out ${
+                isEngineerSlide ? 'bg-[72%_18%]' : 'bg-center'
+              } ${isCurrent ? 'opacity-100' : 'opacity-0'}`}
             />
           );
         })}
 
-        {/* Directional gradient scrim preserving crisp text contrast on left while keeping right photography bright */}
+        {/* Directional gradient overlay keeping left copy crisp while right photo shines brightly */}
         <div
           data-testid="hero-dark-overlay"
-          className="absolute inset-0 bg-gradient-to-r from-[#0A0A0B]/92 via-[#0A0A0B]/70 to-[#0A0A0B]/30"
+          className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/85 via-[#0B0D10]/30 to-transparent"
         />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A0A0B] to-transparent" />
       </div>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-18 pb-10 sm:px-6 lg:px-10 lg:pt-28 lg:pb-14">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-7 pb-12 sm:px-6 md:pt-18 lg:px-10 lg:pt-24 lg:pb-16">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold tracking-[0.08em] text-[#F59E0B] uppercase">
+          <p className="text-xs font-semibold tracking-[0.08em] text-[#D4AF37] uppercase">
             {heroCopy.eyebrow}
           </p>
 
-          <h1 className="mt-4 text-balance text-3xl font-bold leading-[1.16] tracking-tight text-[#F8FAFC] sm:text-5xl lg:text-[3.25rem]">
+          <h1 className="mt-4 text-balance text-3xl font-bold leading-[1.14] tracking-tight text-[#F8FAFC] sm:text-5xl lg:text-[3.25rem]">
             {heroCopy.headline}
           </h1>
 
-          <p className="mt-5 max-w-xl text-sm leading-[1.75] text-[#E2E8F0] sm:text-base">
+          <p className="mt-5 max-w-xl text-sm leading-[1.7] tracking-[0.01em] text-[#E2E8F0] sm:text-base">
             {heroCopy.subcopy}
           </p>
 

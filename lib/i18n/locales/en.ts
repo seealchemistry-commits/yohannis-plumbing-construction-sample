@@ -390,6 +390,30 @@ export const en: TranslationDictionary = {
       callNowBtn: 'Call +251 912 453 752',
       dispatchBtn: 'Request Emergency Dispatch',
     },
+    storyBanner: {
+      eyebrow: 'Our Craft & Commitment',
+      quoteHeadline:
+        '“Every pipe behind a wall or riser inside a tower carries our name and guarantee.”',
+      storyBody:
+        'From residential leak repairs in Bole and CMC to multi-story PP-R and Copper piping for Addis Ababa real estate developments, ጥራት ፕላምቢንግ builds systems tested to hold pressure for years.',
+      quoteAttribution: 'ጥራት ፕላምቢንግ · Quality Standard',
+      highlightTitle: 'Verified Engineering Standards',
+      highlightItems: [
+        {
+          metric: '16 Bar',
+          label: 'Hydrostatic pressure test verified prior to wall closing and handover',
+        },
+        {
+          metric: '24/7',
+          label: 'Rapid emergency mobilization across all Addis Ababa sub-cities',
+        },
+        {
+          metric: '100%',
+          label: 'ISO-grade PP-R, uPVC, Copper and forged brass fittings',
+        },
+      ],
+      highlightCta: 'Request Free Site Assessment',
+    },
     closingCta: {
       eyebrow: 'Free Quote & Site Inspection',
       headline: 'Let\'s Get Your Plumbing Flowing Again',

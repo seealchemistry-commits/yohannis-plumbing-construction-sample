@@ -43,7 +43,7 @@ export default function SiteHeader({ onRequestQuote }: SiteHeaderProps) {
             priority
             referrerPolicy="no-referrer"
             data-testid="navbar-logo-img"
-            className="h-8 w-auto shrink-0 object-contain mix-blend-lighten transition-transform duration-200 group-hover:scale-[1.02] sm:h-9 lg:h-10"
+            className="h-8 w-auto shrink-0 object-contain mix-blend-lighten sm:h-9 lg:h-10"
           />
           <span className="text-sm font-bold tracking-tight text-[#F8FAFC] transition-colors group-hover:text-[#F59E0B] sm:text-base lg:text-lg whitespace-nowrap">
             ጥራት ፕላምቢንግ

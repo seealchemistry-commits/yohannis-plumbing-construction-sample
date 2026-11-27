@@ -9,6 +9,7 @@ import EmergencyAndContactSection, {
 } from './EmergencyAndContactSection';
 import FloatingWhatsAppButton from './FloatingWhatsAppButton';
 import HeroSection from './HeroSection';
+import MiddleStoryParallaxSection from './MiddleStoryParallaxSection';
 import { installGmpQuotaTap } from './OfficeGoogleMap';
 import ProcessSection from './ProcessSection';
 import ProjectsAndCertificatesSection from './ProjectsAndCertificatesSection';
@@ -133,6 +134,8 @@ function AbayAppContent({ mapsApiKey }: AbayAppProps) {
         <AboutPillarsSection />
 
         <ServicesGridSection onSelectServiceQuote={handleSelectServiceQuote} />
+
+        <MiddleStoryParallaxSection onRequestQuote={handleRequestGeneralQuote} />
 
         <WhyChooseUsSection />
 

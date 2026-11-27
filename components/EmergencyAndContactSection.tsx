@@ -314,64 +314,22 @@ export default function EmergencyAndContactSection({
 
   return (
     <>
-      {/* Section 7B: Urgent Emergency Support Banner */}
-      <section
-        id="emergency"
-        className="border-b border-white/[0.08] bg-[#111214] py-14 lg:py-16"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="flex flex-col gap-6 rounded-2xl border border-[#F59E0B]/35 bg-[#0A0A0B] p-7 sm:p-9 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.08em] text-[#F59E0B] uppercase">
-                <AlertTriangle className="h-4 w-4" aria-hidden="true" />
-                <span>{emergencyCopy.eyebrow}</span>
-              </p>
-              <h2 className="mt-2.5 text-balance text-2xl font-bold tracking-tight text-[#F8FAFC] sm:text-3xl">
-                {emergencyCopy.headline}
-              </h2>
-              <p className="mt-3 text-sm leading-[1.7] text-[#A1A8B3]">
-                {emergencyCopy.subcopy}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3.5 shrink-0">
-              <a
-                href={COMPANY_INFO.phoneHref}
-                className="inline-flex min-h-[48px] items-center gap-2 rounded-xl bg-[#F59E0B] px-5 py-3 text-sm font-bold text-[#0A0A0B] transition-colors hover:bg-[#D97706] whitespace-nowrap"
-              >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                <span className="tabular-nums">{emergencyCopy.callNowBtn}</span>
-              </a>
-              <button
-                type="button"
-                data-testid="emergency-dispatch-btn"
-                onClick={onEmergencyDispatch}
-                className="inline-flex min-h-[48px] items-center gap-2 rounded-xl border border-[#F59E0B]/45 bg-[#111214] px-5 py-3 text-sm font-semibold text-[#F8FAFC] transition-colors hover:border-[#F59E0B] hover:text-[#F59E0B] whitespace-nowrap"
-              >
-                <span>{emergencyCopy.dispatchBtn}</span>
-                <ArrowRight className="h-4 w-4 text-[#F59E0B]" aria-hidden="true" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 8: Closing CTA + Interactive Quote Request Form + Contact Map */}
+      {/* Section 7: Interactive Quote Request Form, Office Contact & Map */}
       <section
         id="contact"
-        className="border-b border-white/[0.08] bg-[#0A0A0B] py-20 lg:py-24"
+        className="border-b border-white/[0.08] bg-[#0B0D10] py-16 lg:py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
           {/* Closing CTA Intro */}
-          <ScrollReveal className="flex flex-col gap-6 border-b border-white/[0.08] pb-12 lg:flex-row lg:items-end lg:justify-between">
+          <ScrollReveal className="flex flex-col gap-6 border-b border-white/[0.08] pb-10 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold tracking-[0.08em] text-[#F59E0B] uppercase">
+              <p className="text-xs font-semibold tracking-[0.08em] text-[#D4AF37] uppercase">
                 {closingCopy.eyebrow}
               </p>
-              <h2 className="mt-3 text-balance text-2xl font-bold leading-snug tracking-tight text-[#F8FAFC] sm:text-3xl lg:text-4xl">
+              <h2 className="mt-2.5 text-balance text-2xl font-bold leading-snug tracking-tight text-[#F8FAFC] sm:text-3xl lg:text-4xl">
                 {closingCopy.headline}
               </h2>
-              <p className="mt-4 text-sm leading-[1.75] text-[#A1A8B3] sm:text-base">
+              <p className="mt-3.5 text-sm leading-[1.75] text-[#A1A8B3] sm:text-base">
                 {closingCopy.subcopy}
               </p>
             </div>
@@ -379,7 +337,7 @@ export default function EmergencyAndContactSection({
             <button
               type="button"
               onClick={onRequestQuoteFocus}
-              className="inline-flex min-h-[48px] shrink-0 items-center gap-2 self-start rounded-xl bg-[#F59E0B] px-6 py-3 text-sm font-bold text-[#0A0A0B] transition-colors hover:bg-[#D97706] lg:self-end whitespace-nowrap"
+              className="inline-flex min-h-[48px] shrink-0 items-center gap-2 self-start rounded-xl bg-[#D4AF37] px-6 py-3 text-sm font-bold text-[#0B0D10] transition-colors hover:bg-[#E5C158] lg:self-end whitespace-nowrap"
             >
               <span>{closingCopy.primaryBtn}</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -387,22 +345,22 @@ export default function EmergencyAndContactSection({
           </ScrollReveal>
 
           {/* Two-Column Office Contact + Quote Form */}
-          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-12">
+          <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12">
             <ScrollReveal variant="fade-left" className="lg:col-span-5">
-              <p className="text-xs font-semibold tracking-[0.08em] text-[#F59E0B] uppercase">
+              <p className="text-xs font-semibold tracking-[0.08em] text-[#D4AF37] uppercase">
                 {t.contact.eyebrow}
               </p>
-              <h3 className="mt-2.5 text-xl font-bold text-[#F8FAFC]">
+              <h3 className="mt-2 text-xl font-bold text-[#F8FAFC]">
                 {t.contact.heading}
               </h3>
               <p className="mt-3 text-sm leading-[1.75] text-[#A1A8B3]">
                 {t.contact.description}
               </p>
 
-              <dl className="mt-7 space-y-5 border-t border-white/[0.08] pt-7 text-sm">
+              <dl className="mt-6 space-y-4 border-t border-white/[0.08] pt-6 text-sm">
                 <div className="flex items-start gap-3">
                   <Phone
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#F59E0B]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#D4AF37]"
                     aria-hidden="true"
                   />
                   <div>
@@ -412,7 +370,7 @@ export default function EmergencyAndContactSection({
                     <dd className="mt-0.5 font-mono tabular-nums font-bold text-[#F8FAFC]">
                       <a
                         href={COMPANY_INFO.phoneHref}
-                        className="hover:text-[#F59E0B] hover:underline"
+                        className="hover:text-[#D4AF37] hover:underline"
                       >
                         {COMPANY_INFO.phoneDisplay}
                       </a>
@@ -422,7 +380,7 @@ export default function EmergencyAndContactSection({
 
                 <div className="flex items-start gap-3">
                   <Send
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#F59E0B]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#D4AF37]"
                     aria-hidden="true"
                   />
                   <div>
@@ -434,7 +392,7 @@ export default function EmergencyAndContactSection({
                         href={COMPANY_INFO.telegramHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 font-semibold text-[#F59E0B] hover:text-[#FBBF24] hover:underline"
+                        className="inline-flex items-center gap-1 font-semibold text-[#D4AF37] hover:text-[#E5C158] hover:underline"
                       >
                         <span>{COMPANY_INFO.telegramHandle}</span>
                         <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -445,7 +403,7 @@ export default function EmergencyAndContactSection({
 
                 <div className="flex items-start gap-3">
                   <MapPin
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#F59E0B]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#D4AF37]"
                     aria-hidden="true"
                   />
                   <div>
@@ -460,7 +418,7 @@ export default function EmergencyAndContactSection({
 
                 <div className="flex items-start gap-3">
                   <Mail
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#F59E0B]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#D4AF37]"
                     aria-hidden="true"
                   />
                   <div>
@@ -475,7 +433,7 @@ export default function EmergencyAndContactSection({
 
                 <div className="flex items-start gap-3">
                   <Clock
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#F59E0B]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#D4AF37]"
                     aria-hidden="true"
                   />
                   <div>
@@ -490,7 +448,7 @@ export default function EmergencyAndContactSection({
               {/* Office Location Map Card */}
               <div
                 data-testid="office-map-card"
-                className="mt-8 overflow-hidden rounded-2xl border border-white/[0.1] bg-[#111214]"
+                className="mt-7 overflow-hidden rounded-2xl border border-white/[0.1] bg-[#111214]"
               >
                 <OfficeGoogleMap apiKey={mapsApiKey} />
 
@@ -502,11 +460,11 @@ export default function EmergencyAndContactSection({
                     href={COMPANY_INFO.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex min-h-[38px] items-center gap-1.5 rounded-xl border border-[#F59E0B]/40 bg-[#16181D] px-3.5 py-1.5 text-xs font-semibold text-[#F8FAFC] transition-colors hover:bg-[#F59E0B] hover:text-[#0A0A0B] whitespace-nowrap shrink-0"
+                    className="group inline-flex min-h-[38px] items-center gap-1.5 rounded-xl border border-[#D4AF37]/40 bg-[#16181D] px-3.5 py-1.5 text-xs font-semibold text-[#F8FAFC] transition-colors hover:bg-[#D4AF37] hover:text-[#0B0D10] whitespace-nowrap shrink-0"
                   >
                     <span>{t.contact.openGoogleMapsBtn}</span>
                     <ArrowUpRight
-                      className="h-3.5 w-3.5 text-[#F59E0B] transition-colors group-hover:text-[#0A0A0B]"
+                      className="h-3.5 w-3.5 text-[#D4AF37] transition-colors group-hover:text-[#0B0D10]"
                       aria-hidden="true"
                     />
                   </a>
@@ -516,7 +474,6 @@ export default function EmergencyAndContactSection({
 
             <ScrollReveal
               variant="fade-right"
-              delay={0.08}
               className="rounded-2xl border border-white/[0.1] bg-[#111214] p-7 sm:p-8 lg:col-span-7"
             >
               <div id="contact-form">
@@ -536,6 +493,60 @@ export default function EmergencyAndContactSection({
                 />
               </div>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 8: Lower Trust & Emergency Callout Parallax Section Landing Directly Into Footer */}
+      <section
+        id="emergency"
+        data-testid="emergency-parallax-section"
+        className="relative overflow-hidden border-b border-white/[0.08] bg-[#0B0D10] py-20 lg:py-24"
+      >
+        <div
+          aria-hidden="true"
+          data-testid="emergency-parallax-bg"
+          className="pointer-events-none absolute inset-0 select-none parallax-emergency-bg bg-cover bg-[center_65%] bg-fixed"
+        />
+        <div
+          aria-hidden="true"
+          data-testid="emergency-parallax-overlay"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0B0D10]/70 via-[#0B0D10]/25 to-transparent"
+        />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.08em] text-[#D4AF37] uppercase drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                <AlertTriangle className="h-4 w-4" aria-hidden="true" />
+                <span>{emergencyCopy.eyebrow}</span>
+              </p>
+              <h2 className="mt-2.5 text-balance text-2xl font-bold tracking-tight text-[#F8FAFC] drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] sm:text-3xl lg:text-4xl">
+                {emergencyCopy.headline}
+              </h2>
+              <p className="mt-3 text-sm leading-[1.75] text-[#F1F5F9] drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)] sm:text-base">
+                {emergencyCopy.subcopy}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3.5 shrink-0">
+              <a
+                href={COMPANY_INFO.phoneHref}
+                className="inline-flex min-h-[48px] items-center gap-2 rounded-xl bg-[#D4AF37] px-6 py-3 text-sm font-bold text-[#0B0D10] shadow-[0_12px_28px_-10px_rgba(0,0,0,0.8)] transition-colors hover:bg-[#E5C158] whitespace-nowrap"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                <span className="tabular-nums">{emergencyCopy.callNowBtn}</span>
+              </a>
+              <button
+                type="button"
+                data-testid="emergency-dispatch-btn"
+                onClick={onEmergencyDispatch}
+                className="inline-flex min-h-[48px] items-center gap-2 rounded-xl border border-[#D4AF37]/60 bg-[#0B0D10]/85 px-6 py-3 text-sm font-semibold text-[#F8FAFC] transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37] whitespace-nowrap"
+              >
+                <span>{emergencyCopy.dispatchBtn}</span>
+                <ArrowRight className="h-4 w-4 text-[#D4AF37]" aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </div>
       </section>

@@ -16,7 +16,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #0A0A0B;
+    scroll-padding-top: 4.75rem;
+    background-color: #0B0D10;
     color: #F5F2EB;
     color-scheme: dark;
     -webkit-font-smoothing: antialiased;
@@ -54,4 +55,12 @@
 
 .parallax-hero-slide-3 {
   background-image: url('/assets/slides/slide-4.jpg');
+}
+
+.parallax-story-bg {
+  background-image: url('/assets/slides/slide-2.jpg');
+}
+
+.parallax-emergency-bg {
+  background-image: url('/assets/slides/about-materials.jpg');
 }

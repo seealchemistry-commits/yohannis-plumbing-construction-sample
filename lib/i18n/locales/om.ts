@@ -390,6 +390,30 @@ export const om: TranslationDictionary = {
       callNowBtn: 'Bilbilaa +251 912 453 752',
       dispatchBtn: 'Gargaarsa Hatattamaa Gaafadhaa',
     },
+    storyBanner: {
+      eyebrow: 'Kaayyoo fi Qulqullina Hojii',
+      quoteHeadline:
+        '“Ujummoon keenya kamiyyuu maqaa fi wabii qulqullinaa keenya baatee jiraata.”',
+      storyBody:
+        'Suphaa mana jireenyaa Boolee fi CMC keessaa jalqabee hanga diriirsa ujummoo PP-R fi Copper gamoo gurguddaa Addis Ababaa keessatti, ጥራት ፕላምቢንግ sirna waggoota hedduuf tajaajilu ijaara.',
+      quoteAttribution: 'ጥራት ፕላምቢንግ · Istaandardii Qulqullinaa',
+      highlightTitle: 'Istaandardii Injinariingii Mirkaneeffame',
+      highlightItems: [
+        {
+          metric: '16 Bar',
+          label: 'Qorannoo dhiibbaa bishaanii osoo hin haguugamin dura mirkaneeffamu',
+        },
+        {
+          metric: '24/7',
+          label: 'Deebii ariifataa yeroo hunda kutaalee Addis Ababaa hunda keessatti',
+        },
+        {
+          metric: '100%',
+          label: 'Meeshaalee qulqullina ISO qaban PP-R, uPVC, Copper fi Brass',
+        },
+      ],
+      highlightCta: 'Sakatta’iinsa Bilisaa Gaafadhaa',
+    },
     closingCta: {
       eyebrow: 'Tilmaama Bilisaa & Sakatta’insa Saayitii',
       headline: 'Plumbing Keessan Deebisnee Sirriitti Akka Yaa’u Haa Goone',

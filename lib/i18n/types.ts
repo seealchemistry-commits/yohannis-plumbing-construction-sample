@@ -11,7 +11,7 @@ export interface LocaleOption {
 export const LOCALE_OPTIONS: readonly LocaleOption[] = [
   { code: 'en', shortLabel: 'EN', nativeName: 'English' },
   { code: 'am', shortLabel: 'አማ', nativeName: 'አማርኛ' },
-  { code: 'om', shortLabel: 'OM', nativeName: 'Afaan Oromoo' },
+  { code: 'om', shortLabel: 'ORO', nativeName: 'Afaan Oromoo' },
   { code: 'ti', shortLabel: 'ትግ', nativeName: 'ትግርኛ' },
 ] as const;
 
@@ -279,6 +279,19 @@ export interface TranslationDictionary {
       subcopy: string;
       callNowBtn: string;
       dispatchBtn: string;
+    };
+    storyBanner: {
+      eyebrow: string;
+      quoteHeadline: string;
+      storyBody: string;
+      quoteAttribution: string;
+      highlightTitle: string;
+      highlightItems: [
+        { metric: string; label: string },
+        { metric: string; label: string },
+        { metric: string; label: string }
+      ];
+      highlightCta: string;
     };
     closingCta: {
       eyebrow: string;
