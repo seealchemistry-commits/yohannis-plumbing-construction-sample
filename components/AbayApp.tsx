@@ -65,7 +65,7 @@ function AbayAppContent({ mapsApiKey }: AbayAppProps) {
   };
 
   const handleRequestGeneralQuote = () => {
-    const defaultService = t.contractor.services.items[0].title;
+    const defaultService = t.contractor.services.unifiedTitle;
     applyQuotePreset(
       defaultService,
       t.contractor.quoteForm.quoteSubjectPrefix,
@@ -82,7 +82,7 @@ function AbayAppContent({ mapsApiKey }: AbayAppProps) {
   };
 
   const handleEmergencyAction = () => {
-    const emergencyService = t.contractor.services.items[5].title;
+    const emergencyService = t.contractor.quoteForm.emergencySubjectDefault;
     applyQuotePreset(
       emergencyService,
       t.contractor.quoteForm.emergencySubjectDefault,

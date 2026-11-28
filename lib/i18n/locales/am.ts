@@ -175,6 +175,7 @@ export const am: TranslationDictionary = {
       services: 'አገልግሎቶች',
       process: 'አሰራር (Process)',
       projects: 'ፕሮጀክቶች እና ሰርተፍኬቶች',
+      maintenance: 'ማይንተናንስ / ቋሚ ባለሙያ',
       contact: 'ያግኙን',
       quoteCta: 'ነጻ ዋጋ ይጠይቁ',
       navAriaLabel: 'ዋና ማውጫ',
@@ -228,63 +229,12 @@ export const am: TranslationDictionary = {
       ],
     },
     services: {
-      eyebrow: 'የቧንቧ አገልግሎቶች',
-      headline: 'ለእያንዳንዱ የቧንቧ ፍላጎት መፍትሄዎች',
-      subcopy:
-        'ከትንንሽ ጥገናዎች እስከ ትላልቅ የቧንቧ ፕሮጀክቶች ድረስ አገልግሎቶቻችን ንብረትዎ ያለምንም ችግር እንዲሰራ የተዘጋጁ ናቸው።',
-      requestQuoteBtn: 'ዋጋ ይጠይቁ',
-      seeMoreLabel: 'ተጨማሪ ይመልከቱ +',
-      seeLessLabel: 'አሳጥር −',
-      items: [
-        {
-          number: '01',
-          title: 'የውሃ ፍሳሽ መለየት እና ጥገና',
-          description:
-            'ፍሳሾች ወደ ትልቅ ጉዳት ከመቀየራቸው በፊት መለየት እና መጠገን።',
-          details:
-            'ሴራሚክና ግድግዳ ሳይበላሽ የተደበቀ ፍሳሽ መለየት እና በግፊት ፍተሻ የተረጋገጠ ጥገና።',
-        },
-        {
-          number: '02',
-          title: 'የፍሳሽ መስመር ማጽዳት',
-          description:
-            'የተደፈኑና የዘገዩ የፍሳሽ መስመሮችን በመክፈት የቧንቧ ፍሰቱን ማስተካከል።',
-          details:
-            'የኩሽና፣ የመታጠቢያ እና የዋና uPVC ፍሳሽ መስመሮችን በሜካኒካል መሳሪያ መክፈትና ሽታ መከላከል።',
-        },
-        {
-          number: '03',
-          title: 'የቧንቧ ጥገና እና መተካት',
-          description:
-            'ለተጎዱ፣ ላረጁ ወይም ለሚያፈሱ ቧንቧዎች ሙያዊ መፍትሄዎች።',
-          details:
-            'በISO በተረጋገጡ PP-R፣ PVC እና Copper ቧንቧዎች የ16 ባር ግፊት ፍተሻ ጋር መተካት።',
-        },
-        {
-          number: '04',
-          title: 'የመታጠቢያ ቤት ቧንቧ ስራ',
-          description:
-            'ለሲንክ፣ መጸዳጃ፣ ሻወር፣ ቧንቧዎች እና ሌሎች የመታጠቢያ ቤት ዕቃዎች ገጠማና ጥገና።',
-          details:
-            'የWC፣ Mixers፣ Angle Valve እና ሻወር ዕቃዎች ገጠማ ከውሃ የማያስገባ ሲሊኮን ማሸግ ጋር።',
-        },
-        {
-          number: '05',
-          title: 'የውሃ ማሞቂያ አገልግሎቶች',
-          description:
-            'ለውሃ ማሞቂያ ስርዓቶች ገጠማ፣ ወቅታዊ እንክብካቤ እና ጥገና።',
-          details:
-            'የኤሌክትሪክ እና የሶላር ቦይለሮች ገጠማ፣ Safety Valve ማስተካከያ እና የሙቅ ውሃ መስመር ማመጣጠን።',
-        },
-        {
-          number: '06',
-          title: 'አስቸኳይ የቧንቧ ጥገና (Emergency)',
-          description:
-            'ያልተጠበቁ የቧንቧ ችግሮች ፈጣን ትኩረት ሲፈልጉ ፈጣን እገዛ።',
-          details:
-            'ለፈነዳ ቧንቧ፣ ለተበላሸ ዋና ቫልቭ እና ለBooster Pump ችግሮች በአዲስ አበባ 24/7 ፈጣን ስምሪት።',
-        },
-      ],
+      eyebrow: 'የቧንቧ አገልግሎት',
+      headline: 'የተሟላ የቧንቧ ሥራ — ከዝርጋታ እስከ ርክክብ',
+      unifiedTitle: 'የተሟላ የቧንቧ ሥራ — ከዝርጋታ እስከ ርክክብ',
+      unifiedSummary:
+        'ከመጀመሪያ የመስመር ዝርጋታ እስከ ግፊት ፍተሻና ርክክብ ድረስ ሁሉንም የቧንቧ፣ የሳኒተሪ ገጠማ እና የጥገና ሥራዎች በአንድ ወጥ አገልግሎት በTirat Plumbing እንሰራለን። ለመኖሪያ ቤቶችም ሆነ ለህንጻዎች አስተማማኝ ጥራትን ከመጀመሪያው እስከ መጨረሻ እናረጋግጣለን።',
+      requestQuoteBtn: 'የዋጋ ግምት / ቀጠሮ ይጠይቁ',
     },
     whyChooseUs: {
       eyebrow: 'ለምን እኛን ይመርጣሉ',
@@ -915,6 +865,106 @@ export const am: TranslationDictionary = {
     buttonLabel: 'WhatsApp',
     ariaLabel: 'በWhatsApp ከጥራት ፕላምቢንግ ጋር ይነጋገሩ',
     prefillText: 'ሰላም ጥራት ፕላምቢንግ፣ ስለ የቧንቧ አገልግሎት ወይም ዕቃዎች መጠየቅ እፈልጋለሁ።',
+  },
+  maintenancePage: {
+    eyebrow: 'Maintenance እና ቋሚ ባለሙያ (Dedicated Staffing)',
+    headline: 'ቋሚ የቧንቧ Maintenance ባለሙያዎች እና የህንጻ ጥገና',
+    subcopy:
+      'የህንጻ ባለቤቶች፣ አፓርታማዎች እና ሆቴሎች በጥራት ፕላምቢንግ በኩል የተፈተኑ ቋሚ የplumbing maintenance ባለሙያዎችን ወይም ወርሃዊ የጥገና ኮንትራት የሚያገኙበት፣ እንዲሁም ብቁ ባለሙያዎች ለቋሚ ሥራ የሚመዘገቡበት መድረክ ነው።',
+    backHomeLabel: 'ወደ Home page ተመለስ',
+    tabClientLabel: 'ለህንጻዎች፣ አፓርታማዎች እና ሆቴሎች',
+    tabTechnicianLabel: 'ለሥራ ፈላጊ የቧንቧ ባለሙያዎች',
+    highlights: [
+      {
+        title: 'የተፈተኑ ቋሚ ባለሙያዎች',
+        detail:
+          'እያንዳንዱ የሚመደብ ባለሙያ በPP-R፣ Copper፣ Booster Pump እና በህንጻ መስመር ምርመራ ብቃቱ የተረጋገጠ ነው።',
+      },
+      {
+        title: 'ለሆቴሎች፣ አፓርታማዎች እና ህንጻዎች',
+        detail:
+          'እንደ ተቋምዎ ስፋት ቋሚ የቦታው ባለሙያ ወይም መደበኛ ወርሃዊ የጥገና ኮንትራት አገልግሎት።',
+      },
+      {
+        title: 'በጥራት ፕላምቢንግ የሚተዳደር',
+        detail:
+          'የባለሙያ ክትትል፣ የተተኪ ባለሙያ ዋስትና እና የ24/7 አስቸኳይ የኢንጂነሪንግ ድጋፍ።',
+      },
+    ],
+    clientForm: {
+      title: 'የቋሚ Maintenance ወይም ባለሙያ ጥያቄ (ለህንጻዎች እና ሆቴሎች)',
+      subtitle:
+        'የተቋምዎን ዓይነት እና የሚፈልጉትን የአገልግሎት ሞዴል ይሙሉ፤ ቡድናችን ብቁ ባለሙያ ያዘጋጅልዎታል ወይም ወርሃዊ የጥገና እቅድ ያቀርብልዎታል።',
+      facilityTypeLabel: 'የተቋሙ ዓይነት',
+      facilityTypes: [
+        'ሆቴል / እንግዳ ማረፊያ',
+        'አፓርታማ / ኮንዶሚኒየም',
+        'የንግድ ህንጻ / ፕላዛ',
+        'ድብልቅ አገልግሎት ህንጻ / ቢሮ',
+      ],
+      engagementTypeLabel: 'የሚፈለገው አገልግሎት ዓይነት',
+      engagementTypes: [
+        'ቋሚ የቦታው ባለሙያ (Dedicated Technician)',
+        'ወርሃዊ የጥገና ኮንትራት (Monthly Contract)',
+        'ቋሚ ባለሙያ እና ወርሃዊ ድጋፍ',
+      ],
+      locationLabel: 'አካባቢ / ክፍለ ከተማ',
+      locationPlaceholder: 'ለምሳሌ ቦሌ መድኃኔዓለም፣ ካዛንቺስ፣ CMC',
+      contactNameLabel: 'የጠያቂው / የኃላፊው ስም',
+      contactNamePlaceholder: 'ሙሉ ስም ያስገቡ',
+      phoneLabel: 'ስልክ ቁጥር',
+      phonePlaceholder: '0912453752',
+      notesLabel: 'ተጨማሪ ማብራሪያ (አማራጭ)',
+      notesPlaceholder: 'ለምሳሌ የፎቅ ብዛት፣ የBooster Pump ሁኔታ ወይም የስራ ሰዓት...',
+      submitBtn: 'የMaintenance ጥያቄ ላክ',
+      submittingBtn: 'በመላክ ላይ...',
+      telegramBtn: 'በTelegram ላክ',
+      whatsappBtn: 'በWhatsApp ላክ',
+      callBtn: 'ይደውሉ +251 912 453 752',
+      successTitle: 'የMaintenance ጥያቄዎ ደርሷል',
+      successBody:
+        'ጥያቄዎ በጥራት ፕላምቢንግ ተመዝግቧል። በፍጥነት ለመገናኘት ከታች ባሉት Telegram ወይም WhatsApp buttons ዝርዝሩን በቀጥታ መላክ ይችላሉ።',
+      refPrefix: 'የጥያቄ መለያ',
+    },
+    technicianForm: {
+      title: 'ለሥራ ፈላጊ የቧንቧ ባለሙያዎች (ምዝገባ)',
+      subtitle:
+        'በሆቴሎች፣ በአፓርታማዎች እና በህንጻዎች ውስጥ ቋሚ የቧንቧ ጥገና ሥራ ለመሥራት የሚፈልጉ ሥራ ፈላጊ ባለሙያዎች እዚህ ይመዝገቡ።',
+      fullNameLabel: 'ሙሉ ስም',
+      fullNamePlaceholder: 'ሙሉ ስምዎን ያስገቡ',
+      experienceLabel: 'የሥራ ልምድ',
+      experienceOptions: [
+        'ከ1–2 ዓመት',
+        'ከ3–5 ዓመት',
+        'ከ5–10 ዓመት',
+        'ከ10 ዓመት በላይ',
+      ],
+      specialtyLabel: 'ልዩ ሙያ',
+      specialtyOptions: [
+        'የPP-R፣ PVC እና Copper መስመር ስራ',
+        'Booster Pump፣ ታንከር እና የውሃ ማሞቂያ',
+        'የመታጠቢያ ቤት Sanitary እና የፍሳሽ ጥገና',
+        'ሙሉ የህንጻ Plumbing Maintenance',
+      ],
+      phoneLabel: 'ስልክ ቁጥር',
+      phonePlaceholder: '0912453752',
+      areaLabel: 'መኖሪያ አካባቢ / ማስታወሻ (አማራጭ)',
+      areaPlaceholder: 'ለምሳሌ ቦሌ፣ የካ፣ ቂርቆስ — ወዲያውኑ ለመጀመር ዝግጁ',
+      submitBtn: 'ምዝገባ አጠናቅቅ',
+      submittingBtn: 'በመመዝገብ ላይ...',
+      telegramBtn: 'በTelegram ላክ',
+      whatsappBtn: 'በWhatsApp ላክ',
+      callBtn: 'ይደውሉ +251 912 453 752',
+      successTitle: 'ምዝገባዎ በተሳካ ሁኔታ ተመዝግቧል',
+      successBody:
+        'ከጥራት ፕላምቢንግ ጋር ስለተመዘገቡ እናመሰግናለን። የቴክኒክ ቡድናችን ለአዳዲስ የህንጻ እና የሆቴል ምደባዎች መረጃዎን ገምግሞ ያነጋግርዎታል።',
+      refPrefix: 'የምዝገባ መለያ',
+    },
+    validation: {
+      locationRequired: 'እባክዎ የህንጻውን አካባቢ ወይም ክፍለ ከተማ ያስገቡ።',
+      experienceRequired: 'እባክዎ የሥራ ልምድዎን ይምረጡ።',
+      specialtyRequired: 'እባክዎ ልዩ ሙያዎን ይምረጡ።',
+    },
   },
   validation: {
     cartEmpty: 'ጋሪዎ ባዶ ነው፤ እባክዎ መጀመሪያ የቧንቧ ዕቃ ይምረጡ።',

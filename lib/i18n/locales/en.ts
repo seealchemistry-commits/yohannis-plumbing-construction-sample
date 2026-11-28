@@ -176,6 +176,7 @@ export const en: TranslationDictionary = {
       services: 'Services',
       process: 'Process',
       projects: 'Projects & Certificates',
+      maintenance: 'Maintenance',
       contact: 'Contact',
       quoteCta: 'Get a Free Quote',
       navAriaLabel: 'Primary Navigation',
@@ -229,63 +230,12 @@ export const en: TranslationDictionary = {
       ],
     },
     services: {
-      eyebrow: 'Plumbing Services',
-      headline: 'Solutions For Every Plumbing Need',
-      subcopy:
-        'From small repairs to larger plumbing projects, our services are designed to keep your property running smoothly.',
-      requestQuoteBtn: 'Request a Quote',
-      seeMoreLabel: 'See more +',
-      seeLessLabel: 'See less −',
-      items: [
-        {
-          number: '01',
-          title: 'Leak Detection & Repair',
-          description:
-            'Find and fix leaks before they become bigger problems.',
-          details:
-            'Pinpoint wall, slab, and valve leaks without unnecessary tile removal, followed by pressure-tested repair.',
-        },
-        {
-          number: '02',
-          title: 'Drain Cleaning',
-          description:
-            'Clear blocked and slow drains and help keep your plumbing flowing properly.',
-          details:
-            'Mechanical clearing of kitchen, bathroom, and main uPVC sewer lines with anti-odor trap and vent checks.',
-        },
-        {
-          number: '03',
-          title: 'Pipe Repair & Replacement',
-          description:
-            'Professional solutions for damaged, worn, or leaking pipes.',
-          details:
-            'Clean water and riser upgrades using ISO-certified PP-R, PVC, and Copper piping verified at 16 Bar.',
-        },
-        {
-          number: '04',
-          title: 'Bathroom Plumbing',
-          description:
-            'Installation and repair for sinks, toilets, showers, faucets, and other bathroom fixtures.',
-          details:
-            'Precision mounting and waterproof sealing for WC sets, Mixers, Angle Valves, rain showers, and traps.',
-        },
-        {
-          number: '05',
-          title: 'Water Heater Services',
-          description:
-            'Installation, maintenance, and repair for water heating systems.',
-          details:
-            'Electric and solar water heater hookups, Safety Valve calibration, and insulated hot-water supply balancing.',
-        },
-        {
-          number: '06',
-          title: 'Emergency Plumbing',
-          description:
-            'Fast assistance when unexpected plumbing problems need immediate attention.',
-          details:
-            '24/7 dispatch across Addis Ababa for burst pipes, main shutoff failures, and urgent Booster Pump faults.',
-        },
-      ],
+      eyebrow: 'Complete Plumbing Service',
+      headline: 'Complete Plumbing Work — From Installation to Handover',
+      unifiedTitle: 'Complete Plumbing Work — From Installation to Handover',
+      unifiedSummary:
+        'From initial pipe installation through pressure testing and final handover, every piping, sanitary fitting, and maintenance task is executed as one unified service by Tirat Plumbing. Built for lasting reliability in both homes and commercial towers.',
+      requestQuoteBtn: 'Request a Quote / Schedule Visit',
     },
     whyChooseUs: {
       eyebrow: 'Why Choose Us',
@@ -922,6 +872,107 @@ export const en: TranslationDictionary = {
     ariaLabel: 'Chat with Tirat Plumbing on WhatsApp',
     prefillText:
       'Hello Tirat Plumbing, I would like assistance with plumbing services or supplies.',
+  },
+  maintenancePage: {
+    eyebrow: 'Dedicated Maintenance & Staffing',
+    headline: 'Dedicated Plumbing Technicians & Building Maintenance',
+    subcopy:
+      'Building owners, apartments, and hotels partner with Tirat Plumbing for vetted, permanent on-site plumbing technicians and scheduled monthly maintenance contracts—and qualified plumbers register here for long-term placement.',
+    backHomeLabel: 'Back to Home',
+    tabClientLabel: 'Request Dedicated Maintenance',
+    tabTechnicianLabel: 'For Job-Seeking Plumbers',
+    highlights: [
+      {
+        title: 'Vetted & Tested Technicians',
+        detail:
+          'Every assigned plumber is screened for PP-R, Copper, Booster Pump, and building riser diagnostics.',
+      },
+      {
+        title: 'Hotels, Apartments & Towers',
+        detail:
+          'Flexible permanent staffing or scheduled preventive monthly maintenance tailored to your property.',
+      },
+      {
+        title: 'Managed by Tirat Plumbing',
+        detail:
+          'Direct engineering backup, backup technician coverage, and 24/7 emergency escalation.',
+      },
+    ],
+    clientForm: {
+      title: 'For Buildings, Apartments & Hotels',
+      subtitle:
+        'Tell us about your property and staffing model. Our operations coordinator will match a vetted technician or prepare a monthly maintenance plan.',
+      facilityTypeLabel: 'Facility Type',
+      facilityTypes: [
+        'Hotel / Hospitality',
+        'Apartment / Condominium',
+        'Commercial Building / Plaza',
+        'Mixed-Use / Office Complex',
+      ],
+      engagementTypeLabel: 'Support Type Needed',
+      engagementTypes: [
+        'Dedicated Permanent Technician',
+        'Monthly Maintenance Contract',
+        'Dedicated Technician + Monthly Backup',
+      ],
+      locationLabel: 'Location / Area in Addis Ababa',
+      locationPlaceholder: 'e.g. Bole Medhanialem, Kazanchis, CMC',
+      contactNameLabel: 'Contact Person / Manager Name',
+      contactNamePlaceholder: 'Enter full name',
+      phoneLabel: 'Phone Number',
+      phonePlaceholder: '0912453752',
+      notesLabel: 'Building Scope & Notes (Optional)',
+      notesPlaceholder:
+        'e.g. Number of floors, Booster Pump setup, or preferred shift schedule...',
+      submitBtn: 'Submit Maintenance Request',
+      submittingBtn: 'Submitting...',
+      telegramBtn: 'Send via Telegram',
+      whatsappBtn: 'Send via WhatsApp',
+      callBtn: 'Call +251 912 453 752',
+      successTitle: 'Maintenance Request Received',
+      successBody:
+        'Your request has been logged with Tirat Plumbing. You can also send the summary directly via Telegram or WhatsApp for immediate coordination.',
+      refPrefix: 'Request ID',
+    },
+    technicianForm: {
+      title: 'For Job-Seeking Plumbers (Apply for Plumbing Jobs)',
+      subtitle:
+        'Job-seeking plumbers looking for permanent plumbing maintenance work in hotels, apartments, and buildings can register here.',
+      fullNameLabel: 'Full Name',
+      fullNamePlaceholder: 'Enter your full name',
+      experienceLabel: 'Years of Plumbing Experience',
+      experienceOptions: [
+        '1–2 Years',
+        '3–5 Years',
+        '5–10 Years',
+        '10+ Years',
+      ],
+      specialtyLabel: 'Primary Technical Specialty',
+      specialtyOptions: [
+        'PP-R, PVC & Copper Pipe Systems',
+        'Booster Pumps, Tanks & Water Heaters',
+        'Sanitary Fixtures & Drainage Maintenance',
+        'Full Building MEP Plumbing Maintenance',
+      ],
+      phoneLabel: 'Phone Number',
+      phonePlaceholder: '0912453752',
+      areaLabel: 'Preferred Area / Notes (Optional)',
+      areaPlaceholder: 'e.g. Bole, Yeka, Kirkos — available immediately',
+      submitBtn: 'Submit Technician Application',
+      submittingBtn: 'Registering...',
+      telegramBtn: 'Send via Telegram',
+      whatsappBtn: 'Send via WhatsApp',
+      callBtn: 'Call +251 912 453 752',
+      successTitle: 'Technician Application Registered',
+      successBody:
+        'Thank you for registering with Tirat Plumbing. Our technical team reviews applications for upcoming hotel and building placements.',
+      refPrefix: 'Application ID',
+    },
+    validation: {
+      locationRequired: 'Please enter the building location or sub-city.',
+      experienceRequired: 'Please select your years of experience.',
+      specialtyRequired: 'Please select your primary specialty.',
+    },
   },
   validation: {
     cartEmpty: 'Your cart is empty; please add plumbing supplies first.',

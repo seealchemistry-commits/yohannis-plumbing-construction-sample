@@ -176,6 +176,7 @@ export const om: TranslationDictionary = {
       services: 'Tajaajiloota',
       process: 'Adeemsa Hojii',
       projects: 'Pirojektoota & Ragaa',
+      maintenance: 'Suphaa & Ogeessa',
       contact: 'Nu Quunnamaa',
       quoteCta: 'Tilmaama Bilisaa Argadhaa',
       navAriaLabel: 'Navigeeshinii Ijoo',
@@ -229,63 +230,13 @@ export const om: TranslationDictionary = {
       ],
     },
     services: {
-      eyebrow: 'Tajaajiloota Plumbing',
-      headline: 'Furmaata Fedhii Plumbing Hundaaf',
-      subcopy:
-        'Suphaa xixiqqaa irraa kaasee hanga pirojektoota gurguddaa, tajaajiloonni keenya qabeenyi keessan rakkina malee akka hojjetu qophaa’aniiru.',
-      requestQuoteBtn: 'Tilmaama Gaafadhaa',
-      seeMoreLabel: 'Dabalataan ilaali +',
-      seeLessLabel: 'Hir’isi −',
-      items: [
-        {
-          number: '01',
-          title: 'Argannoo fi Suphaa Coccobaa',
-          description:
-            'Coccobni gara rakkoo guddaatti osoo hin jijjiiramin argachuu fi suphuu.',
-          details:
-            'Keessaa fi keenyaa osoo hin diigin coccoba dhokate argachuu fi dhiibbaan mirkaneessuun suphuu.',
-        },
-        {
-          number: '02',
-          title: 'Qulqulleessa Sarara Dhangala’aa',
-          description:
-            'Sarara dhangala’aa cufamee fi suuta deemu banuun yaa’iinsa sirreessuu.',
-          details:
-            'Meeshaa makaanikaalaatiin sarara uPVC kushiinaa fi mana fincaanii banuu fi foolii ittisuun.',
-        },
-        {
-          number: '03',
-          title: 'Suphaa fi Jijjiirraa Ujummoo',
-          description:
-            'Furmaata ogummaa ujummoo miidhame, moofaa ykn coccobuuf.',
-          details:
-            'Ujummoo PP-R, PVC fi Copper ISO’n mirkanaa’an fayyadamuun qorannoo dhiibbaa 16 Bar waliin jijjiiruu.',
-        },
-        {
-          number: '04',
-          title: 'Plumbing Mana Fincaanii',
-          description:
-            'Hidhaa fi suphaa sinkii, mana fincaanii, shaaworii, faucets fi meeshaalee biroo.',
-          details:
-            'Hidhaa sirrii WC, Mixers, Angle Valve fi shaaworii silikoonii bishaan ittisu waliin.',
-        },
-        {
-          number: '05',
-          title: 'Tajaajila Ho’istuu Bishaanii',
-          description:
-            'Hidhaa, kunuunsaa fi suphaa sirna ho’istuu bishaanii.',
-          details:
-            'Hidhaa booyilara elektirikii fi soolaarii, sirreeffama Safety Valve fi madaallii sarara ho’aa.',
-        },
-        {
-          number: '06',
-          title: 'Plumbing Hatattamaa (Emergency)',
-          description:
-            'Gargaarsa saffisaa yeroo rakkoon plumbing tasaa xiyyeeffannoo hatattamaa barbaadu.',
-          details:
-            'Ujummoo dhohe, vaalvii ijoo bade fi rakkoo Booster Pump’f guutuu Addis Ababaa keessatti tajaajila 24/7.',
-        },
-      ],
+      eyebrow: 'Tajaajila Plumbing',
+      headline: 'Hojii Plumbing Guutuu — Diriirsa Irraa Hanga Harkaan Gahutti',
+      unifiedTitle:
+        'Hojii Plumbing Guutuu — Diriirsa Irraa Hanga Harkaan Gahutti',
+      unifiedSummary:
+        'Diriirsa sarara jalqabaa irraa kaasee hanga qorannoo dhiibbaa fi harkaan gahuutti hojiin plumbing, hidhaa sanitary fi suphaa hundi tajaajila tokko jalatti Tirat Plumbing-n hojjetama. Mana jireenyaas ta’e gamoowwaniif qulqullina itti fufiinsa qabu ni mirkaneessina.',
+      requestQuoteBtn: 'Tilmaama / Beellama Gaafadhaa',
     },
     whyChooseUs: {
       eyebrow: 'Maaliif Nu Filattu',
@@ -923,6 +874,107 @@ export const om: TranslationDictionary = {
     ariaLabel: 'Tirat Plumbing waliin WhatsApp irratti haasa’aa',
     prefillText:
       'Akkam Tirat Plumbing, waa’ee tajaajila plumbing yookaan meeshaalee gaafachuu barbaada.',
+  },
+  maintenancePage: {
+    eyebrow: 'Maintenance & Ogeessa Dhaabbataa',
+    headline: 'Ogeeyyii Plumbing Dhaabbataa & Suphaa Gamoo',
+    subcopy:
+      'Abbootiin gamoo, appaartaamaa fi hoteelonni karaa Tirat Plumbing ogeeyyii plumbing maintenance qoratamanii fi waliigaltee suphaa ji’aa kan argatan, akkasumas ogeeyyiin gahumsa qaban hojii dhaabbataaf kan galmaa’anidha.',
+    backHomeLabel: 'Gara Home deebi’i',
+    tabClientLabel: 'Gamoo, Appaartaamaa fi Hoteelaaf',
+    tabTechnicianLabel: 'Ogeeyyii Plumbing Hojii Barbaadaniif',
+    highlights: [
+      {
+        title: 'Ogeeyyii Qorataman',
+        detail:
+          'Ogeessi ramadamu hundi ogummaa PP-R, Copper, Booster Pump fi sakatta’iinsa sarara gamoo irratti qoratameera.',
+      },
+      {
+        title: 'Hoteelota, Appaartaamaa fi Gamoo',
+        detail:
+          'Ogeessa iddoo irratti argamu yookaan waliigaltee suphaa ji’aa haala dhaabbata keessaniin qophaa’u.',
+      },
+      {
+        title: 'Bulchiinsa Tirat Plumbing',
+        detail:
+          'Deeggarsa injinariingii, bakka bu’insa ogeessaa fi tajaajila hatattamaa 24/7.',
+      },
+    ],
+    clientForm: {
+      title: 'Gaaffii Suphaa Dhaabbataa (Gamoo & Hoteelotaaf)',
+      subtitle:
+        'Gosa dhaabbata keessanii fi tajaajila barbaaddan guutaa; gareen keenya ogeessa qophaa’e yookaan karoora suphaa ji’aa isiniif qopheessa.',
+      facilityTypeLabel: 'Gosa Dhaabbataa',
+      facilityTypes: [
+        'Hoteela',
+        'Appaartaamaa / Kondominiyeemii',
+        'Gamoo Daldalaa / Plaza',
+        'Gamoo Makaa / Waajjira',
+      ],
+      engagementTypeLabel: 'Gosa Tajaajilaa Barbaachisu',
+      engagementTypes: [
+        'Ogeessa Dhaabbataa Iddoo (Dedicated Technician)',
+        'Waliigaltee Suphaa Ji’aa (Monthly Contract)',
+        'Ogeessa Dhaabbataa + Deeggarsa Ji’aa',
+      ],
+      locationLabel: 'Bakka / Kutaa Magaalaa',
+      locationPlaceholder: 'Fkn: Boolee Madhaanii’aalem, Kaazaanchis, CMC',
+      contactNameLabel: 'Maqaa Itti Gaafatamaa',
+      contactNamePlaceholder: 'Maqaa guutuu galchaa',
+      phoneLabel: 'Lakkoofsa Bilbilaa',
+      phonePlaceholder: '0912453752',
+      notesLabel: 'Ibsa Dabalataa (Filannoo)',
+      notesPlaceholder:
+        'Fkn: Baay’ina darbii, haala Booster Pump ykn yeroo hojii...',
+      submitBtn: 'Gaaffii Maintenance Ergi',
+      submittingBtn: 'Ergamaa jira...',
+      telegramBtn: 'Telegram-n Ergi',
+      whatsappBtn: 'WhatsApp-n Ergi',
+      callBtn: 'Bilbilaa +251 912 453 752',
+      successTitle: 'Gaaffiin Keessan Nu Gaheera',
+      successBody:
+        'Gaaffiin keessan Tirat Plumbing biratti galmaa’eera. Dabalataan Telegram ykn WhatsApp-n kallattiin erguu dandeessu.',
+      refPrefix: 'Lakk. Gaaffii',
+    },
+    technicianForm: {
+      title: 'Ogeeyyii Plumbing Hojii Barbaadaniif (Galmee)',
+      subtitle:
+        'Ogeeyyiin plumbing hoteelota, appaartaamaa fi gamoowwan keessatti hojii suphaa dhaabbataa hojjechuu barbaadan asitti galmaa’aa.',
+      fullNameLabel: 'Maqaa Guutuu',
+      fullNamePlaceholder: 'Maqaa guutuu keessan galchaa',
+      experienceLabel: 'Muuxannoo Hojii',
+      experienceOptions: [
+        'Waggaa 1–2',
+        'Waggaa 3–5',
+        'Waggaa 5–10',
+        'Waggaa 10 ol',
+      ],
+      specialtyLabel: 'Ogummaa Addaa',
+      specialtyOptions: [
+        'Ujummoo PP-R, PVC fi Copper',
+        'Booster Pump, Taankarii fi Ho’iftuu Bishaanii',
+        'Meeshaalee Sanitary fi Suphaa Dhangala’aa',
+        'Suphaa Plumbing Gamoo Guutuu',
+      ],
+      phoneLabel: 'Lakkoofsa Bilbilaa',
+      phonePlaceholder: '0912453752',
+      areaLabel: 'Naannoo / Yaada (Filannoo)',
+      areaPlaceholder: 'Fkn: Boolee, Yakkaa, Qirqoos — amma jalqabuuf qophii',
+      submitBtn: 'Galmee Xumuri',
+      submittingBtn: 'Galmaa’aa jira...',
+      telegramBtn: 'Telegram-n Ergi',
+      whatsappBtn: 'WhatsApp-n Ergi',
+      callBtn: 'Bilbilaa +251 912 453 752',
+      successTitle: 'Galmeen Keessan Milkaa’eera',
+      successBody:
+        'Tirat Plumbing waliin galmaa’uu keessaniif galatoomaa. Gareen keenya ramaddii haaraaf isin qunnama.',
+      refPrefix: 'Lakk. Galmee',
+    },
+    validation: {
+      locationRequired: 'Maaloo iddoo gamoo ykn kutaa magaalaa galchaa.',
+      experienceRequired: 'Maaloo muuxannoo keessan filadhaa.',
+      specialtyRequired: 'Maaloo ogummaa keessan filadhaa.',
+    },
   },
   validation: {
     cartEmpty: 'Kaartiin keessan duwwaadha; maaloo dura meeshaa plumbing filadhaa.',

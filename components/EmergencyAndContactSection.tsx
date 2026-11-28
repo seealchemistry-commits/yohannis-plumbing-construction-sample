@@ -59,7 +59,8 @@ function QuoteFormInner({
   const { locale, t } = useLanguage();
   const formCopy = t.contractor.quoteForm;
   const serviceOptions = [
-    ...t.contractor.services.items.map((item) => item.title),
+    t.contractor.services.unifiedTitle,
+    formCopy.emergencySubjectDefault,
     formCopy.realEstateInquiryOption,
   ];
 

@@ -74,7 +74,8 @@ describe('4-language i18n dictionary, contractor sections & project registry', (
       assert.equal(dict.contractor.hero.trustStrip.length, 4);
       assert.equal(dict.contractor.hero.slideLabels.length, 4);
       assert.equal(dict.contractor.aboutPillars.pillars.length, 3);
-      assert.equal(dict.contractor.services.items.length, 6);
+      assert.ok(dict.contractor.services.unifiedTitle.trim().length > 0);
+      assert.ok(dict.contractor.services.unifiedSummary.trim().length > 0);
       assert.equal(dict.contractor.storyBanner.highlightItems.length, 3);
       assert.equal(dict.contractor.whyChooseUs.items.length, 6);
       assert.equal(dict.contractor.process.steps.length, 4);

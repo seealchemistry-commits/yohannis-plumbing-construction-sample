@@ -94,6 +94,22 @@
   ],
   "contacts": [
     {
+      "fullName": "Abebe Tadesse",
+      "phone": "0912453752",
+      "subject": "Technician Staffing Application: የPP-R፣ PVC እና Copper መስመር ስራ",
+      "message": "[Technician Staffing Application]\nName: Abebe Tadesse\nExperience: ከ3–5 ዓመት\nSpecialty: የPP-R፣ PVC እና Copper መስመር ስራ\nPhone: 0912453752",
+      "id": "MSG-2263654",
+      "createdAt": "2026-11-28T01:21:50.654Z"
+    },
+    {
+      "fullName": "Dawit Bekele",
+      "phone": "0912453752",
+      "subject": "Maintenance Request: Hotel / Hospitality (Bole Medhanialem)",
+      "message": "[Dedicated Maintenance Request]\nFacility: Hotel / Hospitality\nService Model: Dedicated Permanent Technician\nLocation: Bole Medhanialem\nContact: Dawit Bekele (0912453752)",
+      "id": "MSG-5161702",
+      "createdAt": "2026-11-28T01:21:48.702Z"
+    },
+    {
       "fullName": "Abebe Kebede",
       "phone": "0912453752",
       "subject": "Quote / Inspection Inquiry — Similar to: Bole Medhanialem Residential Tower (TP-RE-01)",

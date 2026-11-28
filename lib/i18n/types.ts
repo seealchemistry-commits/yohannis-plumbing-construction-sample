@@ -187,6 +187,7 @@ export interface TranslationDictionary {
       services: string;
       process: string;
       projects: string;
+      maintenance: string;
       contact: string;
       quoteCta: string;
       navAriaLabel: string;
@@ -218,18 +219,9 @@ export interface TranslationDictionary {
     services: {
       eyebrow: string;
       headline: string;
-      subcopy: string;
+      unifiedTitle: string;
+      unifiedSummary: string;
       requestQuoteBtn: string;
-      seeMoreLabel: string;
-      seeLessLabel: string;
-      items: [
-        { number: '01'; title: string; description: string; details: string },
-        { number: '02'; title: string; description: string; details: string },
-        { number: '03'; title: string; description: string; details: string },
-        { number: '04'; title: string; description: string; details: string },
-        { number: '05'; title: string; description: string; details: string },
-        { number: '06'; title: string; description: string; details: string }
-      ];
     };
     whyChooseUs: {
       eyebrow: string;
@@ -557,6 +549,70 @@ export interface TranslationDictionary {
     buttonLabel: string;
     ariaLabel: string;
     prefillText: string;
+  };
+  maintenancePage: {
+    eyebrow: string;
+    headline: string;
+    subcopy: string;
+    backHomeLabel: string;
+    tabClientLabel: string;
+    tabTechnicianLabel: string;
+    highlights: [
+      { title: string; detail: string },
+      { title: string; detail: string },
+      { title: string; detail: string }
+    ];
+    clientForm: {
+      title: string;
+      subtitle: string;
+      facilityTypeLabel: string;
+      facilityTypes: [string, string, string, string];
+      engagementTypeLabel: string;
+      engagementTypes: [string, string, string];
+      locationLabel: string;
+      locationPlaceholder: string;
+      contactNameLabel: string;
+      contactNamePlaceholder: string;
+      phoneLabel: string;
+      phonePlaceholder: string;
+      notesLabel: string;
+      notesPlaceholder: string;
+      submitBtn: string;
+      submittingBtn: string;
+      telegramBtn: string;
+      whatsappBtn: string;
+      callBtn: string;
+      successTitle: string;
+      successBody: string;
+      refPrefix: string;
+    };
+    technicianForm: {
+      title: string;
+      subtitle: string;
+      fullNameLabel: string;
+      fullNamePlaceholder: string;
+      experienceLabel: string;
+      experienceOptions: [string, string, string, string];
+      specialtyLabel: string;
+      specialtyOptions: [string, string, string, string];
+      phoneLabel: string;
+      phonePlaceholder: string;
+      areaLabel: string;
+      areaPlaceholder: string;
+      submitBtn: string;
+      submittingBtn: string;
+      telegramBtn: string;
+      whatsappBtn: string;
+      callBtn: string;
+      successTitle: string;
+      successBody: string;
+      refPrefix: string;
+    };
+    validation: {
+      locationRequired: string;
+      experienceRequired: string;
+      specialtyRequired: string;
+    };
   };
   validation: {
     cartEmpty: string;

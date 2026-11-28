@@ -1,69 +1,129 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { Globe, Menu, X } from 'lucide-react';
 import { LOCALE_OPTIONS, type Locale } from '@/lib/i18n';
 import { useLanguage } from '@/lib/i18n/context';
 import tiratLogoMark from '../public/assets/tirat-logo-mark.png';
 
 interface SiteHeaderProps {
-  onRequestQuote: () => void;
+  onRequestQuote?: () => void;
 }
 
 export default function SiteHeader({ onRequestQuote }: SiteHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { locale, setLocale, t } = useLanguage();
+  const pathname = usePathname();
+  const router = useRouter();
   const navCopy = t.contractor.nav;
+  const isHome = pathname === '/';
+
+  useEffect(() => {
+    if (pathname !== '/maintenance') {
+      router.prefetch('/maintenance');
+    }
+  }, [pathname, router]);
 
   const navLinks = [
-    { href: '#services', label: navCopy.services },
-    { href: '#process', label: navCopy.process },
-    { href: '#projects', label: navCopy.projects },
-    { href: '#contact', label: navCopy.contact },
+    { href: isHome ? '#services' : '/#services', label: navCopy.services, isRoute: false },
+    { href: isHome ? '#process' : '/#process', label: navCopy.process, isRoute: false },
+    { href: isHome ? '#projects' : '/#projects', label: navCopy.projects, isRoute: false },
+    { href: '/maintenance', label: navCopy.maintenance, isRoute: true },
+    { href: isHome ? '#contact' : '/#contact', label: navCopy.contact, isRoute: false },
   ] as const;
+
+  const handleQuoteClick = () => {
+    if (onRequestQuote) {
+      onRequestQuote();
+      return;
+    }
+    router.push('/#contact-form');
+  };
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#0A0A0B]/95 backdrop-blur-md">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
         {/* Brand Logo & Wordmark */}
-        <a
-          href="#home"
-          data-testid="navbar-logo-link"
-          aria-label="ጥራት ፕላምቢንግ"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className="group flex shrink-0 items-center gap-2.5 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F59E0B] sm:gap-3"
-        >
-          <Image
-            src={tiratLogoMark}
-            alt="ጥራት ፕላምቢንግ"
-            priority
-            referrerPolicy="no-referrer"
-            data-testid="navbar-logo-img"
-            className="h-8 w-auto shrink-0 object-contain mix-blend-lighten sm:h-9 lg:h-10"
-          />
-          <span className="text-sm font-bold tracking-tight text-[#F8FAFC] transition-colors group-hover:text-[#F59E0B] sm:text-base lg:text-lg whitespace-nowrap">
-            ጥራት ፕላምቢንግ
-          </span>
-        </a>
+        {isHome ? (
+          <a
+            href="#home"
+            data-testid="navbar-logo-link"
+            aria-label="ጥራት ፕላምቢንግ"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="group flex shrink-0 items-center gap-2.5 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F59E0B] sm:gap-3"
+          >
+            <Image
+              src={tiratLogoMark}
+              alt="ጥራት ፕላምቢንግ"
+              priority
+              referrerPolicy="no-referrer"
+              data-testid="navbar-logo-img"
+              className="h-8 w-auto shrink-0 object-contain mix-blend-lighten sm:h-9 lg:h-10"
+            />
+            <span className="text-sm font-bold tracking-tight text-[#F8FAFC] transition-colors group-hover:text-[#F59E0B] sm:text-base lg:text-lg whitespace-nowrap">
+              ጥራት ፕላምቢንግ
+            </span>
+          </a>
+        ) : (
+          <Link
+            href="/"
+            data-testid="navbar-logo-link"
+            aria-label="ጥራት ፕላምቢንግ"
+            className="group flex shrink-0 items-center gap-2.5 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F59E0B] sm:gap-3"
+          >
+            <Image
+              src={tiratLogoMark}
+              alt="ጥራት ፕላምቢንግ"
+              priority
+              referrerPolicy="no-referrer"
+              data-testid="navbar-logo-img"
+              className="h-8 w-auto shrink-0 object-contain mix-blend-lighten sm:h-9 lg:h-10"
+            />
+            <span className="text-sm font-bold tracking-tight text-[#F8FAFC] transition-colors group-hover:text-[#F59E0B] sm:text-base lg:text-lg whitespace-nowrap">
+              ጥራት ፕላምቢንግ
+            </span>
+          </Link>
+        )}
 
         {/* Desktop Single-Line Navigation */}
         <nav
           aria-label={navCopy.navAriaLabel}
-          className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-[#A1A8B3]"
+          className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-medium text-[#A1A8B3]"
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="whitespace-nowrap shrink-0 py-1 transition-colors hover:text-[#F8FAFC] hover:underline hover:decoration-[#F59E0B] hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F59E0B]"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const activeRoute = link.isRoute && pathname === link.href;
+            const linkClass = `whitespace-nowrap shrink-0 py-1 transition-colors hover:text-[#F8FAFC] hover:underline hover:decoration-[#F59E0B] hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F59E0B] ${
+              activeRoute
+                ? 'text-[#F59E0B] underline decoration-[#F59E0B] underline-offset-8'
+                : ''
+            }`;
+
+            return link.isRoute ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                prefetch={true}
+                scroll={false}
+                data-testid="nav-maintenance-link"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                }}
+                className={linkClass.replace('transition-colors ', '')}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <Link key={link.href} href={link.href} className={linkClass}>
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right Controls: Language Switcher + Primary Quote CTA + Mobile Menu Toggle */}
@@ -121,7 +181,7 @@ export default function SiteHeader({ onRequestQuote }: SiteHeaderProps) {
           {/* Primary Quote CTA */}
           <button
             type="button"
-            onClick={onRequestQuote}
+            onClick={handleQuoteClick}
             data-testid="header-quote-cta"
             className="hidden sm:inline-flex min-h-[42px] items-center justify-center rounded-xl bg-[#F59E0B] px-4 py-2 text-xs font-bold text-[#0A0A0B] transition-colors hover:bg-[#D97706] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F59E0B] whitespace-nowrap shrink-0 lg:px-5"
           >
@@ -172,22 +232,37 @@ export default function SiteHeader({ onRequestQuote }: SiteHeaderProps) {
               })}
             </div>
 
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex min-h-[44px] items-center rounded-xl px-3 text-sm font-medium text-[#A1A8B3] hover:bg-[#16181D] hover:text-[#F8FAFC]"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const activeRoute = link.isRoute && pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  prefetch={link.isRoute ? true : undefined}
+                  scroll={link.isRoute ? false : undefined}
+                  data-testid={link.isRoute ? 'mobile-nav-maintenance-link' : undefined}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    if (link.isRoute) {
+                      window.scrollTo({ top: 0, behavior: 'instant' });
+                    }
+                  }}
+                  className={`flex min-h-[44px] items-center rounded-xl px-3 text-sm font-medium ${
+                    activeRoute
+                      ? 'bg-[#F59E0B]/15 text-[#F59E0B]'
+                      : 'text-[#A1A8B3] hover:bg-[#16181D] hover:text-[#F8FAFC]'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
 
             <button
               type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
-                onRequestQuote();
+                handleQuoteClick();
               }}
               className="mt-2 flex min-h-[44px] w-full items-center justify-center rounded-xl bg-[#F59E0B] px-4 text-sm font-bold text-[#0A0A0B] hover:bg-[#D97706]"
             >

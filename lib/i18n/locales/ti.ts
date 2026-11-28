@@ -175,6 +175,7 @@ export const ti: TranslationDictionary = {
       services: 'ኣገልግሎታት',
       process: 'ኣሰራርሓ',
       projects: 'ፕሮጀክትታትን ሰርተፍኬታትን',
+      maintenance: 'ማይንተናንስ / ቀዋሚ ክኢላ',
       contact: 'ርኸቡና',
       quoteCta: 'ብነጻ ዋጋ ሕተቱ',
       navAriaLabel: 'ቀንዲ መውጽኢ',
@@ -228,63 +229,12 @@ export const ti: TranslationDictionary = {
       ],
     },
     services: {
-      eyebrow: 'ኣገልግሎታት ቧንቧ',
-      headline: 'ንኹሉ ድሌት ቧንቧ ፍታሕ',
-      subcopy:
-        'ካብ ንኣሽቱ ጽገናታት ክሳብ ዓበይቲ ፕሮጀክትታት ቧንቧ፣ ኣገልግሎታትና ንብረትኩም ብዘይ ጸገም ክሰርሕ ዝተዳለዉ እዮም።',
-      requestQuoteBtn: 'ዋጋ ሕተቱ',
-      seeMoreLabel: 'ተወሳኺ ርአ +',
-      seeLessLabel: 'ኣሕጽር −',
-      items: [
-        {
-          number: '01',
-          title: 'ምልላይን ጽገናን ፍሳስ ማይ',
-          description:
-            'ፍሳስ ማይ ናብ ዝዓበየ ጉድኣት ከይተቐየረ ምርካብን ምጽጋንን።',
-          details:
-            'ሴራሚክን መንደቕን ከይተበላሸወ ዝተሓብአ ፍሳስ ምልላይን ብጸቕጢ ዝተረጋገጸ ጽገና ምክያድን።',
-        },
-        {
-          number: '02',
-          title: 'ምጽራይ መስመር ፍሳስ',
-          description:
-            'ዝተዓጽዉን ዝደንጎዩን መስመራት ፍሳስ ብምኽፋት ጽሩይ ፍሰት ምርግጋጽ።',
-          details:
-            'መስመራት uPVC ክሽነን መሕጸቢ ቤትን ብሜካኒካዊ መሳርሒ ምኽፋትን መከላኸሊ ሽታ ምትካልን።',
-        },
-        {
-          number: '03',
-          title: 'ጽገናን ምቅያርን ቧንቧ',
-          description:
-            'ንዝተጎድኡ፣ ዝኣረጉ ወይ ዝፈስሱ ቧንቧታት ክኢላዊ ፍታሕ።',
-          details:
-            'ብISO ዝተረጋገጹ ቧንቧታት PP-R፣ PVCን Copperን ምስ ፍተሻ ጸቕጢ 16 ባር ምቅያር።',
-        },
-        {
-          number: '04',
-          title: 'ስራሕ ቧንቧ መሕጸቢ ቤት',
-          description:
-            'ንሲንክ፣ ሽቓቕ፣ ሻወር፣ ቧንቧታትን ካልኦት ኣቕሑ መሕጸቢ ቤትን ምትካልን ጽገናን።',
-          details:
-            'ምትካል WC፣ Mixers፣ Angle Valveን ሻወርን ምስ ማይ ዘየሕልፍ ሲሊኮን ምዕሻግ።',
-        },
-        {
-          number: '05',
-          title: 'ኣገልግሎታት መውዓዪ ማይ',
-          description:
-            'ንስርዓታት መውዓዪ ማይ ምትካል፣ ክንክንን ጽገናን።',
-          details:
-            'ምትካል ኤሌክትሪክን ሶላርን ቦይለራት፣ ምስትኽኻል Safety Valveን ምምዕርራይ ውዑይ ማይን።',
-        },
-        {
-          number: '06',
-          title: 'ህጹጽ ጽገና ቧንቧ (Emergency)',
-          description:
-            'ሃንደበታዊ ጸገማት ቧንቧ ቅልጡፍ ቆላሕታ ምስ ዝደልዩ ቅልጡፍ ሓገዝ።',
-          details:
-            'ንዝተፈንጀረ ቧንቧ፣ ቀንዲ ቫልቭን ጸገማት Booster Pumpን ኣብ ኣዲስ ኣበባ 24/7 ቅልጡፍ ምብጻሕ።',
-        },
-      ],
+      eyebrow: 'ኣገልግሎት ቧንቧ',
+      headline: 'ምሉእ ስራሕ ቧንቧ — ካብ ዝርጋሐ ክሳብ ርክክብ',
+      unifiedTitle: 'ምሉእ ስራሕ ቧንቧ — ካብ ዝርጋሐ ክሳብ ርክክብ',
+      unifiedSummary:
+        'ካብ ቀዳማይ ዝርጋሐ መስመር ክሳብ ፍተሻ ጸቕጥን ርክክብን ኩሉ ስራሕቲ ቧንቧ፣ ምትካል sanitaryን ጽገናን ብሓደ ወጥ ኣገልግሎት ብTirat Plumbing ይፍጸም። ንመንበሪ ኣባይትን ህንጻታትን ዘተኣማምን ጽሬት ነረጋግጽ።',
+      requestQuoteBtn: 'ዋጋ / ቆጸራ ሕተቱ',
     },
     whyChooseUs: {
       eyebrow: 'ንምንታይ ንዓና ትመርጹ',
@@ -918,6 +868,106 @@ export const ti: TranslationDictionary = {
     buttonLabel: 'WhatsApp',
     ariaLabel: 'ብWhatsApp ምስ ጥራት ፕላምቢንግ ተዘራረቡ',
     prefillText: 'ሰላም ጥራት ፕላምቢንግ፣ ብዛዕባ ኣገልግሎት ቧንቧ ወይ ኣቕሑ ክሓትት ይደሊ።',
+  },
+  maintenancePage: {
+    eyebrow: 'Maintenanceን ቀዋሚ ክኢላን (Dedicated Staffing)',
+    headline: 'ቀወምቲ ክኢላታት Maintenance ቧንቧን ጽገና ህንጻን',
+    subcopy:
+      'ወነንቲ ህንጻታት፣ ኣፓርታማታትን ሆቴላትን ብጥራት ፕላምቢንግ ኣቢሎም ዝተፈተኑ ቀወምቲ ክኢላታት ቧንቧ ወይ ወርሓዊ ጽገና ዝረኽብሉን ብቑዓት ክኢላታት ዝምዝገብሉን መድረኽ እዩ።',
+    backHomeLabel: 'ናብ Home ተመለስ',
+    tabClientLabel: 'ንህንጻታት፣ ኣፓርታማታትን ሆቴላትን',
+    tabTechnicianLabel: 'ንስራሕ ዝደልዩ ክኢላታት ቧንቧ',
+    highlights: [
+      {
+        title: 'ዝተፈተኑ ቀወምቲ ክኢላታት',
+        detail:
+          'ነፍሲ ወከፍ ዝምደብ ክኢላ ብPP-R፣ Copper፣ Booster Pumpን መስመር ህንጻን ብቕዓቱ ዝተረጋገጸ እዩ።',
+      },
+      {
+        title: 'ንሆቴላት፣ ኣፓርታማታትን ህንጻታትን',
+        detail:
+          'ብመሰረት ድሌትኩም ቀዋሚ ናይቲ ቦታ ክኢላ ወይ ስሩዕ ወርሓዊ ናይ ጽገና ውዕል ኣገልግሎት።',
+      },
+      {
+        title: 'ብጥራት ፕላምቢንግ ዝመሓደር',
+        detail:
+          'ቀጻሊ ክትትል፣ ውሕስነት ተተካኢ ክኢላን ናይ 24/7 ህጹጽ ናይ ኢንጂነሪንግ ደገፍን።',
+      },
+    ],
+    clientForm: {
+      title: 'ሕቶ ቀዋሚ Maintenance (ንህንጻታትን ሆቴላትን)',
+      subtitle:
+        'ዓይነት ትካልኩምን እትደልይዎ ኣገልግሎትን ምልኡ፤ ጉጅለና ዝተዳለወ ክኢላ ይምድበልኩም ወይ ወርሓዊ ትልሚ ጽገና የቕርበልኩም።',
+      facilityTypeLabel: 'ዓይነት ትካል / ህንጻ',
+      facilityTypes: [
+        'ሆቴል',
+        'ኣፓርታማ / ኮንዶሚኒየም',
+        'ንግዳዊ ህንጻ / ፕላዛ',
+        'ሕውስዋስ ህንጻ / ቤት ጽሕፈት',
+      ],
+      engagementTypeLabel: 'ዝድለ ዓይነት ኣገልግሎት',
+      engagementTypes: [
+        'ቀዋሚ ክኢላ ኣብቲ ቦታ (Dedicated Technician)',
+        'ወርሓዊ ውዕል ጽገና (Monthly Contract)',
+        'ቀዋሚ ክኢላ + ወርሓዊ ደገፍ',
+      ],
+      locationLabel: 'ከባቢ / ክፍለ ከተማ',
+      locationPlaceholder: 'ንኣብነት ቦሌ መድኃኔዓለም፣ ካዛንቺስ፣ CMC',
+      contactNameLabel: 'ስም ሓላፊ / ሓታቲ',
+      contactNamePlaceholder: 'ምሉእ ስም ኣእትዉ',
+      phoneLabel: 'ቁጽሪ ስልኪ',
+      phonePlaceholder: '0912453752',
+      notesLabel: 'ተወሳኺ መብርሂ (ኣማራጺ)',
+      notesPlaceholder: 'ንኣብነት በዝሒ ደርቢ፣ ኩነታት Booster Pump ወይ ሰዓት ስራሕ...',
+      submitBtn: 'ሕቶ Maintenance ስደድ',
+      submittingBtn: 'ይስደድ ኣሎ...',
+      telegramBtn: 'ብTelegram ስደድ',
+      whatsappBtn: 'ብWhatsApp ስደድ',
+      callBtn: 'ደውሉ +251 912 453 752',
+      successTitle: 'ሕቶኹም በጺሑና ኣሎ',
+      successBody:
+        'ሕቶኹም ኣብ ጥራት ፕላምቢንግ ተመዝጊቡ ኣሎ። ብቕልጡፍ ንምርኻብ ብTelegram ወይ WhatsApp ብቀጥታ ክትሰዱ ትኽእሉ ኢኹም።',
+      refPrefix: 'መለለዪ ሕቶ',
+    },
+    technicianForm: {
+      title: 'ንስራሕ ዝደልዩ ክኢላታት ቧንቧ (ምዝገባ)',
+      subtitle:
+        'ኣብ ሆቴላት፣ ኣፓርታማታትን ህንጻታትን ቀዋሚ ስራሕ ጽገና ቧንቧ ክሰርሑ ዝደልዩ ስራሕ ዝደልዩ ክኢላታት ኣብዚ ተመዝገቡ።',
+      fullNameLabel: 'ምሉእ ስም',
+      fullNamePlaceholder: 'ምሉእ ስምኩም ኣእትዉ',
+      experienceLabel: 'ልምዲ ስራሕ',
+      experienceOptions: [
+        '1–2 ዓመት',
+        '3–5 ዓመት',
+        '5–10 ዓመት',
+        'ልዕሊ 10 ዓመት',
+      ],
+      specialtyLabel: 'ፍሉይ ሞያ',
+      specialtyOptions: [
+        'ስራሕ መስመር PP-R፣ PVCን Copperን',
+        'Booster Pump፣ ታንከርን መውዓዪ ማይን',
+        'ኣቕሑ Sanitaryን ጽገና ፍሳስን',
+        'ምሉእ ጽገና Plumbing ህንጻ',
+      ],
+      phoneLabel: 'ቁጽሪ ስልኪ',
+      phonePlaceholder: '0912453752',
+      areaLabel: 'ከባቢ መንበሪ / መዘኻኸሪ (ኣማራጺ)',
+      areaPlaceholder: 'ንኣብነት ቦሌ፣ የካ፣ ቂርቆስ — ብቕልጡፍ ንምጅማር ድሉው',
+      submitBtn: 'ምዝገባ ወድእ',
+      submittingBtn: 'ይምዝገብ ኣሎ...',
+      telegramBtn: 'ብTelegram ስደድ',
+      whatsappBtn: 'ብWhatsApp ስደድ',
+      callBtn: 'ደውሉ +251 912 453 752',
+      successTitle: 'ምዝገባኹም ብዓወት ተዛዚሙ',
+      successBody:
+        'ምስ ጥራት ፕላምቢንግ ስለዝተመዝገብኩም ነመስግን። ጉጅለና ንሓደሽቲ ምደባታት ሆቴላትን ህንጻታትን ክረኽበኩም እዩ።',
+      refPrefix: 'መለለዪ ምዝገባ',
+    },
+    validation: {
+      locationRequired: 'በጃኹም ከባቢ ወይ ክፍለ ከተማ እቲ ህንጻ ኣእትዉ።',
+      experienceRequired: 'በጃኹም ልምዲ ስራሕኩም ምረጹ።',
+      specialtyRequired: 'በጃኹም ፍሉይ ሞያኹም ምረጹ።',
+    },
   },
   validation: {
     cartEmpty: 'ካርትኹም ባዶ እዩ፤ በጃኹም መጀመርታ ኣቕሓ ቧንቧ ምረጹ።',
